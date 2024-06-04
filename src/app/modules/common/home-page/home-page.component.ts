@@ -1,14 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { common_home_page } from '../../../translations/es/common/common_message_home_page_es';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'fhv-home-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
-export class HomePageComponent {
-  common_home_page = common_home_page;
-}
+export class HomePageComponent {}

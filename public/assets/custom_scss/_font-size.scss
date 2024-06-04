@@ -1,0 +1,36 @@
+$font-size-title: (
+  xxl: 2.25rem,   
+  xl: 2rem,      
+  lg: 1.75rem,   
+  md: 1.5rem,    
+  sm: 1.25rem    
+);
+
+$font-size-subtitle: (
+  xxl: 1.5rem,   
+  xl: 1.375rem, 
+  lg: 1.25rem,   
+  md: 1.125rem, 
+  sm: 1rem       
+);
+
+$font-size-text: (
+  xxl: 1.125rem, 
+  xl: 1rem,      
+  lg: 0.875rem,  
+  md: 0.75rem,   
+  sm: 0.625rem   
+);
+
+$breakpoints: (
+  xxl: 1366px,
+  xl: 1280px,
+  lg: 1024px,
+  md: 768px,
+  sm: 576px,
+);
+
+@function get-font-size($map, $size) {
+  @return map-get($map, $size);
+}
+

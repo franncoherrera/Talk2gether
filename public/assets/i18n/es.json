@@ -1,0 +1,19 @@
+{
+  "common": {
+    "home_page": {
+      "first_container": {
+        "title": "Aprende idiomas con Talk2gether",
+        "description": "Conectate con personas de todo el mundo y aprende su idioma y cultura"
+      },
+      "second_container": {
+        "title": "Aprende un nuevo lenguaje",
+        "description": "Practica hablar con hablantes nativos y mejora tu habilidades lingüísticas a través de tiempo  real conversaciones"
+      },
+      "third_container": {
+        "title": "Expande tu conocimiento cultural",
+        "description": "Experimenta diferentes culturas y adquiere conocimientos sobre sus costumbres, tradiciones y forma de vida."
+      },
+      "copyright_message": "Copyright © 2023-2023 Talk2gether"
+    }
+  }
+}

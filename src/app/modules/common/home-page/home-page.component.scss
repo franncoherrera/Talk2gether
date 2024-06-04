@@ -1,5 +1,6 @@
-@import "../../../../../public/custom_scss/variables.scss";
-@import "../../../../../public/custom_scss/media-queries.scss";
+@import "../../../../../public/assets/custom_scss/variables.scss";
+@import "../../../../../public/assets/custom_scss/media-queries.scss";
+@import "../../../../../public/assets/custom_scss/_font-size.scss";
 
 .content {
   padding-top: 6.28125rem;
@@ -29,18 +30,19 @@
       text-align: center;
 
       &-title {
+        font-size: get-font-size($font-size-title, xxl);
         font-size: 2.6rem;
-        padding: 0.5rem;
+        padding: 1rem;
       }
 
       &-subtitle {
-        font-size: 1.9rem;
-        padding: 0.5rem;
+        font-size:get-font-size($font-size-subtitle, xxl);
+        padding: 1rem;
       }
     }
 
     &__epigraph {
-      font-size: 0.9375rem;
+      font-size: get-font-size($font-size-text, xxl);
       padding: 0.9375rem;
       color: $color-principal;
     }
@@ -60,11 +62,11 @@
     &__row {
       &__text {
         &-title {
-          font-size: 1.875rem;
+          font-size: get-font-size($font-size-title, lg);;
         }
 
         &-subtitle {
-          font-size: 1.25rem;
+          font-size: get-font-size($font-size-subtitle, lg);;
         }
       }
     }
