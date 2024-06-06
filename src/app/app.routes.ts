@@ -5,8 +5,8 @@ export const routes: Routes = [
   {
     path: GENERAL_PATH.MAIN_PATH,
     loadComponent: () =>
-      import('./modules/common/home-page/home-page.component').then(
-        (homePage) => homePage.HomePageComponent
-      ),
+      import(
+        './modules/common/common-home-page/common-home-page.component'
+      ).then((homePage) => homePage.CommonHomePageComponent),
   },
 ];
