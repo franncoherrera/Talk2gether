@@ -1,0 +1,13 @@
+@import "../../../../../public/assets/custom_scss/variables.scss";
+
+fhv-shared-navbar {
+  nav {
+    //TODO Ver el estilo del header
+    background-color: $color-base;
+    color: $color-black;
+    font-family: $font-family;
+  }
+  .dropdown-item {
+    cursor: pointer;
+  }
+}

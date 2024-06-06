@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
+import { BreakPointService } from '../../../shared/services/break-point.service';
 
 @Component({
   selector: 'fhv-home-page',
@@ -8,5 +9,12 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [CommonModule, TranslateModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
-export class HomePageComponent {}
+export class HomePageComponent {
+  constructor(private breakPointService: BreakPointService) {}
+
+  ngOnInit(){
+    this.breakPointService.currentBreakpoint.subscribe(console.log)
+  }
+}

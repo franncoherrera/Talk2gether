@@ -3,8 +3,6 @@
 @import "../../../../../public/assets/custom_scss/_font-size.scss";
 
 .fhv-home-page {
-  padding-top: 6.28125rem;
-
   &__row {
     display: flex;
 
@@ -30,12 +28,14 @@
       text-align: center;
 
       &-title {
+        font-family: $font-family;
         font-size: get-font-size($font-size-title, xxl);
         font-size: 2.6rem;
         padding: 1rem;
       }
 
       &-subtitle {
+        font-family: $font-family;
         font-size:get-font-size($font-size-subtitle, xxl);
         padding: 1rem;
       }
@@ -45,6 +45,7 @@
       font-size: get-font-size($font-size-text, xxl);
       padding: 0.9375rem;
       color: $color-principal;
+      font-family: $font-family;
     }
 
     .color-v1 {
@@ -58,7 +59,7 @@
 }
 
 @include media-breakpoint-down(lg) {
-  .content {
+  .fhv-home-page {
     &__row {
       &__text {
         &-title {
@@ -74,7 +75,7 @@
 }
 
 @include media-breakpoint-down(md) {
-  .content {
+  .fhv-home-page {
     &__row {
       display: flex;
       flex-wrap: wrap;
