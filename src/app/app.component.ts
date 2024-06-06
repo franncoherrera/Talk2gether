@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedNavbarComponent } from './modules/shared/shared-navbar/shared-navbar.component';
+import { LANGUAGE } from './shared/enums/languages.enum';
 
 @Component({
-  selector: 'app-root',
+  selector: 'fhv-root',
   standalone: true,
   imports: [RouterOutlet, SharedNavbarComponent],
   templateUrl: './app.component.html',
@@ -14,8 +15,8 @@ export class AppComponent {
   title = 'Talk2gether';
 
   constructor(private translateService: TranslateService) {
-    this.translateService.setDefaultLang('en');
-    const browserLang: string = this.translateService.getBrowserLang() || 'es';
-    this.translateService.use(browserLang.match(/en|es/) ? browserLang : 'es');
+    this.translateService.setDefaultLang(LANGUAGE.SPANISH);
+    const browserLang: string = this.translateService.getBrowserLang() || LANGUAGE.SPANISH;
+    this.translateService.use(Object.values(LANGUAGE).includes(browserLang as LANGUAGE) ? browserLang : 'es');
   }
 }
