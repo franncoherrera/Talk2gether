@@ -1,0 +1,135 @@
+@import "../../../../../../../public/assets/custom_scss/variables.scss";
+@import "../../../../../../../public/assets/custom_scss/media-queries.scss";
+@import "../../../../../../../public/assets/custom_scss/_font-size.scss";
+@import "../../../../../../../public/assets/custom_scss/_buttons.scss";
+
+// .text-error {
+//   padding-top: 0.125rem;
+
+//   &__input {
+//     position: absolute;
+//     font-size: 0.625rem;
+//     line-height: 0.625rem;
+//   }
+
+//   &-response {
+//     font-size: 1.25rem;
+//     line-height: 1.4375rem;
+//     text-align: center;
+//     width: 100%;
+//   }
+// }
+
+.fhv-login {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100vw;
+  height: calc(100vh - 3.5rem);
+  overflow: hidden;
+  background-image: url(../../../../../../../public/assets/images/homePage/p2.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__container {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.75rem;
+    border-radius: $border-radius-containers;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: $color-principal;
+    opacity: 0.9;
+    &__form {
+      width: 100%;
+      &__title {
+        text-align: center;
+        margin-bottom: 1.25rem;
+        color: $color-white;
+        font-family: $font-family-bold;
+        font-size: get-font-size($font-size-title, xxl);
+      }
+
+      &__group {
+        &__label {
+          display: block;
+          color: $color-white;
+          font-size: get-font-size($font-size-text, xxl);
+          padding-bottom: 1.25rem;
+          position: relative;
+
+          &__input {
+            width: 100%;
+            padding: 0.625rem;
+            border: 1px solid $color-border;
+            border-radius: $border-radius-input;
+            color: $color-black;
+          }
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 1.25rem;
+
+        &-submit {
+          @include buttons-enabled;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .fhv-login {
+    &__container {
+      width: 60%;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .fhv-login {
+    &__container {
+      width: 100%;
+      border-radius: 0;
+      &__form {
+        &__title {
+          font-size: get-font-size($font-size-title, md);
+        }
+        &__group {
+          &__label {
+            font-size: get-font-size($font-size-text, md);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .fhv-login {
+    &__container {
+      &__form {
+        &__title {
+          font-size: get-font-size($font-size-title, sm);
+        }
+        &__group {
+          &__label {
+            font-size: get-font-size($font-size-text, sm);
+          }
+        }
+        &__buttons {
+          &-forgot-pass {
+            font-size: get-font-size($font-size-text, sm);
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,9 +2,9 @@ export const GENERAL_PATH = {
   MAIN_PATH: '',
 };
 
-export const routes_path = {
+export const ROUTES_PATH = {
   /* Rutas del login */
-  login_path: 'login',
+  LOGIN_PATH: 'login',
   recover_pass_path: 'recuperarContrasenia',
   /* Rutas de verificar cuenta */
   verify_account: 'verificar-cuenta',

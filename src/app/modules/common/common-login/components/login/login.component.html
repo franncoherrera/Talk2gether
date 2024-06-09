@@ -1,0 +1,81 @@
+<div class="fhv-login">
+  <div class="fhv-login__container">
+    <form
+      class="fhv-login__container__form"
+      [formGroup]="loginForm"
+      (ngSubmit)="sendLoginSession()"
+    >
+      <h1 class="fhv-login__container__form__title">
+        {{ "common.login_page.login_title" | translate }}
+      </h1>
+      <div class="fhv-login__container__form__group">
+        <label for="username" class="fhv-login__container__form__group__label">
+          {{ "common.login_page.login_email" | translate }}
+          <input
+            class="fhv-login__container__form__group__label__input"
+            type="email"
+            id="username"
+            name="username"
+            placeholder="{{
+              'common.login_page.login_email_placeholder' | translate
+            }}"
+            required
+            formControlName="email"
+          />
+          <ng-container
+            *ngIf="loginForm.get('email').hasError('pattern') && submitForm"
+          >
+            <p class="text-error">
+              {{ "common.login_page.login_structure_error" | translate }}
+            </p>
+          </ng-container>
+          <ng-container
+            *ngIf="loginForm.get('email').hasError('required') && submitForm"
+          >
+            <p class="text-error">
+              {{ "common.login_page.login_password_required" | translate }}
+            </p>
+          </ng-container>
+        </label>
+      </div>
+      <div class="fhv-login__container__form__group">
+        <label for="password" class="fhv-login__container__form__group__label"
+          >{{ "common.login_page.login_password" | translate }}
+          <input
+            class="fhv-login__container__form__group__label__input"
+            [type]="passwordType"
+            id="password"
+            name="password"
+            placeholder="{{
+              'common.login_page.login_pass_placeholder' | translate
+            }}"
+            required
+            formControlName="password"
+          />
+          <fhv-eye-button
+            (passwordTypeEmitter)="updatePasswordType($event)"
+          ></fhv-eye-button>
+          <ng-container
+            *ngIf="loginForm.get('password').hasError('required') && submitForm"
+          >
+            <p class="text-error">
+              {{ "common.login_page.login_password_required" | translate }}
+            </p>
+          </ng-container>
+        </label>
+      </div>
+      <div *ngIf="submitError" class="text-error text-error-response">
+        {{ "common.login_page.login_email_pasword_error" | translate }}
+      </div>
+      <div class="fhv-login__container__form__buttons">
+        <button
+          type="submit"
+          class="fhv-login__container__form__buttons-submit"
+        >
+          {{ "common.login_page.login_submit_button" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<fhv-spinner-general></fhv-spinner-general>

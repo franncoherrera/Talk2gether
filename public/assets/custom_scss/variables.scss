@@ -6,8 +6,9 @@ $color-principal: #2b6a78;
 $color-background-home: #8cd1e9;
 $color-message-error: #ff9234;
 
-$color-button-submit: #199de8;
-$color-button-back: #909293;
+$color-bg-submit: #199de8;
+$color-bg-back: #909293;
+$color-style-back: #565658;
 $color-border: #ccc;
 $color-icon-princial: white;
 
@@ -20,13 +21,13 @@ $color-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 /* Fuentes */
 $font-family: "Poppins Regular";
+$font-family-bold: "Poppins Semibold";
+$font-family-medium: "Poppins Medium";
 
 /* Propiedades personalizadas */
-$border-radius-containers: 2rem;
-$border-radius-input: 1.5rem;
-$border-radius-button: 0.625rem;
-
-
+$border-radius-containers: 0.75rem;
+$border-radius-input: 0;
+$border-radius-button: 0;
 
 /* Imports necesarios */
 

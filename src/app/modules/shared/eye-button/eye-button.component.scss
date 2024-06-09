@@ -1,0 +1,13 @@
+@import "../../../../../public/assets/custom_scss/variables.scss";
+@import "../../../../../public/assets/custom_scss/media-queries.scss";
+
+.fhv-eye-button {
+  position: absolute;
+  right: 1.25rem;
+  top: 2.5rem;
+  color: $color-black;
+  cursor: pointer;
+  @include media-breakpoint-down(md) {
+    top: 1.75rem;
+  }
+}

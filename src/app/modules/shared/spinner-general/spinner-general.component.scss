@@ -1,0 +1,53 @@
+@import "../../../../../public/assets/custom_scss/variables.scss";
+
+.custom-loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1300;
+  flex-direction: column;
+}
+
+.loader {
+  margin-top: 1.875rem;
+  z-index: 1301;
+  color: $color-white;
+  font-family: $font-family-bold;
+}
+
+.map {
+  width: 6.25rem;
+  height: 6.25rem;
+  background: #8cd1e9;
+  border-radius: 50%;
+  box-shadow: -20px -10px 0 0 rgba(0, 0, 0, 0.1) inset,
+    -40px -10px 0 0 rgba(0, 0, 0, 0.1) inset,
+    5px 5px 0 0 rgba(255, 255, 255, 0.2) inset;
+  background: url(../../../../../public/assets/images/general/mapaPlano_spinner.svg);
+  background-size: cover;
+  animation: tierra-girando 5s infinite linear;
+  -webkit-animation: tierra-girando 5s infinite linear;
+}
+@-webkit-keyframes tierra-girando {
+  from {
+    background-position: left center;
+  }
+  to {
+    background-position: right center;
+  }
+}
+
+@keyframes tierra-girando {
+  from {
+    background-position: left center;
+  }
+  to {
+    background-position: -198.5px center;
+  }
+}

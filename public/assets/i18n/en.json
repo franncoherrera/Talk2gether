@@ -1,5 +1,5 @@
-{ 
-  "common":{
+{
+  "common": {
     "home_page": {
       "first_container": {
         "title": "Learn languages with Talk2gether",
@@ -14,6 +14,21 @@
         "description": "Experience different cultures and gain insights into their customs, traditions, and way of life."
       },
       "copyright_message": "Copyright © 2023-2023 Talk2gether"
+    },
+    "login_page": {
+      "login_title": "Welcome!",
+      "login_email": "Email",
+      "account_deleted_title": "Your account has been deleted by:",
+      "login_submit_button": "Log in",
+      "login_forgot_password": "Forgot your password?",
+      "return_home_page": "Return to homepage",
+      "login_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
+      "login_email_required": "Email is required",
+      "login_password": "Password",
+      "login_password_required": "Password is required",
+      "login_email_pasword_error": "Invalid email or password",
+      "login_email_placeholder": "Enter your email",
+      "login_pass_placeholder": "Enter your password"
     }
   }
 }

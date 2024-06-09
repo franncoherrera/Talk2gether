@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LANGUAGE } from '../../../shared/enums/languages.enum';
 
 @Component({
   selector: 'fhv-shared-navbar',
@@ -8,16 +9,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   imports: [CommonModule, TranslateModule],
   templateUrl: './shared-navbar.component.html',
   styleUrl: './shared-navbar.component.scss',
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SharedNavbarComponent {
-
-  constructor(private translateService: TranslateService){
-
-  }
-
+  constructor(private translateService: TranslateService) {}
 
   switchLanguage(language: string) {
-    this.translateService.use(language);
+    if (Object.values(LANGUAGE).includes(language as LANGUAGE)) {
+      this.translateService.use(language);
+      localStorage.setItem('selectedLang', language);
+    }
   }
 }
