@@ -1,0 +1,34 @@
+{
+  "common": {
+    "home_page": {
+      "first_container": {
+        "title": "Apprenez des langues avec Talk2gether",
+        "description": "Connectez-vous avec des personnes du monde entier et apprenez leur langue et leur culture"
+      },
+      "second_container": {
+        "title": "Apprenez une nouvelle langue",
+        "description": "Pratiquez parler avec des locuteurs natifs et améliorez vos compétences linguistiques grâce à des conversations en temps réel"
+      },
+      "third_container": {
+        "title": "Élargissez vos connaissances culturelles",
+        "description": "Découvrez différentes cultures et acquérez des connaissances sur leurs coutumes, traditions et mode de vie."
+      },
+      "copyright_message": "Droits d'auteur © 2023-2023 Talk2gether"
+    },
+    "login_page": {
+      "login_title": "Bienvenue!",
+      "login_email": "Email",
+      "account_deleted_title": "Votre compte a été supprimé par:",
+      "login_submit_button": "Se connecter",
+      "login_forgot_password": "Mot de passe oublié?",
+      "return_home_page": "Retour à la page d'accueil",
+      "login_structure_error": "L'email ne respecte pas une structure. Exemple: bonjour@talk2gether.com",
+      "login_email_required": "L'email est requis",
+      "login_password": "Mot de passe",
+      "login_password_required": "Le mot de passe est requis",
+      "login_email_pasword_error": "Email ou mot de passe invalide",
+      "login_email_placeholder": "Entrez votre nom d'utilisateur",
+      "login_pass_placeholder": "Entrez votre mot de passe"
+    }
+  }
+}

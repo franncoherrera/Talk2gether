@@ -12,6 +12,7 @@ import { LANGUAGE } from '../../../shared/enums/languages.enum';
   encapsulation: ViewEncapsulation.None,
 })
 export class SharedNavbarComponent {
+  LANGUAGE = LANGUAGE;
   constructor(private translateService: TranslateService) {}
 
   switchLanguage(language: string) {
