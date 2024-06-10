@@ -29,20 +29,19 @@
 
       &-title {
         font-family: $font-family;
-        font-size: get-font-size($font-size-title, xxl);
-        font-size: 2.6rem;
+        @include apply-responsive-font-size($font-size-title);
         padding: 1rem;
       }
 
       &-subtitle {
         font-family: $font-family;
-        font-size:get-font-size($font-size-subtitle, xxl);
+        @include apply-responsive-font-size($font-size-subtitle);
         padding: 1rem;
       }
     }
 
     &__epigraph {
-      font-size: get-font-size($font-size-text, xxl);
+      @include apply-responsive-font-size($font-size-text);
       padding: 0.9375rem;
       color: $color-principal;
       font-family: $font-family;
@@ -58,21 +57,7 @@
   }
 }
 
-@include media-breakpoint-down(lg) {
-  .fhv-home-page {
-    &__row {
-      &__text {
-        &-title {
-          font-size: get-font-size($font-size-title, lg);;
-        }
 
-        &-subtitle {
-          font-size: get-font-size($font-size-subtitle, lg);;
-        }
-      }
-    }
-  }
-}
 
 @include media-breakpoint-down(md) {
   .fhv-home-page {

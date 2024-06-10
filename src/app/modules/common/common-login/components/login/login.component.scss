@@ -2,23 +2,7 @@
 @import "../../../../../../../public/assets/custom_scss/media-queries.scss";
 @import "../../../../../../../public/assets/custom_scss/_font-size.scss";
 @import "../../../../../../../public/assets/custom_scss/_buttons.scss";
-
-// .text-error {
-//   padding-top: 0.125rem;
-
-//   &__input {
-//     position: absolute;
-//     font-size: 0.625rem;
-//     line-height: 0.625rem;
-//   }
-
-//   &-response {
-//     font-size: 1.25rem;
-//     line-height: 1.4375rem;
-//     text-align: center;
-//     width: 100%;
-//   }
-// }
+@import "../../../../../../../public/assets/custom_scss/error-message";
 
 .fhv-login {
   display: flex;
@@ -49,14 +33,14 @@
         margin-bottom: 1.25rem;
         color: $color-white;
         font-family: $font-family-bold;
-        font-size: get-font-size($font-size-title, xxl);
+        @include apply-responsive-font-size($font-size-title);
       }
 
       &__group {
         &__label {
           display: block;
           color: $color-white;
-          font-size: get-font-size($font-size-text, xxl);
+          @include apply-responsive-font-size($font-size-text);
           padding-bottom: 1.25rem;
           position: relative;
 
@@ -67,6 +51,9 @@
             border-radius: $border-radius-input;
             color: $color-black;
           }
+        }
+        &__error {
+          @include text-error;
         }
       }
 
@@ -98,38 +85,7 @@
     &__container {
       width: 100%;
       border-radius: 0;
-      &__form {
-        &__title {
-          font-size: get-font-size($font-size-title, md);
-        }
-        &__group {
-          &__label {
-            font-size: get-font-size($font-size-text, md);
-          }
-        }
-      }
-    }
-  }
-}
-
-@include media-breakpoint-down(sm) {
-  .fhv-login {
-    &__container {
-      &__form {
-        &__title {
-          font-size: get-font-size($font-size-title, sm);
-        }
-        &__group {
-          &__label {
-            font-size: get-font-size($font-size-text, sm);
-          }
-        }
-        &__buttons {
-          &-forgot-pass {
-            font-size: get-font-size($font-size-text, sm);
-          }
-        }
-      }
+      padding: 1rem;
     }
   }
 }

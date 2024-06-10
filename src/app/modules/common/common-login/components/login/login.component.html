@@ -25,14 +25,14 @@
           <ng-container
             *ngIf="loginForm.get('email').hasError('pattern') && submitForm"
           >
-            <p class="text-error">
+            <p class="fhv-login__container__form__group__error">
               {{ "common.login_page.login_structure_error" | translate }}
             </p>
           </ng-container>
           <ng-container
             *ngIf="loginForm.get('email').hasError('required') && submitForm"
           >
-            <p class="text-error">
+            <p class="fhv-login__container__form__group__error">
               {{ "common.login_page.login_password_required" | translate }}
             </p>
           </ng-container>
@@ -58,13 +58,13 @@
           <ng-container
             *ngIf="loginForm.get('password').hasError('required') && submitForm"
           >
-            <p class="text-error">
+            <p class="fhv-login__container__form__group__error">
               {{ "common.login_page.login_password_required" | translate }}
             </p>
           </ng-container>
         </label>
       </div>
-      <div *ngIf="submitError" class="text-error text-error-response">
+      <div *ngIf="submitError" class="fhv-login__container__form__group__error">
         {{ "common.login_page.login_email_pasword_error" | translate }}
       </div>
       <div class="fhv-login__container__form__buttons">

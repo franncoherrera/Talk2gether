@@ -9,7 +9,7 @@
   overflow: hidden;
   background-color: $color-bg-submit;
   text-decoration: none;
-  font-size: get-font-size($font-size-text, xxl);
+  @include apply-responsive-font-size($font-size-text);
   padding: 0.5em 0.75em;
   color: $color-letter-button;
   text-transform: uppercase;
@@ -51,18 +51,6 @@
       background-color: rgba($color-background-home, 0.75);
     }
   }
-  @include media-breakpoint-down(xl) {
-    font-size: get-font-size($font-size-text, xl);
-  }
-  @include media-breakpoint-down(lg) {
-    font-size: get-font-size($font-size-text, lg);
-  }
-  @include media-breakpoint-down(md) {
-    font-size: get-font-size($font-size-text, md);
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: get-font-size($font-size-text, sm);
-  }
 }
 
 @mixin buttons-back {
@@ -72,7 +60,7 @@
   overflow: hidden;
   background-color: $color-bg-back;
   text-decoration: none;
-  font-size: get-font-size($font-size-text, xxl);
+  @include apply-responsive-font-size($font-size-text);
   padding: 0.5em 0.75em;
   color: $color-letter-button;
   text-transform: uppercase;
@@ -115,3 +103,4 @@
     }
   }
 }
+

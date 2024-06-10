@@ -1,25 +1,30 @@
+@import "./media-queries.scss";
+
 $font-size-title: (
-  xxl: 2.25rem,   
-  xl: 2rem,      
-  lg: 1.75rem,   
-  md: 1.5rem,    
-  sm: 1.25rem    
+  xxl: 2.25rem,
+  xl: 2rem,
+  lg: 1.75rem,
+  md: 1.5rem,
+  sm: 1.25rem,
+  xs: 1.25rem,
 );
 
 $font-size-subtitle: (
-  xxl: 1.5rem,   
-  xl: 1.375rem, 
-  lg: 1.25rem,   
-  md: 1.125rem, 
-  sm: 1rem       
+  xxl: 1.5rem,
+  xl: 1.375rem,
+  lg: 1.25rem,
+  md: 1.125rem,
+  sm: 1rem,
+  xs: 1rem
 );
 
 $font-size-text: (
-  xxl: 1.125rem, 
-  xl: 1rem,      
-  lg: 0.875rem,  
-  md: 0.75rem,   
-  sm: 0.625rem   
+  xxl: 1.125rem,
+  xl: 1rem,
+  lg: 0.875rem,
+  md: 0.875rem,
+  sm: 0.875rem,
+  xs: 0.875rem,
 );
 
 $breakpoints: (
@@ -28,9 +33,19 @@ $breakpoints: (
   lg: 1024px,
   md: 768px,
   sm: 576px,
+  xs: 0px
 );
 
 @function get-font-size($map, $size) {
   @return map-get($map, $size);
 }
 
+
+@mixin apply-responsive-font-size($map) {
+  font-size: get-font-size($map, xxl);
+  @each $breakpoint, $value in $breakpoints {
+    @include media-breakpoint-down($breakpoint) {
+      font-size: get-font-size($map, $breakpoint);
+    }
+  }
+}

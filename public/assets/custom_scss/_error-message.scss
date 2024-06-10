@@ -1,0 +1,9 @@
+@import "./font-size";
+
+/* Basic class definition for form errors */
+@mixin text-error {
+  color: $color-message-error;
+  font-family: $font-family-medium;
+  margin-top: 0.25rem;
+  @include apply-responsive-font-size($font-size-text);
+}
