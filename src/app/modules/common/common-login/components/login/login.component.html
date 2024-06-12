@@ -9,7 +9,10 @@
         {{ "common.login_page.login_title" | translate }}
       </h1>
       <div class="fhv-login__container__form__group">
-        <label for="username" class="fhv-login__container__form__group__label">
+        <label
+          for="username"
+          class="fhv-login__container__form__group__label"
+        >
           {{ "common.login_page.login_email" | translate }}
           <input
             class="fhv-login__container__form__group__label__input"
@@ -33,13 +36,15 @@
             *ngIf="loginForm.get('email').hasError('required') && submitForm"
           >
             <p class="fhv-login__container__form__group__error">
-              {{ "common.login_page.login_password_required" | translate }}
+              {{ "common.login_page.login_email_required" | translate }}
             </p>
           </ng-container>
         </label>
       </div>
       <div class="fhv-login__container__form__group">
-        <label for="password" class="fhv-login__container__form__group__label"
+        <label
+          for="password"
+          class="fhv-login__container__form__group__label"
           >{{ "common.login_page.login_password" | translate }}
           <input
             class="fhv-login__container__form__group__label__input"
@@ -64,9 +69,11 @@
           </ng-container>
         </label>
       </div>
-      <div *ngIf="submitError" class="fhv-login__container__form__group__error">
-        {{ "common.login_page.login_email_pasword_error" | translate }}
-      </div>
+      <ng-container *ngIf="submitError">
+        <p class="fhv-login__container__form__group__error">
+          {{ "common.login_page.login_email_pasword_error" | translate }}
+        </p>
+      </ng-container>
       <div class="fhv-login__container__form__buttons">
         <button
           type="submit"
@@ -78,4 +85,3 @@
     </form>
   </div>
 </div>
-<fhv-spinner-general></fhv-spinner-general>

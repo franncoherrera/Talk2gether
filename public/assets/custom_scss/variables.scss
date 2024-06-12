@@ -1,6 +1,6 @@
-/*Definición variables*/
+/* Variables definition */
 
-/* Colores */
+/* Colors */
 $color-base: aliceblue;
 $color-principal: #2b6a78;
 $color-background-home: #8cd1e9;
@@ -19,16 +19,21 @@ $color-letter-button: #fff;
 
 $color-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-/* Fuentes */
+/* Colors blocked route */
+
+$color-bg-blocked-user: antiquewhite;
+$color-bg-gradient: radial-gradient(circle, #ff7e5f, #feb47b);
+
+/* Fonts */
 $font-family: "Poppins Regular";
 $font-family-bold: "Poppins Semibold";
 $font-family-medium: "Poppins Medium";
 
-/* Propiedades personalizadas */
+/* Custom properties */
 $border-radius-containers: 0.75rem;
 $border-radius-input: 0;
 $border-radius-button: 0;
 
-/* Imports necesarios */
+/* Necessary imports */
 
-@import "_fonts.scss";
+@import "_fonts";

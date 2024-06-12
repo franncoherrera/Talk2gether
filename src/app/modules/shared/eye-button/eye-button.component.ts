@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './eye-button.component.html',
   styleUrl: './eye-button.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class EyeButtonComponent {
   /* Show and hide password variable */

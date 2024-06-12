@@ -1,25 +1,22 @@
-@import "../../../../../../../public/assets/custom_scss/variables.scss";
-@import "../../../../../../../public/assets/custom_scss/media-queries.scss";
-@import "../../../../../../../public/assets/custom_scss/_font-size.scss";
-@import "../../../../../../../public/assets/custom_scss/_buttons.scss";
+@import "../../../../../../../public/assets/custom_scss/variables";
+@import "../../../../../../../public/assets/custom_scss/media-queries";
+@import "../../../../../../../public/assets/custom_scss/_font-size";
+@import "../../../../../../../public/assets/custom_scss/_buttons";
 @import "../../../../../../../public/assets/custom_scss/error-message";
 
 .fhv-login {
   display: flex;
   justify-content: end;
   align-items: center;
-  width: 100vw;
-  height: calc(100vh - 3.5rem);
-  overflow: hidden;
   background-image: url(../../../../../../../public/assets/images/homePage/p2.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   &__container {
-    height: 100%;
-    width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: calc(100vh - 3.5rem);
+    width: 50%;
     padding: 3.75rem;
     border-radius: $border-radius-containers;
     border-top-right-radius: 0;
@@ -27,6 +24,7 @@
     background-color: $color-principal;
     opacity: 0.9;
     &__form {
+      margin: 0 auto;
       width: 100%;
       &__title {
         text-align: center;

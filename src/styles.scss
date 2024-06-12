@@ -1,14 +1,16 @@
-@import "../public/assets/custom_scss/variables.scss";
-@import "../public/assets/custom_scss/_font-size.scss";
+@import "../public/assets/custom_scss/variables";
+@import "../public/assets/custom_scss/_font-size";
+@import "../public/assets/custom_scss/custom-sweet-alert";
 
-/** Estilos generales**/
+/** General styles **/
 html {
   font-size: 16px;
 }
 
 body {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   font-family: $font-family;
   font-size: 1rem;
   background-color: $color-base;
@@ -26,8 +28,6 @@ h6 {
   color: $color-black;
   margin: 0;
 }
-
-
 
 
 

@@ -1,6 +1,6 @@
 @import "./variables";
-@import "./font-size";
-@import "./media-queries.scss";
+@import "./_font-size";
+@import "./media-queries";
 
 @mixin buttons-enabled {
   display: inline-block;
@@ -17,6 +17,8 @@
   width: 100%;
   transition: 2s;
   font-family: $font-family-medium;
+  border-radius: $border-radius-containers;
+
   &:before,
   &:after {
     content: "";
@@ -68,6 +70,7 @@
   width: 100%;
   transition: 2s;
   font-family: $font-family-medium;
+  border-radius: $border-radius-containers;
   &:before,
   &:after {
     content: "";

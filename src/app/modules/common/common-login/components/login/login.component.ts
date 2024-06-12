@@ -6,6 +6,10 @@ import { VALIDATOR_PATTERNS } from '../../../../../shared/constants/patterns';
 import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
 import { CommonLoginService } from '../../services/common-login.service';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 
 @Component({
   selector: 'fhv-login',
@@ -21,8 +25,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
-    private loginService: CommonLoginService,
-    private spinnerGeneralService: SpinnerGeneralService // private alertService: AlertsService, // private verificarCuentaService: VerificarCuentaService
+    private commonLoginService: CommonLoginService,
+    private spinnerGeneralService: SpinnerGeneralService,
+    private sweetAlertService: SweetAlertService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.submitForm = true;
     if (this.loginForm.invalid) return;
     this.spinnerGeneralService.showSpinner();
-    this.sessionSubscription = this.loginService
+    this.sessionSubscription = this.commonLoginService
       .login(
         this.loginForm.get('email').value,
         this.loginForm.get('password').value
@@ -62,8 +68,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (roleName) => {
           this.spinnerGeneralService.hideSpinner();
-          this.loginService.saveRole(roleName);
+          this.commonLoginService.saveRole(roleName);
           // document.location.href = routes_path.principal_path;
+          // this.router.navigate VER SI SE PUEDE USAR ROUTER
         },
         error: (errorSessionResponse) => {
           this.spinnerGeneralService.hideSpinner();
@@ -81,48 +88,29 @@ export class LoginComponent implements OnInit, OnDestroy {
     numberError: number,
     reasonReport: string[]
   ): void {
-    // switch (numberError) {
-    //   case 1: {
-    //     /* Usuario o contraseña no válida*/
-    //     this.submitError = true;
-    //     break;
-    //   }
-    //   case 2: {
-    //     /* Cuenta no verificada */
-    //     sessionStorage.clear();
-    //     localStorage.setItem('correo', this.loginForm.get('email').value);
-    //     this.sessionSubscription.add(
-    //       /* No funciona porque no esta levantado el servidor de correo */
-    //       this.verificarCuentaService
-    //         .reenviarCorreo(localStorage.getItem('correo'))
-    //         .pipe(
-    //           tap(() => this.router.navigate([routes_path.verify_account])),
-    //           catchError((error) => {
-    //             this.alertService.errorAlert(
-    //               common_error.general_error_title,
-    //               error
-    //             );
-    //             return of(error);
-    //           })
-    //         )
-    //         .subscribe()
-    //     );
-    //     break;
-    //   }
-    //   case 3: {
-    //     /* Cuenta bloqueada -se muestran los motivos de reporte-*/
-    //     this.loginService.saveReason(reasonReport);
-    //     this.router.navigate([routes_path.user_bloqued_by_admin]);
-    //     break;
-    //   }
-    //   default: {
-    //     this.alertService.errorAlert(
-    //       common_error.general_error_title,
-    //       common_error.general_error_description
-    //     );
-    //     break;
-    //   }
-    // }
+    switch (numberError) {
+      case 1: {
+        /* Invalid username or password */
+        this.submitError = true;
+        break;
+      }
+      case 3: {
+        /* Blocked account - reporting reasons are shown - */
+        this.commonLoginService.saveReason(reasonReport);
+        this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN]);
+        break;
+      }
+      default: {
+        this.sweetAlertService.errorAlert(
+          this.translateService.instant('common.error.general_error_title'),
+          this.translateService.instant(
+            'common.error.general_error_description'
+          ),
+          SWEET_ALERT_ICON.ERROR
+        );
+        break;
+      }
+    }
   }
 
   ngOnDestroy(): void {

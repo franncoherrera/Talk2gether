@@ -1,4 +1,4 @@
-@import "./media-queries.scss";
+@import "./media-queries";
 
 $font-size-title: (
   xxl: 2.25rem,
@@ -15,7 +15,7 @@ $font-size-subtitle: (
   lg: 1.25rem,
   md: 1.125rem,
   sm: 1rem,
-  xs: 1rem
+  xs: 1rem,
 );
 
 $font-size-text: (
@@ -33,19 +33,24 @@ $breakpoints: (
   lg: 1024px,
   md: 768px,
   sm: 576px,
-  xs: 0px
+  xs: 0px,
 );
 
 @function get-font-size($map, $size) {
   @return map-get($map, $size);
 }
 
-
 @mixin apply-responsive-font-size($map) {
   font-size: get-font-size($map, xxl);
   @each $breakpoint, $value in $breakpoints {
-    @include media-breakpoint-down($breakpoint) {
-      font-size: get-font-size($map, $breakpoint);
+    @if $value > 0 {
+      @include media-breakpoint-down($breakpoint) {
+        font-size: get-font-size($map, $breakpoint);
+      }
+    } @else {
+      @include media-breakpoint-down($breakpoint) {
+        font-size: get-font-size($map, xs);
+      }
     }
   }
 }

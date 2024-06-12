@@ -30,5 +30,14 @@
       "login_email_placeholder": "Entrez votre nom d'utilisateur",
       "login_pass_placeholder": "Entrez votre mot de passe"
     }
+  },
+  "error": {
+    "general_error_title": "Oups...",
+    "general_error_description": "Quelque chose s'est mal passé ! Veuillez réessayer plus tard.",
+    "general_error_not_loaded": "Le chargement a échoué, veuillez réessayer plus tard."
+  },
+  "blocked_page": {
+    "account_deleted_title": "Votre compte a été supprimé pour :",
+    "return_home_page": "Retour à la page principale"
   }
 }

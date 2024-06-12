@@ -1,9 +1,13 @@
-@import "../../../../../public/assets/custom_scss/variables.scss";
+@import "../../../../../public/assets/custom_scss/variables";
+
 
 fhv-shared-navbar {
   nav {
     //TODO Ver el estilo del header
     // height: 3.5rem; 
+    position: fixed;
+    z-index: 999;
+    width: 100%;
     background-color: $color-base;
     color: $color-black;
     font-family: $font-family;
