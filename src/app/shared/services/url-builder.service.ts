@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UrlBuilderService {
-  environmentUrl: string = 'http://localhost:8080';
+  environmentUrl: string = environment.apiUrl;
 
   buildUrl(endpoint: string, params: { [key: string]: any } = {}): string {
     let url = this.environmentUrl + endpoint;

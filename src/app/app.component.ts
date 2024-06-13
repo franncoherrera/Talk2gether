@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SharedNavbarComponent } from './modules/shared/shared-navbar/shared-navbar.component';
 import { LANGUAGE } from './shared/enums/languages.enum';
+import { SpinnerGeneralModule } from './modules/shared/spinner-general/spinner-general.module';
 
 @Component({
   selector: 'fhv-root',
   standalone: true,
-  imports: [RouterOutlet, SharedNavbarComponent],
+  imports: [RouterOutlet, SharedNavbarComponent, SpinnerGeneralModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

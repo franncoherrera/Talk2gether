@@ -1,0 +1,5 @@
+@import "../../../../../public/assets/custom_scss/error-message";
+
+.fhv-form-error {
+  @include text-error;
+}

@@ -29,9 +29,6 @@
                 "input": "public"
               }
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["public/assets/custom_scss/variables.scss"]
-            },
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",

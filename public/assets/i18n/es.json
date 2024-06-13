@@ -1,5 +1,8 @@
 {
   "common": {
+    "loader":{
+      "loading": "Cargando..."
+    },
     "home_page": {
       "first_container": {
         "title": "Aprende idiomas con Talk2gether",
@@ -33,7 +36,8 @@
     "error": {
       "general_error_title": "Ops...",
       "general_error_description": "¡Algo anda mal! Intente nuevamente mas tarde.",
-      "general_error_not_loaded": "No se cargó correctamente, intente nuevamente mas tarde"
+      "general_error_not_loaded": "No se cargó correctamente, intente nuevamente mas tarde",
+      "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada."
     },
     "blocked_page": {
       "account_deleted_title": "Su cuenta ha sido eliminada por:",

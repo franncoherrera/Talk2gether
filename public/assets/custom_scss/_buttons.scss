@@ -17,7 +17,7 @@
   width: 100%;
   transition: 2s;
   font-family: $font-family-medium;
-  border-radius: $border-radius-containers;
+  border-radius: $border-radius-button;
 
   &:before,
   &:after {
@@ -70,7 +70,7 @@
   width: 100%;
   transition: 2s;
   font-family: $font-family-medium;
-  border-radius: $border-radius-containers;
+  border-radius: $border-radius-button;
   &:before,
   &:after {
     content: "";

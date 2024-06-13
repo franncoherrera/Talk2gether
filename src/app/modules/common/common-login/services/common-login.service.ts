@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../../../environments/environment';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { USER_SESSION } from '../../../../shared/models/userSession';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { TOKEN_SESSION } from '../../../../shared/models/tokenSession';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +26,7 @@ export class CommonLoginService {
   ) {}
 
   /* Backend endpoints */
-  login(email: string, password: string) {
+  login(email: string, password: string) : Observable<Object> {
     const bodySession: USER_SESSION = {
       //TODO Cambiar nombres del backend
       correo: email,
@@ -35,8 +35,7 @@ export class CommonLoginService {
     const urlEndpoint = this.urlBuilderService.buildUrl(ENDPOINTS.LOGIN_SESSION)
     return this.httpClient.post(urlEndpoint, bodySession).pipe(
       tap((tokenSession) => {
-        const token = tokenSession;
-        this.sesionService.startLocalSession(token);
+        this.sesionService.startLocalSession(tokenSession as TOKEN_SESSION);
       })
     );
   }

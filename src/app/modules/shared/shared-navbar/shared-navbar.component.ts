@@ -15,7 +15,7 @@ export class SharedNavbarComponent {
   LANGUAGE = LANGUAGE;
   constructor(private translateService: TranslateService) {}
 
-  switchLanguage(language: string) {
+  switchLanguage(language: string): void {
     if (Object.values(LANGUAGE).includes(language as LANGUAGE)) {
       this.translateService.use(language);
       localStorage.setItem('selectedLang', language);

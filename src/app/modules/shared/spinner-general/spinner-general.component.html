@@ -1,5 +1,6 @@
-<div *ngIf="showSpinner$ | async" class="custom-loading-spinner">
-    <div class="map">
-    </div>
-    <div class="loader">Cargando...</div>
+@if (showSpinner$ | async) {
+<div class="custom-loading-spinner">
+  <div class="map"></div>
+  <div class="loader"> {{ "common.loader.loading" | translate }}</div>
 </div>
+}

@@ -1,5 +1,8 @@
 {
   "common": {
+    "loader": {
+      "loading": "Loading..."
+    },
     "home_page": {
       "first_container": {
         "title": "Learn languages with Talk2gether",
@@ -33,7 +36,8 @@
     "error": {
       "general_error_title": "Oops...",
       "general_error_description": "Something went wrong! Please try again later.",
-      "general_error_not_loaded": "It did not load correctly, please try again later."
+      "general_error_not_loaded": "It did not load correctly, please try again later.",
+      "general_error_logged": "You are already logged in. You cannot access the requested screen."
     },
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",

@@ -28,11 +28,12 @@ $color-bg-gradient: radial-gradient(circle, #ff7e5f, #feb47b);
 $font-family: "Poppins Regular";
 $font-family-bold: "Poppins Semibold";
 $font-family-medium: "Poppins Medium";
+$font-family-light: "Poppins Light";
 
 /* Custom properties */
 $border-radius-containers: 0.75rem;
-$border-radius-input: 0;
-$border-radius-button: 0;
+$border-radius-input: 0.25rem;
+$border-radius-button: 0.25rem;
 
 /* Necessary imports */
 

@@ -3,12 +3,11 @@
     <h1 class="fhv-login-disabled__box__title">
       {{ "common.blocked_page.account_deleted_title" | translate }}
     </h1>
-    <ul
-      class="fhv-login-disabled__box__subtitle"
-      *ngFor="let motivo of reasonReports$ | async"
-    >
+    @for (motivo of reasonReports$ | async; track motivo){
+    <ul class="fhv-login-disabled__box__subtitle">
       <li>{{ motivo }}</li>
     </ul>
+    }
     <div class="fhv-login-disabled__box__icon">
       <i class="{{ icon_class.exclamation_signal }}"></i>
     </div>

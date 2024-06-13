@@ -1,5 +1,8 @@
 {
   "common": {
+    "loader": {
+      "loading": "Chargement..."
+    },
     "home_page": {
       "first_container": {
         "title": "Apprenez des langues avec Talk2gether",
@@ -29,15 +32,16 @@
       "login_email_pasword_error": "Email ou mot de passe invalide",
       "login_email_placeholder": "Entrez votre nom d'utilisateur",
       "login_pass_placeholder": "Entrez votre mot de passe"
+    },
+    "error": {
+      "general_error_title": "Oups...",
+      "general_error_description": "Quelque chose s'est mal passé ! Veuillez réessayer plus tard.",
+      "general_error_not_loaded": "Le chargement a échoué, veuillez réessayer plus tard.",
+      "general_error_logged": "Vous êtes déjà connecté. Vous ne pouvez pas accéder à l'écran demandé."
+    },
+    "blocked_page": {
+      "account_deleted_title": "Votre compte a été supprimé pour :",
+      "return_home_page": "Retour à la page principale"
     }
-  },
-  "error": {
-    "general_error_title": "Oups...",
-    "general_error_description": "Quelque chose s'est mal passé ! Veuillez réessayer plus tard.",
-    "general_error_not_loaded": "Le chargement a échoué, veuillez réessayer plus tard."
-  },
-  "blocked_page": {
-    "account_deleted_title": "Votre compte a été supprimé pour :",
-    "return_home_page": "Retour à la page principale"
   }
 }

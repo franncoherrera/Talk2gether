@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription, map, of } from 'rxjs';
-import { VALIDATOR_PATTERNS } from '../../../../../shared/constants/patterns';
-import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
-import { CommonLoginService } from '../../services/common-login.service';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { TranslateService } from '@ngx-translate/core';
-import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { Subscription, map } from 'rxjs';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { VALIDATOR_PATTERNS } from '../../../../../shared/constants/patterns';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { CommonLoginService } from '../../services/common-login.service';
 
 @Component({
   selector: 'fhv-login',
@@ -22,13 +22,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   submitError: boolean = false;
   passwordType: string = 'password';
   sessionSubscription: Subscription;
-
   constructor(
     private router: Router,
     private commonLoginService: CommonLoginService,
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -44,10 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         updateOn: 'change',
       }
     );
-  }
-
-  updatePasswordType(event: string): void {
-    this.passwordType = event;
   }
 
   sendLoginSession(): void {

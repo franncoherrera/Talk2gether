@@ -5,7 +5,7 @@
 fhv-eye-button {
   @include apply-responsive-font-size($font-size-text);
   position: absolute;
-  top: 2.5rem;
+  top: 2.25rem;
   right: 1rem;
   .fhv-eye-button {
     color: $color-black;

@@ -1,4 +1,7 @@
 <a class="fhv-eye-button" (click)="togglePasswordView()">
-  <span *ngIf="showPassword"><i class="{{ icon_class.eye_open }}"></i></span>
-  <span *ngIf="!showPassword"><i class="{{ icon_class.eye_close }}"></i></span>
+  @if(showPassword){
+  <span><i class="{{ icon_class.eye_open }}"></i></span>
+  } @if(!showPassword){
+  <span><i class="{{ icon_class.eye_close }}"></i></span>
+  }
 </a>

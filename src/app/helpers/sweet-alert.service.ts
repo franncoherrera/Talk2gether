@@ -1,26 +1,56 @@
 import { Injectable } from '@angular/core';
-import Swal, { SweetAlertIcon } from 'sweetalert2';
+import Swal, {
+  SweetAlertIcon,
+  SweetAlertPosition,
+} from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SweetAlertService {
+  /* Custon color --> $color-principal in variables.scss*/
+  private readonly confirmButtonColor: string = '#2b6a78';
+  /* Sweet alert classes */
+  private readonly showClassPopUp: string =
+    'animate__animated animate__fadeInDown';
+  private readonly hideClassPopUp: string =
+    'animate__animated animate__fadeOutUp';
+
   errorAlert(message: string, title: string, icon: SweetAlertIcon): void {
     Swal.fire({
       icon: icon,
       title: title,
       text: message,
-      confirmButtonColor: '#2b6a78',
+      confirmButtonColor: this.confirmButtonColor,
     });
   }
 
-  errorAlertTimer(message: string, time: number): void {
+  errorAlertTimer(
+    message: string,
+    time: number,
+    position: SweetAlertPosition,
+    icon: SweetAlertIcon
+  ): void {
     Swal.fire({
-      position: 'top-end',
-      icon: 'error',
+      position: position,
+      icon: icon,
       title: message,
       showConfirmButton: false,
       timer: time,
+    });
+  }
+
+  errorAlertMessage(title: string, icon: SweetAlertIcon): void {
+    Swal.fire({
+      title: title,
+      showClass: {
+        popup: this.showClassPopUp,
+      },
+      hideClass: {
+        popup: this.hideClassPopUp,
+      },
+      icon: icon,
+      confirmButtonColor: this.confirmButtonColor,
     });
   }
 }
