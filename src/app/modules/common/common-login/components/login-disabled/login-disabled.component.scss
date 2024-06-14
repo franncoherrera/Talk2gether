@@ -1,31 +1,30 @@
-@import "../../../../../../../public/assets/custom_scss/variables";
-@import "../../../../../../../public/assets/custom_scss/media-queries";
-@import "../../../../../../../public/assets/custom_scss/_buttons";
-@import "../../../../../../../public/assets/custom_scss/_font-size";
+@import "media-queries";
+@import "buttons";
+@import "font-size";
 
 .fhv-login-disabled {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 3.5rem);
-  background: $color-bg-blocked-user;
+  background: var(--color-bg-blocked-user);
   &__box {
-    border-radius: $border-radius-containers;
-    background-color: $color-message-error;
+    border-radius: var(--border-radius-containers);
+    background-color: var(--color-message-error);
     height: auto;
     width: 80%;
     padding: 3.75rem;
-    color: $color-white;
-    background: $color-bg-gradient;
+    color: var(--color-white);
+    background: var(--color-bg-gradient);
 
     &__title {
       @include apply-responsive-font-size($font-size-title);
-      font-family: $font-family-medium;
+      font-family: var(--font-family-medium);
     }
 
     &__subtitle {
       @include apply-responsive-font-size($font-size-subtitle);
-      font-family: $font-family-medium;
+      font-family: var(--font-family-medium);
       margin-top: 0.625rem;
     }
 
@@ -39,7 +38,7 @@
     &__button {
       @include buttons-back;
       width: 50%;
-      background-color: $color-black;
+      background-color: var(--color-black);
       display: block;
       margin: 0 auto;
       margin-top: 1.25rem;

@@ -1,6 +1,5 @@
-@import "../../../../../public/assets/custom_scss/variables";
-@import "../../../../../public/assets/custom_scss/media-queries";
-@import "../../../../../public/assets/custom_scss/_font-size.scss";
+@import "media-queries";
+@import "font-size";
 
 fhv-eye-button {
   @include apply-responsive-font-size($font-size-text);
@@ -8,7 +7,7 @@ fhv-eye-button {
   top: 2.25rem;
   right: 1rem;
   .fhv-eye-button {
-    color: $color-black;
+    color: var(--color-black);
     cursor: pointer;
   }
   @include media-breakpoint-down(lg) {

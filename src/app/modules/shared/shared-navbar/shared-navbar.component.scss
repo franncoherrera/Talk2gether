@@ -1,4 +1,3 @@
-@import "../../../../../public/assets/custom_scss/variables";
 
 
 fhv-shared-navbar {
@@ -8,9 +7,9 @@ fhv-shared-navbar {
     position: fixed;
     z-index: 999;
     width: 100%;
-    background-color: $color-base;
-    color: $color-black;
-    font-family: $font-family;
+    background-color: var(--color-base);
+    color: var(--color-black);
+    font-family: var(--font-family);
   }
   .dropdown-item {
     cursor: pointer;
