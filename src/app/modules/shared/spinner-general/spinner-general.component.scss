@@ -26,9 +26,9 @@
   height: 6.25rem;
   background: $color-background-home;
   border-radius: 50%;
-  box-shadow: -20px -10px 0 0 rgba(0, 0, 0, 0.1) inset,
-    -40px -10px 0 0 rgba(0, 0, 0, 0.1) inset,
-    5px 5px 0 0 rgba(255, 255, 255, 0.2) inset;
+  box-shadow: -1.25rem -0.625rem 0 0 rgba(0, 0, 0, 0.1) inset,
+    -2.5rem -0.625rem 0 0 rgba(0, 0, 0, 0.1) inset,
+    0.313rem 0.313rem 0 0 rgba(255, 255, 255, 0.2) inset;
   background: url(../../../../../public/assets/images/general/mapaPlano_spinner.svg);
   background-size: cover;
   animation: rotate-world 5s infinite linear;
@@ -48,6 +48,6 @@
     background-position: left center;
   }
   to {
-    background-position: -198.5px center;
+    background-position: -12.406rem center;
   }
 }
