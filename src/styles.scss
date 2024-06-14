@@ -1,14 +1,16 @@
-@import "../public/assets/custom_scss/variables.scss";
-@import "../public/assets/custom_scss/_font-size.scss";
+@import "../public/assets/custom_scss/variables";
+@import "../public/assets/custom_scss/_font-size";
+@import "../public/assets/custom_scss/custom-sweet-alert";
 
-/** Estilos generales**/
+/** General styles **/
 html {
   font-size: 16px;
 }
 
 body {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100vh;
   font-family: $font-family;
   font-size: 1rem;
   background-color: $color-base;
@@ -26,26 +28,6 @@ h6 {
   color: $color-black;
   margin: 0;
 }
-
-/* Definición de clase básica para los errores de formularios */
-.text-error {
-  color: $color-message-error;
-  font-weight: bold;
-  font-size: 0.9375rem;
-}
-
-/* Definición de clase básica de animación de los botones */
-.animation-button {
-  display: inline-block;
-  border: none;
-  cursor: pointer;
-  transition: all 300ms ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-
 
 
 

@@ -1,0 +1,67 @@
+@import "../../../../../../../public/assets/custom_scss/variables";
+@import "../../../../../../../public/assets/custom_scss/media-queries";
+@import "../../../../../../../public/assets/custom_scss/_font-size";
+@import "../../../../../../../public/assets/custom_scss/_buttons";
+@import "../../../../../../../public/assets/custom_scss/error-message";
+
+.fhv-login {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-image: url(../../../../../../../public/assets/images/homePage/p2.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 3.5rem);
+    width: 50%;
+    padding: 3.75rem;
+    border-radius: $border-radius-containers;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: $color-principal;
+    opacity: 0.9;
+    &__form {
+      margin: 0 auto;
+      width: 100%;
+      &__title {
+        text-align: center;
+        margin-bottom: 1.25rem;
+        color: $color-white;
+        font-family: $font-family-bold;
+        @include apply-responsive-font-size($font-size-title);
+      }
+      &__buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 1.25rem;
+
+        &-submit {
+          @include buttons-enabled;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .fhv-login {
+    &__container {
+      width: 60%;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .fhv-login {
+    &__container {
+      width: 100%;
+      border-radius: 0;
+      padding: 1rem;
+    }
+  }
+}

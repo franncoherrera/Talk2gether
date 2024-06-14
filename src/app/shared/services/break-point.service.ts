@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { BREAKPOINTS } from '../enums/windowSize.enum';
+import { BREAKPOINTS } from '../constants/windowSize.enum';
 @Injectable({
   providedIn: 'root',
 })

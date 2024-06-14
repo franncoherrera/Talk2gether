@@ -1,13 +1,14 @@
-/*Definición variables*/
+/* Variables definition */
 
-/* Colores */
+/* Colors */
 $color-base: aliceblue;
 $color-principal: #2b6a78;
 $color-background-home: #8cd1e9;
 $color-message-error: #ff9234;
 
-$color-button-submit: #199de8;
-$color-button-back: #909293;
+$color-bg-submit: #199de8;
+$color-bg-back: #909293;
+$color-style-back: #565658;
 $color-border: #ccc;
 $color-icon-princial: white;
 
@@ -16,18 +17,24 @@ $color-white: white;
 
 $color-letter-button: #fff;
 
-$color-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$color-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 
-/* Fuentes */
+/* Colors blocked route */
+
+$color-bg-blocked-user: antiquewhite;
+$color-bg-gradient: radial-gradient(circle, #ff7e5f, #feb47b);
+
+/* Fonts */
 $font-family: "Poppins Regular";
+$font-family-bold: "Poppins Semibold";
+$font-family-medium: "Poppins Medium";
+$font-family-light: "Poppins Light";
 
-/* Propiedades personalizadas */
-$border-radius-containers: 2rem;
-$border-radius-input: 1.5rem;
-$border-radius-button: 0.625rem;
+/* Custom properties */
+$border-radius-containers: 0.75rem;
+$border-radius-input: 0.25rem;
+$border-radius-button: 0.25rem;
 
+/* Necessary imports */
 
-
-/* Imports necesarios */
-
-@import "_fonts.scss";
+@import "_fonts";

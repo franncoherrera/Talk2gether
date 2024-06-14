@@ -1,5 +1,8 @@
 {
   "common": {
+    "loader":{
+      "loading": "Cargando..."
+    },
     "home_page": {
       "first_container": {
         "title": "Aprende idiomas con Talk2gether",
@@ -14,6 +17,31 @@
         "description": "Experimenta diferentes culturas y adquiere conocimientos sobre sus costumbres, tradiciones y forma de vida."
       },
       "copyright_message": "Copyright © 2023-2023 Talk2gether"
+    },
+    "login_page": {
+      "login_title": "¡Bienvenido!",
+      "login_email": "Correo",
+      "account_deleted_title": "Su cuenta ha sido eliminada por:",
+      "login_submit_button": "Iniciar sesión",
+      "login_forgot_password": "¿Olvidaste tu contraseña?",
+      "return_home_page": "Volver a la página principal",
+      "login_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com",
+      "login_email_required": "El email es requerido",
+      "login_password": "Contraseña",
+      "login_password_required": "La contraseña es requerido",
+      "login_email_pasword_error": "Correo o contraseña inválida",
+      "login_email_placeholder": "Ingresá tu usuario",
+      "login_pass_placeholder": "Ingresá tu contraseña"
+    },
+    "error": {
+      "general_error_title": "Ops...",
+      "general_error_description": "¡Algo anda mal! Intente nuevamente mas tarde.",
+      "general_error_not_loaded": "No se cargó correctamente, intente nuevamente mas tarde",
+      "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada."
+    },
+    "blocked_page": {
+      "account_deleted_title": "Su cuenta ha sido eliminada por:",
+      "return_home_page": "Volver a la página principal"
     }
   }
 }

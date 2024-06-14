@@ -1,0 +1,57 @@
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+} from '@angular/common/http';
+import { Inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { AUTH_TOKEN } from './auth.token';
+import { SesionService } from './sesion.service';
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(
+    @Inject(AUTH_TOKEN) private authToken: string,
+    private sesion: SesionService
+  ) {}
+
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    if (this.sesion.isLoggedIn()) {
+      if (this.authToken == null) {
+        window.location.reload();
+      }
+      const authReq = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${this.authToken}`,
+        },
+      });
+      //TODO deprecado
+      return next.handle(authReq).pipe(
+        catchError((err: any) => {
+          if (err && err instanceof HttpErrorResponse) {
+            if (err.status === 401) {
+              return throwError(err);
+            }
+            if (err.status === 500) {
+              return throwError(err);
+            }
+            if (err.status === 0) {
+              const Error0 = 0;
+              return throwError(Error0);
+            }
+          }
+          return throwError(err);
+        })
+      );
+    } else {
+      return next.handle(req);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../../../public/assets/custom_scss/variables";
+@import "../../../../../public/assets/custom_scss/media-queries";
+@import "../../../../../public/assets/custom_scss/_font-size.scss";
+
+fhv-eye-button {
+  @include apply-responsive-font-size($font-size-text);
+  position: absolute;
+  top: 2.25rem;
+  right: 1rem;
+  .fhv-eye-button {
+    color: $color-black;
+    cursor: pointer;
+  }
+  @include media-breakpoint-down(lg) {
+    top: 2rem;
+  }
+}

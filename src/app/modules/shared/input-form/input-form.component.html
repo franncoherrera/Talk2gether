@@ -1,0 +1,24 @@
+<form class="form-group fhv-input-form" [formGroup]="formGroup">
+  <label class="fhv-input-form__label" for="{{ name }}">{{ label }}</label>
+  <input
+    #input
+    class="form-control fhv-input-form__input"
+    [type]="type"
+    [name]="name"
+    [id]="name"
+    placeholder="placeholder"
+    [formControlName]="name"
+    [max]="maxlength"
+    [min]="minlength"
+    [placeholder]="placeholder"
+    [required]="required"
+  />
+  <ng-content></ng-content>
+  @if (initialType) {
+  <div class="fhv-input-form__eye">
+    <fhv-eye-button
+      (passwordTypeEmitter)="updatePasswordType($event)"
+    ></fhv-eye-button>
+  </div>
+  }
+</form>

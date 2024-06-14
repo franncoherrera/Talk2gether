@@ -1,0 +1,109 @@
+@import "./variables";
+@import "./_font-size";
+@import "./media-queries";
+
+@mixin buttons-enabled {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: $color-bg-submit;
+  text-decoration: none;
+  @include apply-responsive-font-size($font-size-text);
+  padding: 0.5em 0.75em;
+  color: $color-letter-button;
+  text-transform: uppercase;
+  border: 0.15em solid $color-background-home;
+  width: 100%;
+  transition: 2s;
+  font-family: $font-family-medium;
+  border-radius: $border-radius-button;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba($color-background-home, 0.25);
+    transition: 4s;
+  }
+
+  &:before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+  }
+
+  &:after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+
+    &:before,
+    &:after {
+      transform: none;
+      background-color: rgba($color-background-home, 0.75);
+    }
+  }
+}
+
+@mixin buttons-back {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background-color: $color-bg-back;
+  text-decoration: none;
+  @include apply-responsive-font-size($font-size-text);
+  padding: 0.5em 0.75em;
+  color: $color-letter-button;
+  text-transform: uppercase;
+  border: 0.15em solid $color-style-back;
+  width: 100%;
+  transition: 2s;
+  font-family: $font-family-medium;
+  border-radius: $border-radius-button;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: -1.5em;
+    z-index: -1;
+    width: 200%;
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 40%;
+    background-color: rgba($color-style-back, 0.25);
+    transition: 4s;
+  }
+
+  &:before {
+    left: -80%;
+    transform: translate3d(0, 5em, 0) rotate(-340deg);
+  }
+
+  &:after {
+    right: -80%;
+    transform: translate3d(0, 5em, 0) rotate(390deg);
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+
+    &:before,
+    &:after {
+      transform: none;
+      background-color: rgba($color-style-back, 0.75);
+    }
+  }
+}
+
