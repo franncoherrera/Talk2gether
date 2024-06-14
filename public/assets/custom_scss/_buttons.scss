@@ -1,23 +1,22 @@
-@import "./variables";
-@import "./_font-size";
-@import "./media-queries";
+@import "font-size";
+@import "media-queries";
 
 @mixin buttons-enabled {
   display: inline-block;
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background-color: $color-bg-submit;
+  background-color: var(--color-bg-submit);
   text-decoration: none;
   @include apply-responsive-font-size($font-size-text);
   padding: 0.5em 0.75em;
-  color: $color-letter-button;
+  color: var(--color-letter-button);
   text-transform: uppercase;
-  border: 0.15em solid $color-background-home;
+  border: 0.15em solid var(--color-background-home);
   width: 100%;
   transition: 2s;
-  font-family: $font-family-medium;
-  border-radius: $border-radius-button;
+  font-family: var(--font-family-medium);
+  border-radius: var(--border-radius-button);
 
   &:before,
   &:after {
@@ -29,7 +28,7 @@
     aspect-ratio: 1;
     border: none;
     border-radius: 40%;
-    background-color: rgba($color-background-home, 0.25);
+    background-color: rgba(#8cd1e9, 0.25);
     transition: 4s;
   }
 
@@ -45,12 +44,12 @@
 
   &:hover,
   &:focus {
-    color: $color-white;
+    color: var(--color-white);
 
     &:before,
     &:after {
       transform: none;
-      background-color: rgba($color-background-home, 0.75);
+      background-color: rgba(#8cd1e9, 0.75);
     }
   }
 }
@@ -60,17 +59,17 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  background-color: $color-bg-back;
+  background-color: var(--color-bg-back);
   text-decoration: none;
   @include apply-responsive-font-size($font-size-text);
   padding: 0.5em 0.75em;
-  color: $color-letter-button;
+  color: var(--color-letter-button);
   text-transform: uppercase;
-  border: 0.15em solid $color-style-back;
+  border: 0.15em solid var(--color-style-back);
   width: 100%;
   transition: 2s;
-  font-family: $font-family-medium;
-  border-radius: $border-radius-button;
+  font-family: var(--font-family-medium);
+  border-radius: var(--border-radius-button);
   &:before,
   &:after {
     content: "";
@@ -81,7 +80,7 @@
     aspect-ratio: 1;
     border: none;
     border-radius: 40%;
-    background-color: rgba($color-style-back, 0.25);
+    background-color: rgba(#565658, 0.25);
     transition: 4s;
   }
 
@@ -97,13 +96,12 @@
 
   &:hover,
   &:focus {
-    color: $color-white;
+    color: var(--color-white);
 
     &:before,
     &:after {
       transform: none;
-      background-color: rgba($color-style-back, 0.75);
+      background-color: rgba(#565658, 0.75);
     }
   }
 }
-

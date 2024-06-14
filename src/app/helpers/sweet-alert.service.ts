@@ -8,7 +8,7 @@ import Swal, {
   providedIn: 'root',
 })
 export class SweetAlertService {
-  /* Custon color --> $color-principal in variables.scss*/
+  /* Custon color --> var(--color-principal) in styles.scss*/
   private readonly confirmButtonColor: string = '#2b6a78';
   /* Sweet alert classes */
   private readonly showClassPopUp: string =

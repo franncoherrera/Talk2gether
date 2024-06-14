@@ -1,8 +1,8 @@
-@import "./variables";
-@import "./_font-size";
+
+@import "font-size";
 
 /** Custom sweet-alert styles **/
 .swal2-title {
-  font-family: $font-family;
+  font-family: var(--font-family);
   @include apply-responsive-font-size($font-size-subtitle);
 }

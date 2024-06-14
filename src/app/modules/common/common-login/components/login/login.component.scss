@@ -1,8 +1,7 @@
-@import "../../../../../../../public/assets/custom_scss/variables";
-@import "../../../../../../../public/assets/custom_scss/media-queries";
-@import "../../../../../../../public/assets/custom_scss/_font-size";
-@import "../../../../../../../public/assets/custom_scss/_buttons";
-@import "../../../../../../../public/assets/custom_scss/error-message";
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+@import "error-message";
 
 .fhv-login {
   display: flex;
@@ -18,10 +17,10 @@
     min-height: calc(100vh - 3.5rem);
     width: 50%;
     padding: 3.75rem;
-    border-radius: $border-radius-containers;
+    border-radius: var(--border-radius-containers);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: $color-principal;
+    background-color: var(--color-principal);
     opacity: 0.9;
     &__form {
       margin: 0 auto;
@@ -29,8 +28,8 @@
       &__title {
         text-align: center;
         margin-bottom: 1.25rem;
-        color: $color-white;
-        font-family: $font-family-bold;
+        color: var(--color-white);
+        font-family: var(--font-family)-bold;
         @include apply-responsive-font-size($font-size-title);
       }
       &__buttons {
