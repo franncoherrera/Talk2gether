@@ -28,7 +28,7 @@
       "login_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com",
       "login_email_required": "El email es requerido",
       "login_password": "Contraseña",
-      "login_password_required": "La contraseña es requerido",
+      "login_password_required": "La contraseña es requerida",
       "login_email_pasword_error": "Correo o contraseña inválida",
       "login_email_placeholder": "Ingresá tu usuario",
       "login_pass_placeholder": "Ingresá tu contraseña"

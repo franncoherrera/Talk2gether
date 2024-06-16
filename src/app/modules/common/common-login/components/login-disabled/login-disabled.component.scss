@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 3.5rem);
+  min-height: var(--height-components);
   background: var(--color-bg-blocked-user);
   &__box {
     border-radius: var(--border-radius-containers);
