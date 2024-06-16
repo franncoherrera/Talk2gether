@@ -10,7 +10,7 @@ html {
 :root {
   /* Colors */
   --color-base: aliceblue;
-  --color-principal: #2b6a78;
+  --color-primary: #1b3149;
   --color-background-home: #8cd1e9;
   --color-message-error: #ff9234;
   --color-bg-submit: #199de8;
@@ -34,6 +34,7 @@ html {
   --border-radius-containers: 0.75rem;
   --border-radius-input: 0.25rem;
   --border-radius-button: 0.25rem;
+  --height-components: calc(100vh - 3.5rem);
 }
 
 body {

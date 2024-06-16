@@ -42,7 +42,7 @@
     &__epigraph {
       @include apply-responsive-font-size($font-size-text);
       padding: 0.9375rem;
-      color: var(--color-principal);
+      color: var(--color-primary);
       font-family: var(--font-family);
     }
 
