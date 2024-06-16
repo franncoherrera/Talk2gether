@@ -14,8 +14,7 @@ import { CommonLoginService } from '../../services/common-login.service';
 @Component({
   selector: 'fhv-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
-  encapsulation: ViewEncapsulation.None
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
