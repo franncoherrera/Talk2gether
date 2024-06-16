@@ -3,15 +3,21 @@
 @import "_buttons.scss";
 @import "error-message";
 
+/* Mixin only for login component */
+@mixin background-login {
+  background-image: url(../../../../../../../public/assets/images/login/people.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .fhv-login {
   display: flex;
   justify-content: end;
   align-items: center;
   background-color: var(--color-primary);
   &__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @extend %flex-align-justify-center;
     min-height: var(--height-components);
     width: 50%;
     padding: 8rem;
@@ -47,9 +53,7 @@
         @include apply-responsive-font-size($font-size-title);
       }
       &__buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @extend %flex-align-justify-center;
         flex-direction: column;
         row-gap: 1.25rem;
 
@@ -62,10 +66,7 @@
   &__figure {
     min-height: var(--height-components);
     width: 50%;
-    background-image: url(../../../../../../../public/assets/images/login/people.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include background-login;
   }
 }
 
@@ -87,10 +88,7 @@
 
 @include media-breakpoint-down(md) {
   .fhv-login {
-    background-image: url(../../../../../../../public/assets/images/login/people.jpg);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    @include background-login;
     justify-content: center;
     &__figure {
       display: none;
@@ -114,4 +112,11 @@
       }
     }
   }
+}
+
+
+%flex-align-justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
