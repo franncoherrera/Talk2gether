@@ -1,0 +1,37 @@
+@mixin dotted-line-before {
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    width: 1rem;
+    height: var(--height-components);
+    background-image: -webkit-repeating-radial-gradient(
+      center center,
+      var(--color-white),
+      var(--color-white) 0.063rem,
+      transparent 0,
+      transparent 100%
+    );
+    background-size: 0.375rem 0.375rem;
+    opacity: 0.7;
+  }
+}
+@mixin dotted-line-after {
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      width: 1rem;
+      height: var(--height-components);
+      background-image: -webkit-repeating-radial-gradient(
+        center center,
+        var(--color-white),
+        var(--color-white) 0.063rem,
+        transparent 0,
+        transparent 100%
+      );
+      background-size: 0.375rem 0.375rem;
+      opacity: 0.7;
+    }
+  }
+  
