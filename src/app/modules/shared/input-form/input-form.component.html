@@ -3,6 +3,11 @@
   <input
     #input
     class="form-control fhv-input-form__input"
+    [ngClass]="
+      submitForm && !!control?.errors
+        ? 'fhv-input-form__input__error'
+        : 'fhv-input-form__input__focus'
+    "
     [type]="type"
     [name]="name"
     [id]="name"
@@ -11,9 +16,8 @@
     [max]="maxlength"
     [min]="minlength"
     [placeholder]="placeholder"
-    [required]="required"
   />
-  <ng-content></ng-content>
+  <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
   @if (initialType) {
   <div class="fhv-input-form__eye">
     <fhv-eye-button

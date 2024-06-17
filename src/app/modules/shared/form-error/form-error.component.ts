@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -11,5 +12,6 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class FormErrorComponent {
   @Input() showError: boolean;
-  @Input() errorMessage: string;
+  @Input() errorMessage?: string;
+  @Input() control: FormControl;
 }

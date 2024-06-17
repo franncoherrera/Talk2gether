@@ -25,8 +25,6 @@
       "login_submit_button": "Log in",
       "login_forgot_password": "Forgot your password?",
       "return_home_page": "Return to homepage",
-      "login_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
-      "login_email_required": "Email is required",
       "login_password": "Password",
       "login_password_required": "Password is required",
       "login_email_pasword_error": "Invalid email or password",
@@ -37,7 +35,9 @@
       "general_error_title": "Oops...",
       "general_error_description": "Something went wrong! Please try again later.",
       "general_error_not_loaded": "It did not load correctly, please try again later.",
-      "general_error_logged": "You are already logged in. You cannot access the requested screen."
+      "general_error_logged": "You are already logged in. You cannot access the requested screen.",
+      "email_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
+      "required_error": "The field is required"
     },
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",

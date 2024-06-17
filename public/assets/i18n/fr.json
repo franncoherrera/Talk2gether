@@ -25,8 +25,6 @@
       "login_submit_button": "Se connecter",
       "login_forgot_password": "Mot de passe oublié?",
       "return_home_page": "Retour à la page d'accueil",
-      "login_structure_error": "L'email ne respecte pas une structure. Exemple: bonjour@talk2gether.com",
-      "login_email_required": "L'email est requis",
       "login_password": "Mot de passe",
       "login_password_required": "Le mot de passe est requis",
       "login_email_pasword_error": "Email ou mot de passe invalide",
@@ -37,7 +35,9 @@
       "general_error_title": "Oups...",
       "general_error_description": "Quelque chose s'est mal passé ! Veuillez réessayer plus tard.",
       "general_error_not_loaded": "Le chargement a échoué, veuillez réessayer plus tard.",
-      "general_error_logged": "Vous êtes déjà connecté. Vous ne pouvez pas accéder à l'écran demandé."
+      "general_error_logged": "Vous êtes déjà connecté. Vous ne pouvez pas accéder à l'écran demandé.",
+      "email_structure_error": "L'email ne respecte pas une structure. Exemple: bonjour@talk2gether.com",
+      "required_error": "Ce champ est requis"
     },
     "blocked_page": {
       "account_deleted_title": "Votre compte a été supprimé pour :",

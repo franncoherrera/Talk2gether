@@ -1,20 +1,20 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, map } from 'rxjs';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { VALIDATOR_PATTERNS } from '../../../../../shared/constants/patterns';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
+import { CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
 
 @Component({
   selector: 'fhv-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
@@ -27,17 +27,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     private commonLoginService: CommonLoginService,
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(
       {
         email: new FormControl('', [
-          Validators.pattern(VALIDATOR_PATTERNS.patternEmail),
-          Validators.required,
+          CUSTOM_EMAIL_PATTERN,
+          CUSTOM_REQUIRED,
         ]),
-        password: new FormControl('', [Validators.required]),
+        password: new FormControl('', [CUSTOM_REQUIRED]),
       },
       {
         updateOn: 'change',
@@ -106,6 +106,14 @@ export class LoginComponent implements OnInit, OnDestroy {
         break;
       }
     }
+  }
+
+  get emailControl(): FormControl {
+    return this.loginForm.get('email') as FormControl;
+  }
+
+  get passwordControl(): FormControl {
+    return this.loginForm.get('password') as FormControl;
   }
 
   ngOnDestroy(): void {
