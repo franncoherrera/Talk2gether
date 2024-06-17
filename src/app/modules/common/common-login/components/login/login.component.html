@@ -12,9 +12,9 @@
       <fhv-input-form
         [name]="'email'"
         label="{{ 'common.login_page.login_email' | translate }}"
-        [type]="'email'"
+        [type]="INPUT_TYPE.EMAIL"
         [formGroup]="loginForm"
-        [control]="emailControl"
+        [control]="formService.formControl(loginForm,'email')"
         placeholder="{{
           'common.login_page.login_email_placeholder' | translate
         }}"
@@ -24,9 +24,9 @@
       <fhv-input-form
         [name]="'password'"
         label="{{ 'common.login_page.login_password' | translate }}"
-        [type]="'password'"
+        [type]="INPUT_TYPE.PASSWORD"
         [formGroup]="loginForm"
-        [control]="passwordControl"
+        [control]="formService.formControl(loginForm,'password')"
         placeholder="{{
           'common.login_page.login_pass_placeholder' | translate
         }}"

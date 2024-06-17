@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class';
 import { CommonModule } from '@angular/common';
+import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 
 @Component({
   selector: 'fhv-eye-button',
@@ -25,9 +26,9 @@ export class EyeButtonComponent {
     if (!fromRepeat) {
       this.showPassword = !this.showPassword;
       if (this.showPassword) {
-        this.passwordTypeEmitter.emit('text');
+        this.passwordTypeEmitter.emit(INPUT_TYPE.TEXT);
       } else {
-        this.passwordTypeEmitter.emit('password');
+        this.passwordTypeEmitter.emit(INPUT_TYPE.PASSWORD);
       }
     }
   }

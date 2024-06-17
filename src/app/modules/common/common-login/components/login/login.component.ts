@@ -10,6 +10,8 @@ import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
 import { CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { FormService } from '../../../../../shared/services/form.service';
 
 @Component({
   selector: 'fhv-login',
@@ -20,14 +22,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   submitForm: boolean = false;
   submitError: boolean = false;
-  passwordType: string = 'password';
+  INPUT_TYPE = INPUT_TYPE;
   sessionSubscription: Subscription;
   constructor(
     private router: Router,
     private commonLoginService: CommonLoginService,
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    protected formService: FormService
   ) {}
 
   ngOnInit(): void {
@@ -106,14 +109,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         break;
       }
     }
-  }
-
-  get emailControl(): FormControl {
-    return this.loginForm.get('email') as FormControl;
-  }
-
-  get passwordControl(): FormControl {
-    return this.loginForm.get('password') as FormControl;
   }
 
   ngOnDestroy(): void {
