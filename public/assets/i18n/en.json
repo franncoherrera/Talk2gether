@@ -3,6 +3,14 @@
     "loader": {
       "loading": "Loading..."
     },
+    "error": {
+      "general_error_title": "Oops...",
+      "general_error_description": "Something went wrong! Please try again later.",
+      "general_error_not_loaded": "It did not load correctly, please try again later.",
+      "general_error_logged": "You are already logged in. You cannot access the requested screen.",
+      "email_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
+      "required_error": "The field is required"
+    },
     "home_page": {
       "first_container": {
         "title": "Learn languages with Talk2gether",
@@ -30,14 +38,6 @@
       "login_email_pasword_error": "Invalid email or password",
       "login_email_placeholder": "Enter your email",
       "login_pass_placeholder": "Enter your password"
-    },
-    "error": {
-      "general_error_title": "Oops...",
-      "general_error_description": "Something went wrong! Please try again later.",
-      "general_error_not_loaded": "It did not load correctly, please try again later.",
-      "general_error_logged": "You are already logged in. You cannot access the requested screen.",
-      "email_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
-      "required_error": "The field is required"
     },
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",

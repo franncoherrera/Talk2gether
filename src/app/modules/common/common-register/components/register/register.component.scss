@@ -1,0 +1,69 @@
+@import "dotted-line";
+@import "font-size";
+@import "buttons";
+
+.fhv-register {
+  min-height: var(--height-components);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-image: url(../../../../../../../public/assets/images/register/words.jpg);
+  background-size: contain;
+  background-position: center center;
+  z-index: 1;
+
+  &__container {
+    width: calc(100% - 25rem);
+    padding: 3rem;
+    position: relative;
+    z-index: 1;
+    margin: 2rem 0;
+    &__title {
+      display: flex;
+      flex-direction: column;
+      @include apply-responsive-font-size($font-size-title);
+      color: var(--color-white);
+      font-family: var(--font-family-bold);
+      height: auto;
+    }
+    &-subtitle {
+      @include apply-responsive-font-size($font-size-subtitle);
+      padding-top: 2rem;
+    }
+    &__form {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding-top: 2rem;
+      column-gap: 3rem;
+      row-gap: 1.5rem;
+    }
+    &::after {
+      border-radius: var(--border-radius-containers);
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.98;
+      background-color: var(--color-primary);
+      z-index: -1;
+    }
+
+    &__buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 4rem;
+      &-next {
+        @include buttons-enabled;
+        width: 30%;
+      }
+
+      &-back {
+        @include buttons-back;
+        width: 30%;
+      }
+    }
+  }
+}

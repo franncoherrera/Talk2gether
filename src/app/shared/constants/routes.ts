@@ -7,5 +7,6 @@ export const ROUTES_PATH = {
   LOGIN_PATH: 'login',
   /* User blocked by administrator route*/
   USER_BLOCKED_BY_ADMIN: 'bloqueado',
+  REGISTER_PATH: 'registro',
 
 };

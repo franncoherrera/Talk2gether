@@ -27,8 +27,9 @@ export class InputFormComponent {
   @Input() type: string;
   @Input() minlength?: string;
   @Input() maxlength?: string;
-  @Input() placeholder: string;
+  @Input() placeholder?: string;
   @Input() submitForm: boolean;
+  @Input() accept?: string;
 
   ngOnInit() {
     this.type === 'password'

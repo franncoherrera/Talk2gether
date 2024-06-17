@@ -1,0 +1,147 @@
+<div class="fhv-register">
+  <div class="fhv-register__container">
+    <div class="fhv-register__container__title">
+      <span>
+        {{ "common.register_page.register_title" | translate }}
+      </span>
+      <span class="fhv-register__container-subtitle">
+        {{ "common.register_page.register_subtitle_personal_data" | translate }}
+      </span>
+    </div>
+    <form class="fhv-register__container__form" [formGroup]="registerForm">
+      <fhv-input-form
+        [name]="'userName'"
+        label="{{ 'common.register_page.register_name' | translate }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'userName')"
+        placeholder="{{
+          'common.register_page.register_name_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'userSurname'"
+        label="{{ 'common.register_page.register_surname' | translate }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'userSurname')"
+        placeholder="{{
+          'common.register_page.register_surname_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'dateBorn'"
+        label="{{ 'common.register_page.register_dateBorn' | translate }}"
+        [type]="INPUT_TYPE.DATE"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'dateBorn')"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'country'"
+        label="{{ 'common.register_page.register_country' | translate }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'country')"
+        placeholder="{{
+          'common.register_page.register_country_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'nativeLanguage'"
+        label="{{
+          'common.register_page.register_native_language' | translate
+        }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'nativeLanguage')"
+        placeholder="{{
+          'common.register_page.register_native_language_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'urlPhoto'"
+        label="{{ 'common.register_page.register_photo' | translate }}"
+        [type]="INPUT_TYPE.FILE"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'urlPhoto')"
+        [submitForm]="submitForm"
+        [accept]="IMAGE_FORMAT.imagePermittedFormat"
+      >
+      </fhv-input-form>
+    </form>
+    <div class="fhv-register__container__title">
+      <span class="fhv-register__container-subtitle">
+        {{ "common.register_page.register_subtitle_account" | translate }}
+      </span>
+    </div>
+    <form class="fhv-register__container__form" [formGroup]="registerForm">
+      <fhv-input-form
+        [name]="'email'"
+        label="{{ 'common.register_page.register_email' | translate }}"
+        [type]="INPUT_TYPE.EMAIL"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'email')"
+        placeholder="{{
+          'common.register_page.register_email_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'password'"
+        label="{{ 'common.register_page.register_password' | translate }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'password')"
+        placeholder="{{
+          'common.register_page.register_password_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+      <fhv-input-form
+        [name]="'repeatPassword'"
+        label="{{
+          'common.register_page.register_repeat_password' | translate
+        }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'repeatPassword')"
+        placeholder="{{
+          'common.register_page.register_repeat_password_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+      >
+      </fhv-input-form>
+    </form>
+    <div class="fhv-register__container__title">
+      <span class="fhv-register__container-subtitle">
+        {{ "common.register_page.register_subtitle_interest" | translate }}
+      </span>
+    </div>
+    <form
+      class="fhv-register__container__form"
+      [formGroup]="registerForm"
+    ></form>
+    <div class="fhv-register__container__buttons">
+      <button type="submit" class="fhv-register__container__buttons-back">
+        {{ "common.register_page.register_button_back" | translate }}
+      </button>
+      <button type="submit" class="fhv-register__container__buttons-next">
+        {{ "common.register_page.register_button_next" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
