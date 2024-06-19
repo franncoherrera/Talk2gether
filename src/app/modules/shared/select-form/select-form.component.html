@@ -1,0 +1,22 @@
+<form class="form-group fhv-select-form" [formGroup]="selectFormGroup">
+  <label class="fhv-select-form__label" for="{{ name }}">{{ label }}</label>
+  <ng-select
+    class="form-control"
+    [formControlName]="'selectControlName'"
+    [placeholder]="placeholder"
+    [clearable]="true"
+    [searchable]="true"
+    [ngClass]="{
+      'fhv-select-form__focus': isSelected,
+      'fhv-select-form__error': submitForm && !!control?.errors,
+    }"
+    (focus)="onSelectFocus()"
+    (blur)="onSelectBlur()"
+    (change)="onSelectChange($event)"
+  >
+    <ng-option *ngFor="let option of options">
+      {{ option }}
+    </ng-option>
+  </ng-select>
+  <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+</form>
