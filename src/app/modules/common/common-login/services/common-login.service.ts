@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
-import { USER_SESSION } from '../../../../shared/models/userSession';
+import { USER_SESSION } from '../../../../shared/models/userSession.model';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
-import { TOKEN_SESSION } from '../../../../shared/models/tokenSession';
+import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 
 @Injectable({
   providedIn: 'root',
