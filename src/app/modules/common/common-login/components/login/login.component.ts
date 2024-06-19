@@ -6,7 +6,7 @@ import { Subscription, map } from 'rxjs';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
+import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession.model';
 import { CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
