@@ -28,5 +28,8 @@
     &__error {
       box-shadow: 0 0 0 0.15rem var(--color-message-error);
     }
+    &::placeholder {
+      @include apply-responsive-font-size($font-size-text);
+    }
   }
 }
