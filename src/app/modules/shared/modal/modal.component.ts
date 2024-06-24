@@ -1,0 +1,19 @@
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+@Component({
+  selector: 'fhv-modal',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './modal.component.html',
+  styleUrl: './modal.component.scss',
+})
+export class ModalComponent {
+  @Input() loadModal: boolean;
+  @Input() modalTitle: string;
+  @Output() loadComponent: EventEmitter<boolean> = new EventEmitter();
+
+  closeModal() {
+    this.loadComponent.emit(false);
+  }
+}
