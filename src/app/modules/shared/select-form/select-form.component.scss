@@ -29,10 +29,27 @@
   .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
     box-shadow: 0 0 0 0.15rem transparent;
   }
+  .ng-select.ng-select-single
+    .ng-select-container
+    .ng-value-container
+    .ng-value,
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option,
   .ng-placeholder {
     @include apply-responsive-font-size($font-size-text);
   }
   .ng-select .ng-select-container .ng-value-container {
     padding-left: 0;
+  }
+  .ng-select.ng-select-single
+    .ng-select-container
+    .ng-value-container
+    .ng-input {
+    padding-left: 0;
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

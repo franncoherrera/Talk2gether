@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import {
   Component,
-  EventEmitter,
   Input,
-  Output,
-  ViewEncapsulation,
+  ViewEncapsulation
 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -50,7 +48,6 @@ export class SelectFormComponent {
     this.isSelected = !this.isSelected;
   }
   onSelectChange(event: any) {
-    console.log(event)
     if (!!event?.$ngOptionLabel) {
       this.control.setValue(event?.$ngOptionLabel);
     } else {
