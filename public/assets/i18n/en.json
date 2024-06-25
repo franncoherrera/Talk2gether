@@ -6,10 +6,14 @@
     "error": {
       "general_error_title": "Oops...",
       "general_error_description": "Something went wrong! Please try again later.",
-      "general_error_not_loaded": "It did not load correctly, please try again later.",
-      "general_error_logged": "You are already logged in. You cannot access the requested screen.",
-      "email_structure_error": "The email does not follow a correct structure. Example: hello@talk2gether.com",
-      "required_error": "The field is required"
+      "general_error_not_loaded": "Did not load correctly, please try again later",
+      "general_error_only_letters": "You can only enter letters in this field",
+      "general_error_minimun_age": "You do not meet the minimum age requirement",
+      "general_error_max_length_text": "Exceeds the maximum possible characters",
+      "general_error_image_type": "The image must be of type .jpg, .jpeg, .png",
+      "general_error_logged": "You are logged in. You cannot access the requested screen.",
+      "email_structure_error": "The email does not follow a valid structure. Example: hello@talk2gether.com",
+      "required_error": "This field is required"
     },
     "home_page": {
       "first_container": {
@@ -42,6 +46,38 @@
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",
       "return_home_page": "Return to homepage"
+    },
+    "register_page": {
+      "register_title": "Register",
+      "register_subtitle_personal_data": "Personal Data",
+      "register_subtitle_account": "Account",
+      "register_subtitle_interest": "Interests",
+      "register_button_back": "Back",
+      "register_button_next": "Register",
+      "register_name": "Name*",
+      "register_name_placeholder": "Enter your name",
+      "register_surname": "Surname*",
+      "register_surname_placeholder": "Enter your surname",
+      "register_dateBorn": "Date of Birth*",
+      "register_email": "Email*",
+      "register_email_placeholder": "Enter your email",
+      "register_password": "Password*",
+      "register_password_placeholder": "Enter your password",
+      "register_repeat_password": "Repeat Password*",
+      "register_repeat_password_placeholder": "Enter your password again",
+      "register_country": "Country*",
+      "register_country_placeholder": "Select a country",
+      "register_native_language": "Native Language*",
+      "register_native_language_placeholder": "Select your native language",
+      "register_photo": "Profile Photo*",
+      "register_learn_language": "Language to Learn*",
+      "register_learn_language_placeholder": "Select the language to learn",
+      "register_level_language": "Language Level*",
+      "register_level_language_placeholder": "Select the language level",
+      "register_description": "Tell us a bit about yourself*",
+      "register_description_placeholder": "Describe yourself and what you like to do...",
+      "register_interest": "Interests*",
+      "register_interest_placeholder": "Select your interests"
     }
   }
 }

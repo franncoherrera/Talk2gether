@@ -3,6 +3,18 @@
     "loader": {
       "loading": "Cargando..."
     },
+    "error": {
+      "general_error_title": "Ops...",
+      "general_error_description": "¡Algo anda mal! Intente nuevamente mas tarde.",
+      "general_error_not_loaded": "No se cargó correctamente, intente nuevamente mas tarde",
+      "general_error_only_letters": "Solo puede ingresar letras en este campo",
+      "general_error_minimun_age": "No cumple con la mayoría de edad",
+      "general_error_max_length_text": "Supera el máximo de caracteres posibles",
+      "general_error_image_type": "La imagen debe ser del tipo .jpg, .jpeg, .png",
+      "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada.",
+      "email_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com",
+      "required_error": "El campo es requerido"
+    },
     "home_page": {
       "first_container": {
         "title": "Aprende idiomas con Talk2gether",
@@ -31,17 +43,41 @@
       "login_email_placeholder": "Ingresá tu usuario",
       "login_pass_placeholder": "Ingresá tu contraseña"
     },
-    "error": {
-      "general_error_title": "Ops...",
-      "general_error_description": "¡Algo anda mal! Intente nuevamente mas tarde.",
-      "general_error_not_loaded": "No se cargó correctamente, intente nuevamente mas tarde",
-      "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada.",
-      "email_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com",
-      "required_error": "El campo es requerido"
-    },
     "blocked_page": {
       "account_deleted_title": "Su cuenta ha sido eliminada por:",
       "return_home_page": "Volver a la página principal"
+    },
+    "register_page": {
+      "register_title": "Registro",
+      "register_subtitle_personal_data": "Datos personales",
+      "register_subtitle_account": "Cuenta",
+      "register_subtitle_interest": "Intereses",
+      "register_button_back": "Volver",
+      "register_button_next": "Registrarse",
+      "register_name": "Nombre*",
+      "register_name_placeholder": "Ingresá tu nombre",
+      "register_surname": "Apellido*",
+      "register_surname_placeholder": "Ingresá tu apellido",
+      "register_dateBorn": "Fecha de Nacimiento*",
+      "register_email": "Correo electrónico*",
+      "register_email_placeholder": "Ingresá tu correo electrónico",
+      "register_password": "Constraseña*",
+      "register_password_placeholder": "Ingrese su contraseña",
+      "register_repeat_password": "Repetir contraseña*",
+      "register_repeat_password_placeholder": "Ingrese su contraseña nuevamente",
+      "register_country": "Pais*",
+      "register_country_placeholder": "Selecciona un país",
+      "register_native_language": "Idioma Nativo*",
+      "register_native_language_placeholder": "Selecciona tu idioma nativo",
+      "register_photo": "Foto de Perfil*",
+      "register_learn_language": "Idioma a aprender*",
+      "register_learn_language_placeholder": "Selecciona el idioma a aprender",
+      "register_level_language": "Nivel de idioma*",
+      "register_level_language_placeholder": "Selecciona el nivel idioma a aprender",
+      "register_description": "Cuéntanos un poco de ti*",
+      "register_description_placeholder": "Escribe como eres y que te gusta hacer...",
+      "register_interest": "Intereses*",
+      "register_interest_placeholder": "Selecciona tus intereses"
     }
   }
 }
