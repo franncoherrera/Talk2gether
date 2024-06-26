@@ -31,8 +31,8 @@ export class ParameterService {
     return this.httpClient.get<string[]>(url);
   }
 
-  getActiveInterests(): Observable<INTEREST>{
+  getActiveInterests(): Observable<INTEREST[]>{
     const url = this.urlBuilderService.buildUrl(ENDPOINTS.INTERESTS_ACTIVE);
-    return this.httpClient.get<INTEREST>(url);
+    return this.httpClient.get<INTEREST[]>(url);
   }
 }

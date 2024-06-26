@@ -12,7 +12,11 @@ export const VALIDATOR_SIZE = {
 };
 
 export const IMAGE_FORMAT = {
-  // Se debe agregar el formato y luego ","
+  // The format must be added and then ","
   imagePermittedFormat: 'image/jpg, image/jpeg, image/png',
   imagePermittedFormatValidator: ['jpg', 'jpeg', 'png'],
+};
+
+export const VALIDATOR_INTEREST = {
+  maxInterest: 5,
 };

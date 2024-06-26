@@ -14,7 +14,9 @@
   transition: 2s;
   font-family: var(--font-family-medium);
   border-radius: var(--border-radius-button);
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:before,
   &:after {
     content: "";
@@ -67,6 +69,9 @@
   transition: 2s;
   font-family: var(--font-family-medium);
   border-radius: var(--border-radius-button);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:before,
   &:after {
     content: "";

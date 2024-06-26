@@ -2,7 +2,6 @@ export class REGISTER_PARAMETERS {
   countryList: string[];
   languageList: string[];
   languageLevelList: string[];
-  interestList: INTEREST;
 }
 
 export class INTEREST {
