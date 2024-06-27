@@ -6,14 +6,14 @@
     "error": {
       "general_error_title": "Oops...",
       "general_error_description": "Something went wrong! Please try again later.",
-      "general_error_not_loaded": "Did not load correctly, please try again later",
-      "general_error_only_letters": "You can only enter letters in this field",
-      "general_error_minimun_age": "You do not meet the minimum age requirement",
-      "general_error_max_length_text": "Exceeds the maximum possible characters",
-      "general_error_image_type": "The image must be of type .jpg, .jpeg, .png",
+      "general_error_not_loaded": "Did not load correctly, please try again later.",
+      "general_error_only_letters": "You can only enter letters in this field.",
+      "general_error_minimun_age": "You do not meet the minimum age requirement.",
+      "general_error_max_length_text": "Exceeds the maximum possible characters.",
+      "general_error_image_type": "The image must be of type .jpg, .jpeg, .png.",
       "general_error_logged": "You are logged in. You cannot access the requested screen.",
-      "email_structure_error": "The email does not follow a valid structure. Example: hello@talk2gether.com",
-      "required_error": "This field is required"
+      "email_structure_error": "The email does not follow a valid structure. Example: hello@talk2gether.com.",
+      "required_error": "This field is required."
     },
     "home_page": {
       "first_container": {

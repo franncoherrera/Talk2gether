@@ -6,14 +6,14 @@
     "error": {
       "general_error_title": "Oups...",
       "general_error_description": "Quelque chose ne va pas! Veuillez réessayer plus tard.",
-      "general_error_not_loaded": "Ne s'est pas chargé correctement, veuillez réessayer plus tard",
-      "general_error_only_letters": "Vous ne pouvez entrer que des lettres dans ce champ",
-      "general_error_minimun_age": "Vous ne remplissez pas la condition d'âge minimum",
-      "general_error_max_length_text": "Dépasse le nombre maximum de caractères",
-      "general_error_image_type": "L'image doit être de type .jpg, .jpeg, .png",
+      "general_error_not_loaded": "Ne s'est pas chargé correctement, veuillez réessayer plus tard.",
+      "general_error_only_letters": "Vous ne pouvez entrer que des lettres dans ce champ.",
+      "general_error_minimun_age": "Vous ne remplissez pas la condition d'âge minimum.",
+      "general_error_max_length_text": "Dépasse le nombre maximum de caractères.",
+      "general_error_image_type": "L'image doit être de type .jpg, .jpeg, .png.",
       "general_error_logged": "Vous êtes connecté. Vous ne pouvez pas accéder à l'écran demandé.",
-      "email_structure_error": "L'email ne respecte pas une structure valide. Exemple : bonjour@talk2gether.com",
-      "required_error": "Ce champ est requis"
+      "email_structure_error": "L'email ne respecte pas une structure valide. Exemple : bonjour@talk2gether.com.",
+      "required_error": "Ce champ est requis."
     },
     "home_page": {
       "first_container": {
