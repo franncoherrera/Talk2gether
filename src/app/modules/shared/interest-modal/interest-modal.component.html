@@ -1,0 +1,41 @@
+<ng-container *ngIf="combined$ | async as combinedList">
+  <div class="fhv-interest-modal">
+    <ng-container *ngFor="let interest of combinedList.interestList">
+      <div
+        class="fhv-interest-modal__container"
+        [ngClass]="{
+          selected: validateSelected(combinedList.selectedInterest, interest.id),
+          'disabled-interest':
+            combinedList.selectedInterest.length >=
+              VALIDATOR_INTEREST.maxInterest &&
+            !validateSelected(combinedList.selectedInterest, interest.id)
+        }"
+        (click)="
+          combinedList.selectedInterest.length >=
+            VALIDATOR_INTEREST.maxInterest && !validateSelected(combinedList.selectedInterest, interest.id)
+            ? false
+            : selectInterest(
+                interest.id,
+                combinedList.interestList,
+                combinedList.selectedInterest
+              )
+        "
+      >
+        <div
+          [id]="interest.id"
+          class="fhv-interest-modal__container__item"
+          [ngClass]="{
+            disabled:
+              combinedList.selectedInterest.length >=
+                VALIDATOR_INTEREST.maxInterest && !validateSelected(combinedList.selectedInterest, interest.id)
+          }"
+        >
+          <i [class]="interest.icon"></i>
+          <p class="fhv-interest-modal__container__item__name">
+            {{ interest.name }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
