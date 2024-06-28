@@ -15,7 +15,7 @@ import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_
 })
 export class LoginDisabledComponent {
   reasonReports$: Observable<string[]>;
-  icon_class = ICON_CLASS;
+  ICON_CLASS = ICON_CLASS;
   constructor(
     private router: Router,
     private commonLoginService: CommonLoginService,
