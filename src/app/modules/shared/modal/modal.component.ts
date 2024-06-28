@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'fhv-modal',
@@ -7,9 +13,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   imports: [CommonModule],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent {
-  @Input() loadModal: boolean;
   @Input() modalTitle: string;
   @Output() loadComponent: EventEmitter<boolean> = new EventEmitter();
 

@@ -8,7 +8,7 @@ import {
 export function CUSTOM_REQUIRED(
   control: FormControl
 ): ValidationErrors | undefined {
-  if (!!!control.value) {
+  if (!!!control.value || control.value.length === 0) {
     return { errorMessage: 'common.error.required_error' };
   } else {
     return undefined;

@@ -2,6 +2,9 @@
 
 .fhv-modal {
   max-width: 50rem;
+  .modal-title {
+    color: var(--color-primary);
+  }
   @include media-breakpoint-down(lg) {
     margin: 0;
     max-width: 100%;

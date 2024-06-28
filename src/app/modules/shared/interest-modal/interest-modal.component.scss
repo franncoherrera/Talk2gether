@@ -59,6 +59,14 @@
   }
   .disabled {
     cursor: not-allowed;
+    &:hover {
+      svg {
+        color: var(--color-white);
+      }
+      .fhv-interest-modal__container__item__name {
+        color: var(--color-white);
+      }
+    }
   }
   @include media-breakpoint-down(lg) {
     grid-auto-rows: minmax(6.25rem, 12.5rem);

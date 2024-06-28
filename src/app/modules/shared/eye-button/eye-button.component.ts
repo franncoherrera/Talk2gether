@@ -19,7 +19,7 @@ import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 export class EyeButtonComponent {
   /* Show and hide password variable */
   @Output() passwordTypeEmitter: EventEmitter<string> = new EventEmitter();
-  readonly icon_class = ICON_CLASS;
+  readonly ICON_CLASS = ICON_CLASS;
   showPassword: boolean = false;
 
   togglePasswordView(fromRepeat: boolean = false): void {

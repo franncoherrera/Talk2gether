@@ -1,41 +1,26 @@
-<ng-container *ngIf="combined$ | async as combinedList">
+<ng-container *ngIf="interestList$ | async as interestList">
   <div class="fhv-interest-modal">
-    <ng-container *ngFor="let interest of combinedList.interestList">
+    <div
+      *ngFor="let interest of interestList"
+      class="fhv-interest-modal__container"
+      [ngClass]="{
+        selected: validateInterestSelected(interest.id),
+        'disabled-interest': isInterestDisabled(interest.id)
+      }"
+      (click)="onInterestClick(interest.id, interestList)"
+    >
       <div
-        class="fhv-interest-modal__container"
+        [id]="interest.id"
+        class="fhv-interest-modal__container__item"
         [ngClass]="{
-          selected: validateSelected(combinedList.selectedInterest, interest.id),
-          'disabled-interest':
-            combinedList.selectedInterest.length >=
-              VALIDATOR_INTEREST.maxInterest &&
-            !validateSelected(combinedList.selectedInterest, interest.id)
+          disabled: isInterestDisabled(interest.id)
         }"
-        (click)="
-          combinedList.selectedInterest.length >=
-            VALIDATOR_INTEREST.maxInterest && !validateSelected(combinedList.selectedInterest, interest.id)
-            ? false
-            : selectInterest(
-                interest.id,
-                combinedList.interestList,
-                combinedList.selectedInterest
-              )
-        "
       >
-        <div
-          [id]="interest.id"
-          class="fhv-interest-modal__container__item"
-          [ngClass]="{
-            disabled:
-              combinedList.selectedInterest.length >=
-                VALIDATOR_INTEREST.maxInterest && !validateSelected(combinedList.selectedInterest, interest.id)
-          }"
-        >
-          <i [class]="interest.icon"></i>
-          <p class="fhv-interest-modal__container__item__name">
-            {{ interest.name }}
-          </p>
-        </div>
+        <i [class]="interest.icon"></i>
+        <p class="fhv-interest-modal__container__item__name">
+          {{ interest.name }}
+        </p>
       </div>
-    </ng-container>
+    </div>
   </div>
 </ng-container>

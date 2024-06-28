@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, combineLatest, map, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { VALIDATOR_INTEREST } from '../../../shared/constants/patterns';
 import { INTEREST } from '../../../shared/models/parameter.model';
 import { ParameterService } from '../../../shared/services/parameter.service';
@@ -16,11 +16,7 @@ import { FormErrorComponent } from '../form-error/form-error.component';
 })
 export class InterestModalComponent implements OnInit {
   interestList$: Observable<INTEREST[]>;
-  selectedInterest$: Observable<INTEREST[]>;
-  combined$: Observable<{
-    interestList: INTEREST[];
-    selectedInterest: INTEREST[];
-  }>;
+  selectedInterest: INTEREST[] = [];
   VALIDATOR_INTEREST = VALIDATOR_INTEREST;
   @Input() control: FormControl;
 
@@ -28,54 +24,44 @@ export class InterestModalComponent implements OnInit {
 
   ngOnInit() {
     this.interestList$ = this.parameterService.getActiveInterests();
-    this.selectedInterest$ = of(
-      !!this.control?.value ? this.control.value : []
-    );
-    this.combined$ = combineLatest([
-      this.interestList$,
-      this.selectedInterest$,
-    ]).pipe(
-      map(([interestList, selectedInterest]) => ({
-        interestList,
-        selectedInterest,
-      }))
-    );
+    if (this.control?.value) {
+      this.selectedInterest = this.control.value;
+      this.selectedInterest.forEach(interest => this.printInterest(interest));
+    }
   }
 
-  selectInterest(
-    id: number,
-    interestList: INTEREST[],
-    selectedInterest: INTEREST[]
-  ): void {
-
-    const interestSelected: INTEREST = interestList.find(
-      (interest) => interest.id == id
-    );
-    if (
-      selectedInterest.length > 0 &&
-      selectedInterest.find((interest) => interest.id === id)
-    ) {
+  selectInterest(id: number, interestList: INTEREST[]): void {
+    const interestSelected = interestList.find(interest => interest.id === id);
+    if (!interestSelected) return;
+    const existingInterest = this.selectedInterest.find(interest => interest.id === id);
+    if (existingInterest) {
       interestSelected.seleccionado = false;
-      selectedInterest = selectedInterest.filter(
-        (interest) => interest.id !== id
-      );
+      this.selectedInterest = this.selectedInterest.filter(interest => interest.id !== id);
     } else {
-      interestSelected.seleccionado = true;
-      selectedInterest.push(interestSelected);
+      this.printInterest(interestSelected);
+      this.selectedInterest.push(interestSelected);
     }
-    this.setSelectedInterestNames(selectedInterest);
-    console.log(this.control.value)
+    this.control.setValue([...this.selectedInterest]);
   }
 
-  setSelectedInterestNames(selectedInterest: INTEREST[]): void {
-    let interestList: INTEREST[] = [];
-    for (const interest of selectedInterest) {
-      interestList.push(interest);
-    }
-    this.control.setValue(interestList);
+  printInterest(interest: INTEREST): void {
+    interest.seleccionado = true;
   }
 
-  validateSelected(selectedInterest: INTEREST[], interestID: number): boolean {
-    return selectedInterest.some((interest) => interest.id === interestID);
+  validateInterestSelected(interestID: number): boolean {
+    return this.selectedInterest.some(interest => interest.id === interestID);
+  }
+
+  isInterestDisabled(interestID: number): boolean {
+    return (
+      this.selectedInterest.length >= this.VALIDATOR_INTEREST.maxInterest &&
+      !this.validateInterestSelected(interestID)
+    );
+  }
+  
+  onInterestClick(id: number, interestList: INTEREST[]): void {
+    if (!this.isInterestDisabled(id)) {
+      this.selectInterest(id, interestList);
+    }
   }
 }
