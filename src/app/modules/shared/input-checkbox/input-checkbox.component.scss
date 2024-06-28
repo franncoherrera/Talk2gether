@@ -1,0 +1,18 @@
+@import "font-size";
+.fhv-input-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  &__label {
+    display: block;
+    color: var(--color-white);
+    position: relative;
+    font-family: var(--font-family);
+    padding-bottom: 0.125rem;
+    @include apply-responsive-font-size($font-size-text);
+  }
+}

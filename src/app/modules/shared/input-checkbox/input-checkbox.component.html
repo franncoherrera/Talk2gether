@@ -1,0 +1,12 @@
+<form class="form-group fhv-input-checkbox" [formGroup]="formGroup">
+  <input
+    #input
+    [type]="INPUT_TYPE.CHECKBOX"
+    [name]="name"
+    [id]="name"
+    [formControlName]="name"
+    (change)="onCheckboxChange(!isChecked)"
+  />
+  <label class="fhv-input-checkbox__label" for="{{ name }}">{{ label }}</label>
+</form>
+<fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>

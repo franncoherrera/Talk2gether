@@ -77,7 +77,8 @@
       "register_description": "Cuéntanos un poco de ti*",
       "register_description_placeholder": "Escribe como eres y que te gusta hacer...",
       "register_interest": "Intereses*",
-      "register_interest_placeholder": "Selecciona tus intereses"
+      "register_interest_placeholder": "Selecciona tus intereses",
+      "register_terms": "Acepto los términos y condiciones*"
     }
   }
 }

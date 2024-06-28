@@ -3,5 +3,6 @@ export enum INPUT_TYPE {
     PASSWORD = 'password',
     EMAIL = 'email',
     DATE = 'date',
-    FILE = 'file'
+    FILE = 'file',
+    CHECKBOX = 'checkbox'
 }
