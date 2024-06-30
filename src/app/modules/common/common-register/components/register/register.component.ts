@@ -21,6 +21,7 @@ import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
 
 @Component({
   selector: 'fhv-register',
@@ -102,7 +103,7 @@ export class RegisterComponent implements OnInit {
   }
 
   openLevelLanguageModal(): void {
-    
+    this.customModalService.open(LanguageLevelModalComponent, CUSTOM_MODAL_CONFIG);
   }
 
   deleteInterest(interestName: string): void {

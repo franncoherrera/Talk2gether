@@ -78,7 +78,14 @@
       "register_description_placeholder": "Escribe como eres y que te gusta hacer...",
       "register_interest": "Intereses*",
       "register_interest_placeholder": "Selecciona tus intereses",
-      "register_terms": "Acepto los términos y condiciones*"
+      "register_terms": "Acepto los términos y condiciones*",
+      "register_language_level_title": "¿Cómo elegir el nivel de idioma?",
+      "register_language_level_first": "PRINCIPIANTE",
+      "register_language_level_first_description": "Elige el nivel Principiante si apenas estás empezando con el idioma. Puede que no hables una sola palabra, o que sepas algunas cosas básicas. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale a los niveles A1 y A2.",
+      "register_language_level_second": "INTERMEDIO",
+      "register_language_level_second_description": "Elige el nivel Intermedio si hablas el idioma con una confianza básica. Puedes hacer planes con otros, hablar sobre tus viajes y describir una película. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale al nivel B1.",
+      "register_language_level_third": "AVANZADO",
+      "register_language_level_third_description": "Elige el nivel Avanzado si te sientes muy seguro hablando el idioma. Puedes tener conversaciones fluidas con hablantes nativos y utilizar el idioma efectivamente para trabajar y estudiar. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale al nivel B2 y superiores."
     }
   }
 }

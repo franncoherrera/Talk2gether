@@ -77,7 +77,15 @@
       "register_description": "Parlez-nous un peu de vous*",
       "register_description_placeholder": "Décrivez-vous et ce que vous aimez faire...",
       "register_interest": "Intérêts*",
-      "register_interest_placeholder": "Sélectionnez vos intérêts"
+      "register_interest_placeholder": "Sélectionnez vos intérêts",
+      "register_terms": "J'accepte les termes et conditions*",
+      "register_language_level_title": "Comment choisir le niveau de langue?",
+      "register_language_level_first": "DÉBUTANT",
+      "register_language_level_first_description": "Choisissez le niveau Débutant si vous commencez à peine avec la langue. Vous ne parlez peut-être pas un seul mot ou vous connaissez peut-être quelques notions de base. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond aux niveaux A1 et A2.",
+      "register_language_level_second": "INTERMÉDIAIRE",
+      "register_language_level_second_description": "Choisissez le niveau Intermédiaire si vous parlez la langue avec une confiance de base. Vous pouvez faire des plans avec d'autres, parler de vos voyages et décrire un film. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond au niveau B1.",
+      "register_language_level_third": "AVANCÉ",
+      "register_language_level_third_description": "Choisissez le niveau Avancé si vous vous sentez très confiant en parlant la langue. Vous pouvez avoir des conversations fluides avec des locuteurs natifs et utiliser la langue efficacement pour travailler et étudier. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond au niveau B2 et supérieur."
     }
   }
 }

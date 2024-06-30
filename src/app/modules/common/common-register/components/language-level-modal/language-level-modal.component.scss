@@ -1,0 +1,16 @@
+@import "font-size";
+fhv-language-level-modal {
+  .fhv-language-level-modal {
+    font-family: var(--font-family);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 1rem;
+    border-radius: var(--border-radius-containers);
+    h1 {
+      @include apply-responsive-font-size($font-size-subtitle);
+    }
+    p {
+      @include apply-responsive-font-size($font-size-text);
+    }
+  }
+}

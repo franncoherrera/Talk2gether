@@ -77,7 +77,15 @@
       "register_description": "Tell us a bit about yourself*",
       "register_description_placeholder": "Describe yourself and what you like to do...",
       "register_interest": "Interests*",
-      "register_interest_placeholder": "Select your interests"
+      "register_interest_placeholder": "Select your interests",
+      "register_terms": "I accept the terms and conditions*",
+      "register_language_level_title": "How to choose the language level?",
+      "register_language_level_first": "BEGINNER",
+      "register_language_level_first_description": "Choose the Beginner level if you are just starting with the language. You might not speak a single word, or you might know some basic things. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to levels A1 and A2.",
+      "register_language_level_second": "INTERMEDIATE",
+      "register_language_level_second_description": "Choose the Intermediate level if you speak the language with basic confidence. You can make plans with others, talk about your travels, and describe a movie. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B1.",
+      "register_language_level_third": "ADVANCED",
+      "register_language_level_third_description": "Choose the Advanced level if you feel very confident speaking the language. You can have fluent conversations with native speakers and use the language effectively for work and study. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B2 and above."
     }
   }
 }

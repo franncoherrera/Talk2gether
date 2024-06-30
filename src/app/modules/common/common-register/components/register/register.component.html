@@ -170,12 +170,13 @@
             [options]="parametersList.languageLevelList"
           >
           </fhv-select-form>
-          <i
-            class="fhv-register__container__level__icon fa-beat {{
-              ICON_CLASS.info
-            }}"
-            (click)="openLevelLanguageModal()"
-          ></i>
+          <span (click)="openLevelLanguageModal()">
+            <i
+              class="fhv-register__container__level__icon fa-beat {{
+                ICON_CLASS.info
+              }}"
+            ></i>
+          </span>
         </div>
         <div class="fhv-register__container__form__box">
           <label class="fhv-register__container__form__box__label">
