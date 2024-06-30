@@ -170,7 +170,12 @@
             [options]="parametersList.languageLevelList"
           >
           </fhv-select-form>
-          <i class="fhv-register__container__level__icon fa-beat {{ ICON_CLASS.info }}"></i>
+          <i
+            class="fhv-register__container__level__icon fa-beat {{
+              ICON_CLASS.info
+            }}"
+            (click)="openLevelLanguageModal()"
+          ></i>
         </div>
         <div class="fhv-register__container__form__box">
           <label class="fhv-register__container__form__box__label">
@@ -186,7 +191,7 @@
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#staticBackdrop"
-            (click)="openModal()"
+            (click)="openInterestModal()"
           >
             {{
               "common.register_page.register_interest_placeholder" | translate
@@ -252,16 +257,4 @@
     </div>
   </div>
 </ng-container>
-<ng-template #loading> </ng-template>
-<fhv-modal
-  modalTitle="{{
-    'common.register_page.register_interest_placeholder' | translate
-  }}"
-  (loadComponent)="onChildValueChange($event)"
->
-  <fhv-interest-modal
-    *ngIf="loadModal"
-    [formGroup]="registerForm"
-    [control]="formService.formControl(registerForm, 'interest')"
-  ></fhv-interest-modal>
-</fhv-modal>
+<ng-template #loading></ng-template>

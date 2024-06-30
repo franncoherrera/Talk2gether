@@ -18,6 +18,9 @@ import {
   REGISTER_PARAMETERS,
 } from '../../../../../shared/models/parameter.model';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 
 @Component({
   selector: 'fhv-register',
@@ -35,7 +38,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     protected formService: FormService,
-    private parameterService: ParameterService
+    private parameterService: ParameterService,
+    private customModalService: CustomModalService
   ) {}
 
   ngOnInit(): void {
@@ -88,12 +92,17 @@ export class RegisterComponent implements OnInit {
     this.submitForm = true;
     if (this.registerForm.invalid) return;
   }
-  openModal(): void {
-    this.loadModal = !this.loadModal;
+
+  openInterestModal(): void {
+    const modalRef = this.customModalService.open(
+      InterestModalComponent,
+      CUSTOM_MODAL_CONFIG
+    );
+    modalRef.componentInstance.control = this.registerForm.get('interest');
   }
 
-  onChildValueChange(event: boolean): void {
-    this.loadModal = event;
+  openLevelLanguageModal(): void {
+    
   }
 
   deleteInterest(interestName: string): void {

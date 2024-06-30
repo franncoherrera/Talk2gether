@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
-import { ModalComponent } from '../../../../shared/modal/modal.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { RegisterComponent } from './register.component';
@@ -22,7 +21,6 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
     SelectFormComponent,
     NgSelectModule,
     TextAreaFormComponent,
-    ModalComponent,
     InterestModalComponent,
     FormErrorComponent,
     InputCheckboxComponent
