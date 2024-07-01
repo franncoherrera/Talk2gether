@@ -14,7 +14,7 @@ export const LOGIN_ROUTES: Routes = [
     canActivate: [authGuard],
   },
   {
-    path: ROUTES_PATH.USER_BLOCKED_BY_ADMIN,
+    path: ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH,
     component: LoginDisabledComponent,
     canActivate: [authGuard],
   },

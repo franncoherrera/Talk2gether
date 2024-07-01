@@ -86,6 +86,55 @@
       "register_language_level_second_description": "Choose the Intermediate level if you speak the language with basic confidence. You can make plans with others, talk about your travels, and describe a movie. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B1.",
       "register_language_level_third": "ADVANCED",
       "register_language_level_third_description": "Choose the Advanced level if you feel very confident speaking the language. You can have fluent conversations with native speakers and use the language effectively for work and study. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B2 and above."
+    },
+    "terms_and_conditions_page": {
+      "terms_and_conditions_title": "Terms and Conditions",
+      "terms_and_conditions_I": {
+        "terms_and_conditions_I_title": "I. Introduction",
+        "terms_and_conditions_I_description": "The following terms and conditions set forth the rights and obligations of users when using the Talk2gether platform, a web system designed to improve and expand linguistic skills in various languages through interaction with native speakers and students via video calls or chat. By accessing and using the platform, the user agrees to comply with the following terms and conditions. It is important to read this document carefully before using Talk2gether."
+      },
+      "terms_and_conditions_II": {
+        "terms_and_conditions_II_title": "II. System Objectives",
+        "terms_and_conditions_II_subtitle_1": "1. Improvement and Expansion of Linguistic Skills",
+        "terms_and_conditions_II_description_1": "Talk2gether's primary objective is to provide users with an online environment where they can improve and expand their skills in a specific language. This is achieved through interaction with native speakers and students, who will provide opportunities to practice the language via video calls or chat.",
+        "terms_and_conditions_II_subtitle_2": "2. Stable Communication and Intuitive Interface",
+        "terms_and_conditions_II_description_2": "The Talk2gether platform is committed to offering users a stable communication space with an intuitive and easy-to-navigate interface. The goal is to provide a smooth and enjoyable experience for users, thus encouraging their participation and continued use of the platform.",
+        "terms_and_conditions_II_subtitle_3": "3. Statistics and Progress Tracking",
+        "terms_and_conditions_II_description_3": "The platform offers relevant statistics for each user, allowing them to analyze and track their progress in language learning. These statistics include information on study time, achieved fluency level, improved linguistic skills, and other relevant indicators.",
+        "terms_and_conditions_II_subtitle_4": "4. Generation of Reports for Decision Making",
+        "terms_and_conditions_II_description_4": "Talk2gether generates reports that contain important indicators for decision making. These reports provide valuable information on user performance, the quality of interactions, and other relevant data that can be used to improve the platform and personalize each user's learning experience."
+      },
+      "terms_and_conditions_III": {
+        "terms_and_conditions_III_title": "III. User Responsibilities and Obligations",
+        "terms_and_conditions_III_subtitle_1": "1. Account Registration",
+        "terms_and_conditions_III_description_1": "To use Talk2gether, the user must register and create a personal account. It is the user's responsibility to provide accurate and up-to-date information during the registration process. The user will be solely responsible for maintaining the confidentiality of their login credentials and for all activities that occur under their account.",
+        "terms_and_conditions_III_subtitle_2": "2. Proper Use",
+        "terms_and_conditions_III_description_2": "The user agrees to use Talk2gether in accordance with the purposes set forth in these terms and conditions. The use of the platform for any illegal, fraudulent, defamatory, offensive, or third-party rights-violating activities is prohibited. The user agrees not to use the platform to send inappropriate or unrelated content to language learning.",
+        "terms_and_conditions_III_subtitle_3": "3. Respect and Proper Conduct",
+        "terms_and_conditions_III_description_3": "The user agrees to maintain respectful and proper behavior during interactions with other Talk2gether users. Any form of harassment, discrimination, insult, or offensive behavior is prohibited. The user agrees to be responsible for their conduct and commits to not damage the reputation of the platform or other users.",
+        "terms_and_conditions_III_subtitle_4": "4. Privacy and Data Protection",
+        "terms_and_conditions_III_description_4": "Talk2gether is committed to protecting users' privacy and complying with applicable data protection laws and regulations. The platform will collect and use user information solely for purposes related to the operation of the platform and the improvement of the user experience. Full details on data collection, use, and protection are described in the Talk2gether Privacy Policy."
+      },
+      "terms_and_conditions_IV": {
+        "terms_and_conditions_IV_title": "IV. Liability Limitations",
+        "terms_and_conditions_IV_subtitle_1": "1. Platform Availability and Functioning",
+        "terms_and_conditions_IV_description_1": "Talk2gether will strive to maintain the availability and proper functioning of the platform. However, there is no guarantee that the platform will be free from interruptions, errors, or defects. Talk2gether will not be responsible for any loss or damage caused by the lack of availability or malfunctioning of the platform.",
+        "terms_and_conditions_IV_subtitle_2": "2. User-Generated Content",
+        "terms_and_conditions_IV_description_2": "The platform allows users to generate content, such as chat messages or video call interactions. Talk2gether is not responsible for user-generated content and does not assume any responsibility for users' opinions, statements, or behaviors. Each user is solely responsible for their content and must comply with applicable laws and regulations.",
+        "terms_and_conditions_IV_subtitle_3": "3. Language Learning Responsibility",
+        "terms_and_conditions_IV_description_3": "Talk2gether provides tools and opportunities to improve and expand linguistic skills but does not guarantee specific results in language learning. The user is responsible for their own learning process and for using the platform effectively to achieve their goals."
+      },
+      "terms_and_conditions_V": {
+        "terms_and_conditions_V_title": "V. Modifications and Termination",
+        "terms_and_conditions_V_subtitle_1": "1. Modifications to the Terms and Conditions",
+        "terms_and_conditions_V_description_1": "Talk2gether reserves the right to make modifications to these terms and conditions at any time. Users will be notified of any significant changes through the platform or by email. Continued use of Talk2gether after notification constitutes acceptance of the new terms and conditions.",
+        "terms_and_conditions_V_subtitle_2": "2. Account Termination",
+        "terms_and_conditions_V_description_2": "Talk2gether may, at its discretion, terminate or suspend a user's account in case of violation of these terms and conditions or for any other justified reason. In case of termination, the user will lose access to the platform and any content or data associated with their account."
+      },
+      "terms_and_conditions_VI": {
+        "terms_and_conditions_VI_title": "VI. Final Provisions",
+        "terms_and_conditions_VI_description_1": "By using Talk2gether, the user acknowledges having read, understood, and accepted these terms and conditions in their entirety."
+      }
     }
   }
 }

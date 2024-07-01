@@ -7,6 +7,11 @@
     [formControlName]="name"
     (change)="onCheckboxChange(!isChecked)"
   />
-  <label class="fhv-input-checkbox__label" for="{{ name }}">{{ label }}</label>
+  <label
+    (click)="redirectLabel()"
+    class="fhv-input-checkbox__label"
+    [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute }"
+    >{{ label }}</label
+  >
 </form>
 <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>

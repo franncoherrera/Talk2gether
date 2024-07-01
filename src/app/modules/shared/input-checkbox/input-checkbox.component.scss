@@ -14,5 +14,8 @@
     font-family: var(--font-family);
     padding-bottom: 0.125rem;
     @include apply-responsive-font-size($font-size-text);
+    &-route{
+      cursor: pointer;
+    }
   }
 }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   submitForm: boolean = false;
   submitError: boolean = false;
-  INPUT_TYPE = INPUT_TYPE;
+  readonly INPUT_TYPE = INPUT_TYPE;
   sessionSubscription: Subscription;
   constructor(
     private router: Router,
@@ -95,7 +95,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       case 3: {
         /* Blocked account - reporting reasons are shown - */
         this.commonLoginService.saveReason(reasonReport);
-        this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN]);
+        this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH]);
         break;
       }
       default: {

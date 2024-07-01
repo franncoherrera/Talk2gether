@@ -1,0 +1,39 @@
+@import "media-queries";
+@import "font-size";
+
+.fhv-terms-condition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-white);
+  &__container {
+    min-height: var(--height-components);
+    width: 80%;
+    background-color: var(--color-primary);
+    padding: 1.5rem;
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+    &__title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-decoration: underline;
+      @include apply-responsive-font-size($font-size-title);
+    }
+    &__description {
+      h5{
+        @include apply-responsive-font-size($font-size-subtitle);
+      }
+      h4 {
+        @include apply-responsive-font-size($font-size-subtitle);
+        text-decoration: underline;
+        padding-top: 1.5rem
+      }
+      p {
+        @include apply-responsive-font-size($font-size-text);
+
+      }
+    }
+  }
+}

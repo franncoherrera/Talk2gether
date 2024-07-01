@@ -22,6 +22,7 @@ import { CustomModalService } from '../../../../../shared/services/custom-modal.
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
+import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 
 @Component({
   selector: 'fhv-register',
@@ -29,13 +30,14 @@ import { LanguageLevelModalComponent } from '../language-level-modal/language-le
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent implements OnInit {
-  INPUT_TYPE = INPUT_TYPE;
-  IMAGE_FORMAT = IMAGE_FORMAT;
+  readonly INPUT_TYPE = INPUT_TYPE;
+  readonly IMAGE_FORMAT = IMAGE_FORMAT;
+  readonly ICON_CLASS = ICON_CLASS;
+  readonly ROUTES_PATH = ROUTES_PATH;
   registerForm: FormGroup;
   parametersList$: Observable<REGISTER_PARAMETERS>;
   submitForm: boolean = false;
   loadModal: boolean = false;
-  readonly ICON_CLASS = ICON_CLASS;
 
   constructor(
     protected formService: FormService,
