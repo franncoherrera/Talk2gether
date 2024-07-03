@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 import { EyeButtonComponent } from '../eye-button/eye-button.component';
 import { FormErrorComponent } from '../form-error/form-error.component';
 
@@ -32,7 +33,7 @@ export class InputFormComponent {
   @Input() accept?: string;
 
   ngOnInit() {
-    this.type === 'password'
+    this.type === INPUT_TYPE.PASSWORD
       ? (this.initialType = true)
       : (this.initialType = false);
   }

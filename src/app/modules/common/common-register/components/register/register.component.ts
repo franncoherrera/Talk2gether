@@ -1,8 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { TitleCasePipe } from '@angular/common';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { FormControl, FormGroup } from '@angular/forms';
+import { getDownloadURL } from '@firebase/storage';
+import { Observable, Subject, combineLatest, map, takeUntil } from 'rxjs';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
+import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import {
+  INTEREST,
+  REGISTER_PARAMETERS,
+} from '../../../../../shared/models/parameter.model';
+import { USER } from '../../../../../shared/models/user.model';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { FormService } from '../../../../../shared/services/form.service';
+import { ParameterService } from '../../../../../shared/services/parameter.service';
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_FULL_AGE,
@@ -11,38 +25,34 @@ import {
   CUSTOM_ONLY_LETTERS,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { Observable, combineLatest, map } from 'rxjs';
-import { ParameterService } from '../../../../../shared/services/parameter.service';
-import {
-  INTEREST,
-  REGISTER_PARAMETERS,
-} from '../../../../../shared/models/parameter.model';
-import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
-import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
-import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { CommonRegisterService } from '../../services/common-register.service';
 import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
-import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 
 @Component({
   selector: 'fhv-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly IMAGE_FORMAT = IMAGE_FORMAT;
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
+  private firebaseStorage: Storage = inject(Storage);
+  private unsubscribe$: Subject<void> = new Subject<void>();
   registerForm: FormGroup;
   parametersList$: Observable<REGISTER_PARAMETERS>;
   submitForm: boolean = false;
   loadModal: boolean = false;
+  fileSelected: File;
 
   constructor(
     protected formService: FormService,
     private parameterService: ParameterService,
-    private customModalService: CustomModalService
+    private registerService: CommonRegisterService,
+    private customModalService: CustomModalService,
+    private titleCase: TitleCasePipe
   ) {}
 
   ngOnInit(): void {
@@ -91,9 +101,92 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(): void {
-    console.log(this.registerForm);
     this.submitForm = true;
     if (this.registerForm.invalid) return;
+    this.uploadFile(this.fileSelected);
+  }
+
+  onInputChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.fileSelected = input.files[0];
+    }
+  }
+
+  async uploadFile(file: File) {
+    const filePath = `images/${file.name}`;
+    const fileRef = ref(this.firebaseStorage, filePath);
+    const uploadFile = uploadBytesResumable(fileRef, file);
+    uploadFile.on(
+      'state_changed',
+      /* It is left commented because it is a good functionality to capture the rise time */
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
+      (error) => {
+        console.log('ERROR');
+      },
+      async () => {
+        const delay = (ms: number) =>
+          new Promise((resolve) => setTimeout(resolve, ms));
+        const delayedGetDownloadURL = async (fileRef: any) => {
+          await delay(4000);
+          return getDownloadURL(fileRef);
+        };
+        const url = await delayedGetDownloadURL(fileRef);
+        this.registerService
+          .registerUser(this.createUser(url))
+          .pipe(takeUntil(this.unsubscribe$))
+          .subscribe();
+        console.log('registrado');
+      }
+    );
+  }
+
+  createUser(urlPhoto: string): USER {
+    let user: USER;
+    this.interestListRefactor();
+    user = {
+      nombreUsuario: this.titleCase.transform(
+        this.registerForm.get('userName').value
+      ),
+      apellidoUsuario: this.titleCase.transform(
+        this.registerForm.get('userSurname').value
+      ),
+      fechaNacimiento: this.registerForm.get('dateBorn').value,
+      correo: this.registerForm.get('email').value,
+      contrasenia: this.registerForm.get('password').value,
+      nombrePais: this.removeSpaces(this.registerForm.get('country').value),
+      nombreIdiomaNativo: this.removeSpaces(
+        this.registerForm.get('nativeLanguage').value
+      ),
+      urlFoto: urlPhoto,
+      descripcion: this.registerForm.get('descriptionUser').value,
+      nombreIdiomaAprendiz: this.removeSpaces(
+        this.registerForm.get('learnLanguage').value
+      ),
+      nombreNivelIdiomaAprendiz: this.removeSpaces(
+        this.registerForm.get('languageLevel').value
+      ),
+      nombreIntereses: this.interestListRefactor(),
+    };
+    return user;
+  }
+
+  removeSpaces(word: string): string {
+    return word.replace(/\s+/g, '');
+  }
+
+  interestListRefactor(): string[] {
+    const interestControl = this.registerForm.get('interest');
+    if (interestControl && Array.isArray(interestControl.value)) {
+      const interestArray: string[] = interestControl.value.map(
+        (item: { name: string }) => item.name
+      );
+      return interestArray;
+    }
+    return null;
   }
 
   openInterestModal(): void {
@@ -105,7 +198,10 @@ export class RegisterComponent implements OnInit {
   }
 
   openLevelLanguageModal(): void {
-    this.customModalService.open(LanguageLevelModalComponent, CUSTOM_MODAL_CONFIG);
+    this.customModalService.open(
+      LanguageLevelModalComponent,
+      CUSTOM_MODAL_CONFIG
+    );
   }
 
   deleteInterest(interestName: string): void {
@@ -113,5 +209,10 @@ export class RegisterComponent implements OnInit {
       .get('interest')
       .value.filter((value: INTEREST) => value.name !== interestName);
     this.registerForm.get('interest').setValue(interestArray);
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

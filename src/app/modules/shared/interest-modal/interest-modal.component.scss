@@ -1,7 +1,7 @@
 @import "media-queries";
 @import "font-size";
 
-fhv-interest-modal{
+fhv-interest-modal {
   height: 100%;
   height: 100%;
   .fhv-interest-modal {
@@ -37,19 +37,6 @@ fhv-interest-modal{
           @include apply-responsive-font-size($font-size-subtitle);
         }
       }
-      &:hover {
-        background-color: var(--color-white);
-      }
-      &:hover .fhv-interest-modal__container {
-        &__item {
-          svg {
-            color: var(--color-primary);
-          }
-          &__name {
-            color: var(--color-primary);
-          }
-        }
-      }
     }
     .selected {
       background-color: var(--color-background-home);
@@ -59,17 +46,10 @@ fhv-interest-modal{
       background-color: var(--color-bg-back);
       border: 0.0125rem solid var(--color-bg-back);
       border-radius: var(--border-radius-containers);
+
     }
     .disabled {
       cursor: not-allowed;
-      &:hover {
-        svg {
-          color: var(--color-white);
-        }
-        .fhv-interest-modal__container__item__name {
-          color: var(--color-white);
-        }
-      }
     }
     @include media-breakpoint-down(lg) {
       grid-auto-rows: minmax(6.25rem, 12.5rem);
@@ -84,18 +64,10 @@ fhv-interest-modal{
     @include media-breakpoint-down(md) {
       grid-auto-rows: minmax(6.25rem, 7.5rem);
       &__container {
-        &:hover {
-          background-color: var(--color-primary);
-        }
-        &:hover .fhv-interest-modal__container {
-          &__item {
-            svg {
-              color: var(--color-white);
-            }
-            &__name {
-              color: var(--color-white);
-            }
-          }
+        .disabled-interest {
+          background-color: var(--color-bg-back);
+          border: 0.0125rem solid var(--color-bg-back);
+          border-radius: var(--border-radius-containers);
         }
         &__item {
           svg {

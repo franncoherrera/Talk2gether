@@ -84,6 +84,7 @@
           [control]="formService.formControl(registerForm, 'urlPhoto')"
           [submitForm]="submitForm"
           [accept]="IMAGE_FORMAT.imagePermittedFormat"
+          (change)="onInputChange($event)"
         >
         </fhv-input-form>
       </form>

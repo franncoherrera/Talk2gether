@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -25,5 +25,8 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
     FormErrorComponent,
     InputCheckboxComponent
   ],
+  providers: [
+    TitleCasePipe
+  ]
 })
 export class RegisterModule {}
