@@ -35,9 +35,11 @@ export class InputCheckboxComponent {
     this.control.setValue(this.isChecked);
   }
 
-  redirectLabel() {
+  redirectLabel(): void {
     if (!!this.labelRoute) {
-      const url = this.router.serializeUrl(this.router.createUrlTree([this.labelRoute]));
+      const url = this.router.serializeUrl(
+        this.router.createUrlTree([this.labelRoute])
+      );
       window.open(url, '_blank');
     }
   }

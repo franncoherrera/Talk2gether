@@ -128,7 +128,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.uploadFile(this.fileSelected);
   }
 
-  onInputChange(event: Event) {
+  onInputChange(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.fileSelected = input.files[0];
@@ -261,7 +261,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.registerForm.get('interest').setValue(interestArray);
   }
 
-  goBack() {
+  goBack(): void {
     this.location.back();
   }
 
