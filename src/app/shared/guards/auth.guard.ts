@@ -12,7 +12,7 @@ export const authGuard: CanActivateFn = () => {
   const translateService = inject(TranslateService);
   if (sesionService.isLoggedIn()) {
     router.navigate(['/']);
-    sweetAlertService.errorAlertMessage(
+    sweetAlertService.alertMessageConfirm(
       translateService.instant('common.error.general_error_logged'),
       SWEET_ALERT_ICON.ERROR
     );

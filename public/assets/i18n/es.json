@@ -12,8 +12,10 @@
       "general_error_max_length_text": "Supera el máximo de caracteres posibles.",
       "general_error_image_type": "La imagen debe ser del tipo .jpg, .jpeg, .png.",
       "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada.",
+      "general_error_upload": "La imagen no se subió correctamente. Intente nuevamente mas tarde",
       "email_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com.",
-      "required_error": "El campo es requerido."
+      "required_error": "El campo es requerido.",
+      "register_error": "No fue posible registrarse. Intente nuevamente mas tarde."
     },
     "home_page": {
       "first_container": {
@@ -85,7 +87,8 @@
       "register_language_level_second": "INTERMEDIO",
       "register_language_level_second_description": "Elige el nivel Intermedio si hablas el idioma con una confianza básica. Puedes hacer planes con otros, hablar sobre tus viajes y describir una película. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale al nivel B1.",
       "register_language_level_third": "AVANZADO",
-      "register_language_level_third_description": "Elige el nivel Avanzado si te sientes muy seguro hablando el idioma. Puedes tener conversaciones fluidas con hablantes nativos y utilizar el idioma efectivamente para trabajar y estudiar. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale al nivel B2 y superiores."
+      "register_language_level_third_description": "Elige el nivel Avanzado si te sientes muy seguro hablando el idioma. Puedes tener conversaciones fluidas con hablantes nativos y utilizar el idioma efectivamente para trabajar y estudiar. Si estás familiarizado con el Marco Común Europeo de Referencia para las Lenguas, esto equivale al nivel B2 y superiores.",
+      "user_registered": "El usuario fue registrado correctamente"
     },
     "terms_and_conditions_page": {
       "terms_and_conditions_title": "Términos y condiciones",

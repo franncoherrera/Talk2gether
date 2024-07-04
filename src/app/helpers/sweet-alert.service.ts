@@ -16,7 +16,7 @@ export class SweetAlertService {
   private readonly hideClassPopUp: string =
     'animate__animated animate__fadeOutUp';
 
-  errorAlert(message: string, title: string, icon: SweetAlertIcon): void {
+  alertMessage(message: string, title: string, icon: SweetAlertIcon): void {
     Swal.fire({
       icon: icon,
       title: title,
@@ -25,11 +25,11 @@ export class SweetAlertService {
     });
   }
 
-  errorAlertTimer(
+  alertTimer(
     message: string,
-    time: number,
     position: SweetAlertPosition,
-    icon: SweetAlertIcon
+    icon: SweetAlertIcon,
+    time: number = 2000
   ): void {
     Swal.fire({
       position: position,
@@ -40,7 +40,7 @@ export class SweetAlertService {
     });
   }
 
-  errorAlertMessage(title: string, icon: SweetAlertIcon): void {
+  alertMessageConfirm(title: string, icon: SweetAlertIcon): void {
     Swal.fire({
       title: title,
       showClass: {

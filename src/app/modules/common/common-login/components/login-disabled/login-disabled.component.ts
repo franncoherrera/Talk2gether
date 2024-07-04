@@ -27,7 +27,7 @@ export class LoginDisabledComponent {
     this.reasonReports$ = this.commonLoginService.getReason().pipe(
       map((reasonReports) => reasonReports),
       catchError((error) => {
-        this.sweetAlertService.errorAlert(
+        this.sweetAlertService.alertMessage(
           this.translateService.instant('common.error.general_error_title'),
           error,
           SWEET_ALERT_ICON.ERROR

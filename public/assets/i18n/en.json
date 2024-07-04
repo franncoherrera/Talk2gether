@@ -12,8 +12,10 @@
       "general_error_max_length_text": "Exceeds the maximum possible characters.",
       "general_error_image_type": "The image must be of type .jpg, .jpeg, .png.",
       "general_error_logged": "You are logged in. You cannot access the requested screen.",
-      "email_structure_error": "The email does not follow a valid structure. Example: hello@talk2gether.com.",
-      "required_error": "This field is required."
+      "general_error_upload": "The image was not uploaded correctly. Please try again later.",
+      "email_structure_error": "The email does not follow a proper structure. Example: hello@talk2gether.com.",
+      "required_error": "The field is required.",
+      "register_error": "Registration was not possible. Please try again later."
     },
     "home_page": {
       "first_container": {
@@ -85,7 +87,8 @@
       "register_language_level_second": "INTERMEDIATE",
       "register_language_level_second_description": "Choose the Intermediate level if you speak the language with basic confidence. You can make plans with others, talk about your travels, and describe a movie. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B1.",
       "register_language_level_third": "ADVANCED",
-      "register_language_level_third_description": "Choose the Advanced level if you feel very confident speaking the language. You can have fluent conversations with native speakers and use the language effectively for work and study. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B2 and above."
+      "register_language_level_third_description": "Choose the Advanced level if you feel very confident speaking the language. You can have fluent conversations with native speakers and use the language effectively for work and study. If you are familiar with the Common European Framework of Reference for Languages, this corresponds to level B2 and above.",
+      "user_registered": "The user was registered successfully."
     },
     "terms_and_conditions_page": {
       "terms_and_conditions_title": "Terms and Conditions",

@@ -12,8 +12,10 @@
       "general_error_max_length_text": "Dépasse le nombre maximum de caractères.",
       "general_error_image_type": "L'image doit être de type .jpg, .jpeg, .png.",
       "general_error_logged": "Vous êtes connecté. Vous ne pouvez pas accéder à l'écran demandé.",
-      "email_structure_error": "L'email ne respecte pas une structure valide. Exemple : bonjour@talk2gether.com.",
-      "required_error": "Ce champ est requis."
+      "general_error_upload": "L'image n'a pas été téléchargée correctement. Veuillez réessayer plus tard.",
+      "email_structure_error": "L'email ne respecte pas une structure appropriée. Exemple : bonjour@talk2gether.com.",
+      "required_error": "Le champ est requis.",
+      "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard."
     },
     "home_page": {
       "first_container": {
@@ -85,7 +87,8 @@
       "register_language_level_second": "INTERMÉDIAIRE",
       "register_language_level_second_description": "Choisissez le niveau Intermédiaire si vous parlez la langue avec une confiance de base. Vous pouvez faire des plans avec d'autres, parler de vos voyages et décrire un film. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond au niveau B1.",
       "register_language_level_third": "AVANCÉ",
-      "register_language_level_third_description": "Choisissez le niveau Avancé si vous vous sentez très confiant en parlant la langue. Vous pouvez avoir des conversations fluides avec des locuteurs natifs et utiliser la langue efficacement pour travailler et étudier. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond au niveau B2 et supérieur."
+      "register_language_level_third_description": "Choisissez le niveau Avancé si vous vous sentez très confiant en parlant la langue. Vous pouvez avoir des conversations fluides avec des locuteurs natifs et utiliser la langue efficacement pour travailler et étudier. Si vous êtes familier avec le Cadre Européen Commun de Référence pour les Langues, cela correspond au niveau B2 et supérieur.",
+      "user_registered": "L'utilisateur a été enregistré avec succès."
     },
     "terms_and_conditions_page": {
       "terms_and_conditions_title": "Conditions Générales",

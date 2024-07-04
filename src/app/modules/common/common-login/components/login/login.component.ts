@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         break;
       }
       default: {
-        this.sweetAlertService.errorAlert(
+        this.sweetAlertService.alertMessage(
           this.translateService.instant('common.error.general_error_title'),
           this.translateService.instant(
             'common.error.general_error_description'

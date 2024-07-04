@@ -1,9 +1,18 @@
-import { TitleCasePipe } from '@angular/common';
+import { Location, TitleCasePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { FormControl, FormGroup } from '@angular/forms';
 import { getDownloadURL } from '@firebase/storage';
-import { Observable, Subject, combineLatest, map, takeUntil } from 'rxjs';
+import {
+  Observable,
+  Subject,
+  catchError,
+  combineLatest,
+  map,
+  of,
+  takeUntil,
+  tap,
+} from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
@@ -28,6 +37,14 @@ import {
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { CommonRegisterService } from '../../services/common-register.service';
 import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
+import { Router } from '@angular/router';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import {
+  SWEET_ALERT_ICON,
+  SWEET_ALERT_POSITION,
+} from '../../../../../shared/enums/sweeAlert.enum';
 
 @Component({
   selector: 'fhv-register',
@@ -52,7 +69,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private parameterService: ParameterService,
     private registerService: CommonRegisterService,
     private customModalService: CustomModalService,
-    private titleCase: TitleCasePipe
+    private titleCase: TitleCasePipe,
+    private location: Location,
+    private router: Router,
+    private spinnerGeneralServide: SpinnerGeneralService,
+    private sweetAlertService: SweetAlertService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -114,18 +136,23 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   async uploadFile(file: File) {
+    this.spinnerGeneralServide.showSpinner();
     const filePath = `images/${file.name}`;
     const fileRef = ref(this.firebaseStorage, filePath);
     const uploadFile = uploadBytesResumable(fileRef, file);
     uploadFile.on(
       'state_changed',
-      /* It is left commented because it is a good functionality to capture the rise time */
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       },
       (error) => {
-        console.log('ERROR');
+        this.spinnerGeneralServide.hideSpinner();
+        this.sweetAlertService.alertTimer(
+          this.translateService.instant('common.error.general_error_upload'),
+          SWEET_ALERT_POSITION.TOP_RIGHT,
+          SWEET_ALERT_ICON.ERROR
+        );
       },
       async () => {
         const delay = (ms: number) =>
@@ -137,9 +164,32 @@ export class RegisterComponent implements OnInit, OnDestroy {
         const url = await delayedGetDownloadURL(fileRef);
         this.registerService
           .registerUser(this.createUser(url))
-          .pipe(takeUntil(this.unsubscribe$))
+          .pipe(
+            takeUntil(this.unsubscribe$),
+            tap({
+              complete: () => {
+                this.spinnerGeneralServide.hideSpinner();
+                this.sweetAlertService.alertTimer(
+                  this.translateService.instant(
+                    'common.register_page.user_registered'
+                  ),
+                  SWEET_ALERT_POSITION.TOP_RIGHT,
+                  SWEET_ALERT_ICON.SUCCESS
+                );
+                this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
+              },
+            }),
+            catchError((error) => {
+              this.spinnerGeneralServide.hideSpinner();
+              this.sweetAlertService.alertMessage(
+                error.error.mensaje,
+                this.translateService.instant('common.error.register_error'),
+                SWEET_ALERT_ICON.ERROR
+              );
+              return of(error);
+            })
+          )
           .subscribe();
-        console.log('registrado');
       }
     );
   }
@@ -209,6 +259,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .get('interest')
       .value.filter((value: INTEREST) => value.name !== interestName);
     this.registerForm.get('interest').setValue(interestArray);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnDestroy(): void {

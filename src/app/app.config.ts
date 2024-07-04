@@ -5,7 +5,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { SesionService } from './shared/interceptors/sesion.service';
-import { FIREBASE_CONFIG } from './shared/providers/firebase.provider';
+import { FIREBASE_CONFIG } from './shared/constants/firebaseConstants';
 import { APP_PROVIDERS } from './shared/providers/token-config';
 import { provideTranslateModule } from './shared/providers/translate-loader.provider';
 

@@ -246,7 +246,11 @@
         </fhv-input-checkbox>
       </form>
       <div class="fhv-register__container__buttons">
-        <button type="button" class="fhv-register__container__buttons-back">
+        <button
+          type="button"
+          class="fhv-register__container__buttons-back"
+          (click)="goBack()"
+        >
           {{ "common.register_page.register_button_back" | translate }}
         </button>
         <button

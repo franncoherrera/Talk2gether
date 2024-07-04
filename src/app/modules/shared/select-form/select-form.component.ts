@@ -1,9 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  Input,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormErrorComponent } from '../form-error/form-error.component';
@@ -44,10 +40,11 @@ export class SelectFormComponent {
         });
   }
 
-  onSelectFocus() {
+  onSelectFocus(): void {
     this.isSelected = !this.isSelected;
   }
-  onSelectChange(event: any) {
+  onSelectChange(event): void {
+    console.log(typeof event);
     if (!!event?.$ngOptionLabel) {
       this.control.setValue(event?.$ngOptionLabel);
     } else {
@@ -55,8 +52,7 @@ export class SelectFormComponent {
     }
   }
 
-  onSelectBlur() {
+  onSelectBlur(): void {
     this.isSelected = !this.isSelected;
   }
-
 }
