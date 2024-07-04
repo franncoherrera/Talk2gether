@@ -1,0 +1,174 @@
+@import "media-queries";
+@import "_buttons.scss";
+@import "font-size";
+
+.fhv-register {
+  min-height: var(--height-components);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-image: url(../../../../../../../public/assets/images/register/words.jpg);
+  background-size: contain;
+  background-position: center center;
+  z-index: 1;
+
+  &__container {
+    width: 80%;
+    padding: 3rem;
+    position: relative;
+    z-index: 1;
+    margin: 2rem 0;
+    &__title {
+      display: flex;
+      flex-direction: column;
+      @include apply-responsive-font-size($font-size-title);
+      color: var(--color-white);
+      font-family: var(--font-family-bold);
+      height: auto;
+    }
+    &-subtitle {
+      @include apply-responsive-font-size($font-size-subtitle);
+      padding-top: 2rem;
+    }
+    &__form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+      padding-top: 2rem;
+      column-gap: 3rem;
+      row-gap: 1.5rem;
+      &__box {
+        &__label {
+          display: block;
+          color: var(--color-white);
+          position: relative;
+          font-family: var(--font-family);
+          padding-bottom: 0.125rem;
+          @include apply-responsive-font-size($font-size-text);
+        }
+      }
+      &__modal {
+        @include buttons-enabled;
+        background-color: var(--color-white);
+        color: var(--color-primary);
+        text-transform: initial;
+      }
+      .button-error {
+        box-shadow: 0 0 0 0.15rem var(--color-message-error);
+      }
+      &__interest {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        column-gap: 0.5rem;
+        row-gap: 0.5rem;
+        height: auto;
+        padding-bottom: 1rem;
+        padding-top: 1.5rem;
+        &--selected {
+          @include apply-responsive-font-size($font-size-text);
+          color: var(--color-primary);
+          box-shadow: 0 0 0 0.15rem var(--color-bg-submit);
+          background-color: var(--color-white);
+          border-radius: var(--border-radius-input);
+          padding: 0.5rem;
+          width: auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 0.85rem;
+          font-family: var(--font-family);
+        }
+      }
+    }
+    &::after {
+      border-radius: var(--border-radius-containers);
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.95;
+      background-color: var(--color-primary);
+      z-index: -1;
+    }
+
+    &__buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding-top: 2rem;
+      &-next {
+        @include buttons-enabled;
+        width: 30%;
+      }
+
+      &-back {
+        @include buttons-back;
+        width: 30%;
+      }
+    }
+
+    &__level {
+      position: relative;
+      &__icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.25rem;
+        color: var(--color-white);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xxl) {
+  .fhv-register {
+    &__container {
+      padding: 2rem;
+      &__form {
+        row-gap: 1rem;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .fhv-register {
+    &__container {
+      width: 90%;
+      &__form {
+        &__box {
+          min-height: 6rem;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .fhv-register {
+    &__container {
+      width: 100%;
+      margin: 0;
+      fhv-text-area-form {
+        .fhv-text-area-form {
+          margin-top: 1rem;
+        }
+      }
+      &__form {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 0.75rem;
+      }
+      &::after {
+        border-radius: 0;
+      }
+      &__buttons {
+        &-back,
+        &-next {
+          width: 40%;
+        }
+      }
+    }
+  }
+}

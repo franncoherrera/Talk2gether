@@ -1,0 +1,80 @@
+@import "media-queries";
+@import "font-size";
+
+fhv-interest-modal {
+  height: 100%;
+  height: 100%;
+  .fhv-interest-modal {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.875rem;
+    &__container {
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--color-primary);
+      border-radius: var(--border-radius-containers);
+      border: 0.0125rem solid var(--color-primary);
+      transition: 300ms all ease-in-out;
+      &__item {
+        width: 100%;
+        cursor: pointer;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 1.25rem;
+        svg {
+          color: var(--color-white);
+          height: 4rem;
+        }
+        &__name {
+          color: var(--color-white);
+          @include apply-responsive-font-size($font-size-subtitle);
+        }
+      }
+    }
+    .selected {
+      background-color: var(--color-background-home);
+      border: 0.0125rem solid var(--color-background-home);
+    }
+    .disabled-interest {
+      background-color: var(--color-bg-back);
+      border: 0.0125rem solid var(--color-bg-back);
+      border-radius: var(--border-radius-containers);
+
+    }
+    .disabled {
+      cursor: not-allowed;
+    }
+    @include media-breakpoint-down(lg) {
+      grid-auto-rows: minmax(6.25rem, 12.5rem);
+      &__container {
+        &__item {
+          svg {
+            height: 3rem;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-down(md) {
+      grid-auto-rows: minmax(6.25rem, 7.5rem);
+      &__container {
+        .disabled-interest {
+          background-color: var(--color-bg-back);
+          border: 0.0125rem solid var(--color-bg-back);
+          border-radius: var(--border-radius-containers);
+        }
+        &__item {
+          svg {
+            height: 2rem;
+          }
+        }
+      }
+    }
+  }
+}

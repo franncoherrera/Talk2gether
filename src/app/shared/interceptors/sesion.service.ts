@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TOKEN_SESSION } from '../models/tokenSession';
+import { TOKEN_SESSION } from '../models/tokenSession.model';
 
 @Injectable()
 export class SesionService {

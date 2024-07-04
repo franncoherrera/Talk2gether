@@ -1,0 +1,11 @@
+<div class="modal-dialog fhv-bootstrap-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5">{{ modalTitle }}</h1>
+      <button type="button" class="btn-close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

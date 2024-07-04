@@ -8,14 +8,30 @@
     color: var(--color-white);
     position: relative;
     font-family: var(--font-family);
+    padding-bottom: 0.125rem;
     @include apply-responsive-font-size($font-size-text);
   }
   &__input {
     width: 100%;
     padding: 0.625rem;
-    border-radius: 0.25rem !important;
     border: 0.063rem solid var(--color-border);
     border-radius: var(--border-radius-input);
     color: var(--color-black);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include apply-responsive-font-size($font-size-text);
+    &__focus {
+      &:focus {
+        box-shadow: 0 0 0 0.15rem var(--color-bg-submit);
+      }
+    }
+    &__error {
+      box-shadow: 0 0 0 0.15rem var(--color-message-error);
+    }
+    &::placeholder{
+      width: 90%;
+      @include apply-responsive-font-size($font-size-text);
+    }
   }
 }

@@ -1,26 +1,28 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Subscription, map } from 'rxjs';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { VALIDATOR_PATTERNS } from '../../../../../shared/constants/patterns';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession';
+import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession.model';
+import { CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { FormService } from '../../../../../shared/services/form.service';
 
 @Component({
   selector: 'fhv-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   submitForm: boolean = false;
   submitError: boolean = false;
-  passwordType: string = 'password';
+  readonly INPUT_TYPE = INPUT_TYPE;
   sessionSubscription: Subscription;
   constructor(
     private router: Router,
@@ -28,16 +30,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
     private translateService: TranslateService,
+    protected formService: FormService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(
       {
         email: new FormControl('', [
-          Validators.pattern(VALIDATOR_PATTERNS.patternEmail),
-          Validators.required,
+          CUSTOM_EMAIL_PATTERN,
+          CUSTOM_REQUIRED,
         ]),
-        password: new FormControl('', [Validators.required]),
+        password: new FormControl('', [CUSTOM_REQUIRED]),
       },
       {
         updateOn: 'change',
@@ -92,11 +95,11 @@ export class LoginComponent implements OnInit, OnDestroy {
       case 3: {
         /* Blocked account - reporting reasons are shown - */
         this.commonLoginService.saveReason(reasonReport);
-        this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN]);
+        this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH]);
         break;
       }
       default: {
-        this.sweetAlertService.errorAlert(
+        this.sweetAlertService.alertMessage(
           this.translateService.instant('common.error.general_error_title'),
           this.translateService.instant(
             'common.error.general_error_description'

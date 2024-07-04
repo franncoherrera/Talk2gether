@@ -1,0 +1,267 @@
+<ng-container *ngIf="parametersList$ | async as parametersList; else loading">
+  <div class="fhv-register">
+    <div class="fhv-register__container">
+      <div class="fhv-register__container__title">
+        <span>
+          {{ "common.register_page.register_title" | translate }}
+        </span>
+        <span class="fhv-register__container-subtitle">
+          {{
+            "common.register_page.register_subtitle_personal_data" | translate
+          }}
+        </span>
+      </div>
+      <form
+        class="fhv-register__container__form"
+        [formGroup]="registerForm"
+        (ngSubmit)="registerUser()"
+      >
+        <fhv-input-form
+          [name]="'userName'"
+          label="{{ 'common.register_page.register_name' | translate }}"
+          [type]="INPUT_TYPE.TEXT"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'userName')"
+          placeholder="{{
+            'common.register_page.register_name_placeholder' | translate
+          }}"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+        <fhv-input-form
+          [name]="'userSurname'"
+          label="{{ 'common.register_page.register_surname' | translate }}"
+          [type]="INPUT_TYPE.TEXT"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'userSurname')"
+          placeholder="{{
+            'common.register_page.register_surname_placeholder' | translate
+          }}"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+        <fhv-input-form
+          [name]="'dateBorn'"
+          label="{{ 'common.register_page.register_dateBorn' | translate }}"
+          [type]="INPUT_TYPE.DATE"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'dateBorn')"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+        <fhv-select-form
+          [name]="'country'"
+          label="{{ 'common.register_page.register_country' | translate }}"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'country')"
+          placeholder="{{
+            'common.register_page.register_country_placeholder' | translate
+          }}"
+          [submitForm]="submitForm"
+          [options]="parametersList.countryList"
+        >
+        </fhv-select-form>
+        <fhv-select-form
+          [name]="'nativeLanguage'"
+          label="{{
+            'common.register_page.register_native_language' | translate
+          }}"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'nativeLanguage')"
+          placeholder="{{
+            'common.register_page.register_native_language_placeholder'
+              | translate
+          }}"
+          [submitForm]="submitForm"
+          [options]="parametersList.languageList"
+        >
+        </fhv-select-form>
+        <fhv-input-form
+          [name]="'urlPhoto'"
+          label="{{ 'common.register_page.register_photo' | translate }}"
+          [type]="INPUT_TYPE.FILE"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'urlPhoto')"
+          [submitForm]="submitForm"
+          [accept]="IMAGE_FORMAT.imagePermittedFormat"
+          (change)="onInputChange($event)"
+        >
+        </fhv-input-form>
+      </form>
+      <div class="fhv-register__container__title">
+        <span class="fhv-register__container-subtitle">
+          {{ "common.register_page.register_subtitle_account" | translate }}
+        </span>
+      </div>
+      <form class="fhv-register__container__form" [formGroup]="registerForm">
+        <fhv-input-form
+          [name]="'email'"
+          label="{{ 'common.register_page.register_email' | translate }}"
+          [type]="INPUT_TYPE.EMAIL"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'email')"
+          placeholder="{{
+            'common.register_page.register_email_placeholder' | translate
+          }}"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+        <fhv-input-form
+          [name]="'password'"
+          label="{{ 'common.register_page.register_password' | translate }}"
+          [type]="INPUT_TYPE.PASSWORD"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'password')"
+          placeholder="{{
+            'common.register_page.register_password_placeholder' | translate
+          }}"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+        <fhv-input-form
+          [name]="'repeatPassword'"
+          label="{{
+            'common.register_page.register_repeat_password' | translate
+          }}"
+          [type]="INPUT_TYPE.PASSWORD"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'repeatPassword')"
+          placeholder="{{
+            'common.register_page.register_repeat_password_placeholder'
+              | translate
+          }}"
+          [submitForm]="submitForm"
+        >
+        </fhv-input-form>
+      </form>
+      <div class="fhv-register__container__title">
+        <span class="fhv-register__container-subtitle">
+          {{ "common.register_page.register_subtitle_interest" | translate }}
+        </span>
+      </div>
+      <form class="fhv-register__container__form" [formGroup]="registerForm">
+        <fhv-select-form
+          [name]="'learnLanguage'"
+          label="{{
+            'common.register_page.register_learn_language' | translate
+          }}"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'learnLanguage')"
+          placeholder="{{
+            'common.register_page.register_learn_language_placeholder'
+              | translate
+          }}"
+          [submitForm]="submitForm"
+          [options]="parametersList.languageList"
+        >
+        </fhv-select-form>
+        <div class="fhv-register__container__level">
+          <fhv-select-form
+            [name]="'languageLevel'"
+            label="{{
+              'common.register_page.register_level_language' | translate
+            }}"
+            [formGroup]="registerForm"
+            [control]="formService.formControl(registerForm, 'languageLevel')"
+            placeholder="{{
+              'common.register_page.register_level_language_placeholder'
+                | translate
+            }}"
+            [submitForm]="submitForm"
+            [options]="parametersList.languageLevelList"
+          >
+          </fhv-select-form>
+          <span (click)="openLevelLanguageModal()">
+            <i
+              class="fhv-register__container__level__icon fa-beat {{
+                ICON_CLASS.info
+              }}"
+            ></i>
+          </span>
+        </div>
+        <div class="fhv-register__container__form__box">
+          <label class="fhv-register__container__form__box__label">
+            {{ "common.register_page.register_interest" | translate }}</label
+          >
+          <button
+            class="fhv-register__container__form__modal"
+            [ngClass]="{
+              'button-error':
+                this.registerForm.get('interest').value.length === 0 &&
+                submitForm
+            }"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            (click)="openInterestModal()"
+          >
+            {{
+              "common.register_page.register_interest_placeholder" | translate
+            }}
+          </button>
+          <div
+            [ngClass]="{
+              'fhv-register__container__form__interest':
+                this.registerForm.get('interest').value.length !== 0
+            }"
+          >
+            @if(!!this.registerForm.get('interest').value){ @for (interest of
+            this.registerForm.get('interest').value; track interest.id) {
+            <div class="fhv-register__container__form__interest--selected">
+              <span
+                >{{ interest.name }}
+                <i class="{{ interest.icon }}"></i>
+              </span>
+              <span (click)="deleteInterest(interest.name)"
+                ><i class="{{ ICON_CLASS.x_close }}"></i
+              ></span>
+            </div>
+            } }
+          </div>
+          <fhv-form-error
+            [showError]="submitForm"
+            [control]="formService.formControl(registerForm, 'interest')"
+          ></fhv-form-error>
+        </div>
+      </form>
+      <fhv-text-area-form
+        [name]="'descriptionUser'"
+        label="{{ 'common.register_page.register_description' | translate }}"
+        [formGroup]="registerForm"
+        [control]="formService.formControl(registerForm, 'descriptionUser')"
+        placeholder="{{
+          'common.register_page.register_description_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      ></fhv-text-area-form>
+      <form [formGroup]="registerForm">
+        <fhv-input-checkbox
+          [name]="'terms'"
+          label="{{ 'common.register_page.register_terms' | translate }}"
+          [formGroup]="registerForm"
+          [control]="formService.formControl(registerForm, 'terms')"
+          [submitForm]="submitForm"
+          [labelRoute]="ROUTES_PATH.TERMS_CONDITION_PATH"
+        >
+        </fhv-input-checkbox>
+      </form>
+      <div class="fhv-register__container__buttons">
+        <button
+          type="button"
+          class="fhv-register__container__buttons-back"
+          (click)="goBack()"
+        >
+          {{ "common.register_page.register_button_back" | translate }}
+        </button>
+        <button
+          type="submit"
+          class="fhv-register__container__buttons-next"
+          (click)="registerUser()"
+        >
+          {{ "common.register_page.register_button_next" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading></ng-template>

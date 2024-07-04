@@ -1,0 +1,16 @@
+@import "media-queries";
+
+.modal-dialog {
+  min-width: 50rem;
+  @include media-breakpoint-down(lg) {
+    min-width: auto;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    width: 100%;
+    height: 100%;
+    .modal-content {
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+}

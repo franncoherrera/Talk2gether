@@ -1,6 +1,3 @@
-@import "font-size";
-@import "media-queries";
-
 @mixin buttons-enabled {
   display: inline-block;
   position: relative;
@@ -17,7 +14,9 @@
   transition: 2s;
   font-family: var(--font-family-medium);
   border-radius: var(--border-radius-button);
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:before,
   &:after {
     content: "";
@@ -70,6 +69,9 @@
   transition: 2s;
   font-family: var(--font-family-medium);
   border-radius: var(--border-radius-button);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   &:before,
   &:after {
     content: "";

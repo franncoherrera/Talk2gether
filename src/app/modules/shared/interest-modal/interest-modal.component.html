@@ -1,0 +1,32 @@
+<fhv-bootstrap-modal
+  modalTitle="{{
+    'common.register_page.register_interest_placeholder' | translate
+  }}"
+>
+  <ng-container *ngIf="interestList$ | async as interestList">
+    <div class="fhv-interest-modal">
+      <div
+        *ngFor="let interest of interestList"
+        class="fhv-interest-modal__container"
+        [ngClass]="{
+          selected: validateInterestSelected(interest.id),
+          'disabled-interest': isInterestDisabled(interest.id)
+        }"
+        (click)="onInterestClick(interest.id, interestList)"
+      >
+        <div
+          [id]="interest.id"
+          class="fhv-interest-modal__container__item"
+          [ngClass]="{
+            disabled: isInterestDisabled(interest.id)
+          }"
+        >
+          <i [class]="interest.icon"></i>
+          <p class="fhv-interest-modal__container__item__name">
+            {{ interest.name }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</fhv-bootstrap-modal>

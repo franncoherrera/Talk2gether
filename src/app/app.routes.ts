@@ -15,4 +15,10 @@ export const routes: Routes = [
       import('./modules/common/common-login/common-login.module').then(
         (loginPage) => loginPage.CommonLoginModule),
   },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import('./modules/common/common-register/common-register.module').then(
+        (registerPage) => registerPage.CommonRegisterModule),
+  },
 ];

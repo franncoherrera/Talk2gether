@@ -1,0 +1,55 @@
+@import "font-size";
+
+.fhv-select-form {
+  position: relative;
+  margin-bottom: 1.25rem;
+  &__label {
+    display: block;
+    color: var(--color-white);
+    position: relative;
+    font-family: var(--font-family);
+    padding-bottom: 0.125rem;
+    @include apply-responsive-font-size($font-size-text);
+  }
+  &__focus {
+    box-shadow: 0 0 0 0.15rem var(--color-bg-submit);
+  }
+  &__error {
+    box-shadow: 0 0 0 0.15rem var(--color-message-error);
+  }
+  .ng-select .ng-select-container {
+    border: none;
+  }
+  .ng-select .ng-arrow-wrapper {
+    padding: 0;
+  }
+  .form-control {
+    padding: 0.25rem 0.25rem 0.25rem 0.75rem;
+  }
+  .ng-select.ng-select-focused:not(.ng-select-opened) > .ng-select-container {
+    box-shadow: 0 0 0 0.15rem transparent;
+  }
+  .ng-select.ng-select-single
+    .ng-select-container
+    .ng-value-container
+    .ng-value,
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option,
+  .ng-placeholder {
+    @include apply-responsive-font-size($font-size-text);
+  }
+  .ng-select .ng-select-container .ng-value-container {
+    padding-left: 0;
+  }
+  .ng-select.ng-select-single
+    .ng-select-container
+    .ng-value-container
+    .ng-input {
+    padding-left: 0;
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-placeholder {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

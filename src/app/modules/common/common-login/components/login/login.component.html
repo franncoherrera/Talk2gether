@@ -12,42 +12,26 @@
       <fhv-input-form
         [name]="'email'"
         label="{{ 'common.login_page.login_email' | translate }}"
-        [type]="'email'"
+        [type]="INPUT_TYPE.EMAIL"
         [formGroup]="loginForm"
+        [control]="formService.formControl(loginForm,'email')"
         placeholder="{{
           'common.login_page.login_email_placeholder' | translate
         }}"
-        required="true"
+        [submitForm]="submitForm"
       >
-        <fhv-form-error
-          [errorMessage]="'common.login_page.login_structure_error' | translate"
-          [showError]="loginForm.get('email').hasError('pattern') && submitForm"
-        ></fhv-form-error>
-        <fhv-form-error
-          [errorMessage]="'common.login_page.login_email_required' | translate"
-          [showError]="
-            loginForm.get('email').hasError('required') && submitForm
-          "
-        ></fhv-form-error>
       </fhv-input-form>
       <fhv-input-form
         [name]="'password'"
         label="{{ 'common.login_page.login_password' | translate }}"
-        [type]="'password'"
+        [type]="INPUT_TYPE.PASSWORD"
         [formGroup]="loginForm"
+        [control]="formService.formControl(loginForm,'password')"
         placeholder="{{
           'common.login_page.login_pass_placeholder' | translate
         }}"
-        required="true"
+        [submitForm]="submitForm"
       >
-        <fhv-form-error
-          [errorMessage]="
-            'common.login_page.login_password_required' | translate
-          "
-          [showError]="
-            loginForm.get('password').hasError('required') && submitForm
-          "
-        ></fhv-form-error>
       </fhv-input-form>
       <div class="fhv-login__container__form__buttons">
         <button
