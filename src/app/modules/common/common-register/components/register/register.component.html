@@ -43,6 +43,9 @@
         <fhv-input-form
           [name]="'dateBorn'"
           label="{{ 'common.register_page.register_dateBorn' | translate }}"
+          placeholder="{{
+            'common.register_page.register_dateBorn' | translate
+          }}"
           [type]="INPUT_TYPE.DATE"
           [formGroup]="registerForm"
           [control]="formService.formControl(registerForm, 'dateBorn')"
