@@ -5,7 +5,8 @@ import { environment } from '../../../environments/environment.development';
   providedIn: 'root',
 })
 export class UrlBuilderService {
-  environmentUrl: string = environment.apiUrl;
+  language: string = localStorage.getItem('selectedLang');
+  environmentUrl: string = `${environment.apiUrl}/${this.language}`;
 
   buildUrl(endpoint: string, params: { [key: string]: any } = {}): string {
     let url = this.environmentUrl + endpoint;

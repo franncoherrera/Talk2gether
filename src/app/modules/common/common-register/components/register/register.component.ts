@@ -125,7 +125,16 @@ export class RegisterComponent implements OnInit, OnDestroy {
   registerUser(): void {
     this.submitForm = true;
     if (this.registerForm.invalid) return;
-    this.uploadFile(this.fileSelected);
+    this.spinnerGeneralServide.hideSpinner();
+    this.sweetAlertService.alertTimer(
+      this.translateService.instant(
+        'common.register_page.user_registered'
+      ),
+      SWEET_ALERT_POSITION.TOP_RIGHT,
+      SWEET_ALERT_ICON.SUCCESS
+    );
+    this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
+    // this.uploadFile(this.fileSelected);
   }
 
   onInputChange(event: Event): void {
