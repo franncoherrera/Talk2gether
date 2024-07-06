@@ -58,7 +58,7 @@
             'common.register_page.register_country_placeholder' | translate
           }}"
           [submitForm]="submitForm"
-          [options]="parametersList.countryList"
+          [options]="parametersList.countryList['countries']"
         >
         </fhv-select-form>
         <fhv-select-form
@@ -73,7 +73,7 @@
               | translate
           }}"
           [submitForm]="submitForm"
-          [options]="parametersList.languageList"
+          [options]="parametersList.languageList['language']"
         >
         </fhv-select-form>
         <fhv-input-form
@@ -152,7 +152,7 @@
               | translate
           }}"
           [submitForm]="submitForm"
-          [options]="parametersList.languageList"
+          [options]="parametersList.languageList['language']"
         >
         </fhv-select-form>
         <div class="fhv-register__container__level">
@@ -168,7 +168,7 @@
                 | translate
             }}"
             [submitForm]="submitForm"
-            [options]="parametersList.languageLevelList"
+            [options]="parametersList.languageLevelList['levellanguage']"
           >
           </fhv-select-form>
           <span (click)="openLevelLanguageModal()">

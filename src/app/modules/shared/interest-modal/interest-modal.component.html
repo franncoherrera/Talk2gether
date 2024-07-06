@@ -6,13 +6,13 @@
   <ng-container *ngIf="interestList$ | async as interestList">
     <div class="fhv-interest-modal">
       <div
-        *ngFor="let interest of interestList"
+        *ngFor="let interest of interestList['interest']"
         class="fhv-interest-modal__container"
         [ngClass]="{
           selected: validateInterestSelected(interest.id),
           'disabled-interest': isInterestDisabled(interest.id)
         }"
-        (click)="onInterestClick(interest.id, interestList)"
+        (click)="onInterestClick(interest.id, interestList['interest'])"
       >
         <div
           [id]="interest.id"

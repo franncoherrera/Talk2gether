@@ -1,0 +1,46 @@
+{
+  "interest": [
+    {
+      "id": 2,
+      "name": "Cine",
+      "icon": "fa-solid fa-film",
+      "seleccionado": false
+    },
+    {
+      "id": 3,
+      "name": "Viajes",
+      "icon": "fa-solid fa-plane",
+      "seleccionado": false
+    },
+    {
+      "id": 4,
+      "name": "Ciencias",
+      "icon": "fa-solid fa-flask",
+      "seleccionado": false
+    },
+    {
+      "id": 5,
+      "name": "Deporte",
+      "icon": "fa-solid fa-futbol",
+      "seleccionado": false
+    },
+    {
+      "id": 6,
+      "name": "Libros",
+      "icon": "fa-solid fa-book",
+      "seleccionado": false
+    },
+    {
+      "id": 8,
+      "name": "Música",
+      "icon": "fa-solid fa-music",
+      "seleccionado": false
+    },
+    {
+      "id": 12,
+      "name": "Programación",
+      "icon": "fa-solid fa-keyboard",
+      "seleccionado": false
+    }
+  ]
+}
