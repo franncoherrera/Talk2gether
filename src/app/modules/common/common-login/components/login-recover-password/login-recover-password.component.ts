@@ -49,41 +49,16 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
   }
 
   sendEmailRecover(): void {
-
     this.submitForm = true;
     if (this.recoverPass.invalid) return;
-    this.spinnerGeneralService.showSpinner();
-    this.commonLoginService
-      .recoverPass(this.recoverPass.get('emailRecover').value)
-      .pipe(
-        takeUntil(this.unsubscribe$),
-        tap({
-          complete: () => {
-            this.spinnerGeneralService.hideSpinner();
-            this.sweetAlertService.alertMessageConfirm(
-              this.translateService.instant(
-                'common.login_page.login_recover_pass_message_succes',
-                { email: this.recoverPass.get('emailRecover').value }
-              ),
-              SWEET_ALERT_ICON.SUCCESS
-            );
-            this.customModalService.closeActiveModal();
-          },
-        }),
-        catchError((error) => {
-          this.spinnerGeneralService.hideSpinner();
-          this.sweetAlertService.alertMessage(
-            error.error.mensaje,
-            this.translateService.instant(
-              'common.error.recover_password_error'
-            ),
-            SWEET_ALERT_ICON.ERROR
-          );
-          this.customModalService.closeActiveModal();
-          return of(error);
-        })
-      )
-      .subscribe();
+    this.sweetAlertService.alertMessageConfirm(
+      this.translateService.instant(
+        'common.login_page.login_recover_pass_message_succes',
+        { email: this.recoverPass.get('emailRecover').value }
+      ),
+      SWEET_ALERT_ICON.SUCCESS
+    );
+    this.customModalService.closeActiveModal();
   }
 
   ngOnDestroy(): void {
