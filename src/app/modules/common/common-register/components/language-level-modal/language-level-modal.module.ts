@@ -6,7 +6,7 @@ import { LanguageLevelModalComponent } from './language-level-modal.component';
 
 @NgModule({
   declarations: [LanguageLevelModalComponent],
-  imports: [CommonModule, ModalComponent, TranslateModule, ModalComponent],
+  imports: [CommonModule, ModalComponent, TranslateModule],
   exports: [LanguageLevelModalComponent]
 })
 export class LanguageLevelModalModule {}

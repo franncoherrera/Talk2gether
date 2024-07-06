@@ -24,7 +24,7 @@ export class SweetAlertService {
       confirmButtonColor: this.confirmButtonColor,
     });
   }
-
+  /* Deprecated method: this one is not responsive modal*/
   alertTimer(
     message: string,
     position: SweetAlertPosition,
