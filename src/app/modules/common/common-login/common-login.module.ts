@@ -6,6 +6,7 @@ import { LoginModule } from './components/login/login.module';
 import { LoginDisabledModule } from './components/login-disabled/login-disabled.module';
 import { LoginDisabledComponent } from './components/login-disabled/login-disabled.component';
 import { authGuard } from '../../../shared/guards/auth.guard';
+import { LoginRecoverPasswordModule } from './components/login-recover-password/login-recover-password.module';
 
 export const LOGIN_ROUTES: Routes = [
   {
@@ -22,7 +23,7 @@ export const LOGIN_ROUTES: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [LoginModule, LoginDisabledModule],
+  imports: [LoginModule, LoginDisabledModule, LoginRecoverPasswordModule],
   providers: [provideRouter(LOGIN_ROUTES)],
 })
 export class CommonLoginModule {}

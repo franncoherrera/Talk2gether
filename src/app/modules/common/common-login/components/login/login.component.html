@@ -14,7 +14,7 @@
         label="{{ 'common.login_page.login_email' | translate }}"
         [type]="INPUT_TYPE.EMAIL"
         [formGroup]="loginForm"
-        [control]="formService.formControl(loginForm,'email')"
+        [control]="formService.formControl(loginForm, 'email')"
         placeholder="{{
           'common.login_page.login_email_placeholder' | translate
         }}"
@@ -26,13 +26,14 @@
         label="{{ 'common.login_page.login_password' | translate }}"
         [type]="INPUT_TYPE.PASSWORD"
         [formGroup]="loginForm"
-        [control]="formService.formControl(loginForm,'password')"
+        [control]="formService.formControl(loginForm, 'password')"
         placeholder="{{
           'common.login_page.login_pass_placeholder' | translate
         }}"
         [submitForm]="submitForm"
       >
       </fhv-input-form>
+
       <div class="fhv-login__container__form__buttons">
         <button
           type="submit"
@@ -47,6 +48,9 @@
         "
         [showError]="submitError"
       ></fhv-form-error>
+      <div class="fhv-login__container__form__recover">
+        <a (click)="openRecoverPassModal()">  {{ "common.login_page.login_recover_pass" | translate }}</a>
+      </div>
     </form>
   </div>
 </div>

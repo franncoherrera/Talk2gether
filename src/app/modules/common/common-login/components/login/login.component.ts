@@ -7,11 +7,17 @@ import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession.model';
-import { CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
+import {
+  CUSTOM_EMAIL_PATTERN,
+  CUSTOM_REQUIRED,
+} from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { FormService } from '../../../../../shared/services/form.service';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { LoginRecoverPasswordComponent } from '../login-recover-password/login-recover-password.component';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 
 @Component({
   selector: 'fhv-login',
@@ -30,16 +36,14 @@ export class LoginComponent implements OnInit, OnDestroy {
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
     private translateService: TranslateService,
-    protected formService: FormService
+    protected formService: FormService,
+    private customModalService: CustomModalService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(
       {
-        email: new FormControl('', [
-          CUSTOM_EMAIL_PATTERN,
-          CUSTOM_REQUIRED,
-        ]),
+        email: new FormControl('', [CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED]),
         password: new FormControl('', [CUSTOM_REQUIRED]),
       },
       {
@@ -109,6 +113,13 @@ export class LoginComponent implements OnInit, OnDestroy {
         break;
       }
     }
+  }
+  
+  openRecoverPassModal(): void {
+    this.customModalService.open(
+      LoginRecoverPasswordComponent,
+      CUSTOM_MODAL_CONFIG
+    );
   }
 
   ngOnDestroy(): void {

@@ -17,8 +17,16 @@ export class AppComponent {
 
   constructor(private translateService: TranslateService) {
     this.translateService.setDefaultLang(LANGUAGE.SPANISH);
-    const browserLang: string = this.translateService.getBrowserLang() || LANGUAGE.SPANISH;
-    const savedLang: string = localStorage.getItem('selectedLang') || browserLang;
-    this.translateService.use(Object.values(LANGUAGE).includes(savedLang as LANGUAGE) ? savedLang : 'es');
+    const browserLang: string =
+      this.translateService.getBrowserLang() || LANGUAGE.SPANISH;
+    const savedLang: string =
+      localStorage.getItem('selectedLang') || browserLang;
+    localStorage.setItem(
+      'selectedLang',
+      localStorage.getItem('selectedLang') || browserLang
+    );
+    this.translateService.use(
+      Object.values(LANGUAGE).includes(savedLang as LANGUAGE) ? savedLang : 'es'
+    );
   }
 }

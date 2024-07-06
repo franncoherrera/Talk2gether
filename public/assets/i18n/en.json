@@ -15,7 +15,8 @@
       "general_error_upload": "The image was not uploaded correctly. Please try again later.",
       "email_structure_error": "The email does not follow a proper structure. Example: hello@talk2gether.com.",
       "required_error": "The field is required.",
-      "register_error": "Registration was not possible. Please try again later."
+      "register_error": "Registration was not possible. Please try again later.",
+      "recover_password_error": "Unable to send recovery email. Please try again later."
     },
     "home_page": {
       "first_container": {
@@ -37,13 +38,16 @@
       "login_email": "Email",
       "account_deleted_title": "Your account has been deleted by:",
       "login_submit_button": "Log in",
-      "login_forgot_password": "Forgot your password?",
-      "return_home_page": "Return to homepage",
       "login_password": "Password",
       "login_password_required": "Password is required",
       "login_email_pasword_error": "Invalid email or password",
       "login_email_placeholder": "Enter your email",
-      "login_pass_placeholder": "Enter your password"
+      "login_pass_placeholder": "Enter your password",
+      "login_recover_pass": "Forgot your password?",
+      "login_recover_pass_title": "Password Recovery",
+      "login_recover_pass_label": "Enter the email you use",
+      "login_recover_pass_label_placeholder": "Enter your email",
+      "login_recover_pass_button": "Recover"
     },
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",
