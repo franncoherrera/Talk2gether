@@ -47,7 +47,8 @@
       "login_recover_pass_title":"Recuperar contraseña",
       "login_recover_pass_label":"Introduce el email que utilizas",
       "login_recover_pass_label_placeholder":"Ingresá tu email",
-      "login_recover_pass_button": "Recuperar"
+      "login_recover_pass_button": "Recuperar",
+      "login_recover_pass_message_succes": "Se envió el correo de recuperación a {{email}}"
     },
     "blocked_page": {
       "account_deleted_title": "Su cuenta ha sido eliminada por:",

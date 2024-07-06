@@ -47,7 +47,8 @@
       "login_recover_pass_title": "Password Recovery",
       "login_recover_pass_label": "Enter the email you use",
       "login_recover_pass_label_placeholder": "Enter your email",
-      "login_recover_pass_button": "Recover"
+      "login_recover_pass_button": "Recover",
+      "login_recover_pass_message_succes": "Recovery email sent to {{email}}"
     },
     "blocked_page": {
       "account_deleted_title": "Your account has been deleted for:",

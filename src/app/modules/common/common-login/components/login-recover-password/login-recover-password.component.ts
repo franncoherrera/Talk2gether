@@ -49,6 +49,7 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
   }
 
   sendEmailRecover(): void {
+
     this.submitForm = true;
     if (this.recoverPass.invalid) return;
     this.spinnerGeneralService.showSpinner();
@@ -61,7 +62,8 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
             this.spinnerGeneralService.hideSpinner();
             this.sweetAlertService.alertMessageConfirm(
               this.translateService.instant(
-                'common.register_page.user_registered'
+                'common.login_page.login_recover_pass_message_succes',
+                { email: this.recoverPass.get('emailRecover').value }
               ),
               SWEET_ALERT_ICON.SUCCESS
             );
