@@ -11,8 +11,6 @@ import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
   providedIn: 'root',
 })
 export class CommonLoginService {
-
-
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
 
@@ -26,18 +24,30 @@ export class CommonLoginService {
   ) {}
 
   /* Backend endpoints */
-  login(email: string, password: string) : Observable<Object> {
+  login(email: string, password: string): Observable<Object> {
     const bodySession: USER_SESSION = {
       //TODO Cambiar nombres del backend
       correo: email,
       contrasenia: password,
     };
-    const urlEndpoint = this.urlBuilderService.buildUrl(ENDPOINTS.LOGIN_SESSION)
+    const urlEndpoint = this.urlBuilderService.buildUrl(
+      ENDPOINTS.LOGIN_SESSION
+    );
     return this.httpClient.post(urlEndpoint, bodySession).pipe(
       tap((tokenSession) => {
         this.sesionService.startLocalSession(tokenSession as TOKEN_SESSION);
       })
     );
+  }
+
+  recoverPass(email: string): Observable<Object> {
+    const urlEndpoint = this.urlBuilderService.buildUrl(
+      ENDPOINTS.RECOVER_PASSWORD
+    );
+    const body = {
+      correo: email,
+    };
+    return this.httpClient.put(urlEndpoint, body);
   }
 
   /* Save observables */

@@ -15,7 +15,8 @@
       "general_error_upload": "L'image n'a pas été téléchargée correctement. Veuillez réessayer plus tard.",
       "email_structure_error": "L'email ne respecte pas une structure appropriée. Exemple : bonjour@talk2gether.com.",
       "required_error": "Le champ est requis.",
-      "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard."
+      "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard.",
+      "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard."
     },
     "home_page": {
       "first_container": {
@@ -37,13 +38,17 @@
       "login_email": "Email",
       "account_deleted_title": "Votre compte a été supprimé par:",
       "login_submit_button": "Se connecter",
-      "login_forgot_password": "Mot de passe oublié?",
-      "return_home_page": "Retour à la page d'accueil",
       "login_password": "Mot de passe",
       "login_password_required": "Le mot de passe est requis",
       "login_email_pasword_error": "Email ou mot de passe invalide",
       "login_email_placeholder": "Entrez votre nom d'utilisateur",
-      "login_pass_placeholder": "Entrez votre mot de passe"
+      "login_pass_placeholder": "Entrez votre mot de passe",
+      "login_recover_pass": "Mot de passe oublié ?",
+      "login_recover_pass_title": "Récupération du mot de passe",
+      "login_recover_pass_label": "Entrez l'email que vous utilisez",
+      "login_recover_pass_label_placeholder": "Entrez votre email",
+      "login_recover_pass_button": "Récupérer",
+      "login_recover_pass_message_succes": "Email de récupération envoyé à {{email}}"
     },
     "blocked_page": {
       "account_deleted_title": "Votre compte a été supprimé pour :",
