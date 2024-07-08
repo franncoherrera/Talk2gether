@@ -18,6 +18,17 @@
       "register_error": "No fue posible registrarse. Intente nuevamente mas tarde.",
       "recover_password_error": "No fue posible enviar el email de recuperación. Intente nuevamente más tarde."
     },
+    "navbar": {
+      "login_button": "Iniciar Sesión",
+      "register_button": "Registrarse",
+      "log_out_button": "Cerrar Sesión",
+      "language_button": {
+        "language_title": "Idioma",
+        "language_spanish": "Español",
+        "language_english": "Inglés",
+        "language_french": "Francés"
+      }
+    },
     "home_page": {
       "first_container": {
         "title": "Aprende idiomas con Talk2gether",
@@ -44,9 +55,9 @@
       "login_email_placeholder": "Ingresá tu usuario",
       "login_pass_placeholder": "Ingresá tu contraseña",
       "login_recover_pass": "¿Olvidaste tu contraseña?",
-      "login_recover_pass_title":"Recuperar contraseña",
-      "login_recover_pass_label":"Introduce el email que utilizas",
-      "login_recover_pass_label_placeholder":"Ingresá tu email",
+      "login_recover_pass_title": "Recuperar contraseña",
+      "login_recover_pass_label": "Introduce el email que utilizas",
+      "login_recover_pass_label_placeholder": "Ingresá tu email",
       "login_recover_pass_button": "Recuperar",
       "login_recover_pass_message_succes": "Se envió el correo de recuperación a {{email}}"
     },

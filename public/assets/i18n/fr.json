@@ -18,6 +18,17 @@
       "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard.",
       "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard."
     },
+    "navbar": {
+      "login_button": "Connexion",
+      "register_button": "S'inscrire",
+      "log_out_button": "Se Déconnecter",
+      "language_button": {
+        "language_title": "Langue",
+        "language_spanish": "Espagnol",
+        "language_english": "Anglais",
+        "language_french": "Français"
+      }
+    },
     "home_page": {
       "first_container": {
         "title": "Apprenez des langues avec Talk2gether",
