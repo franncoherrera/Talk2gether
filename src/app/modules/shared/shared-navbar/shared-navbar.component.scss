@@ -15,6 +15,10 @@ fhv-shared-navbar {
     }
     .container-fluid {
       background-color: var(--color-base);
+      padding-right: 1rem;
+      .navbar-toggler{
+        padding: 0;
+      }
     }
     .dropdown-item {
       cursor: pointer;
