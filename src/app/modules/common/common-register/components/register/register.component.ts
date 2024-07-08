@@ -126,11 +126,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.submitForm = true;
     if (this.registerForm.invalid) return;
     this.spinnerGeneralServide.hideSpinner();
-    this.sweetAlertService.alertTimer(
+    this.sweetAlertService.alertMessageConfirm(
       this.translateService.instant(
         'common.register_page.user_registered'
       ),
-      SWEET_ALERT_POSITION.TOP_RIGHT,
       SWEET_ALERT_ICON.SUCCESS
     );
     this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
