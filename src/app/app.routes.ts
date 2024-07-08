@@ -4,6 +4,7 @@ import { GENERAL_PATH } from './shared/constants/routes';
 export const routes: Routes = [
   {
     path: GENERAL_PATH.MAIN_PATH,
+    pathMatch: 'full',
     loadComponent: () =>
       import(
         './modules/common/common-home-page/common-home-page.component'
