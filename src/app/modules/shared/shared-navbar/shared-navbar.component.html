@@ -1,6 +1,15 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a
+      class="navbar-brand"
+      aria-current="page"
+      [routerLink]="[GENERAL_PATH.MAIN_PATH]"
+    >
+      <img
+        src="../../../../../assets/images/general/talk2gether_name.svg"
+        alt="logo"
+      />
+    </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -10,34 +19,96 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <fhv-toggle-button></fhv-toggle-button>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div
+      class="collapse navbar-collapse me-auto me-lg-0 justify-content-end"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            href="#"
             role="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Idioma
+            <i [class]="ICON_CLASS.language"></i>
+            {{ "common.navbar.language_button.language_title" | translate }}
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="switchLanguage(LANGUAGE.SPANISH)">Español</a></li>
-            <li><a class="dropdown-item" (click)="switchLanguage(LANGUAGE.ENGLISH)">Inglés</a></li>
-            <li><a class="dropdown-item" (click)="switchLanguage(LANGUAGE.FRANCES)">Francés</a></li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="switchLanguage(LANGUAGE.SPANISH)"
+              >
+                {{
+                  "common.navbar.language_button.language_spanish" | translate
+                }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="switchLanguage(LANGUAGE.ENGLISH)"
+              >
+                {{
+                  "common.navbar.language_button.language_english" | translate
+                }}</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                (click)="switchLanguage(LANGUAGE.FRANCES)"
+              >
+                {{
+                  "common.navbar.language_button.language_french" | translate
+                }}</a
+              >
+            </li>
           </ul>
         </li>
+        @if(!sesionService.isLoggedIn()){
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="[ROUTES_PATH.LOGIN_PATH]"
+          >
+            <i [class]="ICON_CLASS.user"></i>
+            {{ "common.navbar.login_button" | translate }}</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="[ROUTES_PATH.REGISTER_PATH]"
+          >
+            <i [class]="ICON_CLASS.address_card"></i>
+            {{ "common.navbar.register_button" | translate }}</a
+          >
+        </li>
+        } @else {
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            [routerLink]="[ROUTES_PATH.LOGIN_PATH]"
+            (click)="sesionService.clearLocalSession()"
+          >
+          <i [class]="ICON_CLASS.user_slash"></i>
+            {{ "common.navbar.log_out_button" | translate }}</a
+          >
+        </li>
+        }
       </ul>
     </div>
   </div>
 </nav>
 
-
-<!-- 
-<nav class="navbar navbar-expand-lg bg-light">
+<!-- <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button
@@ -90,5 +161,5 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
-    </div>
-  </nav> -->
+    </div> 
+  </nav>-->

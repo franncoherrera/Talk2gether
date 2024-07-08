@@ -18,6 +18,17 @@
       "register_error": "Registration was not possible. Please try again later.",
       "recover_password_error": "Unable to send recovery email. Please try again later."
     },
+    "navbar": {
+      "login_button": "Login",
+      "register_button": "Register",
+      "log_out_button": "Log Out",
+      "language_button": {
+        "language_title": "Language",
+        "language_spanish": "Spanish",
+        "language_english": "English",
+        "language_french": "French"
+      }
+    },
     "home_page": {
       "first_container": {
         "title": "Learn languages with Talk2gether",
