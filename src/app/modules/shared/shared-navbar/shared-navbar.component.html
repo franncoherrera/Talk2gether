@@ -18,8 +18,17 @@
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      #navbarToggler
     >
-      <fhv-toggle-button></fhv-toggle-button>
+      <!-- TODO create a component -->
+      <div class="fhv-toggle-button">
+        <input type="checkbox" id="thrower" #thrower />
+        <label for="thrower">
+          <span class="fhv-toggle-button__line"></span>
+          <span class="fhv-toggle-button__line"></span>
+          <span class="fhv-toggle-button__line"></span>
+        </label>
+      </div>
     </button>
     <div
       class="collapse navbar-collapse me-auto me-lg-0 justify-content-end"
@@ -75,6 +84,7 @@
             class="nav-link active"
             aria-current="page"
             [routerLink]="[ROUTES_PATH.LOGIN_PATH]"
+            (click)="closeNavbar()"
           >
             <i [class]="ICON_CLASS.user"></i>
             {{ "common.navbar.login_button" | translate }}</a
@@ -85,6 +95,7 @@
             class="nav-link active"
             aria-current="page"
             [routerLink]="[ROUTES_PATH.REGISTER_PATH]"
+            (click)="closeNavbar()"
           >
             <i [class]="ICON_CLASS.address_card"></i>
             {{ "common.navbar.register_button" | translate }}</a
@@ -96,9 +107,9 @@
             class="nav-link active"
             aria-current="page"
             [routerLink]="[ROUTES_PATH.LOGIN_PATH]"
-            (click)="sesionService.clearLocalSession()"
+            (click)="sesionService.clearLocalSession(); closeNavbar()"
           >
-          <i [class]="ICON_CLASS.user_slash"></i>
+            <i [class]="ICON_CLASS.user_slash"></i>
             {{ "common.navbar.log_out_button" | translate }}</a
           >
         </li>

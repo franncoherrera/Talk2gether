@@ -54,4 +54,37 @@ fhv-shared-navbar {
       }
     }
   }
+  .fhv-toggle-button {
+    width: 1.875rem;
+    height: 1.25rem;
+    #thrower {
+      position: absolute;
+      left: -9999rem;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      cursor: pointer;
+    }
+    &__line {
+      height: 0.125rem;
+      background-color: var(--color-primary);
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+      transition: all 0.3s;
+    }
+    #thrower:checked ~ label .fhv-toggle-button__line {
+      &:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
 }
