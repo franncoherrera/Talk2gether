@@ -1,5 +1,13 @@
 import { Injectable, NgZone } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  BehaviorSubject,
+  fromEvent,
+  map,
+  merge,
+  Observable,
+  of,
+  startWith,
+} from 'rxjs';
 import { BREAKPOINTS } from '../constants/windowSize.enum';
 @Injectable({
   providedIn: 'root',
@@ -9,8 +17,8 @@ export class BreakPointService {
     /* TODO: I can't use windowSize enum because numbers change one pixel */
     extra_small: window.matchMedia('(min-width: 350px) and (max-width: 576px)'),
     small: window.matchMedia('(min-width: 577px) and (max-width: 768px)'),
-    medium: window.matchMedia('(min-width: 769px) and (max-width: 1024px)'),
-    large: window.matchMedia('(min-width: 1025px) and (max-width: 1280px)'),
+    medium: window.matchMedia('(min-width: 769px) and (max-width: 992px)'),
+    large: window.matchMedia('(min-width: 993px) and (max-width: 1280px)'),
     extra_large: window.matchMedia(
       '(min-width: 1281px) and (max-width: 1366px)'
     ),
@@ -21,7 +29,9 @@ export class BreakPointService {
     this.getCurrentBreakpoint()
   );
 
-  public currentBreakpoint: Observable<string> = this.onBreakpointChange();
+  public currentBreakpoint$: Observable<string> = this.onBreakpointChange();
+
+  public isMobile$: Observable<boolean> = this.isMobile();
 
   constructor(private ngZone: NgZone) {
     this.listenToResize();
@@ -58,5 +68,13 @@ export class BreakPointService {
 
   private onBreakpointChange(): Observable<string> {
     return this.currentBreakpointSubject.asObservable();
+  }
+
+  private isMobile(): Observable<boolean> {
+    const checkScreenSize = () => document.documentElement.clientWidth < 992;
+    const resize$ = fromEvent(window, 'resize').pipe(map(checkScreenSize));
+    return merge(of(checkScreenSize()), resize$).pipe(
+      startWith(checkScreenSize())
+    );
   }
 }

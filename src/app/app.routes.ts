@@ -22,4 +22,10 @@ export const routes: Routes = [
       import('./modules/common/common-register/common-register.module').then(
         (registerPage) => registerPage.CommonRegisterModule),
   },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import('./modules/common/common-main-page/common-main-page.module').then(
+        (mainPage) => mainPage.CommonMainPageModule),
+  },
 ];

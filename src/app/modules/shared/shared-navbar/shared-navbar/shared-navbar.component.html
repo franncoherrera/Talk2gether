@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand"
+      aria-current="page"
+      [routerLink]="[GENERAL_PATH.MAIN_PATH]"
+      (click)="closeNavbar()"
+    >
+      <img
+        src="../../../../../assets/images/general/talk2gether_name.svg"
+        alt="logo"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      #navbarToggler
+    >
+      <!-- TODO create a component -->
+      <div class="fhv-toggle-button">
+        <input type="checkbox" id="thrower" #thrower />
+        <label for="thrower">
+          <span class="fhv-toggle-button__line"></span>
+          <span class="fhv-toggle-button__line"></span>
+          <span class="fhv-toggle-button__line"></span>
+        </label>
+      </div>
+    </button>
+    <div
+      class="collapse navbar-collapse me-auto me-lg-0 justify-content-end"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav">
+        <fhv-language-dropdown (closeNavbar)="closeNavbar()"></fhv-language-dropdown>
+        <fhv-buttons-session (closeNavbar)="closeNavbar()"></fhv-buttons-session>
+        <fhv-user-session (closeNavbar)="closeNavbar()"></fhv-user-session>
+      </ul>
+    </div>
+  </div>
+</nav>

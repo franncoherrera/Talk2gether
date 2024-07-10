@@ -1,0 +1,40 @@
+<li
+  class="nav-item dropdown"
+  [ngClass]="{ 'order-lg-2 order-2': sesionService.isLoggedIn() }"
+>
+  <a
+    class="nav-link dropdown-toggle"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    <i [class]="ICON_CLASS.language"></i>
+    {{ "common.navbar.language_button.language_title" | translate }}
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a
+        class="dropdown-item"
+        (click)="switchLanguage(LANGUAGE.SPANISH); closeNavbarChild()"
+      >
+        {{ "common.navbar.language_button.language_spanish" | translate }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="dropdown-item"
+        (click)="switchLanguage(LANGUAGE.ENGLISH); closeNavbarChild()"
+      >
+        {{ "common.navbar.language_button.language_english" | translate }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="dropdown-item"
+        (click)="switchLanguage(LANGUAGE.FRANCES); closeNavbarChild()"
+      >
+        {{ "common.navbar.language_button.language_french" | translate }}</a
+      >
+    </li>
+  </ul>
+</li>

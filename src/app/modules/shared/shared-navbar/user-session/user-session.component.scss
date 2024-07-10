@@ -1,0 +1,81 @@
+@import "font-size";
+@import "bootstrap/scss/bootstrap-utilities";
+
+fhv-user-session {
+  display: contents;
+  .nav-item-after {
+    .dropdown-toggle::after {
+      display: none;
+    }
+    &:focus {
+      background-color: transparent;
+    }
+    a {
+      padding: 0;
+      padding-right: 0 !important;
+      padding-left: 0.5rem !important;
+    }
+  }
+  .nav-link {
+    &__username {
+      @include apply-responsive-font-size($font-size-text);
+      padding-left: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 15rem;
+      display: inline-block;
+    }
+  }
+
+  .nav-item {
+    a {
+      height: 100%;
+      width: 100%;
+      img {
+        border-radius: 100%;
+        height: 2.5rem;
+        width: 2.5rem;
+      }
+    }
+    &:hover {
+      background-color: transparent !important;
+      @include media-breakpoint-down(lg) {
+        background-color: var(--color-primary) !important;
+      }
+    }
+  }
+  .dropdown-menu {
+    &__username {
+      font-size: 0.875rem;
+      padding-left: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 16rem;
+      display: inline-block;
+      color: var(--color-primary);
+      font-family: var(--font-family-bold);
+      @include media-breakpoint-down(lg) {
+        &:hover {
+          color: var(--color-white);
+        }
+      }
+    }
+  }
+  .dropdown-menu-lg {
+    right: 1.25rem;
+    left: initial !important;
+    top: 3.5rem !important;
+    padding: 0.75rem;
+    background-color: var(--color-tertiary);
+    a {
+      transition: all 300ms ease-in-out;
+      padding: 0.5rem;
+      &:hover {
+        color: var(--color-white);
+        background-color: var(--color-primary);
+      }
+    }
+  }
+}
