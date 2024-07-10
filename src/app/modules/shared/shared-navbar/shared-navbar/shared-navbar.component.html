@@ -3,7 +3,11 @@
     <a
       class="navbar-brand"
       aria-current="page"
-      [routerLink]="[GENERAL_PATH.MAIN_PATH]"
+      [routerLink]="
+        sesionService.isLoggedIn()
+          ? [ROUTES_PATH.MAIN_PAGE]
+          : [GENERAL_PATH.MAIN_PATH]
+      "
       (click)="closeNavbar()"
     >
       <img
@@ -36,8 +40,12 @@
       id="navbarSupportedContent"
     >
       <ul class="navbar-nav">
-        <fhv-language-dropdown (closeNavbar)="closeNavbar()"></fhv-language-dropdown>
-        <fhv-buttons-session (closeNavbar)="closeNavbar()"></fhv-buttons-session>
+        <fhv-language-dropdown
+          (closeNavbar)="closeNavbar()"
+        ></fhv-language-dropdown>
+        <fhv-buttons-session
+          (closeNavbar)="closeNavbar()"
+        ></fhv-buttons-session>
         <fhv-user-session (closeNavbar)="closeNavbar()"></fhv-user-session>
       </ul>
     </div>
