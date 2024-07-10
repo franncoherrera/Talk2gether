@@ -19,7 +19,7 @@
   background-color: var(--color-primary);
   &__container {
     @extend %flex-align-justify-center;
-    height: var(--height-components);
+    min-height: var(--height-components);
     width: 50%;
     padding: 8rem;
     border-radius: var(--border-radius-containers);
