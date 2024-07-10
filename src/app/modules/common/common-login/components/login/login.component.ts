@@ -18,6 +18,7 @@ import { FormService } from '../../../../../shared/services/form.service';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { LoginRecoverPasswordComponent } from '../login-recover-password/login-recover-password.component';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { SesionService } from '../../../../../shared/interceptors/sesion.service';
 
 @Component({
   selector: 'fhv-login',
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private sweetAlertService: SweetAlertService,
     private translateService: TranslateService,
     protected formService: FormService,
-    private customModalService: CustomModalService
+    private customModalService: CustomModalService,
+    private sesionService: SesionService
   ) {}
 
   ngOnInit(): void {
@@ -56,33 +58,34 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.submitForm = true;
     if (this.loginForm.invalid) return;
     this.spinnerGeneralService.showSpinner();
-    this.sessionSubscription = this.commonLoginService
-      .login(
-        this.loginForm.get('email').value,
-        this.loginForm.get('password').value
-      )
-      .pipe(
-        map<TOKEN_SESSION, string>(
-          /* TODO Error de backend "nombreRol = nameRol" */
-          (sessionResponse) => sessionResponse.nombreRol
+    if (
+      this.loginForm.get('email').value === 'fhv@gmail.com' &&
+      this.loginForm.get('password').value === '12345678Aa'
+    ) {
+      this.sessionSubscription = this.commonLoginService
+        .login(
+          this.loginForm.get('email').value,
+          this.loginForm.get('password').value
         )
-      )
-      .subscribe({
-        next: (roleName) => {
-          this.spinnerGeneralService.hideSpinner();
-          this.commonLoginService.saveRole(roleName);
-          document.location.href = ROUTES_PATH.MAIN_PAGE;
-        },
-        error: (errorSessionResponse) => {
-          this.spinnerGeneralService.hideSpinner();
-          /* Depending on the error number, what is executed */
-          const numberError = errorSessionResponse['error']['numeroError'];
-          const reasonReport =
-            errorSessionResponse['error']['cuentaEliminadaMotivos'];
-          /* Method to select how what happens in the error is treated in a more orderly way */
-          this.errorNumberSessionResponse(numberError, reasonReport);
-        },
-      });
+        .subscribe({
+          next: (response) => {
+            this.sesionService.startLocalSession(response as TOKEN_SESSION);
+            this.commonLoginService.saveRole(response.nombreRol);
+            this.spinnerGeneralService.hideSpinner();
+            document.location.href = ROUTES_PATH.MAIN_PAGE;
+          },
+        });
+    } else if (
+      this.loginForm.get('email').value === 'fhv_bloqued@gmail.com' &&
+      this.loginForm.get('password').value === '12345678Aa'
+    ) {
+      this.commonLoginService.saveReason(['', '', '']);
+      this.spinnerGeneralService.hideSpinner();
+      this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH]);
+    } else {
+      this.submitError = true;
+      this.spinnerGeneralService.hideSpinner();
+    }
   }
 
   errorNumberSessionResponse(
@@ -113,7 +116,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     }
   }
-  
+
   openRecoverPassModal(): void {
     this.customModalService.open(
       LoginRecoverPasswordComponent,

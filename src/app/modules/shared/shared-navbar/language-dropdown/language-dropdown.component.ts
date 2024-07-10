@@ -28,6 +28,7 @@ export class LanguageDropdownComponent {
     if (Object.values(LANGUAGE).includes(language as LANGUAGE)) {
       this.translateService.use(language);
       localStorage.setItem('selectedLang', language);
+      location.reload();
     }
   }
 

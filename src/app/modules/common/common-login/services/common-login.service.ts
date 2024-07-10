@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { SesionService } from '../../../../shared/interceptors/sesion.service';
-import { USER_SESSION } from '../../../../shared/models/userSession.model';
-import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
+import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 
 @Injectable({
   providedIn: 'root',
@@ -19,25 +18,13 @@ export class CommonLoginService {
 
   constructor(
     private httpClient: HttpClient,
-    private sesionService: SesionService,
     private urlBuilderService: UrlBuilderService
   ) {}
 
   /* Backend endpoints */
-  login(email: string, password: string): Observable<Object> {
-    const bodySession: USER_SESSION = {
-      //TODO Cambiar nombres del backend
-      correo: email,
-      contrasenia: password,
-    };
-    const urlEndpoint = this.urlBuilderService.buildUrl(
-      ENDPOINTS.LOGIN_SESSION
-    );
-    return this.httpClient.post(urlEndpoint, bodySession).pipe(
-      tap((tokenSession) => {
-        this.sesionService.startLocalSession(tokenSession as TOKEN_SESSION);
-      })
-    );
+  login(email: string, password: string): Observable<TOKEN_SESSION> {
+    const url = this.urlBuilderService.buildUrl(ENDPOINTS.LOGIN_SESSION);
+    return this.httpClient.get<TOKEN_SESSION>(url);
   }
 
   recoverPass(email: string): Observable<Object> {

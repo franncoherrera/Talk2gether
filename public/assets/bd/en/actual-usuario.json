@@ -1,0 +1,30 @@
+{
+  "accountNonExpired": true,
+  "accountNonLocked": true,
+  "authorities": [
+    {
+      "authority": "admin"
+    }
+  ],
+  "cantidadReferidos": 5,
+  "contrasenia": "examplePassword",
+  "correo": "fhv@gmail.com",
+  "credentialsNonExpired": true,
+  "cuentaCreada": "2024-01-01T10:00:00Z",
+  "cuentaEliminada": null,
+  "cuentaVerificada": "2024-01-02T10:00:00Z",
+  "enabled": true,
+  "id": 1,
+  "listaSeguidores": [],
+  "listaSeguidos": [],
+  "password": "examplePassword",
+  "rol": {
+    "fechaHoraAltaRol": "2023-01-01T10:00:00Z",
+    "fechaHoraFinVigenciaRol": null,
+    "id": 1,
+    "nombreRol": "admin"
+  },
+  "ultimaConexion": "2024-07-10T10:00:00Z",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fchico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpeg?alt=media&token=0f078409-cc16-4214-b45c-a587b14c4580",
+  "username": "fhv@gmail.com"
+}
