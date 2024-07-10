@@ -23,7 +23,8 @@ fhv-user-session {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      width: 15rem;
+      max-width: 15rem;
+      width: fit-content;
       display: inline-block;
     }
   }
@@ -36,6 +37,7 @@ fhv-user-session {
         border-radius: 100%;
         height: 2.5rem;
         width: 2.5rem;
+        object-fit: cover;
       }
     }
     &:hover {
@@ -56,6 +58,7 @@ fhv-user-session {
       display: inline-block;
       color: var(--color-primary);
       font-family: var(--font-family-bold);
+      width: fit-content;
       @include media-breakpoint-down(lg) {
         &:hover {
           color: var(--color-white);
