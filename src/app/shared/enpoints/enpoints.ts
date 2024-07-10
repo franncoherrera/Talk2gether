@@ -1,7 +1,9 @@
 export const ENDPOINTS = {
-  /*Login endpoint*/
+  /* Login endpoint*/
   LOGIN_SESSION: '/iniciarsesion',
   RECOVER_PASSWORD: '/usuario/recuperarContrasenia',
+  /* User enpoint */
+  USER_ACTIVE: '/actual-usuario',
   /* Register endpoint */
   REGISTER_USER: '/usuario/registrarse',
   /* Params endpoints */

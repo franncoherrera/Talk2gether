@@ -1,57 +1,39 @@
-import {
-  HttpErrorResponse,
-  HttpEvent,
-  HttpHandler,
-  HttpInterceptor,
-  HttpRequest,
-} from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { AUTH_TOKEN } from './auth.token';
+import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
 import { SesionService } from './sesion.service';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  constructor(
-    @Inject(AUTH_TOKEN) private authToken: string,
-    private sesion: SesionService
-  ) {}
+export const TokenInterceptor: HttpInterceptorFn = (req, next) => {
+  const sesionService = inject(SesionService);
+  let authToken: string = sesionService.getCurrentSesion();
 
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
-    if (this.sesion.isLoggedIn()) {
-      if (this.authToken == null) {
-        window.location.reload();
+  // Clone the request and add the authorization header
+  const authReq = req.clone({
+    setHeaders: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  });
+
+  // Pass the cloned request with the updated header to the next handler
+  return next(authReq).pipe(
+    catchError((err: any) => {
+      if (err instanceof HttpErrorResponse) {
+        // Handle HTTP errors
+        if (err.status === 401) {
+          // Specific handling for unauthorized errors
+          console.error('Unauthorized request:', err);
+          // You might trigger a re-authentication flow or redirect the user here
+        } else {
+          // Handle other HTTP error codes
+          console.error('HTTP error:', err);
+        }
+      } else {
+        // Handle non-HTTP errors
+        console.error('An error occurred:', err);
       }
-      const authReq = req.clone({
-        setHeaders: {
-          Authorization: `Bearer ${this.authToken}`,
-        },
-      });
-      //TODO deprecado
-      return next.handle(authReq).pipe(
-        catchError((err: any) => {
-          if (err && err instanceof HttpErrorResponse) {
-            if (err.status === 401) {
-              return throwError(err);
-            }
-            if (err.status === 500) {
-              return throwError(err);
-            }
-            if (err.status === 0) {
-              const Error0 = 0;
-              return throwError(Error0);
-            }
-          }
-          return throwError(err);
-        })
-      );
-    } else {
-      return next.handle(req);
-    }
-  }
-}
+
+      // Re-throw the error to propagate it further
+      return throwError(() => err);
+    })
+  );
+};
