@@ -1,0 +1,24 @@
+@if(!sesionService.isLoggedIn()){
+<li class="nav-item">
+  <a
+    class="nav-link active"
+    aria-current="page"
+    [routerLink]="[ROUTES_PATH.LOGIN_PATH]"
+    (click)="closeNavbarChild()"
+  >
+    <i [class]="ICON_CLASS.user"></i>
+    {{ "common.navbar.login_button" | translate }}</a
+  >
+</li>
+<li class="nav-item">
+  <a
+    class="nav-link active"
+    aria-current="page"
+    [routerLink]="[ROUTES_PATH.REGISTER_PATH]"
+    (click)="closeNavbarChild()"
+  >
+    <i [class]="ICON_CLASS.address_card"></i>
+    {{ "common.navbar.register_button" | translate }}</a
+  >
+</li>
+}

@@ -63,6 +63,7 @@ fhv-interest-modal {
     }
     @include media-breakpoint-down(md) {
       grid-auto-rows: minmax(6.25rem, 7.5rem);
+      grid-template-columns: repeat(2, 1fr);
       &__container {
         .disabled-interest {
           background-color: var(--color-bg-back);

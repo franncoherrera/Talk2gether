@@ -1,0 +1,7 @@
+@import "bootstrap/scss/bootstrap-utilities";
+fhv-buttons-session {
+  display: flex;
+  @include media-breakpoint-down(lg) {
+    display: contents;
+  }
+}
