@@ -1,5 +1,10 @@
 {
   "common": {
+    "report": {
+      "motive1": "Ne pas respecter les règles de la plateforme",
+      "motive2": "Phishing",
+      "motive3": "Insulte"
+    },
     "loader": {
       "loading": "Chargement..."
     },

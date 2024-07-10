@@ -79,7 +79,11 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.get('email').value === 'fhv_bloqued@gmail.com' &&
       this.loginForm.get('password').value === '12345678Aa'
     ) {
-      this.commonLoginService.saveReason(['', '', '']);
+      this.commonLoginService.saveReason([
+        this.translateService.instant('common.report.motive1'),
+        this.translateService.instant('common.report.motive2'),
+        this.translateService.instant('common.report.motive1'),
+      ]);
       this.spinnerGeneralService.hideSpinner();
       this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH]);
     } else {
