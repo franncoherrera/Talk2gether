@@ -12,6 +12,7 @@
       "general_error_max_length_text": "Exceeds the maximum possible characters.",
       "general_error_image_type": "The image must be of type .jpg, .jpeg, .png.",
       "general_error_logged": "You are logged in. You cannot access the requested screen.",
+      "general_error_not_logged": "You are not logged in. You cannot access the requested screen.",
       "general_error_upload": "The image was not uploaded correctly. Please try again later.",
       "email_structure_error": "The email does not follow a proper structure. Example: hello@talk2gether.com.",
       "required_error": "The field is required.",

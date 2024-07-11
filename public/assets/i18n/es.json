@@ -12,6 +12,7 @@
       "general_error_max_length_text": "Supera el máximo de caracteres posibles.",
       "general_error_image_type": "La imagen debe ser del tipo .jpg, .jpeg, .png.",
       "general_error_logged": "Usted se encuentra logueado. No se puede ingresar a la pantalla solicitada.",
+      "general_error_not_logged": "Usted no se encuentra logueado. No se puede ingresar a la pantalla solicitada.",
       "general_error_upload": "La imagen no se subió correctamente. Intente nuevamente mas tarde",
       "email_structure_error": "El email no respeta una estructura. Ejemplo: hola@talk2gether.com.",
       "required_error": "El campo es requerido.",

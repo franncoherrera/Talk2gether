@@ -1,4 +1,6 @@
+@import "media-queries";
 @import "font-size";
+
 .fhv-input-checkbox {
   display: flex;
   align-items: center;
@@ -16,6 +18,9 @@
     @include apply-responsive-font-size($font-size-text);
     &-route{
       cursor: pointer;
+      @include media-breakpoint-down(lg) {
+        text-decoration: underline;
+      }
     }
   }
 }
