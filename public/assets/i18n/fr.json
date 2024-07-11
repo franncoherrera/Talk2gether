@@ -17,6 +17,7 @@
       "general_error_max_length_text": "Dépasse le nombre maximum de caractères.",
       "general_error_image_type": "L'image doit être de type .jpg, .jpeg, .png.",
       "general_error_logged": "Vous êtes connecté. Vous ne pouvez pas accéder à l'écran demandé.",
+      "general_error_not_logged": "Vous n'êtes pas connecté. Vous ne pouvez pas accéder à l'écran demandé.",
       "general_error_upload": "L'image n'a pas été téléchargée correctement. Veuillez réessayer plus tard.",
       "email_structure_error": "L'email ne respecte pas une structure appropriée. Exemple : bonjour@talk2gether.com.",
       "required_error": "Le champ est requis.",
