@@ -155,6 +155,13 @@
         "terms_and_conditions_VI_title": "VI. Final Provisions",
         "terms_and_conditions_VI_description_1": "By using Talk2gether, the user acknowledges having read, understood, and accepted these terms and conditions in their entirety."
       }
+    },
+    "main_page": {
+      "main_classic_version": "Classic",
+      "main_modern_version": "Modern",
+      "main_button_filter": "Filters",
+      "main_button_create_room": "Create Room",
+      "main_search_room_placeholder": "Search for learners"
     }
   }
 }

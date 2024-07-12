@@ -1,0 +1,68 @@
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+@import "dotted-line";
+
+.fhv-main-page {
+  height: auto;
+  min-height: var(--height-components);
+  background-color: var(--color-base);
+  @include dotted-line-after;
+  &:after {
+    background-image: -webkit-repeating-radial-gradient(
+      center center,
+      var(--color-primary),
+      var(--color-primary) 0.063rem,
+      transparent 0,
+      transparent 100%
+    );
+    height: 0.25rem;
+    width: 100%;
+    top: 3.5rem;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 3.5rem 8rem 2rem 8rem;
+    &__toggle {
+      flex: 1 1 12.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      h1 {
+        @include apply-responsive-font-size($font-size-title);
+        margin: 0;
+      }
+      span {
+        font-size: 1.5rem;
+      }
+    }
+    &__filter {
+      @include buttons-enabled;
+      text-align: center;
+      flex: 1 1 12.5rem;
+      @include media-breakpoint-down(md) {
+        flex: 1 1 7.5rem;
+      }
+    }
+    &__search {
+      flex: 1 1 12.5rem;
+      fhv-input-form {
+        width: 100%;
+        display: block;
+        form {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    &__buttons {
+      padding: 2rem 2rem;
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 import { EyeButtonComponent } from '../eye-button/eye-button.component';
 import { FormErrorComponent } from '../form-error/form-error.component';
+import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class';
 
 @Component({
   selector: 'fhv-input-form',
@@ -21,6 +22,8 @@ import { FormErrorComponent } from '../form-error/form-error.component';
 })
 export class InputFormComponent {
   initialType: boolean;
+  readonly INPUT_TYPE = INPUT_TYPE;
+  readonly ICON_CLASS = ICON_CLASS;
   @Input() formGroup: FormGroup;
   @Input() control: FormControl;
   @Input() name: string;

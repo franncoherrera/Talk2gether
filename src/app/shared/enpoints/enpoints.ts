@@ -11,4 +11,6 @@ export const ENDPOINTS = {
   LANGUAGE_ACTIVE: '/idiomas/listaridiomasactivos',
   LANGUAGE_LEVEL_ACTIVE: '/nivelesidioma/listarnivelesidiomaactivos',
   INTERESTS_ACTIVE: '/intereses/listarinteresesactivos',
+  /* Main page endpoint */ 
+  SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/?idCuenta=${id}'
 };

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MainPageModule } from './components/main-page/main-page.module';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ROUTES_PATH } from '../../../shared/constants/routes';
-import { MainPageComponent } from './components/main-page/main-page.component';
 import { loggedGuard } from '../../../shared/guards/logged.guard';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { MainPageModule } from './components/main-page/main-page.module';
 
 export const MAIN_PAGE_ROUTES: Routes = [
   {

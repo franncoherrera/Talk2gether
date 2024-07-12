@@ -1,0 +1,77 @@
+<ul class="fhv-modern-card">
+  <ng-container *ngFor="let room of userRoom">
+    <li class="fhv-modern-card__container">
+      <a class="fhv-modern-card__container__card">
+        <div class="fhv-modern-card__container__card__star">
+          {{ room.cantidadEstrellas }}
+          <i [class]="ICON_CLASS.star"></i>
+        </div>
+        <ng-container *ngIf="!(breakPointService.isMobile$ | async)">
+          <ng-container *ngTemplateOutlet="icons"></ng-container>
+        </ng-container>
+
+        <img
+          [src]="room.urlFoto"
+          class="fhv-modern-card__container__card__image"
+        />
+
+        <div class="fhv-modern-card__container__card__overlay">
+          <div class="fhv-modern-card__container__card__overlay__header">
+            <svg class="fhv-modern-card__container__card__overlay__header__arc">
+              <path />
+            </svg>
+            <span
+              class="fhv-modern-card__container__card__overlay__header__thumb fi fi-{{
+                room.urlBandera
+              }} fis"
+            ></span>
+            <div
+              class="fhv-modern-card__container__card__overlay__header-icons"
+            >
+              <h3
+                class="fhv-modern-card__container__card__overlay__header__title"
+              >
+                {{ room.nombreUsuario }} - {{ room.edad }}
+              </h3>
+              <ng-container *ngIf="breakPointService.isMobile$ | async">
+                <ng-container *ngTemplateOutlet="icons"></ng-container>
+              </ng-container>
+            </div>
+          </div>
+          <div class="fhv-modern-card__container__card__overlay__description">
+            <ng-container *ngFor="let interest of room.intereses">
+              <div
+                class="fhv-modern-card__container__card__overlay__description-item"
+              >
+                {{ interest }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ng-container>
+</ul>
+
+<ng-template #icons>
+  <div class="d-flex">
+    <div
+      class="fhv-modern-card__container__card__msg"
+      [ngClass]="{
+        mobile: (breakPointService.isMobile$ | async)
+      }"
+      type="button"
+    >
+      <i [class]="ICON_CLASS.message"></i>
+    </div>
+    <div
+      class="fhv-modern-card__container__card__call"
+      type="button"
+      [ngClass]="{
+        mobile: (breakPointService.isMobile$ | async)
+      }"
+    >
+      <i [class]="ICON_CLASS.video"></i>
+    </div>
+  </div>
+</ng-template>

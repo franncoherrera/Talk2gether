@@ -71,7 +71,7 @@ export class BreakPointService {
   }
 
   private isMobile(): Observable<boolean> {
-    const checkScreenSize = () => document.documentElement.clientWidth < 992;
+    const checkScreenSize = () => window.innerWidth < 992;
     const resize$ = fromEvent(window, 'resize').pipe(map(checkScreenSize));
     return merge(of(checkScreenSize()), resize$).pipe(
       startWith(checkScreenSize())

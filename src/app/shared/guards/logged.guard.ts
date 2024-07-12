@@ -17,8 +17,8 @@ export const loggedGuard: CanActivateFn = () => {
       translateService.instant('common.error.general_error_not_logged'),
       SWEET_ALERT_ICON.ERROR
     );
-    return true;
-  } else {
     return false;
+  } else {
+    return true;
   }
 };
