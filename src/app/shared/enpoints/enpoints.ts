@@ -11,6 +11,7 @@ export const ENDPOINTS = {
   LANGUAGE_ACTIVE: '/idiomas/listaridiomasactivos.json',
   LANGUAGE_LEVEL_ACTIVE: '/nivelesidioma/listarnivelesidiomaactivos.json',
   INTERESTS_ACTIVE: '/intereses/listarinteresesactivos.json',
-  /* Main page endpoint */ 
-  SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/salas.json'
+  /* Main page endpoint */
+  SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/salas.json',
+  SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
 };

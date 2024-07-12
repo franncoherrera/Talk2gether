@@ -118,7 +118,7 @@ fhv-modern-card{
             }
             &__thumb {
               flex-shrink: 0;
-              width: 3.125rem;
+              width: 3.125rem !important;
               height: 3.125rem;
               border-radius: 50%;
             }
@@ -165,7 +165,7 @@ fhv-modern-card{
             &__header {
               gap: 1em;
               &__thumb {
-                width: 2.125rem;
+                width: 2.125rem !important;
                 height: 2.125rem;
               }
             }

@@ -26,7 +26,7 @@
   />
   @if(type === INPUT_TYPE.SEARCH){
   <div class="input-group-prepend">
-    <button class="input-group-prepend__button" type="button">
+    <button (click)="emit()" class="input-group-prepend__button" type="button">
       <i class="{{ ICON_CLASS.search }}"></i>
     </button>
   </div>

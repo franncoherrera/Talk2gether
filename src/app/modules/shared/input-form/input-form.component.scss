@@ -20,6 +20,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    z-index: 1;
     @include apply-responsive-font-size($font-size-text);
     &__focus {
       &:focus {
@@ -37,6 +38,7 @@
   .input-group-prepend {
     width: 3.5rem;
     position: relative;
+
     &__button {
       @include apply-responsive-font-size($font-size-text);
       height: 100%;
@@ -45,8 +47,9 @@
       background-color: var(--color-primary);
       color: var(--color-white);
       position: absolute;
-      right: 1.125rem;
+      right: 0.125rem;
       border-radius: var(--border-radius-input);
+      z-index: 0;
     }
   }
 }

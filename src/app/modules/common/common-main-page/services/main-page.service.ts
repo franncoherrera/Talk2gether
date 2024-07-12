@@ -18,4 +18,11 @@ export class MainPageService {
     const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.SEARCH_ROOM);
     return this.httpClient.get<ROOM_USER[]>(url);
   }
+
+  searchRoomByText(search: string): Observable<ROOM_USER[]> {
+    const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.SEARCH_USER, {
+      search: search,
+    });
+    return this.httpClient.get<ROOM_USER[]>(url);
+  }
 }
