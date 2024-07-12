@@ -155,6 +155,10 @@
         "terms_and_conditions_VI_title": "VI. Disposiciones finales",
         "terms_and_conditions_VI_description_1": "Al utilizar Talk2gether, el usuario reconoce haber leído, comprendido y aceptado estos términos y condiciones en su totalidad."
       }
+    },
+    "main_page": {
+      "main_classic_version": "Clásica",
+      "main_modern_version": "Moderno"
     }
   }
 }

@@ -3,16 +3,17 @@
 
 .fhv-modern-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 2rem;
-  padding: 6rem;
+  padding: 1rem 8rem 2rem 8rem;
   list-style-type: none;
+  margin-bottom: 0;
   &__container {
-    height: 25rem;
+    height: 29.25rem;
     display: flex;
     flex-direction: column;
     position: relative;
-    background: #fff;
+    background: var(--color-base);
     max-width: 25rem;
     &__card {
       position: relative;
@@ -23,7 +24,6 @@
       overflow: hidden;
       text-decoration: none;
       box-shadow: var(--color-shadow);
-
       &__star,
       &__msg,
       &__call {
@@ -96,8 +96,8 @@
           transition: 0.2s ease-in-out;
           width: 100%;
           &__arc {
-            width: 80px;
-            height: 80px;
+            width: 5rem;
+            height: 5rem;
             position: absolute;
             bottom: 100%;
             right: 0;
@@ -153,7 +153,7 @@
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
   @include media-breakpoint-down(xl) {
-    padding: 2rem;
+    padding: 0 2rem;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     &__container {
       height: 22rem;

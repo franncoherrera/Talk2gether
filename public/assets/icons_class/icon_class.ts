@@ -13,4 +13,5 @@ export const ICON_CLASS = {
   star: 'fa-solid fa-star',
   message: 'fa-solid fa-message',
   video: 'fa-solid fa-video',
+  search: 'fa-solid fa-search'
 };

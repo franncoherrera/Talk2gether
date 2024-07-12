@@ -4,9 +4,9 @@
 
 .fhv-classic-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 2rem;
-  padding: 6rem;
+  padding: 1rem 8rem 2rem 8rem;
   list-style-type: none;
   font-family: var(--font-family);
   h3 {
@@ -104,10 +104,14 @@
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
   @include media-breakpoint-down(xl) {
-    padding: 2rem;
+    padding: 0 2rem;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
+  }
+  @include media-breakpoint-down(sm) {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
