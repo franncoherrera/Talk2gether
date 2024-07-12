@@ -12,6 +12,9 @@ import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinne
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { TranslateService } from '@ngx-translate/core';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { FiltersComponent } from '../filters/filters.component';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 
 @Component({
   selector: 'fhv-main-page',
@@ -32,7 +35,8 @@ export class MainPageComponent implements OnInit {
     protected formService: FormService,
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private customModalService: CustomModalService
   ) {}
 
   ngOnInit() {
@@ -110,5 +114,9 @@ export class MainPageComponent implements OnInit {
       this.searchUserRoom();
       return;
     }
+  }
+
+  openFilters(): void {
+    this.customModalService.open(FiltersComponent, CUSTOM_MODAL_CONFIG);
   }
 }
