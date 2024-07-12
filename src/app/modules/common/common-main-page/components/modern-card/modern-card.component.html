@@ -1,5 +1,10 @@
 <ul class="fhv-modern-card">
-  <ng-container *ngFor="let room of userRoom">
+  <ng-container
+    *ngFor="
+      let room of userRoom
+        | paginate : { itemsPerPage: PAGINATION.ITEMS, currentPage: page }
+    "
+  >
     <li class="fhv-modern-card__container">
       <a class="fhv-modern-card__container__card">
         <div class="fhv-modern-card__container__card__star">
@@ -52,7 +57,13 @@
     </li>
   </ng-container>
 </ul>
-
+<pagination-controls
+  class="pagination"
+  (pageChange)="page = $event"
+  [responsive]="true"
+  previousLabel=""
+  nextLabel=""
+></pagination-controls>
 <ng-template #icons>
   <div class="d-flex">
     <div
