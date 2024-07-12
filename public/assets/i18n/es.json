@@ -158,7 +158,10 @@
     },
     "main_page": {
       "main_classic_version": "Clásica",
-      "main_modern_version": "Moderno"
+      "main_modern_version": "Moderno",
+      "main_button_filter": "Filtros",
+      "main_button_create_room": "Crear sala",
+      "main_search_room_placeholder": "Buscar aprendices"
     }
   }
 }

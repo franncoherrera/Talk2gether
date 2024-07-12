@@ -158,7 +158,10 @@
     },
     "main_page": {
       "main_classic_version": "Classic",
-      "main_modern_version": "Modern"
+      "main_modern_version": "Modern",
+      "main_button_filter": "Filters",
+      "main_button_create_room": "Create Room",
+      "main_search_room_placeholder": "Search for learners"
     }
   }
 }
