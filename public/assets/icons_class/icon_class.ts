@@ -10,4 +10,7 @@ export const ICON_CLASS = {
   user: 'fa-solid fa-user',
   user_slash: 'fa-solid fa-user-slash',
   address_card: 'fa-solid fa-address-card',
+  star: 'fa-solid fa-star',
+  message: 'fa-solid fa-message',
+  video: 'fa-solid fa-video',
 };
