@@ -2,124 +2,135 @@
 @import "font-size";
 @import "dotted-line";
 
-.fhv-classic-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  gap: 2rem;
-  padding: 1rem 8rem 2rem 8rem;
-  list-style-type: none;
-  font-family: var(--font-family);
-  h3 {
-    @include apply-responsive-font-size($font-size-subtitle);
-    font-weight: 700;
-  }
-  &__box {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    padding: 1.5rem;
-    background: var(--color-white);
-    max-width: 25rem;
-    box-shadow: var(--color-shadow);
-    &__top {
+fhv-classic-card{
+  .fhv-classic-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    padding: 1rem 8rem 2rem 8rem;
+    list-style-type: none;
+    font-family: var(--font-family);
+    justify-content: center;
+    align-items: center; 
+    h3 {
+      @include apply-responsive-font-size($font-size-subtitle);
+      font-weight: 700;
+    }
+    &__box {
       display: flex;
       flex-direction: column;
       position: relative;
-      gap: 0.75rem;
-      margin-bottom: 2.25rem;
-      height: calc(90% - 1.75rem);
-      &__star {
-        @include apply-responsive-font-size($font-size-text);
-        position: absolute;
-        background-color: var(--color-bg-submit);
-        min-width: 3.5rem;
-        text-align: center;
-        color: var(--color-primary);
-        font-weight: bold;
-        padding: 0.5rem;
-        border-radius: 5rem;
-        right: 1rem;
-        top: 0.5rem;
-      }
-      &__image {
-        width: 100%;
-        height: 15.625rem;
-        object-fit: cover;
-        object-position: 50% 20%;
-      }
-      &__flex {
+      padding: 1.5rem;
+      background: var(--color-white);
+      max-width: 25rem;
+      box-shadow: var(--color-shadow);
+      &__top {
         display: flex;
-        align-items: center;
-        flex-direction: row;
-        column-gap: 1rem;
-        &-title {
-          border-left: 0.188rem solid var(--color-bg-submit);
-          padding-left: 0.75rem;
-          margin: 0;
-        }
-        &__flag {
-          width: 2rem;
-          height: 2rem;
-        }
-      }
-      &__interest {
-        white-space: wrap;
-        display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        &-item {
-          width: fit-content;
+        flex-direction: column;
+        position: relative;
+        gap: 0.75rem;
+        margin-bottom: 2.25rem;
+        height: calc(90% - 1.75rem);
+        &__star {
           @include apply-responsive-font-size($font-size-text);
-          border: 0.125rem solid var(--color-bg-submit);
+          position: absolute;
+          background-color: var(--color-bg-submit);
+          min-width: 3.5rem;
+          text-align: center;
+          color: var(--color-primary);
+          font-weight: bold;
           padding: 0.5rem;
+          border-radius: 5rem;
+          right: 1rem;
+          top: 0.5rem;
+        }
+        &__image {
+          width: 100%;
+          height: 15.625rem;
+          object-fit: cover;
+          object-position: 50% 20%;
+        }
+        &__flex {
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          column-gap: 1rem;
+          &-title {
+            border-left: 0.188rem solid var(--color-bg-submit);
+            padding-left: 0.75rem;
+            margin: 0;
+          }
+          &__flag {
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+        &__interest {
+          white-space: wrap;
+          display: flex;
+          flex-direction: row;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          &-item {
+            width: fit-content;
+            @include apply-responsive-font-size($font-size-text);
+            border: 0.125rem solid var(--color-bg-submit);
+            padding: 0.5rem;
+          }
+        }
+      }
+      &__buttons {
+        height: auto;
+        @include dotted-line-before;
+        &::before {
+          background-image: -webkit-repeating-radial-gradient(
+            center center,
+            var(--color-bg-submit),
+            var(--color-bg-submit) 0.063rem,
+            transparent 0,
+            transparent 100%
+          );
+          width: 100%;
+          height: 0.5rem;
+          left: 0;
+          top: -1rem;
+        }
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 5rem;
+        position: relative;
+        &__icon {
+          @include apply-responsive-font-size($font-size-title);
         }
       }
     }
-    &__buttons {
-      height: auto;
-      @include dotted-line-before;
-      &::before {
-        background-image: -webkit-repeating-radial-gradient(
-          center center,
-          var(--color-bg-submit),
-          var(--color-bg-submit) 0.063rem,
-          transparent 0,
-          transparent 100%
-        );
-        width: 100%;
-        height: 0.5rem;
-        left: 0;
-        top: -1rem;
-      }
-      width: 100%;
+  
+    @include media-breakpoint-down(xxl) {
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+    @include media-breakpoint-down(xl) {
+      padding: 0 2rem 2rem 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+    @include media-breakpoint-down(sm) {
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
-      gap: 5rem;
-      position: relative;
-      &__icon {
-        @include apply-responsive-font-size($font-size-title);
+      &__box {
+        width: 100%;
       }
     }
   }
-
-  @include media-breakpoint-down(xxl) {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  }
-  @include media-breakpoint-down(xl) {
-    padding: 0 2rem 2rem 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-  }
-  @include media-breakpoint-down(lg) {
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  }
-  @include media-breakpoint-down(sm) {
+  
+  .pagination {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    &__box {
-      width: 100%;
-    }
+    padding: 1rem 0;
   }
 }
