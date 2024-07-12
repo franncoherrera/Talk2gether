@@ -1,13 +1,17 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MainPageService } from '../../services/main-page.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { map, Observable, switchMap } from 'rxjs';
+import { catchError, map, Observable, of, switchMap } from 'rxjs';
 import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
 import { CurrentUser } from '../../../../../shared/models/currentUser.model';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormService } from '../../../../../shared/services/form.service';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { TranslateService } from '@ngx-translate/core';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 
 @Component({
   selector: 'fhv-main-page',
@@ -25,7 +29,10 @@ export class MainPageComponent implements OnInit {
   constructor(
     private mainPageService: MainPageService,
     private userService: UserService,
-    protected formService: FormService
+    protected formService: FormService,
+    private spinnerGeneralService: SpinnerGeneralService,
+    private sweetAlertService: SweetAlertService,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit() {
@@ -38,11 +45,25 @@ export class MainPageComponent implements OnInit {
         updateOn: 'change',
       }
     );
+    this.searchUserRoom();
+  }
+
+  searchUserRoom(): void {
     this.userRoom$ = this.userService.getCurrentUser().pipe(
       map<CurrentUser, number>((user) => user.id),
       switchMap<number, Observable<ROOM_USER[]>>((userId) =>
         this.mainPageService.searchRoom(userId)
-      )
+      ),
+      catchError(() => {
+        this.sweetAlertService.alertMessage(
+          this.translateService.instant('common.error.general_error_title'),
+          this.translateService.instant(
+            'common.error.general_error_description'
+          ),
+          SWEET_ALERT_ICON.ERROR
+        );
+        return of([]);
+      })
     );
   }
 
@@ -64,5 +85,30 @@ export class MainPageComponent implements OnInit {
       localStorage.setItem('cardVersion', 'classicVersion');
     }
     this.isClassicVersion = !this.isClassicVersion;
+  }
+
+  searchUsers(): void {
+    this.spinnerGeneralService.showSpinner();
+    if (!!this.searchForm.get('search').value) {
+      this.spinnerGeneralService.hideSpinner();
+      this.userRoom$ = this.mainPageService
+        .searchRoomByText(this.searchForm.get('search').value)
+        .pipe(
+          catchError(() => {
+            this.sweetAlertService.alertMessage(
+              this.translateService.instant('common.error.general_error_title'),
+              this.translateService.instant(
+                'common.error.general_error_description'
+              ),
+              SWEET_ALERT_ICON.ERROR
+            );
+            return of([]);
+          })
+        );
+    } else {
+      this.spinnerGeneralService.hideSpinner();
+      this.searchUserRoom();
+      return;
+    }
   }
 }

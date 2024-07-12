@@ -5,6 +5,7 @@ import { ModernCardModule } from '../modern-card/modern-card.module';
 import { ClassicCardModule } from '../classic-card/classic-card.module';
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerGeneralModule } from "../../../../shared/spinner-general/spinner-general.module";
 
 @NgModule({
   declarations: [MainPageComponent],
@@ -13,7 +14,8 @@ import { TranslateModule } from '@ngx-translate/core';
     ModernCardModule,
     ClassicCardModule,
     InputFormComponent,
-    TranslateModule
-  ],
+    TranslateModule,
+    SpinnerGeneralModule
+],
 })
 export class MainPageModule {}
