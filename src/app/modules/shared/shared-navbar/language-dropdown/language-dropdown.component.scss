@@ -1,3 +1,12 @@
 fhv-language-dropdown {
   display: contents;
+  .dropdown-menu-lg {
+    right: 0.5rem;
+    left: initial !important;
+    top: 3rem !important;
+    padding: 0.5rem;
+  }
+  .fi{
+    box-shadow: var(--color-shadow);
+  }
 }

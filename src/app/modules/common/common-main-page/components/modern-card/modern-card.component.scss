@@ -1,0 +1,185 @@
+@import "media-queries";
+@import "font-size";
+
+.fhv-modern-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem;
+  padding: 1rem 8rem 2rem 8rem;
+  list-style-type: none;
+  margin-bottom: 0;
+  &__container {
+    height: 29.25rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--color-base);
+    max-width: 25rem;
+    &__card {
+      position: relative;
+      display: block;
+      height: 100%;
+      max-width: 25rem;
+      border-radius: calc(40 * 0.063rem);
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: var(--color-shadow);
+      &__star,
+      &__msg,
+      &__call {
+        @include apply-responsive-font-size($font-size-text);
+        position: absolute;
+        background-color: var(--color-primary);
+        min-width: 3.5rem;
+        text-align: center;
+        color: var(--color-tertiary);
+        font-weight: bold;
+        padding: 0.5rem;
+        border-radius: 5rem;
+      }
+      &__star {
+        right: 1.5rem;
+        top: 1rem;
+      }
+      &__msg {
+        right: 1.5rem;
+        top: 4rem;
+        z-index: 10;
+        &.mobile {
+          position: static;
+          max-width: 3.5rem;
+        }
+      }
+      &__call {
+        right: 1.5rem;
+        top: 7rem;
+        z-index: 10;
+        &.mobile {
+          position: static;
+          max-width: 3.5rem;
+          margin-left: 0.5rem;
+        }
+      }
+
+      &:hover .fhv-modern-card__container__card__overlay {
+        transform: translateY(0);
+      }
+      &:hover .fhv-modern-card__container__card__overlay__header {
+        transform: translateY(0);
+      }
+
+      &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        border-radius: calc(40 * 0.063rem);
+        background-color: var(--color-white);
+        transform: translateY(100%);
+        transition: 0.2s ease-in-out;
+        &__header {
+          position: relative;
+          display: flex;
+          align-items: center;
+          gap: 2em;
+          padding: 1em;
+          border-radius: calc(40 * 0.063rem) 0 0 0;
+          background-color: var(--color-white);
+          transform: translateY(-100%);
+          transition: 0.2s ease-in-out;
+          width: 100%;
+          &__arc {
+            width: 5rem;
+            height: 5rem;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            z-index: 1;
+            path {
+              fill: var(--color-white);
+              d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+            }
+          }
+          &-icons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+          }
+          &__thumb {
+            flex-shrink: 0;
+            width: 3.125rem;
+            height: 3.125rem;
+            border-radius: 50%;
+          }
+          &__title {
+            @include apply-responsive-font-size($font-size-text);
+            margin: 0 0 0.3em;
+            color: var(--color-primary);
+          }
+        }
+
+        &__description {
+          padding: 0 1.5em 2em;
+          margin: 0;
+          color: var(--color-primary);
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          &-item {
+            @include apply-responsive-font-size($font-size-text);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            width: fit-content;
+            padding: 0.35rem 0.5rem;
+            border-radius: var(--border-radius-button);
+          }
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(xxl) {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+  @include media-breakpoint-down(xl) {
+    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    &__container {
+      height: 22rem;
+      &__card {
+        &__overlay {
+          &__header {
+            gap: 1em;
+            &__thumb {
+              width: 2.125rem;
+              height: 2.125rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include media-breakpoint-down(lg) {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    &__container {
+      width: 100%;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -40,4 +40,5 @@ export class UserSessionComponent implements OnInit {
   closeNavbarChild(): void {
     this.closeNavbar.emit();
   }
+  
 }

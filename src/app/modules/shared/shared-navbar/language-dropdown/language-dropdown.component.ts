@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { LANGUAGE } from '../../../../shared/enums/languages.enum';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
+import { BreakPointService } from '../../../../shared/services/break-point.service';
+import { FLAG_ICON_CLASS } from '../../../../../../public/assets/icons_class/flag_icon_class';
 
 @Component({
   selector: 'fhv-language-dropdown',
@@ -18,10 +20,12 @@ import { SesionService } from '../../../../shared/interceptors/sesion.service';
 export class LanguageDropdownComponent {
   readonly LANGUAGE = LANGUAGE;
   readonly ICON_CLASS = ICON_CLASS;
+  readonly FLAG_ICON_CLASS = FLAG_ICON_CLASS;
   @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
   constructor(
     private translateService: TranslateService,
-    protected sesionService: SesionService
+    protected sesionService: SesionService,
+    protected breakPointService: BreakPointService
   ) {}
 
   switchLanguage(language: string): void {

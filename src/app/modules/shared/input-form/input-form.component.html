@@ -1,4 +1,10 @@
-<form class="form-group fhv-input-form" [formGroup]="formGroup">
+<form
+  class="form-group fhv-input-form"
+  [formGroup]="formGroup"
+  [ngClass]="{
+    'd-flex': type === INPUT_TYPE.SEARCH
+  }"
+>
   <label class="fhv-input-form__label" for="{{ name }}">{{ label }}</label>
   <input
     #input
@@ -18,6 +24,13 @@
     [placeholder]="placeholder"
     [accept]="accept"
   />
+  @if(type === INPUT_TYPE.SEARCH){
+  <div class="input-group-prepend">
+    <button class="input-group-prepend__button" type="button">
+      <i class="{{ ICON_CLASS.search }}"></i>
+    </button>
+  </div>
+  }
   <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
   @if (initialType) {
   <div class="fhv-input-form__eye">
