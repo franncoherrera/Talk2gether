@@ -26,7 +26,8 @@
       flex-direction: column;
       position: relative;
       gap: 0.75rem;
-      margin-bottom: 1.75rem;
+      margin-bottom: 2.25rem;
+      height: calc(90% - 1.75rem);
       &__star {
         @include apply-responsive-font-size($font-size-text);
         position: absolute;
@@ -69,12 +70,14 @@
         flex-wrap: wrap;
         &-item {
           width: fit-content;
+          @include apply-responsive-font-size($font-size-text);
           border: 0.125rem solid var(--color-bg-submit);
           padding: 0.5rem;
         }
       }
     }
     &__buttons {
+      height: auto;
       @include dotted-line-before;
       &::before {
         background-image: -webkit-repeating-radial-gradient(
@@ -104,12 +107,11 @@
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
   @include media-breakpoint-down(xl) {
-    padding: 0 2rem;
+    padding: 0 2rem 2rem 2rem;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   }
   @include media-breakpoint-down(lg) {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-
   }
   @include media-breakpoint-down(sm) {
     display: flex;

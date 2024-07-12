@@ -42,6 +42,7 @@
     }
     &__filter {
       @include buttons-enabled;
+      background-color: var(--color-bg-normal);
       text-align: center;
       flex: 1 1 12.5rem;
       @include media-breakpoint-down(md) {
