@@ -15,9 +15,7 @@ export class MainPageService {
   ) {}
 
   searchRoom(idUser: number): Observable<ROOM_USER[]> {
-    const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.SEARCH_ROOM, {
-      id: idUser,
-    });
+    const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.SEARCH_ROOM);
     return this.httpClient.get<ROOM_USER[]>(url);
   }
 }
