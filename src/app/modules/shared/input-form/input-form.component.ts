@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
@@ -34,6 +34,7 @@ export class InputFormComponent {
   @Input() placeholder?: string;
   @Input() submitForm: boolean;
   @Input() accept?: string;
+  @Output() search?: EventEmitter<void> = new EventEmitter();
 
   ngOnInit() {
     this.type === INPUT_TYPE.PASSWORD
@@ -43,5 +44,9 @@ export class InputFormComponent {
 
   updatePasswordType(event: string): void {
     this.type = event;
+  }
+
+  emit() {
+    this.search.emit();
   }
 }

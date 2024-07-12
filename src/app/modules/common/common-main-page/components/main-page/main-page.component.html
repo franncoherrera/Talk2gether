@@ -6,14 +6,14 @@
     <div class="fhv-main-page__buttons__filter">
       {{ "common.main_page.main_button_create_room" | translate }}
     </div>
-    <div class="fhv-main-page__buttons__toggle">
+    <div class="fhv-main-page__buttons__toggle" (click)="changeCardVersion()">
       <h1>{{ "common.main_page.main_classic_version" | translate }}</h1>
       @if(isClassicVersion){
-      <span type="button" (click)="changeCardVersion()">
+      <span type="button">
         <i class="{{ ICON_CLASS.toggle_off }}"></i>
       </span>
       } @else {
-      <span type="button" (click)="changeCardVersion()">
+      <span type="button">
         <i class="{{ ICON_CLASS.toggle_on }}"></i>
       </span>
       }
@@ -28,15 +28,19 @@
         placeholder="{{
           'common.main_page.main_search_room_placeholder' | translate
         }}"
+        (search)="searchUsers()"
       >
       </fhv-input-form>
     </div>
   </div>
-  <ng-container *ngIf="userRoom$ | async as userRoom">
+  <ng-container *ngIf="userRoom$ | async as userRoom; else loading">
     @if(isClassicVersion){
     <fhv-classic-card [userRoom]="userRoom"></fhv-classic-card>
     } @else {
     <fhv-modern-card [userRoom]="userRoom"></fhv-modern-card>
     }
   </ng-container>
+  <ng-template #loading>
+    <fhv-spinner-general [showSpinner]="true"></fhv-spinner-general>
+  </ng-template>
 </div>

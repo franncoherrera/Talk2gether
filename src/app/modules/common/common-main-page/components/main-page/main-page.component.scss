@@ -32,8 +32,10 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      cursor: pointer;
       h1 {
-        @include apply-responsive-font-size($font-size-title);
+        font-family: var(--font-family-light);
+        @include apply-responsive-font-size($font-size-subtitle);
         margin: 0;
       }
       span {
