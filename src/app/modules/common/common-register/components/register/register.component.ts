@@ -43,7 +43,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import {
   SWEET_ALERT_ICON,
-  SWEET_ALERT_POSITION,
 } from '../../../../../shared/enums/sweeAlert.enum';
 
 @Component({

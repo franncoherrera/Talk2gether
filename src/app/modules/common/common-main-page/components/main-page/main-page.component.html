@@ -1,9 +1,19 @@
 <div class="fhv-main-page">
   <div class="fhv-main-page__buttons">
-    <div class="fhv-main-page__buttons__filter" (click)="openFilters()">
+    <div
+      class="fhv-main-page__buttons__filter"
+      type="button"
+      (click)="openFilters()"
+    >
+      <span type="button">
+        <i class="{{ ICON_CLASS.filter }}"></i>
+      </span>
       {{ "common.main_page.main_button_filter" | translate }}
     </div>
     <div class="fhv-main-page__buttons__filter">
+      <span type="button">
+        <i class="{{ ICON_CLASS.plus }}"></i>
+      </span>
       {{ "common.main_page.main_button_create_room" | translate }}
     </div>
     <div class="fhv-main-page__buttons__toggle" (click)="changeCardVersion()">
