@@ -1,0 +1,36 @@
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+
+.fhv-filters {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--border-radius-containers);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  &__title {
+    @include apply-responsive-font-size($font-size-title);
+  }
+  &__subtitle {
+    @include apply-responsive-font-size($font-size-subtitle);
+  }
+  &__ages {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    fhv-input-form {
+      width: 45%;
+    }
+    @include media-breakpoint-down(sm) {
+      fhv-input-form {
+        width: 100%;
+      }
+    }
+  }
+  &__button {
+    @include buttons-enabled;
+    margin-top: 1.5rem;
+  }
+}

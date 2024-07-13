@@ -53,8 +53,7 @@ export class MainPageComponent implements OnInit {
   }
 
   searchUserRoom(): void {
-    this.userRoom$ = this.userService.getCurrentUser().pipe(
-      map<CurrentUser, number>((user) => user.id),
+    this.userRoom$ = this.userService.getIdUser().pipe(
       switchMap<number, Observable<ROOM_USER[]>>((userId) =>
         this.mainPageService.searchRoom(userId)
       ),

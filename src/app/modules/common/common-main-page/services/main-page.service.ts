@@ -27,4 +27,23 @@ export class MainPageService {
     });
     return this.httpClient.get<ROOM_USER[]>(url);
   }
+  searchRoomFiltered(): Observable<ROOM_USER[]> {
+    const url: string = this.urlBuilderService.buildUrl(
+      ENDPOINTS.SEARCH_FILTER_ROOM,
+      {
+        search: 'search',
+      }
+    );
+    return this.httpClient.get<ROOM_USER[]>(url);
+  }
+  
+  getLearnLanguage(idUser: number): Observable<string> {
+    const url: string = this.urlBuilderService.buildUrl(
+      ENDPOINTS.LANGUAGE_LEARN,
+      {
+        id: idUser,
+      }
+    );
+    return this.httpClient.get<string>(url);
+  }
 }

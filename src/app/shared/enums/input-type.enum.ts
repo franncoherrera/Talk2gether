@@ -6,4 +6,5 @@ export enum INPUT_TYPE {
   FILE = 'file',
   CHECKBOX = 'checkbox',
   SEARCH = 'search',
+  NUMBER = 'number'
 }

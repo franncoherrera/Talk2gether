@@ -20,19 +20,30 @@ import { Router } from '@angular/router';
 })
 export class InputCheckboxComponent {
   isChecked: boolean = false;
+  array: (string | number)[] = [];
   readonly INPUT_TYPE = INPUT_TYPE;
   @Input() formGroup: FormGroup;
   @Input() control: FormControl;
   @Input() name: string;
-  @Input() label: string;
-  @Input() submitForm: boolean;
-  @Input() labelRoute: string;
+  @Input() label: string | any[];
+  @Input() submitForm?: boolean;
+  @Input() labelRoute?: string;
+  @Input() modelName?: string;
 
   constructor(private router: Router) {}
 
-  onCheckboxChange(isChecked: boolean): void {
+  onCheckboxChangeString(isChecked: boolean): void {
     this.isChecked = isChecked;
     this.control.setValue(this.isChecked);
+  }
+
+  onCheckboxChangeArray(itemCheck: string | number): void {
+    if (this.array.includes(itemCheck)) {
+      this.array = this.array.filter((item) => item !== itemCheck);
+    } else {
+      this.array.push(itemCheck);
+    }
+    this.control.setValue(this.array);
   }
 
   redirectLabel(): void {
@@ -42,5 +53,9 @@ export class InputCheckboxComponent {
       );
       window.open(url, '_blank');
     }
+  }
+
+  isString(value): boolean {
+    return typeof value === 'string';
   }
 }
