@@ -84,7 +84,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.commonLoginService.saveReason([
         this.translateService.instant('common.report.motive1'),
         this.translateService.instant('common.report.motive2'),
-        this.translateService.instant('common.report.motive1'),
+        this.translateService.instant('common.report.motive3'),
       ]);
       this.spinnerGeneralService.hideSpinner();
       this.router.navigate([ROUTES_PATH.USER_BLOCKED_BY_ADMIN_PATH]);
