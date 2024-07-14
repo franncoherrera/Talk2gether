@@ -2,7 +2,8 @@
   <li
     class="nav-item order-lg-3 order-1"
     [ngClass]="{
-      'nav-item-after': !(breakPointService.isMobile$ | async)
+      'nav-item-after': !(breakPointService.isMobile$ | async),
+      'button_slide slide_left': (breakPointService.isMobile$ | async)
     }"
   >
     <a

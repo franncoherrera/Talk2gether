@@ -1,6 +1,9 @@
 @import "bootstrap/scss/bootstrap-utilities";
+@import "button_slide";
+
 fhv-buttons-session {
   display: flex;
+  @include button_slide;
   @include media-breakpoint-down(lg) {
     display: contents;
   }
