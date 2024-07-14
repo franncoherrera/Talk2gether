@@ -14,8 +14,6 @@ export class CommonLoginService {
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
 
-
-
   constructor(
     private httpClient: HttpClient,
     private sesionService: SesionService,

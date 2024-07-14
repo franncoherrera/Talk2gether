@@ -165,6 +165,7 @@
       "main_button_filter": "Filtros",
       "main_button_create_room": "Crear sala",
       "main_search_room_placeholder": "Buscar aprendices",
+      "main_search_room_empty": "No hay salas disponibles.",
       "filters": {
         "title": "Filtros",
         "subtitle": "Idioma de Aprendizaje:",

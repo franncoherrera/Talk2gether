@@ -204,25 +204,21 @@ export class RegisterComponent implements OnInit, OnDestroy {
       fechaNacimiento: this.registerForm.get('dateBorn').value,
       correo: this.registerForm.get('email').value,
       contrasenia: this.registerForm.get('password').value,
-      nombrePais: this.removeSpaces(this.registerForm.get('country').value),
-      nombreIdiomaNativo: this.removeSpaces(
+      nombrePais: this.formService.removeSpaces(this.registerForm.get('country').value),
+      nombreIdiomaNativo: this.formService.removeSpaces(
         this.registerForm.get('nativeLanguage').value
       ),
       urlFoto: urlPhoto,
       descripcion: this.registerForm.get('descriptionUser').value,
-      nombreIdiomaAprendiz: this.removeSpaces(
+      nombreIdiomaAprendiz: this.formService.removeSpaces(
         this.registerForm.get('learnLanguage').value
       ),
-      nombreNivelIdiomaAprendiz: this.removeSpaces(
+      nombreNivelIdiomaAprendiz: this.formService.removeSpaces(
         this.registerForm.get('languageLevel').value
       ),
       nombreIntereses: this.interestListRefactor(),
     };
     return user;
-  }
-
-  removeSpaces(word: string): string {
-    return word.replace(/\s+/g, '');
   }
 
   interestListRefactor(): string[] {

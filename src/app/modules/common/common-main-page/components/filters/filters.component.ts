@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
@@ -8,27 +8,29 @@ import {
   map,
   Observable,
   of,
+  Subject,
   switchMap,
+  takeUntil,
 } from 'rxjs';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { REGISTER_PARAMETERS } from '../../../../../shared/models/parameter.model';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { FormService } from '../../../../../shared/services/form.service';
 import { ParameterService } from '../../../../../shared/services/parameter.service';
-import { ModalComponent } from '../../../../shared/bootstrap-modal/bootstrap-modal.component';
-import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
-import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-checkbox.component';
-import { MainPageService } from '../../services/main-page.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { CurrentUser } from '../../../../../shared/models/currentUser.model';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
-import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import {
   CUSTOM_AGE_RANGE,
   CUSTOM_ONLY_NUMBER,
 } from '../../../../../shared/validators/formValidator';
+import { ModalComponent } from '../../../../shared/bootstrap-modal/bootstrap-modal.component';
 import { FormErrorComponent } from '../../../../shared/form-error/form-error.component';
-import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-checkbox.component';
+import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
+import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
+import { MainPageService } from '../../services/main-page.service';
 
 @Component({
   selector: 'fhv-filters',
@@ -47,24 +49,27 @@ import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_
   styleUrl: './filters.component.scss',
 })
 export class FiltersComponent implements OnInit {
-  filterForm: FormGroup;
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
+  filterForm: FormGroup;
+  private unsubscribe$: Subject<void> = new Subject<void>();
   parametersList$: Observable<REGISTER_PARAMETERS>;
   learnLanguage$: Observable<string>;
   submitForm: boolean = false;
+  @Output() dismissed = new EventEmitter<any>();
+
   constructor(
     private parameterService: ParameterService,
     protected formService: FormService,
     private mainPageService: MainPageService,
     private userService: UserService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private modalService: CustomModalService
   ) {}
 
   ngOnInit() {
-    this.learnLanguage$ = this.userService.getCurrentUser().pipe(
-      map<CurrentUser, number>((user) => user.id),
+    this.learnLanguage$ = this.userService.getIdUser().pipe(
       switchMap<number, Observable<string>>((userId) =>
         this.mainPageService.getLearnLanguage(userId)
       ),
@@ -97,7 +102,7 @@ export class FiltersComponent implements OnInit {
       {
         country: new FormControl(''),
         level: new FormControl(''),
-        interest: new FormControl(''),
+        interest: new FormControl([]),
         minAge: new FormControl(null, CUSTOM_ONLY_NUMBER),
         maxAge: new FormControl(null, CUSTOM_ONLY_NUMBER),
       },
@@ -109,12 +114,41 @@ export class FiltersComponent implements OnInit {
   }
 
   searchFilters(): void {
+    let idUser: number;
+    this.userService
+      .getIdUser()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (IdUser) => (idUser = IdUser),
+      });
     this.submitForm = true;
-    console.log(this.filterForm);
     if (this.filterForm.invalid) return;
     const filterSearch = {
-      
-    }
-    this.mainPageService.searchRoomFiltered();
+      idUser: idUser,
+      minAge: this.filterForm.get('minAge')?.value ?? '',
+      maxAge: this.filterForm.get('maxAge')?.value ?? '',
+      country:
+        this.formService.removeSpaces(this.filterForm.get('country')?.value) ??
+        '',
+      levelLanguage:
+        this.formService.removeSpaces(
+          this.filterForm.get('levelLanguage')?.value
+        ) ?? '',
+      interest: this.filterForm.get('interest')?.value.join(',') ?? '',
+    };
+    this.mainPageService
+      .searchRoomFiltered(filterSearch)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (searchRoom) => {
+          this.dismissed.emit(searchRoom);
+          this.modalService.dismissActiveModal();
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }
