@@ -57,6 +57,7 @@
     </li>
   </ng-container>
 </ul>
+@if(userRoom.length > PAGINATION.ITEMS) {
 <pagination-controls
   class="pagination"
   (pageChange)="page = $event"
@@ -64,6 +65,7 @@
   previousLabel=""
   nextLabel=""
 ></pagination-controls>
+}
 <ng-template #icons>
   <div class="d-flex">
     <div

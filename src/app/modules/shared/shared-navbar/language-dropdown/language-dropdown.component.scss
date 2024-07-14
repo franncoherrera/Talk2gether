@@ -1,5 +1,8 @@
+@import "button_slide";
+
 fhv-language-dropdown {
   display: contents;
+  @include button_slide;
   .dropdown-menu-lg {
     right: 0.5rem;
     left: initial !important;
