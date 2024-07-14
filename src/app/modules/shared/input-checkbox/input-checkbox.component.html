@@ -1,3 +1,4 @@
+@if(isString(label)){
 <form class="form-group fhv-input-checkbox" [formGroup]="formGroup">
   <input
     #input
@@ -5,7 +6,7 @@
     [name]="name"
     [id]="name"
     [formControlName]="name"
-    (change)="onCheckboxChange(!isChecked)"
+    (change)="onCheckboxChangeString(!isChecked)"
   />
   <label
     (click)="redirectLabel()"
@@ -15,3 +16,26 @@
   >
 </form>
 <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+} @else {
+<form class="form-group fhv-input-checkbox" [formGroup]="formGroup">
+  <ng-container *ngFor="let l of label">
+    <div class="fhv-input-checkbox__item">
+      <input
+        #input
+        [type]="INPUT_TYPE.CHECKBOX"
+        [name]="name"
+        [id]="name"
+        [formControlName]="name"
+        (change)="onCheckboxChangeArray(l[modelName])"
+      />
+      <label
+        (click)="redirectLabel()"
+        class="fhv-input-checkbox__label"
+        [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute }"
+        >{{ l[modelName] }}</label
+      >
+    </div>
+  </ng-container>
+</form>
+<fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+}

@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'fhv-interest-modal',
   standalone: true,
-  imports: [CommonModule, FormErrorComponent, ModalComponent, TranslateModule],
+  imports: [CommonModule, ModalComponent, TranslateModule],
   templateUrl: './interest-modal.component.html',
   styleUrl: './interest-modal.component.scss',
   encapsulation: ViewEncapsulation.None,

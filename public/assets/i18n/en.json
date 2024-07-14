@@ -13,6 +13,7 @@
       "general_error_description": "Something went wrong! Please try again later.",
       "general_error_not_loaded": "Did not load correctly, please try again later.",
       "general_error_only_letters": "You can only enter letters in this field.",
+      "general_error_only_number": "You can only enter numbers in this field.",
       "general_error_minimun_age": "You do not meet the minimum age requirement.",
       "general_error_max_length_text": "Exceeds the maximum possible characters.",
       "general_error_image_type": "The image must be of type .jpg, .jpeg, .png.",
@@ -22,7 +23,9 @@
       "email_structure_error": "The email does not follow a proper structure. Example: hello@talk2gether.com.",
       "required_error": "The field is required.",
       "register_error": "Registration was not possible. Please try again later.",
-      "recover_password_error": "Unable to send recovery email. Please try again later."
+      "recover_password_error": "Unable to send recovery email. Please try again later.",
+      "general_error_min_max_age": "Minimum age cannot exceed maximum age",
+      "general_error_min_max_age_required": "Enter minimum and maximum age or leave the field empty"
     },
     "navbar": {
       "login_button": "Login",
@@ -166,7 +169,22 @@
       "main_modern_version": "Modern",
       "main_button_filter": "Filters",
       "main_button_create_room": "Create Room",
-      "main_search_room_placeholder": "Search for learners"
+      "main_search_room_placeholder": "Search for learners",
+      "main_search_room_empty": "No rooms available.",
+      "filters": {
+        "title": "Filters",
+        "subtitle": "Learning Language:",
+        "country_title": "Country",
+        "country_placeholder": "Select a country",
+        "country_language_level": "Minimum language level",
+        "country_language_level_placeholder": "Select language level",
+        "interest_title": "Interests",
+        "min_age_title": "Minimum age",
+        "min_age_placeholder": "Enter minimum age",
+        "max_age_title": "Maximum age",
+        "max_age_placeholder": "Enter maximum age",
+        "button": "Apply changes"
+      }
     }
   }
 }

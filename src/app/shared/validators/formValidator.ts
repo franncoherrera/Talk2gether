@@ -1,4 +1,4 @@
-import { FormControl, ValidationErrors } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import {
   IMAGE_FORMAT,
   VALIDATOR_PATTERNS,
@@ -23,6 +23,18 @@ export function CUSTOM_EMAIL_PATTERN(
   }
   if (!VALIDATOR_PATTERNS.patternEmail.test(control.value)) {
     return { errorMessage: 'common.error.email_structure_error' };
+  } else {
+    return undefined;
+  }
+}
+export function CUSTOM_ONLY_NUMBER(
+  control: FormControl
+): ValidationErrors | undefined {
+  if (!control.value) {
+    return null;
+  }
+  if (!VALIDATOR_PATTERNS.patterOnlyNumber.test(control.value)) {
+    return { errorMessage: 'common.error.general_error_only_number' };
   } else {
     return undefined;
   }
@@ -97,3 +109,25 @@ export function CUSTOM_IMAGE_TYPE(
   return null;
 }
 
+export function CUSTOM_AGE_RANGE(
+  formGroup: FormGroup
+): ValidationErrors | undefined {
+  if (!formGroup.value) {
+    return null;
+  }
+  const minAgeControl = formGroup.get('minAge');
+  const maxAgeControl = formGroup.get('maxAge');
+  if (!!minAgeControl.value && !!maxAgeControl.value) {
+    if (minAgeControl.value >= maxAgeControl.value) {
+      return { errorMessage: 'common.error.general_error_min_max_age' };
+    } else {
+      return null;
+    }
+  } else if (
+    (!!minAgeControl.value && !!!maxAgeControl.value) ||
+    (!!!minAgeControl.value && !!maxAgeControl.value)
+  ) {
+    return { errorMessage: 'common.error.general_error_min_max_age_required' };
+  }
+  return null;
+}

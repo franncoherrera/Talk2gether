@@ -1,17 +1,27 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MainPageService } from '../../services/main-page.service';
-import { UserService } from '../../../../../shared/services/user.service';
-import { catchError, map, Observable, of, switchMap } from 'rxjs';
-import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
-import { CurrentUser } from '../../../../../shared/models/currentUser.model';
-import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FormService } from '../../../../../shared/services/form.service';
-import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import {
+  catchError,
+  Observable,
+  of,
+  Subject,
+  switchMap,
+  takeUntil,
+} from 'rxjs';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { FormService } from '../../../../../shared/services/form.service';
+import { UserService } from '../../../../../shared/services/user.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { MainPageService } from '../../services/main-page.service';
+import { FiltersComponent } from '../filters/filters.component';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'fhv-main-page',
@@ -22,17 +32,19 @@ import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 export class MainPageComponent implements OnInit {
   readonly ICON_CLASS = ICON_CLASS;
   readonly INPUT_TYPE = INPUT_TYPE;
+  private unsubscribe$: Subject<void> = new Subject<void>();
   userRoom$: Observable<ROOM_USER[]>;
   isClassicVersion: boolean = true;
   searchForm: FormGroup;
 
   constructor(
-    private mainPageService: MainPageService,
+    protected mainPageService: MainPageService,
     private userService: UserService,
     protected formService: FormService,
     private spinnerGeneralService: SpinnerGeneralService,
     private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private customModalService: CustomModalService
   ) {}
 
   ngOnInit() {
@@ -49,8 +61,7 @@ export class MainPageComponent implements OnInit {
   }
 
   searchUserRoom(): void {
-    this.userRoom$ = this.userService.getCurrentUser().pipe(
-      map<CurrentUser, number>((user) => user.id),
+    this.userRoom$ = this.userService.getIdUser().pipe(
       switchMap<number, Observable<ROOM_USER[]>>((userId) =>
         this.mainPageService.searchRoom(userId)
       ),
@@ -111,5 +122,22 @@ export class MainPageComponent implements OnInit {
     //   this.searchUserRoom();
     //   return;
     // }
+  }
+
+  openFilters(): void {
+    const modalRef: NgbModalRef = this.customModalService.open(
+      FiltersComponent,
+      CUSTOM_MODAL_CONFIG
+    );
+    // modalRef.componentInstance.dismissed
+    //   .pipe(takeUntil(this.unsubscribe$))
+    //   .subscribe((searchRoom: ROOM_USER[]) => {
+    //     this.userRoom$ = of(searchRoom);
+    //   });
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

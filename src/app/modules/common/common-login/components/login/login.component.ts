@@ -19,6 +19,7 @@ import { CustomModalService } from '../../../../../shared/services/custom-modal.
 import { LoginRecoverPasswordComponent } from '../login-recover-password/login-recover-password.component';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { SesionService } from '../../../../../shared/interceptors/sesion.service';
+import { UserService } from '../../../../../shared/services/user.service';
 
 @Component({
   selector: 'fhv-login',
@@ -39,7 +40,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private translateService: TranslateService,
     protected formService: FormService,
     private customModalService: CustomModalService,
-    private sesionService: SesionService
+    private sesionService: SesionService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (response) => {
             this.sesionService.startLocalSession(response as TOKEN_SESSION);
-            this.commonLoginService.saveRole(response.nombreRol);
+            this.userService.saveRole(response.nombreRol);
             this.spinnerGeneralService.hideSpinner();
             document.location.href = ROUTES_PATH.MAIN_PAGE;
           },
