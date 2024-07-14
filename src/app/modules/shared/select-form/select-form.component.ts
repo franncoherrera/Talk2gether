@@ -44,7 +44,6 @@ export class SelectFormComponent {
     this.isSelected = !this.isSelected;
   }
   onSelectChange(event): void {
-    console.log(typeof event);
     if (!!event?.$ngOptionLabel) {
       this.control.setValue(event?.$ngOptionLabel);
     } else {

@@ -13,5 +13,8 @@ export const ENDPOINTS = {
   INTERESTS_ACTIVE: '/intereses/listarinteresesactivos',
   /* Main page endpoint */
   SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/?idCuenta=${id}',
+  SEARCH_FILTER_ROOM:
+    '/reunionvirtual/listarsalasactivasfiltradas/?idCuenta=${id}&edadMinima=${minAge}&edadMaxima=${maxAge}&intereses=${interest}&nombrePais=${country}&nombreNivelIdioma=${levelLanguage}',
   SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
+  LANGUAGE_LEARN: '/cuenta/obteneridiomaaprendiz/?idCuenta=${id}',
 };

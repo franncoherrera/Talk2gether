@@ -20,7 +20,17 @@
     width: 100%;
     top: 3.5rem;
   }
-
+  &__empty {
+    padding: 3.5rem 8rem 2rem 8rem;
+    @include media-breakpoint-down(xl) {
+      padding: 2rem 2rem;
+    }
+    h1 {
+      font-family: var(--font-family-bold);
+      color: var(--color-primary);
+      @include apply-responsive-font-size($font-size-title);
+    }
+  }
   &__buttons {
     display: flex;
     flex-wrap: wrap;

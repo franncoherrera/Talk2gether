@@ -1,11 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
+import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 import { USER_SESSION } from '../../../../shared/models/userSession.model';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
-import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +13,6 @@ import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 export class CommonLoginService {
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
-
-  role = new BehaviorSubject<string>(null);
-  role$ = this.role.asObservable();
 
   constructor(
     private httpClient: HttpClient,
@@ -57,10 +54,5 @@ export class CommonLoginService {
   getReason(): Observable<string[]> {
     return this.reasonReport$;
   }
-  saveRole(role: string): void {
-    this.role.next(role);
-  }
-  getRole(): Observable<string> {
-    return this.role$;
-  }
+
 }

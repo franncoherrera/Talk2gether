@@ -8,6 +8,7 @@
       "general_error_description": "Quelque chose ne va pas! Veuillez réessayer plus tard.",
       "general_error_not_loaded": "Ne s'est pas chargé correctement, veuillez réessayer plus tard.",
       "general_error_only_letters": "Vous ne pouvez entrer que des lettres dans ce champ.",
+      "general_error_only_number": "Vous ne pouvez saisir que des chiffres dans ce champ.",
       "general_error_minimun_age": "Vous ne remplissez pas la condition d'âge minimum.",
       "general_error_max_length_text": "Dépasse le nombre maximum de caractères.",
       "general_error_image_type": "L'image doit être de type .jpg, .jpeg, .png.",
@@ -17,7 +18,9 @@
       "email_structure_error": "L'email ne respecte pas une structure appropriée. Exemple : bonjour@talk2gether.com.",
       "required_error": "Le champ est requis.",
       "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard.",
-      "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard."
+      "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard.",
+      "general_error_min_max_age": "L'âge minimum ne peut pas dépasser l'âge maximum",
+      "general_error_min_max_age_required": "Entrez l'âge minimum et maximum ou laissez le champ vide"
     },
     "navbar": {
       "login_button": "Connexion",
@@ -161,7 +164,22 @@
       "main_modern_version": "Moderne",
       "main_button_filter": "Filtres",
       "main_button_create_room": "Créer une salle",
-      "main_search_room_placeholder": "Rechercher des apprenants"
+      "main_search_room_placeholder": "Rechercher des apprenants",
+      "main_search_room_empty": "Aucune salle disponible.",
+      "filters": {
+        "title": "Filtres",
+        "subtitle": "Langue d'apprentissage :",
+        "country_title": "Pays",
+        "country_placeholder": "Sélectionnez un pays",
+        "country_language_level": "Niveau de langue minimum",
+        "country_language_level_placeholder": "Sélectionnez le niveau de langue",
+        "interest_title": "Intérêts",
+        "min_age_title": "Âge minimum",
+        "min_age_placeholder": "Entrez l'âge minimum",
+        "max_age_title": "Âge maximum",
+        "max_age_placeholder": "Entrez l'âge maximum",
+        "button": "Appliquer les changements"
+      }
     }
   }
 }

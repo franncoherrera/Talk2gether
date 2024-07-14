@@ -18,6 +18,7 @@ import { FormService } from '../../../../../shared/services/form.service';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { LoginRecoverPasswordComponent } from '../login-recover-password/login-recover-password.component';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { UserService } from '../../../../../shared/services/user.service';
 
 @Component({
   selector: 'fhv-login',
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     private sweetAlertService: SweetAlertService,
     private translateService: TranslateService,
     protected formService: FormService,
-    private customModalService: CustomModalService
+    private customModalService: CustomModalService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +72,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (roleName) => {
           this.spinnerGeneralService.hideSpinner();
-          this.commonLoginService.saveRole(roleName);
+          this.userService.saveRole(roleName);
           document.location.href = ROUTES_PATH.MAIN_PAGE;
         },
         error: (errorSessionResponse) => {
@@ -113,7 +115,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       }
     }
   }
-  
+
   openRecoverPassModal(): void {
     this.customModalService.open(
       LoginRecoverPasswordComponent,

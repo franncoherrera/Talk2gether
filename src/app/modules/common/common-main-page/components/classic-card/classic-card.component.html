@@ -1,46 +1,51 @@
-<div class="fhv-classic-card">
-  <ng-container
-    *ngFor="
-      let room of userRoom
-        | paginate : { itemsPerPage: PAGINATION.ITEMS, currentPage: page }
-    "
-  >
-    <div class="fhv-classic-card__box">
-      <div class="fhv-classic-card__box__top">
-        <div class="fhv-classic-card__box__top__star">
-          {{ room.cantidadEstrellas }}
-          <i [class]="ICON_CLASS.star"></i>
+<ng-container *ngIf="userRoom.length; else emptyRoom">
+  <div class="fhv-classic-card">
+    <ng-container
+      *ngFor="
+        let room of userRoom
+          | paginate : { itemsPerPage: PAGINATION.ITEMS, currentPage: page }
+      "
+    >
+      <div class="fhv-classic-card__box">
+        <div class="fhv-classic-card__box__top">
+          <div class="fhv-classic-card__box__top__star">
+            {{ room.cantidadEstrellas }}
+            <i [class]="ICON_CLASS.star"></i>
+          </div>
+          <img class="fhv-classic-card__box__top__image" [src]="room.urlFoto" />
+          <div class="fhv-classic-card__box__top__flex">
+            <h3 class="fhv-classic-card__box__top__flex-title">
+              {{ room.nombreUsuario }} - {{ room.edad }}
+            </h3>
+            <span
+              class="fhv-classic-card__box__top__flex__flag fi fi-{{
+                room.urlBandera
+              }}"
+            ></span>
+          </div>
+          <div class="fhv-classic-card__box__top__interest">
+            <ng-container *ngFor="let interest of room.intereses">
+              <div class="fhv-classic-card__box__top__interest-item">
+                {{ interest }}
+              </div>
+            </ng-container>
+          </div>
         </div>
-        <img class="fhv-classic-card__box__top__image" [src]="room.urlFoto" />
-        <div class="fhv-classic-card__box__top__flex">
-          <h3 class="fhv-classic-card__box__top__flex-title">
-            {{ room.nombreUsuario }} - {{ room.edad }}
-          </h3>
-          <span
-            class="fhv-classic-card__box__top__flex__flag fi fi-{{
-              room.urlBandera
-            }}"
-          ></span>
-        </div>
-        <div class="fhv-classic-card__box__top__interest">
-          <ng-container *ngFor="let interest of room.intereses">
-            <div class="fhv-classic-card__box__top__interest-item">
-              {{ interest }}
-            </div>
-          </ng-container>
+        <div class="fhv-classic-card__box__buttons">
+          <div class="fhv-classic-card__box__buttons__icon" type="button">
+            <i [class]="ICON_CLASS.message"></i>
+          </div>
+          <div class="fhv-classic-card__box__buttons__icon" type="button">
+            <i [class]="ICON_CLASS.video"></i>
+          </div>
         </div>
       </div>
-      <div class="fhv-classic-card__box__buttons">
-        <div class="fhv-classic-card__box__buttons__icon" type="button">
-          <i [class]="ICON_CLASS.message"></i>
-        </div>
-        <div class="fhv-classic-card__box__buttons__icon" type="button">
-          <i [class]="ICON_CLASS.video"></i>
-        </div>
-      </div>
-    </div>
-  </ng-container>
-</div>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-template #emptyRoom> 
+  No hay sala
+</ng-template>
 <pagination-controls
   class="pagination"
   (pageChange)="page = $event"
