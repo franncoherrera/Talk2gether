@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProgressBarComponent } from './progress-bar.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [ProgressBarComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    TranslateModule
+  ],
+  exports: [ProgressBarComponent]
 })
 export class ProgressBarModule { }

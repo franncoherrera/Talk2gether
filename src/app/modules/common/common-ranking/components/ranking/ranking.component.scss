@@ -1,4 +1,6 @@
 @import "dotted-line";
+@import "media-queries";
+@import "font-size";
 
 .fhv-common-ranking {
   background-color: var(--color-primary);
@@ -25,17 +27,20 @@
     width: 65%;
     background-color: var(--color-base);
     padding: 3rem;
+    @include media-breakpoint-down(lg) {
+      width: 95%;
+      padding: 1.5rem;
+    }
+    &__title {
+      @include apply-responsive-font-size($font-size-title);
+      text-align: center;
+      &__gold {
+        color: var(--color-gold);
+      }
+      @include media-breakpoint-down(lg) {
+        padding-top: 1rem;
+        margin: 0;
+      }
+    }
   }
-}
-
-.progress-bar {
-  width: 0;
-  transition: width 2s;
-}
-.special-color {
-  background-color: #ff6347; /* Ejemplo de color especial */
-}
-
-.default-color {
-  background-color: #17a2b8; /* Ejemplo de color predeterminado */
 }

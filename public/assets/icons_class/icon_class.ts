@@ -15,5 +15,6 @@ export const ICON_CLASS = {
   video: 'fa-solid fa-video',
   search: 'fa-solid fa-search',
   filter: 'fa-solid fa-filter',
-  plus:  'fa-solid fa-plus'
+  plus: 'fa-solid fa-plus',
+  trofy: 'fa solid fa-trophy',
 };

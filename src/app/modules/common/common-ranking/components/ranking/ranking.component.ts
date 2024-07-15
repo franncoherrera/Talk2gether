@@ -1,58 +1,27 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  QueryList,
-  Renderer2,
-  ViewChildren,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, switchMap } from 'rxjs';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { RANKING_USER } from '../../../../../shared/models/ranking.model';
+import { UserService } from '../../../../../shared/services/user.service';
+import { RankingService } from '../../services/ranking.service';
 
 @Component({
-  selector: 'app-ranking',
-  standalone: true,
-  imports: [],
+  selector: 'fhv-ranking',
   templateUrl: './ranking.component.html',
-  styleUrl: './ranking.component.scss'
+  styleUrl: './ranking.component.scss',
 })
-export class RankingComponent  implements OnInit, AfterViewInit  {
-  @ViewChildren('progressBar') progressBars!: QueryList<ElementRef>;
+export class RankingComponent implements OnInit {
+  rankingUserList$: Observable<RANKING_USER[]>;
+  readonly ICON_CLASS = ICON_CLASS;
 
-  progressBarsData = [
-    { value: (1982*100/1982), width: '0%' },
-    { value:1245*100/1982, width: '0%' },
-    { value: 1195*100/1982, width: '0%' },
-    { value: 835*100/1982, width: '0%' },
-  ];
-
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private rankingService: RankingService,
+    private userService: UserService
+  ) {}
 
   ngOnInit(): void {
-      
-  }
-
-  ngAfterViewInit(): void {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const targetIndex = this.progressBars
-            .toArray()
-            .findIndex((bar) => bar.nativeElement === entry.target);
-          if (targetIndex > -1) {
-            const progressData = this.progressBarsData[targetIndex];
-            this.renderer.setStyle(
-              this.progressBars.toArray()[targetIndex].nativeElement,
-              'width',
-              progressData.value + '%'
-            );
-            observer.unobserve(entry.target); // Detener la observación una vez que se anima
-          }
-        }
-      });
-    });
-
-    this.progressBars.forEach((bar: ElementRef) =>
-      observer.observe(bar.nativeElement)
-    );
+    this.rankingUserList$ = this.userService
+      .getIdUser()
+      .pipe(switchMap((userId) => this.rankingService.getRanking(userId)));
   }
 }
