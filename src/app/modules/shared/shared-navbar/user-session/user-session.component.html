@@ -1,42 +1,49 @@
-<ng-container *ngIf="currentUser$ | async as user">
-  <li
-    class="nav-item order-lg-3 order-1"
-    [ngClass]="{
-      'nav-item-after': !(breakPointService.isMobile$ | async),
-      'button_slide slide_left': (breakPointService.isMobile$ | async)
-    }"
-  >
-    <a
-      class="nav-link dropdown-toggle d-flex align-items-center"
-      type="button"
-      data-bs-toggle="dropdown"
-      aria-expanded="true"
-    >
-      <img [src]="user.urlFoto" id="photo" />
-      <ng-container *ngIf="breakPointService.isMobile$ | async">
-        <span class="nav-link__username">{{ user.username }}</span>
-      </ng-container>
-    </a>
-    <ul
-      class="dropdown-menu"
+<ng-container
+  *ngIf="{
+    isLoggedIn: sesionService.getLoggedIn() | async,
+    user: currentUser$ | async
+  } as data"
+>
+  <ng-container *ngIf="data.isLoggedIn">
+    <li
+      class="nav-item order-lg-3 order-1"
       [ngClass]="{
-        'dropdown-menu-lg': !(breakPointService.isMobile$ | async)
+        'nav-item-after': !(breakPointService.isMobile$ | async),
+        'button_slide slide_left': (breakPointService.isMobile$ | async)
       }"
     >
-      <ng-container *ngIf="!(breakPointService.isMobile$ | async)">
-        <span class="dropdown-menu__username">{{ user.username }}</span>
-      </ng-container>
-      <li>
-        <a
-          class="dropdown-item"
-          aria-current="page"
-          routerLink="{{ ROUTES_PATH.LOGIN_PATH }}"
-          (click)="sesionService.clearLocalSession(); closeNavbarChild()"
-        >
-          <i [class]="ICON_CLASS.user_slash"></i>
-          {{ "common.navbar.log_out_button" | translate }}</a
-        >
-      </li>
-    </ul>
-  </li>
+      <a
+        class="nav-link dropdown-toggle d-flex align-items-center"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="true"
+      >
+        <img [src]="data.user?.urlFoto" id="photo" />
+        <ng-container *ngIf="breakPointService.isMobile$ | async">
+          <span class="nav-link__username">{{ data.user?.username }}</span>
+        </ng-container>
+      </a>
+      <ul
+        class="dropdown-menu"
+        [ngClass]="{
+          'dropdown-menu-lg': !(breakPointService.isMobile$ | async)
+        }"
+      >
+        <ng-container *ngIf="!(breakPointService.isMobile$ | async)">
+          <span class="dropdown-menu__username">{{ data.user?.username }}</span>
+        </ng-container>
+        <li>
+          <a
+            class="dropdown-item"
+            aria-current="page"
+            routerLink="{{ ROUTES_PATH.LOGIN_PATH }}"
+            (click)="sesionService.clearLocalSession(); closeNavbarChild()"
+          >
+            <i [class]="ICON_CLASS.user_slash"></i>
+            {{ "common.navbar.log_out_button" | translate }}</a
+          >
+        </li>
+      </ul>
+    </li>
+  </ng-container>
 </ng-container>

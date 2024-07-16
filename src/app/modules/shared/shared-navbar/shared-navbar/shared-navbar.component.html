@@ -4,7 +4,7 @@
       class="navbar-brand"
       aria-current="page"
       [routerLink]="
-        sesionService.isLoggedIn()
+        (sesionService.getLoggedIn() | async)
           ? [ROUTES_PATH.MAIN_PAGE]
           : [GENERAL_PATH.MAIN_PATH]
       "
