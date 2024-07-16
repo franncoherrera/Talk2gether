@@ -12,6 +12,9 @@
           class="fhv-common-ranking__container__title__gold"
         ></i>
       </h1>
+      <span (click)="goBack()" class="fhv-common-ranking__container__cross"
+        ><i [class]="ICON_CLASS.x_close"></i
+      ></span>
       <fhv-progress-bar [rankingList]="rankingList"></fhv-progress-bar>
     </div>
   </div>

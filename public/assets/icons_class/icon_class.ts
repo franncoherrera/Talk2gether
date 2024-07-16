@@ -16,5 +16,6 @@ export const ICON_CLASS = {
   search: 'fa-solid fa-search',
   filter: 'fa-solid fa-filter',
   plus: 'fa-solid fa-plus',
-  trofy: 'fa solid fa-trophy',
+  trofy: 'fa-solid fa-trophy',
+  ranking: 'fa-solid fa-ranking-star'
 };

@@ -26,6 +26,7 @@
       "login_button": "Login",
       "register_button": "Register",
       "log_out_button": "Log Out",
+      "ranking_button": "Ranking",
       "language_button": {
         "language_title": "Language",
         "language_spanish": "Spanish",

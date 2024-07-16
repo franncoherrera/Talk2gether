@@ -38,9 +38,17 @@
         color: var(--color-gold);
       }
       @include media-breakpoint-down(lg) {
-        padding-top: 1rem;
+        padding-top: 2rem;
         margin: 0;
       }
+    }
+    &__cross {
+      @include apply-responsive-font-size($font-size-title);
+      color: var(--color-primary);
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      cursor: pointer;
     }
   }
 }

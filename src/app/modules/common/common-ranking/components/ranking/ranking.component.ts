@@ -4,6 +4,7 @@ import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_
 import { RANKING_USER } from '../../../../../shared/models/ranking.model';
 import { UserService } from '../../../../../shared/services/user.service';
 import { RankingService } from '../../services/ranking.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'fhv-ranking',
@@ -16,12 +17,17 @@ export class RankingComponent implements OnInit {
 
   constructor(
     private rankingService: RankingService,
-    private userService: UserService
+    private userService: UserService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
     this.rankingUserList$ = this.userService
       .getIdUser()
       .pipe(switchMap((userId) => this.rankingService.getRanking(userId)));
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }
