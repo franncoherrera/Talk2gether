@@ -8,7 +8,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { RANKING_USER } from '../../../../../shared/models/ranking.model';
-import { BreakPointService } from '../../../../../shared/services/break-point.service';
 
 @Component({
   selector: 'fhv-progress-bar',
@@ -20,8 +19,7 @@ export class ProgressBarComponent implements AfterViewInit {
   @Input() rankingList: RANKING_USER[];
 
   constructor(
-    private renderer: Renderer2,
-    protected breakPointService: BreakPointService
+    private renderer: Renderer2
   ) {}
 
   ngAfterViewInit(): void {
