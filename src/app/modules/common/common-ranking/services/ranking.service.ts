@@ -16,10 +16,7 @@ export class RankingService {
 
   getRanking(userId: number): Observable<RANKING_USER[]> {
     const url: string = this.urlBuilderService.buildUrl(
-      ENDPOINTS.RANKING_USERS,
-      {
-        id: userId,
-      }
+      ENDPOINTS.RANKING_USERS
     );
     return this.httpClient.get<RANKING_USER[]>(url);
   }
