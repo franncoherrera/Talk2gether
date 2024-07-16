@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         next: (roleName) => {
           this.spinnerGeneralService.hideSpinner();
           this.userService.saveRole(roleName);
-          document.location.href = ROUTES_PATH.MAIN_PAGE;
+          this.router.navigate([ROUTES_PATH.MAIN_PAGE])
         },
         error: (errorSessionResponse) => {
           this.spinnerGeneralService.hideSpinner();
