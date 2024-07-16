@@ -185,6 +185,10 @@
         "max_age_placeholder": "Enter maximum age",
         "button": "Apply changes"
       }
+    },
+    "ranking": {
+      "title": "SCORE RANKING",
+      "points": "{{points}}px"
     }
   }
 }

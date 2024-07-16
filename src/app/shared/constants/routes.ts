@@ -11,5 +11,7 @@ export const ROUTES_PATH = {
   REGISTER_PATH: 'registro',
   TERMS_CONDITION_PATH: 'terminos',
   /* Main page module paths */
-  MAIN_PAGE: 'inicio'
+  MAIN_PAGE: 'inicio',
+  /* Ranking */
+  RANKING_PAGE: 'ranking',
 };
