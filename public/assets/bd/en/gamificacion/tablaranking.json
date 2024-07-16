@@ -1,0 +1,107 @@
+[
+  {
+    "posicion": 1,
+    "id": 4,
+    "nombreUsuario": "Franco Herrera",
+    "puntosTotales": 1982,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Ffranco.png?alt=media&token=fb768ff7-7828-4975-8a78-7801c64d042d"
+  },
+  {
+    "posicion": 2,
+    "id": 1,
+    "nombreUsuario": "Iván Leal",
+    "puntosTotales": 1890,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2FIMG_20230417_132957504.jpg?alt=media&token=f1e8fc58-4df6-42f4-89b1-02793199ff37"
+  },
+  {
+    "posicion": 3,
+    "id": 5,
+    "nombreUsuario": "Sebastian Riveros",
+    "puntosTotales": 1865,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Funnamed.jpg?alt=media&token=ba9732c2-8e9d-4fd2-9ce7-dda85825a18d"
+  },
+  {
+    "posicion": 4,
+    "id": 3,
+    "nombreUsuario": "Pablo Musaber",
+    "puntosTotales": 1835,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Ffoto_perfil.jpeg?alt=media&token=878fa228-a67e-4b3a-969f-7a6198e6cfc4"
+  },
+  {
+    "posicion": 5,
+    "id": 2,
+    "nombreUsuario": "Natalia Cortés",
+    "puntosTotales": 1763,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fretrato-hermoso-mujer-joven-posicion-pared-gris_231208-10760.webp?alt=media&token=4b985f00-4439-4a26-abe8-05e41875ba27"
+  },
+  {
+    "posicion": 6,
+    "id": 15,
+    "nombreUsuario": "Ricardo Pena",
+    "puntosTotales": 1723,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fman-597178_640.jpg?alt=media&token=26c05d1d-5df9-47c5-b7a3-ea1e1d647aea"
+  },
+  {
+    "posicion": 7,
+    "id": 16,
+    "nombreUsuario": "Valentina Rios",
+    "puntosTotales": 1721,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fmujer18.jpg?alt=media&token=d3917742-e81a-4a74-a378-c59ff477b961"
+  },
+  {
+    "posicion": 8,
+    "id": 19,
+    "nombreUsuario": "Samanta Clark",
+    "puntosTotales": 1659,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2F2012-10-26_-1351285195.jpg?alt=media&token=5f558aa3-fcd4-413c-acb4-e55fedc408d8"
+  },
+  {
+    "posicion": 9,
+    "id": 10,
+    "nombreUsuario": "Laura Martinez",
+    "puntosTotales": 1600,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fsmile-2072907_640%20(1).jpg?alt=media&token=0b92dac2-29cc-45df-a267-fd240a4a31ff"
+  },
+  {
+    "posicion": 10,
+    "id": 6,
+    "nombreUsuario": "Juan Lopez",
+    "puntosTotales": 1590,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fchico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpeg?alt=media&token=0f078409-cc16-4214-b45c-a587b14c4580"
+  },
+  {
+    "posicion": 11,
+    "id": 8,
+    "nombreUsuario": "Luis Rodriguez",
+    "puntosTotales": 1553,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fluis.jpg?alt=media&token=002fe1c7-142b-46c6-a762-9c86cf233bcf"
+  },
+  {
+    "posicion": 12,
+    "id": 11,
+    "nombreUsuario": "Andrea Almeida",
+    "puntosTotales": 1523,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fandea.jpg?alt=media&token=f0504f9f-98c9-48f0-ad59-e51c2ccc0fb1"
+  },
+  {
+    "posicion": 13,
+    "id": 12,
+    "nombreUsuario": "Emily Anderson",
+    "puntosTotales": 1510,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fsad-2042536_640.jpg?alt=media&token=10ab93f9-7932-468d-8c23-047aad94300e"
+  },
+  {
+    "posicion": 14,
+    "id": 18,
+    "nombreUsuario": "Lisa Wilson",
+    "puntosTotales": 1490,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Flisa.jpg?alt=media&token=5186d5d2-4673-44bb-b060-f57ab89cb761"
+  },
+  {
+    "posicion": 15,
+    "id": 7,
+    "nombreUsuario": "Jhon Doe",
+    "puntosTotales": 1450,
+    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fjoven-confiado_1098-20868.jpeg?alt=media&token=13f2e71a-ab90-489f-8486-d9e9e28a962e"
+  }
+]
