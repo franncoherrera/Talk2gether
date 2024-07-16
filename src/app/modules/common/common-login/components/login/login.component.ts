@@ -74,7 +74,8 @@ export class LoginComponent implements OnInit, OnDestroy {
             this.sesionService.startLocalSession(response as TOKEN_SESSION);
             this.userService.saveRole(response.nombreRol);
             this.spinnerGeneralService.hideSpinner();
-            document.location.href = ROUTES_PATH.MAIN_PAGE;
+            this.router.navigate([ROUTES_PATH.MAIN_PAGE])
+            // document.location.href = ROUTES_PATH.MAIN_PAGE;
           },
         });
     } else if (
