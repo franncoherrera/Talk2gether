@@ -12,13 +12,15 @@ export const authGuard: CanActivateFn = () => {
   const sweetAlertService = inject(SweetAlertService);
   const translateService = inject(TranslateService);
   const currentSession: string = sesionService.getCurrentSesion();
+  console.log(JSON.parse(localStorage.getItem('currentSession')))
+  console.log(localStorage.getItem('currentSession'))
   console.log(currentSession)
   if (currentSession !== null) {
     sweetAlertService.alertMessageConfirm(
       translateService.instant('common.error.general_error_logged'),
       SWEET_ALERT_ICON.ERROR
     );
-    router.navigate([GENERAL_PATH.MAIN_PATH]);
+    // router.navigate([GENERAL_PATH.MAIN_PATH]);
     return false;
   } else {
     return true;
