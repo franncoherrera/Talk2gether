@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { TOKEN_SESSION } from '../models/tokenSession.model';
 
 @Injectable()
 export class SesionService {
+  private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
+  public isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+  private hasToken(): boolean {
+    return (
+      !!localStorage.getItem('isLoggedIn') &&
+      localStorage.getItem('isLoggedIn') === 'true'
+    );
+  }
 
   // Log In Event dispatcher
   private announceSource = new Subject<string>();
   // For login subscribers.
   announced$ = this.announceSource.asObservable();
-
- 
 
   /**
    * Clear all the session data stored in the browser and notifies session listening components.
@@ -19,6 +26,7 @@ export class SesionService {
     localStorage.clear();
     sessionStorage.clear();
     localStorage.setItem('isLoggedIn', 'false');
+    this.setLoggedIn(false);
   }
 
   /**
@@ -44,5 +52,13 @@ export class SesionService {
     if (token !== undefined) {
       localStorage.setItem('isLoggedIn', 'true');
     }
+    this.setLoggedIn(true);
+  }
+
+  setLoggedIn(isLoggedIn: boolean): void {
+    this.isLoggedInSubject.next(isLoggedIn);
+  }
+  getLoggedIn(): Observable<boolean> {
+    return this.isLoggedIn$;
   }
 }

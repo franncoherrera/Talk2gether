@@ -1,4 +1,4 @@
-@if(!sesionService.isLoggedIn()){
+@if(!(sesionService.getLoggedIn() | async)){
 <li class="nav-item button_slide slide_left">
   <a
     class="nav-link active"
