@@ -6,6 +6,7 @@ import { LanguageDropdownModule } from '../language-dropdown/language-dropdown.m
 import { SharedNavbarComponent } from './shared-navbar.component';
 import { ButtonsSessionModule } from '../buttons-session/buttons-session.module';
 import { UserSessionModule } from '../user-session/user-session.module';
+import { CommonButtonsModule } from '../common-buttons/common-buttons.module';
 
 @NgModule({
   declarations: [SharedNavbarComponent],
@@ -16,6 +17,7 @@ import { UserSessionModule } from '../user-session/user-session.module';
     LanguageDropdownModule,
     ButtonsSessionModule,
     UserSessionModule,
+    CommonButtonsModule,
   ],
   exports: [SharedNavbarComponent],
 })

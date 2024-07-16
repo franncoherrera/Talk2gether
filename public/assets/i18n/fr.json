@@ -31,6 +31,7 @@
       "login_button": "Connexion",
       "register_button": "S'inscrire",
       "log_out_button": "Se Déconnecter",
+      "ranking_button": "Classement",
       "language_button": {
         "language_title": "Langue",
         "language_spanish": "Espagnol",
