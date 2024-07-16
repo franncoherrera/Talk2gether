@@ -1,0 +1,21 @@
+<ng-container *ngIf="rankingUserList$ | async as rankingList; else loading">
+  <div class="fhv-common-ranking">
+    <div class="fhv-common-ranking__container">
+      <h1 class="fhv-common-ranking__container__title">
+        <i
+          [class]="ICON_CLASS.trofy"
+          class="fhv-common-ranking__container__title__gold"
+        ></i>
+        {{ "common.ranking.title" | translate }}
+        <i
+          [class]="ICON_CLASS.trofy"
+          class="fhv-common-ranking__container__title__gold"
+        ></i>
+      </h1>
+      <fhv-progress-bar [rankingList]="rankingList"></fhv-progress-bar>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <fhv-spinner-general [showSpinner]="true"></fhv-spinner-general>
+</ng-template>

@@ -180,6 +180,10 @@
         "max_age_placeholder": "Ingrese la edad máxima",
         "button": "Aplicar cambios"
       }
+    },
+    "ranking": {
+      "title": "RANKING DE PUNTUACIÓN",
+      "points": "{{points}}px"
     }
   }
 }

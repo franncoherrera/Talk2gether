@@ -17,4 +17,5 @@ export const ENDPOINTS = {
     '/reunionvirtual/listarsalasactivasfiltradas/?idCuenta=${id}&edadMinima=${minAge}&edadMaxima=${maxAge}&intereses=${interest}&nombrePais=${country}&nombreNivelIdioma=${levelLanguage}',
   SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
   LANGUAGE_LEARN: '/cuenta/obteneridiomaaprendiz/?idCuenta=${id}',
+  RANKING_USERS: '/gamificacion/tablaranking?idCuenta=${id}&cantidadFilas=15',
 };
