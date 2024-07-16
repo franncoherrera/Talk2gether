@@ -30,7 +30,7 @@
         <a
           class="dropdown-item"
           aria-current="page"
-          href="{{ ROUTES_PATH.LOGIN_PATH }}"
+          routerLink="{{ ROUTES_PATH.LOGIN_PATH }}"
           (click)="sesionService.clearLocalSession(); closeNavbarChild()"
         >
           <i [class]="ICON_CLASS.user_slash"></i>
