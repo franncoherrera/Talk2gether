@@ -11,7 +11,8 @@ export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
   const sweetAlertService = inject(SweetAlertService);
   const translateService = inject(TranslateService);
-  const currentSession :string = sesionService.getCurrentSesion(); 
+  const currentSession: string = sesionService.getCurrentSesion();
+  console.log(currentSession)
   if (currentSession !== null) {
     sweetAlertService.alertMessageConfirm(
       translateService.instant('common.error.general_error_logged'),
