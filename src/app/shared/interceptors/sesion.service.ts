@@ -1,12 +1,13 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { TOKEN_SESSION } from '../models/tokenSession.model';
+import { CustomTranslateService } from '../services/custom-translate.service';
 
 @Injectable()
 export class SesionService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(this.hasToken());
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
-
+  customTranslateService = inject(CustomTranslateService);
   private hasToken(): boolean {
     return (
       !!localStorage.getItem('isLoggedIn') &&
@@ -27,6 +28,7 @@ export class SesionService {
     sessionStorage.clear();
     localStorage.setItem('isLoggedIn', 'false');
     this.setLoggedIn(false);
+    this.customTranslateService.setLanguage();
   }
 
   /**

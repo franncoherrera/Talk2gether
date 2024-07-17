@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { SpinnerGeneralModule } from './modules/shared/spinner-general/spinner-general.module';
 import { LANGUAGE } from './shared/enums/languages.enum';
 import { SharedNavbarModule } from './modules/shared/shared-navbar/shared-navbar/shared-navbar.module';
+import { CustomTranslateService } from './shared/services/custom-translate.service';
 
 @Component({
   selector: 'fhv-root',
@@ -15,18 +16,7 @@ import { SharedNavbarModule } from './modules/shared/shared-navbar/shared-navbar
 export class AppComponent {
   title = 'Talk2gether';
 
-  constructor(private translateService: TranslateService) {
-    this.translateService.setDefaultLang(LANGUAGE.SPANISH);
-    const browserLang: string =
-      this.translateService.getBrowserLang() || LANGUAGE.SPANISH;
-    const savedLang: string =
-      localStorage.getItem('selectedLang') || browserLang;
-    localStorage.setItem(
-      'selectedLang',
-      localStorage.getItem('selectedLang') || browserLang
-    );
-    this.translateService.use(
-      Object.values(LANGUAGE).includes(savedLang as LANGUAGE) ? savedLang : 'es'
-    );
+  constructor(private customTranslateService: CustomTranslateService) {
+    this.customTranslateService.setLanguage();
   }
 }

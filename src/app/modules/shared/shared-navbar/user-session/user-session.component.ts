@@ -5,9 +5,9 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { catchError, Observable, of, tap } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
+import { catchError, combineLatest, Observable, of, tap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../helpers/sweet-alert.service';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
@@ -25,6 +25,8 @@ import { UserService } from '../../../../shared/services/user.service';
 })
 export class UserSessionComponent implements OnInit {
   currentUser$: Observable<CurrentUser>;
+  isLogedIn$: Observable<boolean>;
+  combined$: Observable<{ user: CurrentUser; isLoggedIn: boolean }>;
   @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
@@ -40,6 +42,7 @@ export class UserSessionComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.sesionService.isLoggedIn()) {
+      this.isLogedIn$ = this.sesionService.getLoggedIn();
       // TODO translataion doesn't work here
       this.currentUser$ = this.userService.getCurrentUser().pipe(
         tap((currentUser) => this.userService.saveId(currentUser.id)),
@@ -54,6 +57,10 @@ export class UserSessionComponent implements OnInit {
           return of();
         })
       );
+      this.combined$ = combineLatest({
+        user: this.currentUser$,
+        isLoggedIn: this.isLogedIn$,
+      });
     }
   }
 
