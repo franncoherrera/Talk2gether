@@ -4,7 +4,7 @@
     user: currentUser$ | async
   } as data"
 >
-  <ng-container *ngIf="data.isLoggedIn">
+  <ng-container *ngIf="data.isLoggedIn && !!data.user">
     <li
       class="nav-item order-lg-3 order-1"
       [ngClass]="{
