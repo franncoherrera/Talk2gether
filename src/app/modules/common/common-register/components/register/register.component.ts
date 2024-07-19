@@ -131,7 +131,7 @@ export class RegisterComponent implements OnInit {
   registerUser(): void {
     this.submitForm = true;
     if (this.registerForm.invalid) return;
-    this.spinnerGeneralServide.hideSpinner();
+    this.spinnerGeneralService.hideSpinner();
     this.sweetAlertService.alertMessageConfirm(
       this.translateService.instant(
         'common.register_page.user_registered'
