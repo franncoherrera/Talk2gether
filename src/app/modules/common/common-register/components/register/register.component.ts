@@ -1,23 +1,31 @@
 import { Location, TitleCasePipe } from '@angular/common';
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  OnInit,
+  inject
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getDownloadURL } from '@firebase/storage';
+import { TranslateService } from '@ngx-translate/core';
 import {
   Observable,
-  Subject,
   catchError,
   combineLatest,
   map,
   of,
-  takeUntil,
-  tap,
+  tap
 } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import {
   INTEREST,
   REGISTER_PARAMETERS,
@@ -35,48 +43,47 @@ import {
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonRegisterService } from '../../services/common-register.service';
 import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
-import { Router } from '@angular/router';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
-import { TranslateService } from '@ngx-translate/core';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import {
-  SWEET_ALERT_ICON,
-} from '../../../../../shared/enums/sweeAlert.enum';
 
 @Component({
   selector: 'fhv-register',
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly IMAGE_FORMAT = IMAGE_FORMAT;
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
   private firebaseStorage: Storage = inject(Storage);
-  private unsubscribe$: Subject<void> = new Subject<void>();
   registerForm: FormGroup;
   parametersList$: Observable<REGISTER_PARAMETERS>;
   submitForm: boolean = false;
   loadModal: boolean = false;
   fileSelected: File;
+  referralCode: string | null = null;
 
-  constructor(
-    protected formService: FormService,
-    private parameterService: ParameterService,
-    private registerService: CommonRegisterService,
-    private customModalService: CustomModalService,
-    private titleCase: TitleCasePipe,
-    private location: Location,
-    private router: Router,
-    private spinnerGeneralServide: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
-  ) {}
+  private readonly activatedRoute = inject(ActivatedRoute);
+  protected readonly formService = inject(FormService);
+  private readonly parameterService = inject(ParameterService);
+  private readonly registerService = inject(CommonRegisterService);
+  private readonly customModalService = inject(CustomModalService);
+  private readonly titleCase = inject(TitleCasePipe);
+  private readonly location = inject(Location);
+  private readonly router = inject(Router);
+  private readonly spinnerGeneralService = inject(SpinnerGeneralService);
+  private readonly sweetAlertService = inject(SweetAlertService);
+  private readonly translateService = inject(TranslateService);
+  private readonly destroy: DestroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams
+      .pipe(takeUntilDestroyed(this.destroy))
+      .subscribe((params) => {
+        this.referralCode = params['referido'];
+      });
     this.parametersList$ = combineLatest([
       this.parameterService.getActiveCountries(),
       this.parameterService.getActiveLanguages(),
@@ -135,7 +142,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   async uploadFile(file: File) {
-    this.spinnerGeneralServide.showSpinner();
+    this.spinnerGeneralService.showSpinner();
     const filePath = `images/${file.name}`;
     const fileRef = ref(this.firebaseStorage, filePath);
     const uploadFile = uploadBytesResumable(fileRef, file);
@@ -146,7 +153,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       },
       (error) => {
-        this.spinnerGeneralServide.hideSpinner();
+        this.spinnerGeneralService.hideSpinner();
         this.sweetAlertService.alertMessageConfirm(
           this.translateService.instant('common.error.general_error_upload'),
           SWEET_ALERT_ICON.ERROR
@@ -160,34 +167,58 @@ export class RegisterComponent implements OnInit, OnDestroy {
           return getDownloadURL(fileRef);
         };
         const url = await delayedGetDownloadURL(fileRef);
-        this.registerService
-          .registerUser(this.createUser(url))
-          .pipe(
-            takeUntil(this.unsubscribe$),
-            tap({
-              complete: () => {
-                this.spinnerGeneralServide.hideSpinner();
-                this.sweetAlertService.alertMessageConfirm(
-                  this.translateService.instant(
-                    'common.register_page.user_registered'
-                  ),
-                  SWEET_ALERT_ICON.SUCCESS
-                );
-                this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
-              },
-            }),
-            catchError((error) => {
-              this.spinnerGeneralServide.hideSpinner();
-              this.sweetAlertService.alertMessage(
-                error.error.mensaje,
-                this.translateService.instant('common.error.register_error'),
-                SWEET_ALERT_ICON.ERROR
-              );
-              return of(error);
-            })
-          )
-          .subscribe();
+        if (!!this.referralCode) {
+          this.registerService
+            .registerUserReferral(this.createUser(url), this.referralCode)
+            .pipe(
+              takeUntilDestroyed(this.destroy),
+              tap({
+                complete: () => {
+                  this.completeRegister();
+                },
+              }),
+              catchError((error) => {
+                this.errorRegister(error);
+                return of(error);
+              })
+            )
+            .subscribe();
+        } else {
+          this.registerService
+            .registerUser(this.createUser(url))
+            .pipe(
+              takeUntilDestroyed(this.destroy),
+              tap({
+                complete: () => {
+                  this.completeRegister();
+                },
+              }),
+              catchError((error) => {
+                this.errorRegister(error);
+                return of(error);
+              })
+            )
+            .subscribe();
+        }
       }
+    );
+  }
+
+  completeRegister(): void {
+    this.spinnerGeneralService.hideSpinner();
+    this.sweetAlertService.alertMessageConfirm(
+      this.translateService.instant('common.register_page.user_registered'),
+      SWEET_ALERT_ICON.SUCCESS
+    );
+    this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
+  }
+
+  errorRegister(error): void {
+    this.spinnerGeneralService.hideSpinner();
+    this.sweetAlertService.alertMessage(
+      error.error.mensaje,
+      this.translateService.instant('common.error.register_error'),
+      SWEET_ALERT_ICON.ERROR
     );
   }
 
@@ -204,7 +235,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
       fechaNacimiento: this.registerForm.get('dateBorn').value,
       correo: this.registerForm.get('email').value,
       contrasenia: this.registerForm.get('password').value,
-      nombrePais: this.formService.removeSpaces(this.registerForm.get('country').value),
+      nombrePais: this.formService.removeSpaces(
+        this.registerForm.get('country').value
+      ),
       nombreIdiomaNativo: this.formService.removeSpaces(
         this.registerForm.get('nativeLanguage').value
       ),
@@ -256,10 +289,5 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   goBack(): void {
     this.location.back();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 }

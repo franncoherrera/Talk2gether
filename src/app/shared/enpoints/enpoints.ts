@@ -6,6 +6,7 @@ export const ENDPOINTS = {
   USER_ACTIVE: '/actual-usuario',
   /* Register endpoint */
   REGISTER_USER: '/usuario/registrarse',
+  REGISTER_USER_REFERAL: '/usuario/registrarse?idCuenta=${idReferral}',
   /* Params endpoints */
   COUNTRY_ACTIVE: '/paises/listarpaisesactivos',
   LANGUAGE_ACTIVE: '/idiomas/listaridiomasactivos',
