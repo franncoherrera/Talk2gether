@@ -1,0 +1,19 @@
+<fhv-bootstrap-modal modalTitle="{{ 'common.referal_link.title' | translate }}">
+  <div class="fhv-common-referral-link">
+    <h1>{{ "common.referal_link.title_modal" | translate }}</h1>
+
+    <div class="fhv-common-referral-link__input">
+      <fhv-input-form
+        [formGroup]="referralLinkForm"
+        [control]="formService.formControl(referralLinkForm, 'link')"
+        [type]="INPUT_TYPE.TEXT"
+        [value]="referralLinkForm.get('link').value"
+        [readonly]="true"
+        [isCopyiable]="true"
+        [name]="'link'"
+      />
+    </div>
+    <h2>{{ "common.referal_link.subtitle_1_modal" | translate }}</h2>
+    <h2>{{ "common.referal_link.subtitle_2_modal" | translate }}</h2>
+  </div>
+</fhv-bootstrap-modal>

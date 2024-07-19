@@ -185,6 +185,13 @@
     "ranking": {
       "title": "SCORE RANKING",
       "points": "{{points}}px"
+    },
+    "referal_link": {
+      "title": "Referral Link",
+      "title_button": "Invite Friends",
+      "title_modal": "Invite Your Friends",
+      "subtitle_1_modal": "Tell your friends how fun Talk2gether is!",
+      "subtitle_2_modal": "You'll earn achievements and get additional points for each friend you invite."
     }
   }
 }

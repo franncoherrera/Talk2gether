@@ -2,7 +2,7 @@
   class="form-group fhv-input-form"
   [formGroup]="formGroup"
   [ngClass]="{
-    'd-flex': type === INPUT_TYPE.SEARCH
+    'd-flex': type === INPUT_TYPE.SEARCH || (isCopyiable && readonly)
   }"
 >
   <label class="fhv-input-form__label" for="{{ name }}">{{ label }}</label>
@@ -23,8 +23,21 @@
     [min]="minlength"
     [placeholder]="placeholder"
     [accept]="accept"
+    [readonly]="readonly"
+    [value]="value"
   />
-  @if(type === INPUT_TYPE.SEARCH){
+  @if(isCopyiable && readonly){
+  <div class="fhv-input-form__copy">
+    <button
+      (click)="copyToClipboard()"
+      class="fhv-input-form__copy__button"
+      [ngClass]="{ 'fhv-input-form__copy__button-copied': isCopied() }"
+      type="button"
+    >
+      <i class="{{ ICON_CLASS.copy }}"></i>
+    </button>
+  </div>
+  } @if(type === INPUT_TYPE.SEARCH){
   <div class="input-group-prepend">
     <button (click)="emit()" class="input-group-prepend__button" type="button">
       <i class="{{ ICON_CLASS.search }}"></i>

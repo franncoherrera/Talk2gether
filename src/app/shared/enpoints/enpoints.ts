@@ -6,6 +6,7 @@ export const ENDPOINTS = {
   USER_ACTIVE: '/actual-usuario',
   /* Register endpoint */
   REGISTER_USER: '/usuario/registrarse',
+  REGISTER_USER_REFERAL: '/usuario/registrarse?idCuenta=${idReferral}',
   /* Params endpoints */
   COUNTRY_ACTIVE: '/paises/listarpaisesactivos',
   LANGUAGE_ACTIVE: '/idiomas/listaridiomasactivos',
@@ -18,4 +19,5 @@ export const ENDPOINTS = {
   SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
   LANGUAGE_LEARN: '/cuenta/obteneridiomaaprendiz/?idCuenta=${id}',
   RANKING_USERS: '/gamificacion/tablaranking?idCuenta=${id}&cantidadFilas=15',
+  REFERRAL_LINK: '/cuenta/referirusuario/?idCuenta=${id}'
 };
