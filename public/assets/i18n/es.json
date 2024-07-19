@@ -185,6 +185,13 @@
     "ranking": {
       "title": "RANKING DE PUNTUACIÓN",
       "points": "{{points}}px"
+    },
+    "referal_link": {
+      "title": "Link de referido",
+      "title_button": "Invita amigos",
+      "title_modal": "Invita a tus amigos",
+      "subtitle_1_modal": "¡Cuéntale a tus amigos lo divertido que es Talk2gether!",
+      "subtitle_2_modal": "Conseguirás logros y sumarás puntos adicionales por cada amigo invitado."
     }
   }
 }

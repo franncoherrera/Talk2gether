@@ -1,0 +1,19 @@
+@import "font-size";
+
+.fhv-common-referral-link {
+  font-family: var(--font-family);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 1rem;
+  border-radius: var(--border-radius-containers);
+  h1 {
+    @include apply-responsive-font-size($font-size-subtitle);
+  }
+  h2 {
+    @include apply-responsive-font-size($font-size-text);
+    padding-top: 0.5rem;
+  }
+  &__input {
+    padding-top: 1.5rem;
+  }
+}

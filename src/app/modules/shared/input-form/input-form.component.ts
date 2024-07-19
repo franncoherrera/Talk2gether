@@ -1,5 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
@@ -22,10 +29,11 @@ import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class'
 })
 export class InputFormComponent {
   initialType: boolean;
+  isCopied: WritableSignal<string> = signal(null);
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
-  @Input() formGroup: FormGroup;
-  @Input() control: FormControl;
+  @Input() formGroup?: FormGroup = undefined;
+  @Input() control?: FormControl = undefined;
   @Input() name: string;
   @Input() label: string;
   @Input() type: string;
@@ -34,6 +42,9 @@ export class InputFormComponent {
   @Input() placeholder?: string;
   @Input() submitForm: boolean;
   @Input() accept?: string;
+  @Input() readonly?: boolean;
+  @Input() isCopyiable?: boolean;
+  @Input() value?: string = '';
   @Output() search?: EventEmitter<void> = new EventEmitter();
 
   ngOnInit() {
@@ -44,6 +55,16 @@ export class InputFormComponent {
 
   updatePasswordType(event: string): void {
     this.type = event;
+  }
+
+  copyToClipboard(): void {
+    this.isCopied.set('copied');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.value);
+      setTimeout(() => {
+        this.isCopied.set(null);
+      }, 1500);
+    }
   }
 
   emit() {
