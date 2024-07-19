@@ -32,8 +32,8 @@ export class InputFormComponent {
   isCopied: WritableSignal<string> = signal(null);
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
-  @Input() formGroup?: FormGroup = undefined;
-  @Input() control?: FormControl = undefined;
+  @Input() formGroup?: FormGroup;
+  @Input() control?: FormControl;
   @Input() name: string;
   @Input() label: string;
   @Input() type: string;
