@@ -190,6 +190,13 @@
     "ranking": {
       "title": "CLASSEMENT DES POINTS",
       "points": "{{points}}px"
+    },
+    "referal_link": {
+      "title": "Lien de parrainage",
+      "title_button": "Inviter des amis",
+      "title_modal": "Invitez vos amis",
+      "subtitle_1_modal": "Dites à vos amis combien Talk2gether est amusant!",
+      "subtitle_2_modal": "Vous gagnerez des réalisations et obtiendrez des points supplémentaires pour chaque ami invité."
     }
   }
 }

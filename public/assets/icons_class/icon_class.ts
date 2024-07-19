@@ -17,5 +17,7 @@ export const ICON_CLASS = {
   filter: 'fa-solid fa-filter',
   plus: 'fa-solid fa-plus',
   trofy: 'fa-solid fa-trophy',
-  ranking: 'fa-solid fa-ranking-star'
+  ranking: 'fa-solid fa-ranking-star',
+  share: 'fa-solid fa-share-nodes',
+  copy: 'fa-solid fa-copy',
 };
