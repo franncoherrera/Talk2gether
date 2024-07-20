@@ -39,16 +39,15 @@
           'common.main_page.main_search_room_placeholder' | translate
         }}"
         (search)="searchUsers()"
-      >
-      </fhv-input-form>
+      />
     </div>
   </div>
   <ng-container *ngIf="userRoom$ | async as userRoom; else loading">
     <ng-container *ngIf="userRoom.length; else emptyRoom">
       @if(isClassicVersion){
-      <fhv-classic-card [userRoom]="userRoom"></fhv-classic-card>
+      <fhv-classic-card [userRoom]="userRoom"/>
       } @else {
-      <fhv-modern-card [userRoom]="userRoom"></fhv-modern-card>
+      <fhv-modern-card [userRoom]="userRoom"/>
       }
     </ng-container>
     <ng-template #emptyRoom>
@@ -60,6 +59,6 @@
     >
   </ng-container>
   <ng-template #loading>
-    <fhv-spinner-general [showSpinner]="true"></fhv-spinner-general>
+    <fhv-spinner-general [showSpinner]="true"/>
   </ng-template>
 </div>

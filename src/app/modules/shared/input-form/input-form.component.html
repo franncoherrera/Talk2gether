@@ -43,12 +43,12 @@
     </button>
   </div>
   }
-  <fhv-form-error [showError]="submitForm()" [control]="control()"></fhv-form-error>
+  <fhv-form-error [showError]="submitForm()" [control]="control()"/>
   @if (initialType) {
   <div class="fhv-input-form__eye">
     <fhv-eye-button
       (passwordTypeEmitter)="updatePasswordType($event)"
-    ></fhv-eye-button>
+    />
   </div>
   }
 </form>

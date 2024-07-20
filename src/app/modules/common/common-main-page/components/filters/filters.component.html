@@ -19,8 +19,7 @@
             'common.main_page.filters.country_placeholder' | translate
           }}"
           [options]="parametersList.countryList"
-        >
-        </fhv-select-form>
+        />
         <fhv-select-form
           [name]="'level'"
           label="{{
@@ -33,8 +32,7 @@
               | translate
           }}"
           [options]="parametersList.languageLevelList"
-        >
-        </fhv-select-form>
+        />
         <div class="fhv-filters__ages">
           <fhv-input-form
             [name]="'minAge'"
@@ -46,8 +44,7 @@
               'common.main_page.filters.min_age_placeholder' | translate
             }}"
             [submitForm]="submitForm"
-          >
-          </fhv-input-form>
+          />
           <fhv-input-form
             [name]="'maxAge'"
             label="{{ 'common.main_page.filters.max_age_title' | translate }}"
@@ -58,14 +55,13 @@
               'common.main_page.filters.max_age_placeholder' | translate
             }}"
             [submitForm]="submitForm"
-          >
-          </fhv-input-form>
+          />
         </div>
         <ng-container *ngIf="!!filterForm.errors && submitForm">
           <fhv-form-error
             [errorMessage]="filterForm.errors['errorMessage']"
             [showError]="true"
-          ></fhv-form-error>
+          />
         </ng-container>
         <h2 class="fhv-filters__subtitle">
           {{ "common.main_page.filters.interest_title" | translate }}
@@ -76,8 +72,7 @@
           [formGroup]="filterForm"
           [control]="formService.formControl(filterForm, 'interest')"
           modelName="name"
-        >
-        </fhv-input-checkbox>
+        />
         <button class="fhv-filters__button" type="submit">
           <i class="{{ ICON_CLASS.search }}"></i>
           {{ "common.main_page.filters.button" | translate }}

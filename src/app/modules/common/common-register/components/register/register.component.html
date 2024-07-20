@@ -26,8 +26,7 @@
             'common.register_page.register_name_placeholder' | translate
           }}"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
         <fhv-input-form
           [name]="'userSurname'"
           label="{{ 'common.register_page.register_surname' | translate }}"
@@ -38,8 +37,7 @@
             'common.register_page.register_surname_placeholder' | translate
           }}"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
         <fhv-input-form
           [name]="'dateBorn'"
           label="{{ 'common.register_page.register_dateBorn' | translate }}"
@@ -47,8 +45,7 @@
           [formGroup]="registerForm"
           [control]="formService.formControl(registerForm, 'dateBorn')"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
         <fhv-select-form
           [name]="'country'"
           label="{{ 'common.register_page.register_country' | translate }}"
@@ -59,8 +56,7 @@
           }}"
           [submitForm]="submitForm"
           [options]="parametersList.countryList"
-        >
-        </fhv-select-form>
+        />
         <fhv-select-form
           [name]="'nativeLanguage'"
           label="{{
@@ -74,8 +70,7 @@
           }}"
           [submitForm]="submitForm"
           [options]="parametersList.languageList"
-        >
-        </fhv-select-form>
+        />
         <fhv-input-form
           [name]="'urlPhoto'"
           label="{{ 'common.register_page.register_photo' | translate }}"
@@ -85,8 +80,7 @@
           [submitForm]="submitForm"
           [accept]="IMAGE_FORMAT.imagePermittedFormat"
           (change)="onInputChange($event)"
-        >
-        </fhv-input-form>
+        />
       </form>
       <div class="fhv-register__container__title">
         <span class="fhv-register__container-subtitle">
@@ -104,8 +98,7 @@
             'common.register_page.register_email_placeholder' | translate
           }}"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
         <fhv-input-form
           [name]="'password'"
           label="{{ 'common.register_page.register_password' | translate }}"
@@ -116,8 +109,7 @@
             'common.register_page.register_password_placeholder' | translate
           }}"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
         <fhv-input-form
           [name]="'repeatPassword'"
           label="{{
@@ -131,8 +123,7 @@
               | translate
           }}"
           [submitForm]="submitForm"
-        >
-        </fhv-input-form>
+        />
       </form>
       <div class="fhv-register__container__title">
         <span class="fhv-register__container-subtitle">
@@ -153,8 +144,7 @@
           }}"
           [submitForm]="submitForm"
           [options]="parametersList.languageList"
-        >
-        </fhv-select-form>
+        />
         <div class="fhv-register__container__level">
           <fhv-select-form
             [name]="'languageLevel'"
@@ -169,8 +159,7 @@
             }}"
             [submitForm]="submitForm"
             [options]="parametersList.languageLevelList"
-          >
-          </fhv-select-form>
+          />
           <span (click)="openLevelLanguageModal()">
             <i
               class="fhv-register__container__level__icon fa-beat {{
@@ -221,7 +210,7 @@
           <fhv-form-error
             [showError]="submitForm"
             [control]="formService.formControl(registerForm, 'interest')"
-          ></fhv-form-error>
+          />
         </div>
       </form>
       <fhv-text-area-form
@@ -233,7 +222,7 @@
           'common.register_page.register_description_placeholder' | translate
         }}"
         [submitForm]="submitForm"
-      ></fhv-text-area-form>
+      />
       <form [formGroup]="registerForm">
         <fhv-input-checkbox
           [name]="'terms'"
@@ -242,8 +231,7 @@
           [control]="formService.formControl(registerForm, 'terms')"
           [submitForm]="submitForm"
           [labelRoute]="ROUTES_PATH.TERMS_CONDITION_PATH"
-        >
-        </fhv-input-checkbox>
+        />
       </form>
       <div class="fhv-register__container__buttons">
         <button
