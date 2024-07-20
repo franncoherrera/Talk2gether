@@ -1,9 +1,8 @@
 import {
   Component,
-  EventEmitter,
   OnInit,
-  Output,
-  ViewEncapsulation,
+  output,
+  ViewEncapsulation
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,7 +26,7 @@ export class UserSessionComponent implements OnInit {
   currentUser$: Observable<CurrentUser>;
   isLogedIn$: Observable<boolean>;
   combined$: Observable<{ user: CurrentUser; isLoggedIn: boolean }>;
-  @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
+  closeNavbar = output<void>();
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
 

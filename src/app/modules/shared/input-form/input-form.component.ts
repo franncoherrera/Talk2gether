@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import {
   Component,
   EventEmitter,
+  input,
   Input,
+  model,
+  output,
   Output,
   signal,
   WritableSignal,
@@ -32,35 +35,35 @@ export class InputFormComponent {
   isCopied: WritableSignal<string> = signal(null);
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
-  @Input() formGroup?: FormGroup;
-  @Input() control?: FormControl;
-  @Input() name: string;
-  @Input() label: string;
-  @Input() type: string;
-  @Input() minlength?: string;
-  @Input() maxlength?: string;
-  @Input() placeholder?: string;
-  @Input() submitForm: boolean;
-  @Input() accept?: string;
-  @Input() readonly?: boolean;
-  @Input() isCopyiable?: boolean;
-  @Input() value?: string = '';
-  @Output() search?: EventEmitter<void> = new EventEmitter();
+  formGroup = input.required<FormGroup>();
+  control = input.required<FormControl>();
+  name = input.required<string>();
+  label = input<string>();
+  type = model<string>();
+  minlength = input<string>();
+  maxlength = input<string>();
+  placeholder = input<string>();
+  submitForm = input<boolean>();
+  accept = input<string>();
+  readonly = input<boolean>();
+  isCopyiable = input<boolean>();
+  value = input<string>('')
+  search = output<void>();
 
   ngOnInit() {
-    this.type === INPUT_TYPE.PASSWORD
+    this.type() === INPUT_TYPE.PASSWORD
       ? (this.initialType = true)
       : (this.initialType = false);
   }
 
   updatePasswordType(event: string): void {
-    this.type = event;
+    this.type.set(event);
   }
 
   copyToClipboard(): void {
     this.isCopied.set('copied');
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(this.value);
+      navigator.clipboard.writeText(this.value());
       setTimeout(() => {
         this.isCopied.set(null);
       }, 1500);

@@ -1,9 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-    Component,
-    Input,
-    ViewEncapsulation
-} from '@angular/core';
+import { Component, input, ViewEncapsulation } from '@angular/core';
 import { CustomModalService } from '../../../shared/services/custom-modal.service';
 
 @Component({
@@ -15,7 +11,7 @@ import { CustomModalService } from '../../../shared/services/custom-modal.servic
   encapsulation: ViewEncapsulation.None,
 })
 export class ModalComponent {
-  @Input() modalTitle: string;
+  modalTitle = input.required<string>();
 
   constructor(private customModalService: CustomModalService) {}
 

@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { FormErrorComponent } from '../form-error/form-error.component';
+import { Component, inject, input, model, WritableSignal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
+import { FormErrorComponent } from '../form-error/form-error.component';
 
 @Component({
   selector: 'fhv-input-checkbox',
@@ -22,19 +22,20 @@ export class InputCheckboxComponent {
   isChecked: boolean = false;
   array: (string | number)[] = [];
   readonly INPUT_TYPE = INPUT_TYPE;
-  @Input() formGroup: FormGroup;
-  @Input() control: FormControl;
-  @Input() name: string;
-  @Input() label: string | any[];
-  @Input() submitForm?: boolean;
-  @Input() labelRoute?: string;
-  @Input() modelName?: string;
 
-  constructor(private router: Router) {}
+  formGroup = input.required<FormGroup>();
+  control: WritableSignal<FormControl> = model<FormControl>();
+  name = input.required<string>();
+  label = input.required<string | any[]>();
+  submitForm = input<boolean>();
+  labelRoute = input<string>();
+  modelName = input<string>();
+
+  router = inject(Router);
 
   onCheckboxChangeString(isChecked: boolean): void {
     this.isChecked = isChecked;
-    this.control.setValue(this.isChecked);
+    this.control().setValue(this.isChecked);
   }
 
   onCheckboxChangeArray(itemCheck: string | number): void {
@@ -43,13 +44,14 @@ export class InputCheckboxComponent {
     } else {
       this.array.push(itemCheck);
     }
-    this.control.setValue(this.array);
+    console.log(this.control())
+    this.control().setValue(this.array);
   }
 
   redirectLabel(): void {
-    if (!!this.labelRoute) {
+    if (!!this.labelRoute()) {
       const url = this.router.serializeUrl(
-        this.router.createUrlTree([this.labelRoute])
+        this.router.createUrlTree([this.labelRoute()])
       );
       window.open(url, '_blank');
     }

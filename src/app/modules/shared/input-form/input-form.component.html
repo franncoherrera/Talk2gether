@@ -1,32 +1,31 @@
 <form
   class="form-group fhv-input-form"
-  [formGroup]="formGroup"
+  [formGroup]="formGroup()"
   [ngClass]="{
-    'd-flex': type === INPUT_TYPE.SEARCH || (isCopyiable && readonly)
+    'd-flex': type() === INPUT_TYPE.SEARCH || (isCopyiable() && readonly())
   }"
 >
-  <label class="fhv-input-form__label" for="{{ name }}">{{ label }}</label>
+  <label class="fhv-input-form__label" for="{{ name() }}">{{ label() }}</label>
   <input
     #input
     class="form-control fhv-input-form__input"
     [ngClass]="
-      submitForm && !!control?.errors
+      submitForm() && !!control()?.errors
         ? 'fhv-input-form__input__error'
         : 'fhv-input-form__input__focus'
     "
-    [type]="type"
-    [name]="name"
-    [id]="name"
-    placeholder="placeholder"
-    [formControlName]="name"
-    [max]="maxlength"
-    [min]="minlength"
-    [placeholder]="placeholder"
-    [accept]="accept"
-    [readonly]="readonly"
-    [value]="value"
+    [type]="type()"
+    [name]="name()"
+    [id]="name()"
+    [formControlName]="name()"
+    [max]="maxlength()"
+    [min]="minlength()"
+    [placeholder]="placeholder()"
+    [accept]="accept()"
+    [readonly]="readonly()"
+    [value]="value()"
   />
-  @if(isCopyiable && readonly){
+  @if(isCopyiable() && readonly()){
   <div class="fhv-input-form__copy">
     <button
       (click)="copyToClipboard()"
@@ -37,14 +36,14 @@
       <i class="{{ ICON_CLASS.copy }}"></i>
     </button>
   </div>
-  } @if(type === INPUT_TYPE.SEARCH){
+  } @if(type() === INPUT_TYPE.SEARCH){
   <div class="input-group-prepend">
     <button (click)="emit()" class="input-group-prepend__button" type="button">
       <i class="{{ ICON_CLASS.search }}"></i>
     </button>
   </div>
   }
-  <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+  <fhv-form-error [showError]="submitForm()" [control]="control()"></fhv-form-error>
   @if (initialType) {
   <div class="fhv-input-form__eye">
     <fhv-eye-button

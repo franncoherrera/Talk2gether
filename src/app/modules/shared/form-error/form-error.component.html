@@ -1,9 +1,9 @@
-@if(showError && !!this.control?.errors){
+@if(showError() && !!this.control()?.errors){
 <p class="fhv-form-error">
-  {{ this.control?.errors["errorMessage"] | translate }}
+  {{ this.control()?.errors["errorMessage"] | translate }}
 </p>
-}@else if (showError && !!errorMessage){
+}@else if (showError() && !!errorMessage){
 <p class="fhv-form-error">
-  {{ errorMessage | translate }}
+  {{ errorMessage() | translate }}
 </p>
 }

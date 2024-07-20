@@ -1,6 +1,6 @@
 <div class="fhv-progress-bar">
   <div class="fhv-progress-bar__container">
-    <ng-container *ngFor="let rankingItem of rankingList; let i = index">
+    <ng-container *ngFor="let rankingItem of rankingList(); let i = index">
       <div class="fhv-progress-bar__container__flex">
         <h1 class="fhv-progress-bar__container__flex__position">
           {{ rankingItem.posicion }}

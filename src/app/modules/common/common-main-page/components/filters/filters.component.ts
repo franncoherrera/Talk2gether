@@ -56,6 +56,7 @@ export class FiltersComponent implements OnInit {
   parametersList$: Observable<REGISTER_PARAMETERS>;
   learnLanguage$: Observable<string>;
   submitForm: boolean = false;
+  //TODO v18
   @Output() dismissed = new EventEmitter<any>();
 
   constructor(

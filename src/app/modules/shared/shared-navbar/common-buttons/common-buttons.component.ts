@@ -1,14 +1,13 @@
 import {
   Component,
-  EventEmitter,
-  Output,
-  ViewEncapsulation,
+  output,
+  ViewEncapsulation
 } from '@angular/core';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
+import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
-import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
 import { CommonReferralLinkComponent } from '../../../common/common-referral-link/common-referral-link.component';
 
 @Component({
@@ -20,7 +19,7 @@ import { CommonReferralLinkComponent } from '../../../common/common-referral-lin
 export class CommonButtonsComponent {
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
-  @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
+  closeNavbar = output<void>();
 
   constructor(
     protected sesionService: SesionService,

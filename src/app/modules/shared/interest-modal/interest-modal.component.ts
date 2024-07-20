@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { VALIDATOR_INTEREST } from '../../../shared/constants/patterns';
 import { INTEREST } from '../../../shared/models/parameter.model';
 import { ParameterService } from '../../../shared/services/parameter.service';
-import { FormErrorComponent } from '../form-error/form-error.component';
 import { ModalComponent } from '../bootstrap-modal/bootstrap-modal.component';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'fhv-interest-modal',
@@ -22,6 +21,7 @@ export class InterestModalComponent implements OnInit {
   interestList$: Observable<INTEREST[]>;
   selectedInterest: INTEREST[] = [];
   VALIDATOR_INTEREST = VALIDATOR_INTEREST;
+  //TODO V18
   @Input() control: FormControl;
 
   constructor(

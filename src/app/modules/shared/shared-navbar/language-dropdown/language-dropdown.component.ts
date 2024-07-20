@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  output,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -21,7 +22,7 @@ export class LanguageDropdownComponent {
   readonly LANGUAGE = LANGUAGE;
   readonly ICON_CLASS = ICON_CLASS;
   readonly FLAG_ICON_CLASS = FLAG_ICON_CLASS;
-  @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
+  closeNavbar = output<void>();
   constructor(
     private translateService: TranslateService,
     protected sesionService: SesionService,

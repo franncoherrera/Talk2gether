@@ -23,7 +23,6 @@ export class CommonLoginService {
   /* Backend endpoints */
   login(email: string, password: string): Observable<Object> {
     const bodySession: USER_SESSION = {
-      //TODO Cambiar nombres del backend
       correo: email,
       contrasenia: password,
     };

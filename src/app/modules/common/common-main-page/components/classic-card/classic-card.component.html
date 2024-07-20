@@ -1,7 +1,7 @@
 <div class="fhv-classic-card">
   <ng-container
     *ngFor="
-      let room of userRoom
+      let room of userRoom()
         | paginate : { itemsPerPage: PAGINATION.ITEMS, currentPage: page }
     "
   >
@@ -41,7 +41,7 @@
     </div>
   </ng-container>
 </div>
-@if(userRoom.length > PAGINATION.ITEMS) {
+@if(userRoom().length > PAGINATION.ITEMS) {
 <pagination-controls
   class="pagination"
   (pageChange)="page = $event"

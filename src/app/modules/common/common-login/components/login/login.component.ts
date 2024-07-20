@@ -65,7 +65,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       )
       .pipe(
         map<TOKEN_SESSION, string>(
-          /* TODO Error de backend "nombreRol = nameRol" */
           (sessionResponse) => sessionResponse.nombreRol
         )
       )

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, input, Input, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormErrorComponent } from '../form-error/form-error.component';
@@ -18,20 +18,21 @@ import { FormErrorComponent } from '../form-error/form-error.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class SelectFormComponent {
-  @Input() formGroup: FormGroup;
-  @Input() control: FormControl;
-  @Input() name: string;
-  @Input() label: string;
-  @Input() placeholder: string;
-  @Input() options: Array<{}>;
-  @Input() clearable: boolean = false;
-  @Input() searchable: boolean = false;
-  @Input() submitForm: boolean;
+  formGroup = input.required<FormGroup>();
+  control = input.required<FormControl>();
+  name = input.required<string>();
+  label = input.required<string>();
+  placeholder = input.required<string>();
+  options = input.required< Array<{}>>();
+  clearable = input<boolean>(false);
+  searchable = input<boolean>(false);
+  submitForm = input<boolean>(false);
+
   selectFormGroup: FormGroup;
   isSelected: boolean = false;
 
   ngOnInit(): void {
-    this.selectFormGroup = !!this.formGroup
+    this.selectFormGroup = !!this.formGroup()
       ? new FormGroup({
           selectControlName: new FormControl(null),
         })
@@ -45,9 +46,9 @@ export class SelectFormComponent {
   }
   onSelectChange(event): void {
     if (!!event?.$ngOptionLabel) {
-      this.control.setValue(event?.$ngOptionLabel);
+      this.control().setValue(event?.$ngOptionLabel);
     } else {
-      this.control.setValue(event);
+      this.control().setValue(event);
     }
   }
 
