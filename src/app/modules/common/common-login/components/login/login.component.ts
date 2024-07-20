@@ -1,48 +1,48 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Subscription, map } from 'rxjs';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { TOKEN_SESSION } from '../../../../../shared/models/tokenSession.model';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { FormService } from '../../../../../shared/services/form.service';
+import { UserService } from '../../../../../shared/services/user.service';
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
-import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
-import { FormService } from '../../../../../shared/services/form.service';
-import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { LoginRecoverPasswordComponent } from '../login-recover-password/login-recover-password.component';
-import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SesionService } from '../../../../../shared/interceptors/sesion.service';
-import { UserService } from '../../../../../shared/services/user.service';
 
 @Component({
   selector: 'fhv-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitForm: boolean = false;
   submitError: boolean = false;
   readonly INPUT_TYPE = INPUT_TYPE;
-  sessionSubscription: Subscription;
-  constructor(
-    private router: Router,
-    private commonLoginService: CommonLoginService,
-    private spinnerGeneralService: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    protected formService: FormService,
-    private customModalService: CustomModalService,
-    private sesionService: SesionService,
-    private userService: UserService
-  ) {}
+
+  private router = inject(Router);
+  private commonLoginService = inject(CommonLoginService);
+  private spinnerGeneralService = inject(SpinnerGeneralService);
+  private sweetAlertService = inject(SweetAlertService);
+  private translateService = inject(TranslateService);
+  protected formService = inject(FormService);
+  private customModalService = inject(CustomModalService);
+  private userService = inject(UserService);
+  private sesionService = inject(SesionService)
+
+  private readonly destroy: DestroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(
@@ -64,11 +64,12 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.loginForm.get('email').value === 'fhv@gmail.com' &&
       this.loginForm.get('password').value === '12345678Aa'
     ) {
-      this.sessionSubscription = this.commonLoginService
+      this.commonLoginService
         .login(
           this.loginForm.get('email').value,
           this.loginForm.get('password').value
         )
+        .pipe(takeUntilDestroyed(this.destroy))
         .subscribe({
           next: (response) => {
             this.sesionService.startLocalSession(response as TOKEN_SESSION);
@@ -130,9 +131,5 @@ export class LoginComponent implements OnInit, OnDestroy {
       LoginRecoverPasswordComponent,
       CUSTOM_MODAL_CONFIG
     );
-  }
-
-  ngOnDestroy(): void {
-    this.sessionSubscription?.unsubscribe();
   }
 }

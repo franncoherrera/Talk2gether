@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LANGUAGE } from '../enums/languages.enum';
 
@@ -6,9 +6,9 @@ import { LANGUAGE } from '../enums/languages.enum';
   providedIn: 'root',
 })
 export class CustomTranslateService {
-  constructor(private translateService: TranslateService) {}
+  private translateService: TranslateService = inject(TranslateService);
 
-  setLanguage() {
+  setLanguage(): void {
     this.translateService.setDefaultLang(LANGUAGE.SPANISH);
     const browserLang: string =
       this.translateService.getBrowserLang() || LANGUAGE.SPANISH;

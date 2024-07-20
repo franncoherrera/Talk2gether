@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
@@ -9,10 +9,9 @@ import { ROOM_USER } from '../../../../shared/models/roomUser.model';
   providedIn: 'root',
 })
 export class MainPageService {
-  constructor(
-    private urlBuilderService: UrlBuilderService,
-    private httpClient: HttpClient
-  ) {}
+
+  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
+  private httpClient: HttpClient = inject(HttpClient);
 
   searchRoom(idUser: number): Observable<ROOM_USER[]> {
     const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.SEARCH_ROOM);

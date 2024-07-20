@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  output,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -18,7 +19,7 @@ import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 })
 export class EyeButtonComponent {
   /* Show and hide password variable */
-  @Output() passwordTypeEmitter: EventEmitter<string> = new EventEmitter();
+  passwordTypeEmitter = output<string>();
   readonly ICON_CLASS = ICON_CLASS;
   showPassword: boolean = false;
 

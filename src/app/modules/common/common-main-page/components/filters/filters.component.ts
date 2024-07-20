@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
@@ -31,6 +31,7 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
 import { MainPageService } from '../../services/main-page.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fhv-filters',
@@ -52,21 +53,20 @@ export class FiltersComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
   filterForm: FormGroup;
-  private unsubscribe$: Subject<void> = new Subject<void>();
   parametersList$: Observable<REGISTER_PARAMETERS>;
   learnLanguage$: Observable<string>;
   submitForm: boolean = false;
+  //TODO v18
   @Output() dismissed = new EventEmitter<any>();
+  private readonly destroy: DestroyRef = inject(DestroyRef);
 
-  constructor(
-    private parameterService: ParameterService,
-    protected formService: FormService,
-    private mainPageService: MainPageService,
-    private userService: UserService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private modalService: CustomModalService
-  ) {}
+  private parameterService: ParameterService = inject(ParameterService);
+  protected formService: FormService = inject(FormService);
+  private mainPageService: MainPageService = inject(MainPageService);
+  private userService: UserService = inject(UserService);
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private modalService: CustomModalService = inject(CustomModalService);
 
   ngOnInit() {
     this.learnLanguage$ = this.userService.getIdUser().pipe(
@@ -117,7 +117,7 @@ export class FiltersComponent implements OnInit {
     let idUser: number;
     this.userService
       .getIdUser()
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe({
         next: (IdUser) => (idUser = IdUser),
       });
@@ -149,8 +149,4 @@ export class FiltersComponent implements OnInit {
     //   });
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
 }

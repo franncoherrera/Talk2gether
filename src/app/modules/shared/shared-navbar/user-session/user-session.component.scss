@@ -70,6 +70,9 @@ fhv-user-session {
     }
     .dropdown-item {
       color: var(--color-primary);
+      &:active {
+        background-color: var(--bs-dropdown-link-hover-bg);
+      }
     }
   }
   .dropdown-menu-lg {
@@ -81,4 +84,5 @@ fhv-user-session {
       padding: 0.5rem;
     }
   }
+  
 }

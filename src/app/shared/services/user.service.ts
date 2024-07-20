@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../enpoints/enpoints';
 import { CurrentUser } from '../models/currentUser.model';
@@ -14,10 +14,9 @@ export class UserService {
   idUser = new BehaviorSubject<number>(null);
   idUser$ = this.idUser.asObservable();
 
-  constructor(
-    private urlBuilderService: UrlBuilderService,
-    private httpClient: HttpClient
-  ) {}
+  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
+  private httpClient: HttpClient = inject(HttpClient);
+  
 
   getCurrentUser(): Observable<CurrentUser> {
     const url = this.urlBuilderService.buildUrl(ENDPOINTS.USER_ACTIVE);

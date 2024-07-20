@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
 import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
+import { SesionService } from '../../../../shared/interceptors/sesion.service';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,9 @@ export class CommonLoginService {
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
 
-  constructor(
-    private httpClient: HttpClient,
-    private urlBuilderService: UrlBuilderService
-  ) {}
+private httpClient: HttpClient = inject(HttpClient);
+private sesionService: SesionService = inject(SesionService);
+private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
 
   /* Backend endpoints */
   login(email: string, password: string): Observable<TOKEN_SESSION> {

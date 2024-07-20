@@ -1,4 +1,4 @@
-@if ((showSpinner$ | async) || showSpinner) {
+@if ((showSpinner$ | async) || showSpinner()) {
 <div class="custom-loading-spinner">
   <div class="map"></div>
   <div class="loader">{{ "common.loader.loading" | translate }}</div>

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { FormErrorComponent } from '../form-error/form-error.component';
+import { Component, input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormErrorComponent } from '../form-error/form-error.component';
 
 @Component({
   selector: 'fhv-text-area-form',
@@ -11,13 +11,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './text-area-form.component.scss',
 })
 export class TextAreaFormComponent {
-  @Input() formGroup: FormGroup;
-  @Input() control: FormControl;
-  @Input() name: string;
-  @Input() label: string;
-  @Input() minlength?: string;
-  @Input() maxlength?: string;
-  @Input() placeholder?: string;
-  @Input() submitForm: boolean;
-
+  formGroup = input.required<FormGroup>();
+  control = input.required<FormControl>();
+  name = input.required<string>();
+  label = input.required<string>();
+  placeholder = input.required<string>();
+  submitForm = input<boolean>();
+  minlength = input<string>();
+  maxlength = input<string>();
 }

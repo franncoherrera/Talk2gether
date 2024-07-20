@@ -1,6 +1,8 @@
 import {
   Component,
   EventEmitter,
+  inject,
+  output,
   Output,
   ViewEncapsulation,
 } from '@angular/core';
@@ -21,12 +23,11 @@ export class LanguageDropdownComponent {
   readonly LANGUAGE = LANGUAGE;
   readonly ICON_CLASS = ICON_CLASS;
   readonly FLAG_ICON_CLASS = FLAG_ICON_CLASS;
-  @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
-  constructor(
-    private translateService: TranslateService,
-    protected sesionService: SesionService,
-    protected breakPointService: BreakPointService
-  ) {}
+  closeNavbar = output<void>();
+  
+  private translateService: TranslateService = inject(TranslateService);
+  protected sesionService: SesionService = inject(SesionService);
+  protected breakPointService: BreakPointService = inject(BreakPointService);
 
   switchLanguage(language: string): void {
     if (Object.values(LANGUAGE).includes(language as LANGUAGE)) {
