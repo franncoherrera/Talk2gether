@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { Component, DestroyRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
@@ -31,6 +31,7 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
 import { MainPageService } from '../../services/main-page.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fhv-filters',
@@ -52,12 +53,12 @@ export class FiltersComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly ICON_CLASS = ICON_CLASS;
   filterForm: FormGroup;
-  private unsubscribe$: Subject<void> = new Subject<void>();
   parametersList$: Observable<REGISTER_PARAMETERS>;
   learnLanguage$: Observable<string>;
   submitForm: boolean = false;
   //TODO v18
   @Output() dismissed = new EventEmitter<any>();
+  private readonly destroy: DestroyRef = inject(DestroyRef);
 
   private parameterService: ParameterService = inject(ParameterService);
   protected formService: FormService = inject(FormService);
@@ -116,7 +117,7 @@ export class FiltersComponent implements OnInit {
     let idUser: number;
     this.userService
       .getIdUser()
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe({
         next: (IdUser) => (idUser = IdUser),
       });
@@ -137,7 +138,7 @@ export class FiltersComponent implements OnInit {
     };
     this.mainPageService
       .searchRoomFiltered(filterSearch)
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe({
         next: (searchRoom) => {
           this.dismissed.emit(searchRoom);
@@ -146,8 +147,4 @@ export class FiltersComponent implements OnInit {
       });
   }
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
 }

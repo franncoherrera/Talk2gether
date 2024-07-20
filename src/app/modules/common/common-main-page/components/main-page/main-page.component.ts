@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -22,6 +22,7 @@ import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinne
 import { MainPageService } from '../../services/main-page.service';
 import { FiltersComponent } from '../filters/filters.component';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fhv-main-page',
@@ -32,11 +33,11 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 export class MainPageComponent implements OnInit {
   readonly ICON_CLASS = ICON_CLASS;
   readonly INPUT_TYPE = INPUT_TYPE;
-  private unsubscribe$: Subject<void> = new Subject<void>();
   userRoom$: Observable<ROOM_USER[]>;
   isClassicVersion: boolean = true;
   searchForm: FormGroup;
 
+  private readonly destroy: DestroyRef = inject(DestroyRef);
   protected mainPageService: MainPageService = inject(MainPageService);
   private userService: UserService = inject(UserService);
   protected formService: FormService = inject(FormService);
@@ -129,14 +130,9 @@ export class MainPageComponent implements OnInit {
       CUSTOM_MODAL_CONFIG
     );
     modalRef.componentInstance.dismissed
-      .pipe(takeUntil(this.unsubscribe$))
+      .pipe(takeUntilDestroyed(this.destroy))
       .subscribe((searchRoom: ROOM_USER[]) => {
         this.userRoom$ = of(searchRoom);
       });
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 }

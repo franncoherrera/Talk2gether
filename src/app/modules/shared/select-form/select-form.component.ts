@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, Input, ViewEncapsulation } from '@angular/core';
+import { Component, input, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormErrorComponent } from '../form-error/form-error.component';
@@ -17,7 +17,7 @@ import { FormErrorComponent } from '../form-error/form-error.component';
   styleUrl: './select-form.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class SelectFormComponent {
+export class SelectFormComponent implements OnInit {
   formGroup = input.required<FormGroup>();
   control = input.required<FormControl>();
   name = input.required<string>();

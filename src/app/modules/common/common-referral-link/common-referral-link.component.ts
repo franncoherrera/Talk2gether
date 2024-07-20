@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormService } from '../../../shared/services/form.service';
@@ -12,7 +12,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './common-referral-link.component.html',
   styleUrl: './common-referral-link.component.scss',
 })
-export class CommonReferralLinkComponent {
+export class CommonReferralLinkComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   referralLink$: Observable<string>;
   referralLinkForm: FormGroup;

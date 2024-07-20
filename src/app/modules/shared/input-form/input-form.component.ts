@@ -5,6 +5,7 @@ import {
   input,
   Input,
   model,
+  OnInit,
   output,
   Output,
   signal,
@@ -30,7 +31,7 @@ import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class'
   templateUrl: './input-form.component.html',
   styleUrl: './input-form.component.scss',
 })
-export class InputFormComponent {
+export class InputFormComponent implements OnInit {
   initialType: boolean;
   isCopied: WritableSignal<string> = signal(null);
   readonly INPUT_TYPE = INPUT_TYPE;
