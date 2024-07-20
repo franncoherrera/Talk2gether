@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, Input } from '@angular/core';
-import { FormErrorComponent } from '../form-error/form-error.component';
+import { Component, input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormErrorComponent } from '../form-error/form-error.component';
 
 @Component({
   selector: 'fhv-text-area-form',

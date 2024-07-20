@@ -42,23 +42,18 @@
       />
     </div>
   </div>
-  <ng-container *ngIf="userRoom$ | async as userRoom; else loading">
-    <ng-container *ngIf="userRoom.length; else emptyRoom">
-      @if(isClassicVersion){
-      <fhv-classic-card [userRoom]="userRoom"/>
-      } @else {
-      <fhv-modern-card [userRoom]="userRoom"/>
-      }
-    </ng-container>
-    <ng-template #emptyRoom>
-      <div class="fhv-main-page__empty">
-        <h1>
-          {{ "common.main_page.main_search_room_empty" | translate }}
-        </h1>
-      </div></ng-template
-    >
-  </ng-container>
-  <ng-template #loading>
-    <fhv-spinner-general [showSpinner]="true"/>
-  </ng-template>
+  @if(userRoom$ | async; as userRoom){ @if(userRoom.length){
+  @if(isClassicVersion){
+  <fhv-classic-card [userRoom]="userRoom" />
+  } @else {
+  <fhv-modern-card [userRoom]="userRoom" />
+  } } @else {
+  <div class="fhv-main-page__empty">
+    <h1>
+      {{ "common.main_page.main_search_room_empty" | translate }}
+    </h1>
+  </div>
+  } }@else {
+  <fhv-spinner-general [showSpinner]="true" />
+  }
 </div>

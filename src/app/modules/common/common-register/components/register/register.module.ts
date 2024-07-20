@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { TranslateModule } from '@ngx-translate/core';
-import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
-import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
-import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
-import { RegisterComponent } from './register.component';
-import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { FormErrorComponent } from '../../../../shared/form-error/form-error.component';
 import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-checkbox.component';
+import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
+import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
+import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
+import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
+import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
+import { RegisterComponent } from './register.component';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -23,7 +24,8 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
     TextAreaFormComponent,
     InterestModalComponent,
     FormErrorComponent,
-    InputCheckboxComponent
+    InputCheckboxComponent,
+    SpinnerGeneralModule
   ],
   providers: [
     TitleCasePipe
