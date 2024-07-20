@@ -1,8 +1,8 @@
 import {
   Component,
-  EventEmitter,
+  inject,
   OnInit,
-  Output,
+  output,
   ViewEncapsulation,
 } from '@angular/core';
 import { Router } from '@angular/router';
@@ -27,18 +27,16 @@ export class UserSessionComponent implements OnInit {
   currentUser$: Observable<CurrentUser>;
   isLogedIn$: Observable<boolean>;
   combined$: Observable<{ user: CurrentUser; isLoggedIn: boolean }>;
-  @Output() closeNavbar: EventEmitter<void> = new EventEmitter();
+  closeNavbar = output<void>();
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
 
-  constructor(
-    protected sesionService: SesionService,
-    private userService: UserService,
-    protected breakPointService: BreakPointService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private router: Router
-  ) {}
+  protected sesionService: SesionService = inject(SesionService);
+  private userService: UserService = inject(UserService);
+  protected breakPointService: BreakPointService = inject(BreakPointService);
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private router: Router = inject(Router);
 
   ngOnInit(): void {
     if (this.sesionService.isLoggedIn()) {
@@ -67,5 +65,4 @@ export class UserSessionComponent implements OnInit {
   closeNavbarChild(): void {
     this.closeNavbar.emit();
   }
-  
 }

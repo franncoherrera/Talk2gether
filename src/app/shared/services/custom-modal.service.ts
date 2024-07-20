@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
@@ -7,7 +7,7 @@ import { NgbModal, NgbModalOptions, NgbModalRef } from '@ng-bootstrap/ng-bootstr
 export class CustomModalService {
   private modals: NgbModalRef[] = [];
 
-  constructor(private ngbModalService: NgbModal) {}
+  private ngbModalService: NgbModal = inject(NgbModal);
 
   open(content: any, options?: NgbModalOptions): NgbModalRef {
     let activeModal: NgbModalRef;

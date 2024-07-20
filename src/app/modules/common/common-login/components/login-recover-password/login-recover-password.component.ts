@@ -1,38 +1,44 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { catchError, of, tap } from 'rxjs';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { FormService } from '../../../../../shared/services/form.service';
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { FormService } from '../../../../../shared/services/form.service';
-import { CommonLoginService } from '../../services/common-login.service';
-import { catchError, of, Subject, takeUntil, tap } from 'rxjs';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { TranslateService } from '@ngx-translate/core';
-import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
+import { CommonLoginService } from '../../services/common-login.service';
 
 @Component({
   selector: 'fhv-login-recover-password',
   templateUrl: './login-recover-password.component.html',
   styleUrl: './login-recover-password.component.scss',
 })
-export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
+export class LoginRecoverPasswordComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   submitForm: boolean = false;
   recoverPass: FormGroup;
-  private unsubscribe$: Subject<void> = new Subject<void>();
 
-  constructor(
-    protected formService: FormService,
-    private commonLoginService: CommonLoginService,
-    private spinnerGeneralService: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private customModalService: CustomModalService
-  ) {}
+  protected formService: FormService = inject(FormService);
+  private commonLoginService: CommonLoginService = inject(CommonLoginService);
+  private spinnerGeneralService: SpinnerGeneralService = inject(
+    SpinnerGeneralService
+  );
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private customModalService: CustomModalService = inject(CustomModalService);
+  private readonly destroy: DestroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.recoverPass = new FormGroup(
@@ -49,14 +55,13 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
   }
 
   sendEmailRecover(): void {
-
     this.submitForm = true;
     if (this.recoverPass.invalid) return;
     this.spinnerGeneralService.showSpinner();
     this.commonLoginService
       .recoverPass(this.recoverPass.get('emailRecover').value)
       .pipe(
-        takeUntil(this.unsubscribe$),
+        takeUntilDestroyed(this.destroy),
         tap({
           complete: () => {
             this.spinnerGeneralService.hideSpinner();
@@ -84,10 +89,5 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
         })
       )
       .subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 }

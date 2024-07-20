@@ -1,15 +1,17 @@
-<form class="form-group fhv-text-area-form" [formGroup]="formGroup">
-  <label class="fhv-text-area-form__label" for="{{ name }}">{{ label }}</label>
+<form class="form-group fhv-text-area-form" [formGroup]="formGroup()">
+  <label class="fhv-text-area-form__label" for="{{ name() }}">{{
+    label()
+  }}</label>
   <textarea
     class="form-control fhv-text-area-form__input"
     id="descriptionUser"
     formControlName="descriptionUser"
-    [placeholder]="placeholder"
+    [placeholder]="placeholder()"
     [ngClass]="
-      submitForm && !!control?.errors
+      submitForm() && !!control()?.errors
         ? 'fhv-text-area-form__input__error'
         : 'fhv-text-area-form__input__focus'
     "
   ></textarea>
-  <fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+  <fhv-form-error [showError]="submitForm()" [control]="control()" />
 </form>

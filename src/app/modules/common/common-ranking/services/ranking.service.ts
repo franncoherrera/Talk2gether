@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { HttpClient } from '@angular/common/http';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
@@ -9,10 +9,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class RankingService {
-  constructor(
-    private urlBuilderService: UrlBuilderService,
-    private httpClient: HttpClient
-  ) {}
+  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
+  private httpClient: HttpClient = inject(HttpClient);
 
   getRanking(userId: number): Observable<RANKING_USER[]> {
     const url: string = this.urlBuilderService.buildUrl(

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
@@ -14,16 +14,13 @@ export class CommonLoginService {
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
 
-  constructor(
-    private httpClient: HttpClient,
-    private sesionService: SesionService,
-    private urlBuilderService: UrlBuilderService
-  ) {}
+  private httpClient: HttpClient = inject(HttpClient);
+  private sesionService: SesionService = inject(SesionService);
+  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
 
   /* Backend endpoints */
   login(email: string, password: string): Observable<Object> {
     const bodySession: USER_SESSION = {
-      //TODO Cambiar nombres del backend
       correo: email,
       contrasenia: password,
     };

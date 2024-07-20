@@ -1,41 +1,41 @@
-@if(isString(label)){
-<form class="form-group fhv-input-checkbox" [formGroup]="formGroup">
+@if(isString(label())){
+<form class="form-group fhv-input-checkbox" [formGroup]="formGroup()">
   <input
     #input
     [type]="INPUT_TYPE.CHECKBOX"
-    [name]="name"
-    [id]="name"
-    [formControlName]="name"
+    [name]="name()"
+    [id]="name()"
+    [formControlName]="name()"
     (change)="onCheckboxChangeString(!isChecked)"
   />
   <label
     (click)="redirectLabel()"
     class="fhv-input-checkbox__label"
-    [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute }"
-    >{{ label }}</label
+    [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute() }"
+    >{{ label() }}</label
   >
 </form>
-<fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+<fhv-form-error [showError]="submitForm()" [control]="control()" />
 } @else {
-<form class="form-group fhv-input-checkbox" [formGroup]="formGroup">
-  <ng-container *ngFor="let l of label">
-    <div class="fhv-input-checkbox__item">
-      <input
-        #input
-        [type]="INPUT_TYPE.CHECKBOX"
-        [name]="name"
-        [id]="name"
-        [formControlName]="name"
-        (change)="onCheckboxChangeArray(l[modelName])"
-      />
-      <label
-        (click)="redirectLabel()"
-        class="fhv-input-checkbox__label"
-        [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute }"
-        >{{ l[modelName] }}</label
-      >
-    </div>
-  </ng-container>
+<form class="form-group fhv-input-checkbox" [formGroup]="formGroup()">
+  @for(l of label(); track l){
+  <div class="fhv-input-checkbox__item">
+    <input
+      #input
+      [type]="INPUT_TYPE.CHECKBOX"
+      [name]="name()"
+      [id]="name()"
+      [formControlName]="name()"
+      (change)="onCheckboxChangeArray(l[modelName()])"
+    />
+    <label
+      (click)="redirectLabel()"
+      class="fhv-input-checkbox__label"
+      [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute() }"
+      >{{ l[modelName()] }}</label
+    >
+  </div>
+  }
 </form>
-<fhv-form-error [showError]="submitForm" [control]="control"></fhv-form-error>
+<fhv-form-error [showError]="submitForm()" [control]="control()" />
 }

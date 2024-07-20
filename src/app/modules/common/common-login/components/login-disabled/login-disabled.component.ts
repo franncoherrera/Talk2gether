@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, catchError, map, of } from 'rxjs';
+import { catchError, map, Observable, of } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { GENERAL_PATH } from '../../../../../shared/constants/routes';
@@ -11,17 +11,16 @@ import { CommonLoginService } from '../../services/common-login.service';
 @Component({
   selector: 'fhv-login-disabled',
   templateUrl: './login-disabled.component.html',
-  styleUrl: './login-disabled.component.scss'
+  styleUrl: './login-disabled.component.scss',
 })
-export class LoginDisabledComponent {
+export class LoginDisabledComponent implements OnInit{
   reasonReports$: Observable<string[]>;
   readonly ICON_CLASS = ICON_CLASS;
-  constructor(
-    private router: Router,
-    private commonLoginService: CommonLoginService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService
-  ) {}
+
+  private router = inject(Router);
+  private commonLoginService = inject(CommonLoginService);
+  private sweetAlertService = inject(SweetAlertService);
+  private translateService = inject(TranslateService);
 
   ngOnInit(): void {
     this.reasonReports$ = this.commonLoginService.getReason().pipe(

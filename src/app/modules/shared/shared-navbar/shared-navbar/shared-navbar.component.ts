@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  inject,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -25,10 +26,8 @@ export class SharedNavbarComponent {
   @ViewChild('navbarToggler') navbarToggler: ElementRef;
   @ViewChild('thrower') navbarContent: ElementRef;
 
-  constructor(
-    protected sesionService: SesionService,
-    protected breakPointService: BreakPointService
-  ) {}
+  protected sesionService: SesionService = inject(SesionService);
+  protected breakPointService: BreakPointService = inject(BreakPointService);
 
   closeNavbar() {
     const navbar = document.querySelector('#navbarSupportedContent');

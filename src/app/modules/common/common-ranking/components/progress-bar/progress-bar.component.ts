@@ -2,7 +2,9 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Input,
+  inject,
+  input,
+  
   QueryList,
   Renderer2,
   ViewChildren,
@@ -16,14 +18,14 @@ import { RANKING_USER } from '../../../../../shared/models/ranking.model';
 })
 export class ProgressBarComponent implements AfterViewInit {
   @ViewChildren('progressBar') progressBars!: QueryList<ElementRef>;
-  @Input() rankingList: RANKING_USER[];
+  rankingList = input.required<RANKING_USER[]>();
 
-  constructor(
-    private renderer: Renderer2
-  ) {}
+
+  private renderer: Renderer2 = inject(Renderer2);
+
 
   ngAfterViewInit(): void {
-    const maxNumber: number = this.rankingList.reduce(
+    const maxNumber: number = this.rankingList().reduce(
       (max, obj) => (obj.puntosTotales > max ? obj.puntosTotales : max),
       -Infinity
     );
@@ -34,7 +36,7 @@ export class ProgressBarComponent implements AfterViewInit {
             .toArray()
             .findIndex((bar) => bar.nativeElement === entry.target);
           if (targetIndex > -1) {
-            const progressData = this.rankingList[targetIndex];
+            const progressData = this.rankingList()[targetIndex];
             this.renderer.setStyle(
               this.progressBars.toArray()[targetIndex].nativeElement,
               'width',

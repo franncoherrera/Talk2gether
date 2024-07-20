@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { SpinnerGeneralService } from './spinner-general.service';
 
@@ -9,9 +9,11 @@ import { SpinnerGeneralService } from './spinner-general.service';
 })
 export class SpinnerGeneralComponent implements OnInit {
   showSpinner$: Observable<boolean>;
-  @Input() showSpinner: boolean = false;
-  
-  constructor(protected spinnerServiceGeneral: SpinnerGeneralService) {}
+  showSpinner = input<boolean>(false);
+
+  protected spinnerServiceGeneral: SpinnerGeneralService = inject(
+    SpinnerGeneralService
+  );
 
   ngOnInit(): void {
     this.showSpinner$ = this.spinnerServiceGeneral.getSpinnerState();

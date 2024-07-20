@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import {
   BehaviorSubject,
   fromEvent,
@@ -14,7 +14,6 @@ import { BREAKPOINTS } from '../constants/windowSize.enum';
 })
 export class BreakPointService {
   private breakpoints = {
-    /* TODO: I can't use windowSize enum because numbers change one pixel */
     extra_small: window.matchMedia('(min-width: 350px) and (max-width: 576px)'),
     small: window.matchMedia('(min-width: 577px) and (max-width: 768px)'),
     medium: window.matchMedia('(min-width: 769px) and (max-width: 992px)'),
@@ -33,7 +32,9 @@ export class BreakPointService {
 
   public isMobile$: Observable<boolean> = this.isMobile();
 
-  constructor(private ngZone: NgZone) {
+  private ngZone: NgZone = inject(NgZone);
+
+  constructor() {
     this.listenToResize();
   }
 

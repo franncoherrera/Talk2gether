@@ -8,8 +8,9 @@
     &__image {
       height: 34.375rem;
       flex-basis: 50%;
-
+      overflow: hidden;
       &-general {
+        background-image: url(../../../../../public/assets/images/general/mapaPlano_spinner.svg);
         width: 100%;
         height: 100%;
         object-fit: cover;

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './form-error.component.scss',
 })
 export class FormErrorComponent {
-  @Input() showError: boolean;
-  @Input() errorMessage?: string;
-  @Input() control: FormControl;
+  showError = input.required<boolean>();
+  errorMessage = input<string>();
+  control = input<FormControl>();
 }

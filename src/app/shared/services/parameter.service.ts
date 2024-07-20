@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from './url-builder.service';
 import { ENDPOINTS } from '../enpoints/enpoints';
 import { Observable } from 'rxjs';
@@ -9,10 +9,8 @@ import { INTEREST } from '../models/parameter.model';
   providedIn: 'root',
 })
 export class ParameterService {
-  constructor(
-    private httpClient: HttpClient,
-    private urlBuilderService: UrlBuilderService
-  ) {}
+  private httpClient: HttpClient = inject(HttpClient);
+  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
 
   getActiveCountries(): Observable<string[]> {
     const url = this.urlBuilderService.buildUrl(ENDPOINTS.COUNTRY_ACTIVE);
@@ -31,7 +29,7 @@ export class ParameterService {
     return this.httpClient.get<string[]>(url);
   }
 
-  getActiveInterests(): Observable<INTEREST[]>{
+  getActiveInterests(): Observable<INTEREST[]> {
     const url = this.urlBuilderService.buildUrl(ENDPOINTS.INTERESTS_ACTIVE);
     return this.httpClient.get<INTEREST[]>(url);
   }

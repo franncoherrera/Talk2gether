@@ -1,88 +1,85 @@
 <fhv-bootstrap-modal
   modalTitle="{{ 'common.main_page.filters.subtitle' | translate }}"
 >
-  <ng-container *ngIf="parametersList$ | async as parametersList">
-    <div class="fhv-filters">
-      <h1 class="fhv-filters__title">
-        {{ "common.main_page.filters.subtitle" | translate }}
-      </h1>
-      <ng-container *ngIf="learnLanguage$ | async as learnLanguage">
-        <h2 class="fhv-filters__subtitle">{{ learnLanguage["mensaje"] }}</h2>
-      </ng-container>
-      <form [formGroup]="filterForm" (ngSubmit)="searchFilters()">
-        <fhv-select-form
-          [name]="'country'"
-          label="{{ 'common.main_page.filters.country_title' | translate }}"
+  @if(parametersList$ | async; as parametersList){
+  <div class="fhv-filters">
+    <h1 class="fhv-filters__title">
+      {{ "common.main_page.filters.subtitle" | translate }}
+    </h1>
+    @if(learnLanguage$ | async; as learnLanguage){
+    <h2 class="fhv-filters__subtitle">
+      {{ learnLanguage["mensaje"] }}
+    </h2>
+    }
+    <form [formGroup]="filterForm" (ngSubmit)="searchFilters()">
+      <fhv-select-form
+        [name]="'country'"
+        label="{{ 'common.main_page.filters.country_title' | translate }}"
+        [formGroup]="filterForm"
+        [control]="formService.formControl(filterForm, 'country')"
+        placeholder="{{
+          'common.main_page.filters.country_placeholder' | translate
+        }}"
+        [options]="parametersList.countryList"
+      />
+      <fhv-select-form
+        [name]="'level'"
+        label="{{
+          'common.main_page.filters.country_language_level' | translate
+        }}"
+        [formGroup]="filterForm"
+        [control]="formService.formControl(filterForm, 'level')"
+        placeholder="{{
+          'common.main_page.filters.country_language_level_placeholder'
+            | translate
+        }}"
+        [options]="parametersList.languageLevelList"
+      />
+      <div class="fhv-filters__ages">
+        <fhv-input-form
+          [name]="'minAge'"
+          label="{{ 'common.main_page.filters.min_age_title' | translate }}"
+          [type]="INPUT_TYPE.NUMBER"
           [formGroup]="filterForm"
-          [control]="formService.formControl(filterForm, 'country')"
+          [control]="formService.formControl(filterForm, 'minAge')"
           placeholder="{{
-            'common.main_page.filters.country_placeholder' | translate
+            'common.main_page.filters.min_age_placeholder' | translate
           }}"
-          [options]="parametersList.countryList"
-        >
-        </fhv-select-form>
-        <fhv-select-form
-          [name]="'level'"
-          label="{{
-            'common.main_page.filters.country_language_level' | translate
-          }}"
+          [submitForm]="submitForm"
+        />
+        <fhv-input-form
+          [name]="'maxAge'"
+          label="{{ 'common.main_page.filters.max_age_title' | translate }}"
+          [type]="INPUT_TYPE.NUMBER"
           [formGroup]="filterForm"
-          [control]="formService.formControl(filterForm, 'level')"
+          [control]="formService.formControl(filterForm, 'maxAge')"
           placeholder="{{
-            'common.main_page.filters.country_language_level_placeholder'
-              | translate
+            'common.main_page.filters.max_age_placeholder' | translate
           }}"
-          [options]="parametersList.languageLevelList"
-        >
-        </fhv-select-form>
-        <div class="fhv-filters__ages">
-          <fhv-input-form
-            [name]="'minAge'"
-            label="{{ 'common.main_page.filters.min_age_title' | translate }}"
-            [type]="INPUT_TYPE.NUMBER"
-            [formGroup]="filterForm"
-            [control]="formService.formControl(filterForm, 'minAge')"
-            placeholder="{{
-              'common.main_page.filters.min_age_placeholder' | translate
-            }}"
-            [submitForm]="submitForm"
-          >
-          </fhv-input-form>
-          <fhv-input-form
-            [name]="'maxAge'"
-            label="{{ 'common.main_page.filters.max_age_title' | translate }}"
-            [type]="INPUT_TYPE.NUMBER"
-            [formGroup]="filterForm"
-            [control]="formService.formControl(filterForm, 'maxAge')"
-            placeholder="{{
-              'common.main_page.filters.max_age_placeholder' | translate
-            }}"
-            [submitForm]="submitForm"
-          >
-          </fhv-input-form>
-        </div>
-        <ng-container *ngIf="!!filterForm.errors && submitForm">
-          <fhv-form-error
-            [errorMessage]="filterForm.errors['errorMessage']"
-            [showError]="true"
-          ></fhv-form-error>
-        </ng-container>
-        <h2 class="fhv-filters__subtitle">
-          {{ "common.main_page.filters.interest_title" | translate }}
-        </h2>
-        <fhv-input-checkbox
-          [name]="'interest'"
-          [label]="parametersList.interestList"
-          [formGroup]="filterForm"
-          [control]="formService.formControl(filterForm, 'interest')"
-          modelName="name"
-        >
-        </fhv-input-checkbox>
-        <button class="fhv-filters__button" type="submit">
-          <i class="{{ ICON_CLASS.search }}"></i>
-          {{ "common.main_page.filters.button" | translate }}
-        </button>
-      </form>
-    </div>
-  </ng-container>
-</fhv-bootstrap-modal>
+          [submitForm]="submitForm"
+        />
+      </div>
+      @if(!!filterForm.errors && submitForm){
+      <fhv-form-error
+        [errorMessage]="filterForm.errors['errorMessage']"
+        [showError]="true"
+      />
+      }
+      <h2 class="fhv-filters__subtitle">
+        {{ "common.main_page.filters.interest_title" | translate }}
+      </h2>
+      <fhv-input-checkbox
+        [name]="'interest'"
+        [label]="parametersList.interestList"
+        [formGroup]="filterForm"
+        [control]="formService.formControl(filterForm, 'interest')"
+        modelName="name"
+      />
+      <button class="fhv-filters__button" type="submit">
+        <i class="{{ ICON_CLASS.search }}"></i>
+        {{ "common.main_page.filters.button" | translate }}
+      </button>
+    </form>
+  </div>
+  }</fhv-bootstrap-modal
+>
