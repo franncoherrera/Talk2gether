@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { FormControl, FormGroup } from '@angular/forms';
 import {
@@ -25,14 +25,12 @@ export class LoginRecoverPasswordComponent implements OnInit, OnDestroy {
   recoverPass: FormGroup;
   private unsubscribe$: Subject<void> = new Subject<void>();
 
-  constructor(
-    protected formService: FormService,
-    private commonLoginService: CommonLoginService,
-    private spinnerGeneralService: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private customModalService: CustomModalService
-  ) {}
+  protected formService: FormService = inject(FormService);
+  private commonLoginService: CommonLoginService = inject(CommonLoginService);
+  private spinnerGeneralService: SpinnerGeneralService = inject(SpinnerGeneralService);
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private customModalService: CustomModalService = inject(CustomModalService);
 
   ngOnInit() {
     this.recoverPass = new FormGroup(

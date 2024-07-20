@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, inject, input, ViewEncapsulation } from '@angular/core';
 import { CustomModalService } from '../../../shared/services/custom-modal.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { CustomModalService } from '../../../shared/services/custom-modal.servic
 export class ModalComponent {
   modalTitle = input.required<string>();
 
-  constructor(private customModalService: CustomModalService) {}
+  private customModalService: CustomModalService = inject(CustomModalService);
 
   closeModal(): void {
     this.customModalService.closeActiveModal();

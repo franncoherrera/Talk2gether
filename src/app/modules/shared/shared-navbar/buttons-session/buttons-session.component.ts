@@ -1,8 +1,4 @@
-import {
-  Component,
-  output,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, inject, output, ViewEncapsulation } from '@angular/core';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
@@ -17,7 +13,8 @@ export class ButtonsSessionComponent {
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
   closeNavbar = output<void>();
-  constructor(protected sesionService: SesionService) {}
+
+  protected sesionService: SesionService = inject(SesionService);
 
   closeNavbarChild(): void {
     this.closeNavbar.emit();

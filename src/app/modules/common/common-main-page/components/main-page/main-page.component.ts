@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -37,15 +37,15 @@ export class MainPageComponent implements OnInit {
   isClassicVersion: boolean = true;
   searchForm: FormGroup;
 
-  constructor(
-    protected mainPageService: MainPageService,
-    private userService: UserService,
-    protected formService: FormService,
-    private spinnerGeneralService: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private customModalService: CustomModalService
-  ) {}
+  protected mainPageService: MainPageService = inject(MainPageService);
+  private userService: UserService = inject(UserService);
+  protected formService: FormService = inject(FormService);
+  private spinnerGeneralService: SpinnerGeneralService = inject(
+    SpinnerGeneralService
+  );
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private customModalService: CustomModalService = inject(CustomModalService);
 
   ngOnInit() {
     this.setCardVersion();

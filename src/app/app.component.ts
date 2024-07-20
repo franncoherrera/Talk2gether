@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { SpinnerGeneralModule } from './modules/shared/spinner-general/spinner-general.module';
-import { LANGUAGE } from './shared/enums/languages.enum';
 import { SharedNavbarModule } from './modules/shared/shared-navbar/shared-navbar/shared-navbar.module';
+import { SpinnerGeneralModule } from './modules/shared/spinner-general/spinner-general.module';
 import { CustomTranslateService } from './shared/services/custom-translate.service';
 
 @Component({
@@ -16,7 +14,9 @@ import { CustomTranslateService } from './shared/services/custom-translate.servi
 export class AppComponent {
   title = 'Talk2gether';
 
-  constructor(private customTranslateService: CustomTranslateService) {
+  private customTranslateService = inject(CustomTranslateService);
+
+  ngOnInit() {
     this.customTranslateService.setLanguage();
   }
 }

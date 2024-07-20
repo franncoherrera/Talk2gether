@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
@@ -24,10 +30,8 @@ export class InterestModalComponent implements OnInit {
   //TODO V18
   @Input() control: FormControl;
 
-  constructor(
-    private parameterService: ParameterService,
-    public activeModal: NgbActiveModal
-  ) {}
+  private parameterService: ParameterService = inject(ParameterService);
+  public activeModal: NgbActiveModal = inject(NgbActiveModal);
 
   ngOnInit() {
     this.interestList$ = this.parameterService.getActiveInterests();

@@ -1,5 +1,6 @@
 import {
   Component,
+  inject,
   output,
   ViewEncapsulation
 } from '@angular/core';
@@ -21,10 +22,9 @@ export class CommonButtonsComponent {
   readonly ROUTES_PATH = ROUTES_PATH;
   closeNavbar = output<void>();
 
-  constructor(
-    protected sesionService: SesionService,
-    private customModalService: CustomModalService
-  ) {}
+  protected sesionService: SesionService = inject(SesionService);
+  private customModalService: CustomModalService = inject(CustomModalService);
+  
 
   closeNavbarChild(): void {
     this.closeNavbar.emit();

@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  inject,
   input,
   
   QueryList,
@@ -20,9 +21,8 @@ export class ProgressBarComponent implements AfterViewInit {
   rankingList = input.required<RANKING_USER[]>();
 
 
-  constructor(
-    private renderer: Renderer2
-  ) {}
+  private renderer: Renderer2 = inject(Renderer2);
+
 
   ngAfterViewInit(): void {
     const maxNumber: number = this.rankingList().reduce(

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -31,16 +31,15 @@ export class LoginComponent implements OnInit, OnDestroy {
   submitError: boolean = false;
   readonly INPUT_TYPE = INPUT_TYPE;
   sessionSubscription: Subscription;
-  constructor(
-    private router: Router,
-    private commonLoginService: CommonLoginService,
-    private spinnerGeneralService: SpinnerGeneralService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    protected formService: FormService,
-    private customModalService: CustomModalService,
-    private userService: UserService
-  ) {}
+
+  private router = inject(Router);
+  private commonLoginService = inject(CommonLoginService);
+  private spinnerGeneralService = inject(SpinnerGeneralService);
+  private sweetAlertService = inject(SweetAlertService);
+  private translateService = inject(TranslateService);
+  protected formService = inject(FormService);
+  private customModalService = inject(CustomModalService);
+  private userService = inject(UserService);
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(

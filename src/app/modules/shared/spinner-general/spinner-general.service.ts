@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -8,13 +8,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class SpinnerGeneralService {
   spinnerState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(protected router: Router) {}
+  protected router: Router = inject(Router);
 
-  showSpinner() {
+  showSpinner(): void {
     this.spinnerState.next(true);
   }
 
-  hideSpinner() {
+  hideSpinner(): void {
     this.spinnerState.next(false);
   }
 

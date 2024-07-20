@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { inject, Injectable, NgZone } from '@angular/core';
 import {
   BehaviorSubject,
   fromEvent,
@@ -32,7 +32,9 @@ export class BreakPointService {
 
   public isMobile$: Observable<boolean> = this.isMobile();
 
-  constructor(private ngZone: NgZone) {
+  private ngZone: NgZone = inject(NgZone);
+
+  constructor() {
     this.listenToResize();
   }
 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import {
@@ -59,15 +59,13 @@ export class FiltersComponent implements OnInit {
   //TODO v18
   @Output() dismissed = new EventEmitter<any>();
 
-  constructor(
-    private parameterService: ParameterService,
-    protected formService: FormService,
-    private mainPageService: MainPageService,
-    private userService: UserService,
-    private sweetAlertService: SweetAlertService,
-    private translateService: TranslateService,
-    private modalService: CustomModalService
-  ) {}
+  private parameterService: ParameterService = inject(ParameterService);
+  protected formService: FormService = inject(FormService);
+  private mainPageService: MainPageService = inject(MainPageService);
+  private userService: UserService = inject(UserService);
+  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private translateService: TranslateService = inject(TranslateService);
+  private modalService: CustomModalService = inject(CustomModalService);
 
   ngOnInit() {
     this.learnLanguage$ = this.userService.getIdUser().pipe(
