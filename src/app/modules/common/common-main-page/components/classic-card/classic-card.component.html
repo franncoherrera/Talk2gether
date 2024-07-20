@@ -1,48 +1,34 @@
-<div class="fhv-classic-card">
-  @for (room of userRoom() | paginate : { itemsPerPage: PAGINATION.ITEMS,
-  currentPage: page }; track room.idCuenta ) {
-  <div class="fhv-classic-card__box">
-    <div class="fhv-classic-card__box__top">
-      <div class="fhv-classic-card__box__top__star">
-        {{ room.cantidadEstrellas }}
-        <i [class]="ICON_CLASS.star"></i>
-      </div>
-      <img class="fhv-classic-card__box__top__image" [src]="room.urlFoto" />
-      <div class="fhv-classic-card__box__top__flex">
-        <h3 class="fhv-classic-card__box__top__flex-title">
-          {{ room.nombreUsuario }} - {{ room.edad }}
-        </h3>
-        <span
-          class="fhv-classic-card__box__top__flex__flag fi fi-{{
-            room.urlBandera
-          }}"
-        ></span>
-      </div>
-      <div class="fhv-classic-card__box__top__interest">
-        @for (interest of room.intereses; track interest) {
-        <div class="fhv-classic-card__box__top__interest-item">
-          {{ interest }}
-        </div>
-        }
-      </div>
+<div class="fhv-classic-card__box">
+  <div class="fhv-classic-card__box__top">
+    <div class="fhv-classic-card__box__top__star">
+      {{ room().cantidadEstrellas }}
+      <i [class]="ICON_CLASS.star"></i>
     </div>
-    <div class="fhv-classic-card__box__buttons">
-      <div class="fhv-classic-card__box__buttons__icon" type="button">
-        <i [class]="ICON_CLASS.message"></i>
+    <img class="fhv-classic-card__box__top__image" [src]="room().urlFoto" />
+    <div class="fhv-classic-card__box__top__flex">
+      <h3 class="fhv-classic-card__box__top__flex-title">
+        {{ room().nombreUsuario }} - {{ room().edad }}
+      </h3>
+      <span
+        class="fhv-classic-card__box__top__flex__flag fi fi-{{
+          room().urlBandera
+        }}"
+      ></span>
+    </div>
+    <div class="fhv-classic-card__box__top__interest">
+      @for (interest of room().intereses; track interest) {
+      <div class="fhv-classic-card__box__top__interest-item">
+        {{ interest }}
       </div>
-      <div class="fhv-classic-card__box__buttons__icon" type="button">
-        <i [class]="ICON_CLASS.video"></i>
-      </div>
+      }
     </div>
   </div>
-  }
+  <div class="fhv-classic-card__box__buttons">
+    <div class="fhv-classic-card__box__buttons__icon" type="button">
+      <i [class]="ICON_CLASS.message"></i>
+    </div>
+    <div class="fhv-classic-card__box__buttons__icon" type="button">
+      <i [class]="ICON_CLASS.video"></i>
+    </div>
+  </div>
 </div>
-@if(userRoom().length > PAGINATION.ITEMS) {
-<pagination-controls
-  class="pagination"
-  (pageChange)="page = $event"
-  [responsive]="true"
-  previousLabel=""
-  nextLabel=""
-></pagination-controls>
-}
