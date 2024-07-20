@@ -1,13 +1,20 @@
-import { Component, DestroyRef, inject, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
 import {
   catchError,
+  filter,
   Observable,
   of,
-  Subject,
-  switchMap,
-  takeUntil,
+  switchMap
 } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
@@ -21,8 +28,6 @@ import { UserService } from '../../../../../shared/services/user.service';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { MainPageService } from '../../services/main-page.service';
 import { FiltersComponent } from '../filters/filters.component';
-import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fhv-main-page',
@@ -63,6 +68,7 @@ export class MainPageComponent implements OnInit {
 
   searchUserRoom(): void {
     this.userRoom$ = this.userService.getIdUser().pipe(
+      filter(Boolean),
       switchMap<number, Observable<ROOM_USER[]>>((userId) =>
         this.mainPageService.searchRoom(userId)
       ),

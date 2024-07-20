@@ -1,0 +1,17 @@
+<div class="fhv-general-card">
+  @for (room of userRoom() | paginate : { itemsPerPage: PAGINATION.ITEMS,
+  currentPage: page }; track room.idCuenta ) { @if(isClassicVersion()){
+  <fhv-classic-card [room]="room" />
+  } @else {
+  <fhv-modern-card [room]="room" />
+  } }
+</div>
+@if(userRoom().length > PAGINATION.ITEMS) {
+<pagination-controls
+  class="pagination"
+  (pageChange)="page = $event"
+  [responsive]="true"
+  previousLabel=""
+  nextLabel=""
+></pagination-controls>
+}

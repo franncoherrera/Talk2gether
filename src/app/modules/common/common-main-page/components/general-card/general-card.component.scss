@@ -1,0 +1,35 @@
+@import "media-queries";
+fhv-general-card {
+  .fhv-general-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 2rem;
+    padding: 1rem 8rem 2rem 8rem;
+    list-style-type: none;
+    font-family: var(--font-family);
+    justify-content: center;
+    align-items: center;
+    @include media-breakpoint-down(xxl) {
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+    @include media-breakpoint-down(xl) {
+      padding: 0 2rem 2rem 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    }
+    @include media-breakpoint-down(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    }
+    @include media-breakpoint-down(sm) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}

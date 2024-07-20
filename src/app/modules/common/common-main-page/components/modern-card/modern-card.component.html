@@ -1,62 +1,47 @@
-<ul class="fhv-modern-card">
-  @for (room of userRoom() | paginate : { itemsPerPage: PAGINATION.ITEMS,
-  currentPage: page }; track room.idCuenta ) {
-  <li class="fhv-modern-card__container">
-    <a class="fhv-modern-card__container__card">
-      <div class="fhv-modern-card__container__card__star">
-        {{ room.cantidadEstrellas }}
-        <i [class]="ICON_CLASS.star"></i>
-      </div>
-      @if(!(breakPointService.isMobile$ | async)){
-      <ng-container *ngTemplateOutlet="icons"></ng-container>
-      }
-      <img
-        [src]="room.urlFoto"
-        class="fhv-modern-card__container__card__image"
-      />
-      <div class="fhv-modern-card__container__card__overlay">
-        <div class="fhv-modern-card__container__card__overlay__header">
-          <svg class="fhv-modern-card__container__card__overlay__header__arc">
-            <path />
-          </svg>
-          <span
-            class="fhv-modern-card__container__card__overlay__header__thumb fi fi-{{
-              room.urlBandera
-            }} fis"
-          ></span>
-          <div class="fhv-modern-card__container__card__overlay__header-icons">
-            <h3
-              class="fhv-modern-card__container__card__overlay__header__title"
-            >
-              {{ room.nombreUsuario }} - {{ room.edad }}
-            </h3>
-            @if(!(breakPointService.isMobile$ | async)){
-            <ng-container *ngTemplateOutlet="icons"></ng-container>}
-          </div>
-        </div>
-        <div class="fhv-modern-card__container__card__overlay__description">
-          @for (interest of room.intereses; track interest){
-          <div
-            class="fhv-modern-card__container__card__overlay__description-item"
-          >
-            {{ interest }}
-          </div>
+<li class="fhv-modern-card__container">
+  <a class="fhv-modern-card__container__card">
+    <div class="fhv-modern-card__container__card__star">
+      {{ room().cantidadEstrellas }}
+      <i [class]="ICON_CLASS.star"></i>
+    </div>
+    @if(!(breakPointService.isMobile$ | async)){
+    <ng-container *ngTemplateOutlet="icons"></ng-container>
+    }
+    <img
+      [src]="room().urlFoto"
+      class="fhv-modern-card__container__card__image"
+    />
+    <div class="fhv-modern-card__container__card__overlay">
+      <div class="fhv-modern-card__container__card__overlay__header">
+        <svg class="fhv-modern-card__container__card__overlay__header__arc">
+          <path />
+        </svg>
+        <span
+          class="fhv-modern-card__container__card__overlay__header__thumb fi fi-{{
+            room().urlBandera
+          }} fis"
+        ></span>
+        <div class="fhv-modern-card__container__card__overlay__header-icons">
+          <h3 class="fhv-modern-card__container__card__overlay__header__title">
+            {{ room().nombreUsuario }} - {{ room().edad }}
+          </h3>
+          @if(breakPointService.isMobile$ | async){
+          <ng-container *ngTemplateOutlet="icons"></ng-container>
           }
         </div>
       </div>
-    </a>
-  </li>
-  }
-</ul>
-@if(userRoom().length > PAGINATION.ITEMS) {
-<pagination-controls
-  class="pagination"
-  (pageChange)="page = $event"
-  [responsive]="true"
-  previousLabel=""
-  nextLabel=""
-></pagination-controls>
-}
+      <div class="fhv-modern-card__container__card__overlay__description">
+        @for (interest of room().intereses; track interest){
+        <div
+          class="fhv-modern-card__container__card__overlay__description-item"
+        >
+          {{ interest }}
+        </div>
+        }
+      </div>
+    </div>
+  </a>
+</li>
 <ng-template #icons>
   <div class="d-flex">
     <div
