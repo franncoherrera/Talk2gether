@@ -5,14 +5,14 @@
 >
   @if(interestList$ | async ; as interestList){
   <div class="fhv-interest-modal">
-    @for(interest of interestList; track interest.id){
+    @for(interest of interestList['interest']; track interest.id){
     <div
       class="fhv-interest-modal__container"
       [ngClass]="{
         selected: validateInterestSelected(interest.id),
         'disabled-interest': isInterestDisabled(interest.id)
       }"
-      (click)="onInterestClick(interest.id, interestList)"
+      (click)="onInterestClick(interest.id, interestList['interest'])"
     >
       <div
         [id]="interest.id"
@@ -20,7 +20,6 @@
         [ngClass]="{
           disabled: isInterestDisabled(interest.id)
         }"
-        (click)="onInterestClick(interest.id, interestList['interest'])"
       >
         <i [class]="interest.icon"></i>
         <p class="fhv-interest-modal__container__item__name">

@@ -53,7 +53,7 @@
           'common.register_page.register_country_placeholder' | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.countryList"
+        [options]="parametersList.countryList['countries']"
       />
       <fhv-select-form
         [name]="'nativeLanguage'"
@@ -67,7 +67,7 @@
             | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.languageList"
+        [options]="parametersList.languageList['language']"
       />
       <fhv-input-form
         [name]="'urlPhoto'"
@@ -138,7 +138,7 @@
           'common.register_page.register_learn_language_placeholder' | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.languageList"
+        [options]="parametersList.languageList['language']"
       />
       <div class="fhv-register__container__level">
         <fhv-select-form
@@ -153,7 +153,7 @@
               | translate
           }}"
           [submitForm]="submitForm"
-          [options]="parametersList.languageLevelList"
+          [options]="parametersList.languageLevelList['levelLanguage']"
         />
         <span (click)="openLevelLanguageModal()">
           <i
