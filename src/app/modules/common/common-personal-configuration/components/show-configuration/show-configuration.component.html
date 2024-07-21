@@ -1,1 +1,91 @@
-<p>show-configuration works!</p>
+<div class="fhv-show-configuration">
+  <div class="fhv-show-configuration__container">
+    <div class="fhv-show-configuration__container__photo">
+      <img
+        class="fhv-show-configuration__container__photo__tape"
+        src="assets/images/configuration/tape-3.png"
+      />
+      <h1 class="fhv-show-configuration__container__photo__name">
+        {{ "common.configuration_page.configuration_photo" | translate }}
+      </h1>
+      <img
+        class="fhv-show-configuration__container__photo__img"
+        [src]="personalData().urlFoto"
+      />
+    </div>
+    <div class="fhv-show-configuration__container__fields">
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_email" | translate }}
+        </strong>
+        {{ personalData().correo }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_name" | translate }}
+        </strong>
+        {{ personalData().nombreUsuario }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_surname" | translate }}
+        </strong>
+        {{ personalData().apellidoUsuario }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_born" | translate }}
+        </strong>
+        {{ personalData().fechaNacimiento }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_country" | translate }}
+        </strong>
+        {{ personalData().nombrePais }}
+      </h1>
+      <h1 class="fhv-show-configuration__container__fields__interest">
+        <strong>
+          {{ "common.configuration_page.configuration_interest" | translate }}
+        </strong>
+        @for(interest of personalData().listaIntereses; track interest.id){
+
+        <span class="fhv-show-configuration__container__fields__interest-item"
+          >{{ interest.name }}
+          <i class="{{ interest.icon }}"></i>
+        </span>
+        }
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_photo" | translate }}
+        </strong>
+        {{ personalData().nombreIdiomaNativo }}
+      </h1>
+      <h1>
+        <strong>
+          {{
+            "common.configuration_page.configuration_learn_language" | translate
+          }}
+        </strong>
+        {{ personalData().nombreIdiomaAprender }}
+      </h1>
+      <h1>
+        <strong>
+          {{
+            "common.configuration_page.configuration_level_language" | translate
+          }}
+        </strong>
+        {{ personalData().nombreNivelIdioma }}
+      </h1>
+    </div>
+  </div>
+  <div class="fhv-show-configuration__description">
+    <h1>
+      <strong>
+        {{ "common.configuration_page.configuration_description" | translate }}
+      </strong>
+      {{ personalData().descripcion }}
+    </h1>
+  </div>
+</div>

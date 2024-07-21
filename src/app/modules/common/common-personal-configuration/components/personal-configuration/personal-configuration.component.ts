@@ -1,7 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
+import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
 
 @Component({
   selector: 'fhv-personal-configuration',
@@ -10,6 +11,7 @@ import { switchMap } from 'rxjs';
 })
 export class PersonalConfigurationComponent implements OnInit {
   showPersonalData: boolean = true;
+  personalData$: Observable<CONFIG_USER>;
 
   private personalConfigurationService: PersonalConfigurationService = inject(
     PersonalConfigurationService
@@ -17,12 +19,12 @@ export class PersonalConfigurationComponent implements OnInit {
   private userService: UserService = inject(UserService);
 
   ngOnInit() {
-    this.userService
+    this.personalData$ = this.userService
       .getIdUser()
       .pipe(
         switchMap((userId) =>
           this.personalConfigurationService.getPersonalData(userId)
         )
-      ).subscribe(console.log);
+      );
   }
 }

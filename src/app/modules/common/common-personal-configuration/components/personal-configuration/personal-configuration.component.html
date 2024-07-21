@@ -1,10 +1,12 @@
+@if(personalData$ | async ; as personalData){
 <div class="fhv-personal-configuration">
   <div class="fhv-personal-configuration__container">
     <h1>Datos personales</h1>
     @if(showPersonalData){
-    <fhv-show-configuration />
+    <fhv-show-configuration [personalData]="personalData" />
     } @else {
     <fhv-edit-configuration />
     }
   </div>
 </div>
+}

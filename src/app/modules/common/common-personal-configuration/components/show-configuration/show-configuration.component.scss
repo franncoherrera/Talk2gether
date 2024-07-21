@@ -1,0 +1,168 @@
+@import "media-queries";
+@import "font-size";
+
+fhv-show-configuration {
+  .fhv-show-configuration {
+    font-family: var(--font-family-light);
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      &__photo {
+        width: 27rem;
+        min-width: 27rem;
+        height: 27rem;
+        position: relative;
+        border: 0.625rem solid var(--color-fourth);
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        &__tape {
+          height: 10rem;
+          width: 32rem;
+          position: absolute;
+          right: -2.75rem;
+          bottom: -7rem;
+        }
+        &__name {
+          @include apply-responsive-font-size($font-size-title);
+          font-family: var(--font-family-bold);
+          color: var(--color-primary);
+          width: 100%;
+          position: absolute;
+          text-align: center;
+          bottom: -2.15rem;
+          margin: 0;
+        }
+      }
+      &__fields {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+        padding-right: 1.5rem;
+        h1 {
+          @extend %title-style;
+        }
+        &__interest {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          gap: 1rem;
+          height: auto;
+          padding-right: 2.5rem;
+          &-item {
+            @include apply-responsive-font-size($font-size-subtitle);
+            color: var(--color-primary);
+            box-shadow: 0 0 0 0.15rem var(--color-fourth);
+            background-color: var(--color-white);
+            border-radius: var(--border-radius-input);
+            padding: 0.5rem;
+            width: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.85rem;
+            font-family: var(--font-family);
+          }
+        }
+      }
+    }
+    &__description {
+      h1 {
+        @extend %title-style;
+        padding-top: 1.5rem;
+        text-align: justify;
+      }
+    }
+    @include media-breakpoint-down(xxl) {
+      &__container {
+        &__photo {
+          width: 20rem;
+          height: 20rem;
+          min-width: 20rem;
+          &__tape {
+            height: 8rem;
+            width: 25rem;
+            position: absolute;
+            right: -3rem;
+            bottom: -5.5rem;
+          }
+          &__name {
+            bottom: -1.75rem;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-down(xl) {
+      &__container {
+        &__photo {
+          width: 17rem;
+          height: 17rem;
+          min-width: 17rem;
+          &__tape {
+            height: 8rem;
+            width: 21.5rem;
+            position: absolute;
+            right: -3rem;
+            bottom: -5.5rem;
+          }
+          &__name {
+            bottom: -1.75rem;
+          }
+        }
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5rem;
+        &__photo {
+          margin: 0 auto;
+        }
+        &__fields {
+          padding-right: 0;
+        }
+      }
+      &__description {
+        h1 {
+          text-align: start;
+        }
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      &__container {
+        row-gap: 3.5rem;
+        &__photo {
+          width: 13rem;
+          height: 13rem;
+          min-width: 13rem;
+          &__tape {
+            height: 6rem;
+            width: 18rem;
+            position: absolute;
+            right: -3.25rem;
+            bottom: -4.25rem;
+          }
+          &__name {
+            bottom: -1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+%title-style {
+  @include apply-responsive-font-size($font-size-subtitle);
+  strong {
+    @include apply-responsive-font-size($font-size-title);
+    color: var(--color-fourth);
+  }
+}
