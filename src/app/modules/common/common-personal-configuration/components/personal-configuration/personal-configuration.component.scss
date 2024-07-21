@@ -1,0 +1,8 @@
+.fhv-personal-configuration {
+  background-color: var(--color-primary);
+  min-height: var(--height-components);
+  color: var(--color-white);
+  &__container {
+    padding: 4rem 6rem;
+  }
+}

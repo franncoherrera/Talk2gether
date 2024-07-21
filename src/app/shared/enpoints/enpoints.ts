@@ -19,5 +19,7 @@ export const ENDPOINTS = {
   SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
   LANGUAGE_LEARN: '/cuenta/obteneridiomaaprendiz/?idCuenta=${id}',
   RANKING_USERS: '/gamificacion/tablaranking?idCuenta=${id}&cantidadFilas=15',
-  REFERRAL_LINK: '/cuenta/referirusuario/?idCuenta=${id}'
+  REFERRAL_LINK: '/cuenta/referirusuario/?idCuenta=${id}',
+  /* Personal configuration endpoint */
+  CONFIG_DATA: '/cuenta/obtenerdatospersonales/?idCuenta=${id}',
 };
