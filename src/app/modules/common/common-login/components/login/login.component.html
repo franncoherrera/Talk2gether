@@ -5,6 +5,7 @@
       class="fhv-login__container__form"
       [formGroup]="loginForm"
       (ngSubmit)="sendLoginSession()"
+      (keydown.enter)="sendLoginSession()"
     >
       <h1 class="fhv-login__container__form__title">
         {{ "common.login_page.login_title" | translate }}
@@ -46,7 +47,9 @@
         [showError]="submitError"
       />
       <div class="fhv-login__container__form__recover">
-        <a (click)="openRecoverPassModal()">  {{ "common.login_page.login_recover_pass" | translate }}</a>
+        <a (click)="openRecoverPassModal()">
+          {{ "common.login_page.login_recover_pass" | translate }}</a
+        >
       </div>
     </form>
   </div>
