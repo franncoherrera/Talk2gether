@@ -14,4 +14,6 @@ export const ROUTES_PATH = {
   MAIN_PAGE: 'inicio',
   /* Ranking */
   RANKING_PAGE: 'ranking',
+  /* Personal configurations*/
+  CONFIG_PAGE: 'configuracion'
 };

@@ -27,6 +27,7 @@
       "register_button": "Registrarse",
       "log_out_button": "Cerrar Sesión",
       "ranking_button": "Ranking",
+      "config_button": "Datos personales",
       "language_button": {
         "language_title": "Idioma",
         "language_spanish": "Español",
