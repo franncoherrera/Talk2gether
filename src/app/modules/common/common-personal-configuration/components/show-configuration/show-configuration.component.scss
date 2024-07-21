@@ -1,5 +1,6 @@
 @import "media-queries";
 @import "font-size";
+@import "_buttons.scss";
 
 fhv-show-configuration {
   .fhv-show-configuration {
@@ -80,6 +81,15 @@ fhv-show-configuration {
         text-align: justify;
       }
     }
+    &__buttons {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 2rem;
+      &__edit {
+        @include buttons-enabled;
+        width: 30%;
+      }
+    }
     @include media-breakpoint-down(xxl) {
       &__container {
         &__photo {
@@ -133,6 +143,11 @@ fhv-show-configuration {
       &__description {
         h1 {
           text-align: start;
+        }
+      }
+      &__buttons {
+        &__edit {
+          width: 100%;
         }
       }
     }

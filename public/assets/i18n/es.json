@@ -195,6 +195,8 @@
       "subtitle_2_modal": "Conseguirás logros y sumarás puntos adicionales por cada amigo invitado."
     },
     "configuration_page": {
+      "configuration_title": "Datos personales.",
+      "configuration_edit": "Editar mis datos",
       "configuration_email": "Correo: ",
       "configuration_name": "Nombre: ",
       "configuration_surname": "Apellido: ",

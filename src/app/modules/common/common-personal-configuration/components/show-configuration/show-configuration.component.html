@@ -88,4 +88,12 @@
       {{ personalData().descripcion }}
     </h1>
   </div>
+  <div class="fhv-show-configuration__buttons">
+    <button
+      class="fhv-show-configuration__buttons__edit"
+      (click)="showPersonalData.emit(false)"
+    >
+      {{ "common.configuration_page.configuration_edit" | translate }}
+    </button>
+  </div>
 </div>

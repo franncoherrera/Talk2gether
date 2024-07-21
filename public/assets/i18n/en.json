@@ -195,6 +195,8 @@
       "subtitle_2_modal": "You'll earn achievements and get additional points for each friend you invite."
     },
     "configuration_page": {
+      "configuration_title": "Personal information.",
+      "configuration_edit": "Edit my data",
       "configuration_email": "Email: ",
       "configuration_name": "Name: ",
       "configuration_surname": "Surname: ",

@@ -195,6 +195,8 @@
       "subtitle_2_modal": "Vous gagnerez des réalisations et obtiendrez des points supplémentaires pour chaque ami invité."
     },
     "configuration_page": {
+      "configuration_title": "Informations personnelles.",
+      "configuration_edit": "Modifier mes données",
       "configuration_email": "Courriel: ",
       "configuration_name": "Nom: ",
       "configuration_surname": "Prénom: ",

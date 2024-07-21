@@ -1,11 +1,17 @@
 @if(personalData$ | async ; as personalData){
 <div class="fhv-personal-configuration">
   <div class="fhv-personal-configuration__container">
-    <h1>Datos personales</h1>
-    @if(showPersonalData){
-    <fhv-show-configuration [personalData]="personalData" />
+    <h1>{{ "common.configuration_page.configuration_title" | translate }}</h1>
+    @if(showPersonalData()){
+    <fhv-show-configuration
+      [personalData]="personalData"
+      (showPersonalData)="changePersonalData($event)"
+    />
     } @else {
-    <fhv-edit-configuration />
+    <fhv-edit-configuration
+      [personalData]="personalData"
+      (showPersonalData)="changePersonalData($event)"
+    />
     }
   </div>
 </div>

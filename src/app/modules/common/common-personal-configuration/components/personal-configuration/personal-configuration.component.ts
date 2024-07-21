@@ -1,4 +1,10 @@
-import { Component, inject, OnInit } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 import { UserService } from '../../../../../shared/services/user.service';
 import { Observable, switchMap } from 'rxjs';
@@ -10,7 +16,7 @@ import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
   styleUrl: './personal-configuration.component.scss',
 })
 export class PersonalConfigurationComponent implements OnInit {
-  showPersonalData: boolean = true;
+  showPersonalData: WritableSignal<boolean> = signal(true);
   personalData$: Observable<CONFIG_USER>;
 
   private personalConfigurationService: PersonalConfigurationService = inject(
@@ -26,5 +32,9 @@ export class PersonalConfigurationComponent implements OnInit {
           this.personalConfigurationService.getPersonalData(userId)
         )
       );
+  }
+
+  changePersonalData(event: boolean) {
+    this.showPersonalData.set(event);
   }
 }

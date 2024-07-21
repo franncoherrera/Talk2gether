@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, input, output, ViewEncapsulation } from '@angular/core';
 import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -13,4 +13,5 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ShowConfigurationComponent {
   personalData = input.required<CONFIG_USER>();
+  showPersonalData = output<boolean>();
 }
