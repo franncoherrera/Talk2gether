@@ -1,5 +1,10 @@
 @if(parametersList$ | async ; as parametersList){
-<div class="fhv-register">
+<form
+  class="fhv-register"
+  [formGroup]="registerForm"
+  (ngSubmit)="registerUser()"
+  (keydown.enter)="registerUser()"
+>
   <div class="fhv-register__container">
     <div class="fhv-register__container__title">
       <span>
@@ -9,11 +14,7 @@
         {{ "common.register_page.register_subtitle_personal_data" | translate }}
       </span>
     </div>
-    <form
-      class="fhv-register__container__form"
-      [formGroup]="registerForm"
-      (ngSubmit)="registerUser()"
-    >
+    <div class="fhv-register__container__form">
       <fhv-input-form
         [name]="'userName'"
         label="{{ 'common.register_page.register_name' | translate }}"
@@ -79,13 +80,13 @@
         [accept]="IMAGE_FORMAT.imagePermittedFormat"
         (change)="onInputChange($event)"
       />
-    </form>
+    </div>
     <div class="fhv-register__container__title">
       <span class="fhv-register__container-subtitle">
         {{ "common.register_page.register_subtitle_account" | translate }}
       </span>
     </div>
-    <form class="fhv-register__container__form" [formGroup]="registerForm">
+    <div class="fhv-register__container__form">
       <fhv-input-form
         [name]="'email'"
         label="{{ 'common.register_page.register_email' | translate }}"
@@ -122,13 +123,13 @@
         }}"
         [submitForm]="submitForm"
       />
-    </form>
+    </div>
     <div class="fhv-register__container__title">
       <span class="fhv-register__container-subtitle">
         {{ "common.register_page.register_subtitle_interest" | translate }}
       </span>
     </div>
-    <form class="fhv-register__container__form" [formGroup]="registerForm">
+    <div class="fhv-register__container__form">
       <fhv-select-form
         [name]="'learnLanguage'"
         label="{{ 'common.register_page.register_learn_language' | translate }}"
@@ -204,7 +205,7 @@
           [control]="formService.formControl(registerForm, 'interest')"
         />
       </div>
-    </form>
+    </div>
     <fhv-text-area-form
       [name]="'descriptionUser'"
       label="{{ 'common.register_page.register_description' | translate }}"
@@ -215,7 +216,7 @@
       }}"
       [submitForm]="submitForm"
     />
-    <form [formGroup]="registerForm">
+    <div>
       <fhv-input-checkbox
         [name]="'terms'"
         label="{{ 'common.register_page.register_terms' | translate }}"
@@ -224,7 +225,7 @@
         [submitForm]="submitForm"
         [labelRoute]="ROUTES_PATH.TERMS_CONDITION_PATH"
       />
-    </form>
+    </div>
     <div class="fhv-register__container__buttons">
       <button
         type="button"
@@ -242,7 +243,7 @@
       </button>
     </div>
   </div>
-</div>
+</form>
 } @else {
 <fhv-spinner-general [showSpinner]="true"></fhv-spinner-general>
 }

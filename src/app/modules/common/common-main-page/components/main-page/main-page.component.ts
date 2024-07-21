@@ -9,13 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  catchError,
-  filter,
-  Observable,
-  of,
-  switchMap
-} from 'rxjs';
+import { catchError, filter, Observable, of, switchMap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
@@ -69,9 +63,13 @@ export class MainPageComponent implements OnInit {
   searchUserRoom(): void {
     this.userRoom$ = this.userService.getIdUser().pipe(
       filter(Boolean),
-      switchMap<number, Observable<ROOM_USER[]>>((userId) =>
-        this.mainPageService.searchRoom(userId)
-      ),
+      switchMap<number, Observable<ROOM_USER[]>>((userId) => {
+        if (userId) {
+          return this.mainPageService.searchRoom(userId);
+        } else {
+          return of([]);
+        }
+      }),
       catchError(() => {
         this.sweetAlertService.alertMessage(
           this.translateService.instant('common.error.general_error_title'),
