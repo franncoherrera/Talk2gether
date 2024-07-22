@@ -206,8 +206,10 @@
       "configuration_learn_language": "Langue à apprendre: ",
       "configuration_level_language": "Niveau de langue: ",
       "configuration_description": "Description: ",
-      "configuration_photo": "Photo de profil: ",
-      "configuration_country": "Pays: "
+      "configuration_photo": "Photo de profil",
+      "configuration_country": "Pays: ",
+      "configuration_modal_title": "Aperçu de comment vous apparaîtrez sur la plateforme",
+      "configuration_modal_button": "Voir les cartes"
     }
   }
 }

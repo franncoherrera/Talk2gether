@@ -9,5 +9,5 @@ export interface ROOM_USER {
   nombrePais: string;
   nombreUsuario: string;
   urlBandera: string;
-  urlFoto: string;
+  urlFoto: string | ArrayBuffer;
 }

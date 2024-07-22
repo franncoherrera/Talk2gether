@@ -1,10 +1,6 @@
 <div class="fhv-show-configuration">
   <div class="fhv-show-configuration__container">
     <div class="fhv-show-configuration__container__photo">
-      <img
-        class="fhv-show-configuration__container__photo__tape"
-        src="assets/images/configuration/tape-3.png"
-      />
       <h1 class="fhv-show-configuration__container__photo__name">
         {{ "common.configuration_page.configuration_photo" | translate }}
       </h1>
@@ -12,37 +8,43 @@
         class="fhv-show-configuration__container__photo__img"
         [src]="formControl().get('urlPhoto').value"
       />
+      <button
+        class="fhv-show-configuration__container__photo__button"
+        (click)="openPreviewCard()"
+      >
+      {{ "common.configuration_page.configuration_modal_button" | translate }}
+      </button>
     </div>
     <div class="fhv-show-configuration__container__fields">
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_email" | translate }}
         </strong>
-        {{ formControl().get('email').value }}
+        {{ formControl().get("email").value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_name" | translate }}
         </strong>
-        {{ formControl().get('userName').value }}
+        {{ formControl().get("userName").value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_surname" | translate }}
         </strong>
-        {{ formControl().get('userSurname').value }}
+        {{ formControl().get("userSurname").value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_born" | translate }}
         </strong>
-        {{ formControl().get('dateBorn').value }}
+        {{ formControl().get("dateBorn").value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_country" | translate }}
         </strong>
-        {{ formControl().get('country').value }}
+        {{ formControl().get("country").value }}
       </h1>
       <h1 class="fhv-show-configuration__container__fields__interest">
         <strong>
@@ -55,9 +57,12 @@
       </h1>
       <h1>
         <strong>
-          {{ "common.configuration_page.configuration_native_language" | translate }}
+          {{
+            "common.configuration_page.configuration_native_language"
+              | translate
+          }}
         </strong>
-        {{ formControl().get('nativeLanguage').value }}
+        {{ formControl().get("nativeLanguage").value }}
       </h1>
       <h1>
         <strong>
@@ -65,7 +70,7 @@
             "common.configuration_page.configuration_learn_language" | translate
           }}
         </strong>
-        {{ formControl().get('learnLanguage').value }}
+        {{ formControl().get("learnLanguage").value }}
       </h1>
       <h1>
         <strong>
@@ -73,7 +78,7 @@
             "common.configuration_page.configuration_level_language" | translate
           }}
         </strong>
-        {{ formControl().get('languageLevel').value }}
+        {{ formControl().get("languageLevel").value }}
       </h1>
     </div>
   </div>
@@ -82,7 +87,7 @@
       <strong>
         {{ "common.configuration_page.configuration_description" | translate }}
       </strong>
-      {{ formControl().get('descriptionUser').value }}
+      {{ formControl().get("descriptionUser").value }}
     </h1>
   </div>
   <div class="fhv-show-configuration__buttons">

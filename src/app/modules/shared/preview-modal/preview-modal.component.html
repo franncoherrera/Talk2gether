@@ -1,0 +1,20 @@
+<fhv-bootstrap-modal
+  modalTitle="{{
+    'common.configuration_page.configuration_modal_title' | translate
+  }}"
+>
+  <div class="fhv-preview-modal">
+    <div class="fhv-preview-modal__change" (click)="changeVersionFlag()">
+      <i class="{{ ICON_CLASS.rotate }}"></i>
+    </div>
+    @if(changeVersion){
+    <div class="fhv-preview-modal__card">
+      <fhv-classic-card [room]="roomUser"></fhv-classic-card>
+    </div>
+    }@else {
+    <div class="fhv-preview-modal__card">
+      <fhv-modern-card [room]="roomUser"></fhv-modern-card>
+    </div>
+    }
+  </div>
+</fhv-bootstrap-modal>
