@@ -64,20 +64,6 @@
         height: auto;
         padding-bottom: 1rem;
         padding-top: 1.5rem;
-        &--selected {
-          @include apply-responsive-font-size($font-size-text);
-          color: var(--color-primary);
-          box-shadow: 0 0 0 0.15rem var(--color-bg-submit);
-          background-color: var(--color-white);
-          border-radius: var(--border-radius-input);
-          padding: 0.5rem;
-          width: auto;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 0.85rem;
-          font-family: var(--font-family);
-        }
       }
     }
     &::after {

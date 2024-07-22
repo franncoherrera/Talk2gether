@@ -57,19 +57,10 @@ fhv-show-configuration {
           gap: 1rem;
           height: auto;
           padding-right: 2.5rem;
-          &-item {
-            @include apply-responsive-font-size($font-size-subtitle);
+          .fhv-interest-label {
             color: var(--color-primary);
             box-shadow: 0 0 0 0.15rem var(--color-fourth);
-            background-color: var(--color-white);
-            border-radius: var(--border-radius-input);
-            padding: 0.5rem;
-            width: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             gap: 0.85rem;
-            font-family: var(--font-family);
           }
         }
       }

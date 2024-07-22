@@ -10,7 +10,7 @@
       </h1>
       <img
         class="fhv-show-configuration__container__photo__img"
-        [src]="personalData().urlFoto"
+        [src]="formControl().get('urlPhoto').value"
       />
     </div>
     <div class="fhv-show-configuration__container__fields">
@@ -18,49 +18,46 @@
         <strong>
           {{ "common.configuration_page.configuration_email" | translate }}
         </strong>
-        {{ personalData().correo }}
+        {{ formControl().get('email').value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_name" | translate }}
         </strong>
-        {{ personalData().nombreUsuario }}
+        {{ formControl().get('userName').value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_surname" | translate }}
         </strong>
-        {{ personalData().apellidoUsuario }}
+        {{ formControl().get('userSurname').value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_born" | translate }}
         </strong>
-        {{ personalData().fechaNacimiento }}
+        {{ formControl().get('dateBorn').value }}
       </h1>
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_country" | translate }}
         </strong>
-        {{ personalData().nombrePais }}
+        {{ formControl().get('country').value }}
       </h1>
       <h1 class="fhv-show-configuration__container__fields__interest">
         <strong>
           {{ "common.configuration_page.configuration_interest" | translate }}
         </strong>
-        @for(interest of personalData().listaIntereses; track interest.id){
-
-        <span class="fhv-show-configuration__container__fields__interest-item"
-          >{{ interest.name }}
-          <i class="{{ interest.icon }}"></i>
-        </span>
-        }
+        <fhv-interest-label
+          [control]="formService.formControl(formControl(), 'interest')"
+          [activeDelete]="false"
+        ></fhv-interest-label>
       </h1>
       <h1>
         <strong>
-          {{ "common.configuration_page.configuration_photo" | translate }}
+          {{ "common.configuration_page.configuration_native_language" | translate }}
         </strong>
-        {{ personalData().nombreIdiomaNativo }}
+        {{ formControl().get('nativeLanguage').value }}
       </h1>
       <h1>
         <strong>
@@ -68,7 +65,7 @@
             "common.configuration_page.configuration_learn_language" | translate
           }}
         </strong>
-        {{ personalData().nombreIdiomaAprender }}
+        {{ formControl().get('learnLanguage').value }}
       </h1>
       <h1>
         <strong>
@@ -76,7 +73,7 @@
             "common.configuration_page.configuration_level_language" | translate
           }}
         </strong>
-        {{ personalData().nombreNivelIdioma }}
+        {{ formControl().get('languageLevel').value }}
       </h1>
     </div>
   </div>
@@ -85,7 +82,7 @@
       <strong>
         {{ "common.configuration_page.configuration_description" | translate }}
       </strong>
-      {{ personalData().descripcion }}
+      {{ formControl().get('descriptionUser').value }}
     </h1>
   </div>
   <div class="fhv-show-configuration__buttons">

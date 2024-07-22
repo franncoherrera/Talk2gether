@@ -11,6 +11,7 @@ import { SelectFormComponent } from '../../../../shared/select-form/select-form.
 import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { RegisterComponent } from './register.component';
+import { InterestLabelComponent } from '../../../../shared/interest-label/interest-label.component';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -25,7 +26,8 @@ import { RegisterComponent } from './register.component';
     InterestModalComponent,
     FormErrorComponent,
     InputCheckboxComponent,
-    SpinnerGeneralModule
+    SpinnerGeneralModule,
+    InterestLabelComponent
   ],
   providers: [
     TitleCasePipe

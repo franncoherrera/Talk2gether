@@ -1,15 +1,15 @@
-@if(personalData$ | async ; as personalData){
+@if(configurationForm?.value){
 <div class="fhv-personal-configuration">
   <div class="fhv-personal-configuration__container">
     <h1>{{ "common.configuration_page.configuration_title" | translate }}</h1>
     @if(showPersonalData()){
     <fhv-show-configuration
-      [personalData]="personalData"
+      [formControl]="configurationForm"
       (showPersonalData)="changePersonalData($event)"
     />
     } @else {
     <fhv-edit-configuration
-      [personalData]="personalData"
+      [formControl]="configurationForm"
       (showPersonalData)="changePersonalData($event)"
     />
     }
