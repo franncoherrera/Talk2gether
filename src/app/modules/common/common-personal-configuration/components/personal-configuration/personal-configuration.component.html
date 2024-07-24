@@ -4,13 +4,13 @@
     <h1>{{ "common.configuration_page.configuration_title" | translate }}</h1>
     @if(showPersonalData()){
     <fhv-show-configuration
-      [formControl]="configurationForm"
+      [formGroup]="configurationForm"
       (showPersonalData)="changePersonalData($event)"
     />
     } @else {
     <fhv-edit-configuration
-      [formControl]="configurationForm"
-      (showPersonalData)="changePersonalData($event)"
+      [formGroup]="configurationForm"
+      [userId]="userId"
     />
     }
   </div>

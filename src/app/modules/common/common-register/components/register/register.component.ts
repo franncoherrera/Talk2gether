@@ -1,24 +1,12 @@
 import { Location, TitleCasePipe } from '@angular/common';
-import {
-  Component,
-  DestroyRef,
-  OnInit,
-  inject
-} from '@angular/core';
+import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getDownloadURL } from '@firebase/storage';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  Observable,
-  catchError,
-  combineLatest,
-  map,
-  of,
-  tap
-} from 'rxjs';
+import { Observable, catchError, combineLatest, map, of, tap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
@@ -27,8 +15,7 @@ import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import {
-  INTEREST,
-  REGISTER_PARAMETERS,
+  REGISTER_PARAMETERS
 } from '../../../../../shared/models/parameter.model';
 import { USER } from '../../../../../shared/models/user.model';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
@@ -37,12 +24,10 @@ import { ParameterService } from '../../../../../shared/services/parameter.servi
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_FULL_AGE,
-  CUSTOM_IMAGE_TYPE,
   CUSTOM_MAX_CHAR,
   CUSTOM_ONLY_LETTERS,
-  CUSTOM_REQUIRED,
+  CUSTOM_REQUIRED
 } from '../../../../../shared/validators/formValidator';
-import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonRegisterService } from '../../services/common-register.service';
 import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
@@ -67,7 +52,7 @@ export class RegisterComponent implements OnInit {
 
   private readonly activatedRoute = inject(ActivatedRoute);
   protected readonly formService = inject(FormService);
-  private readonly parameterService = inject(ParameterService);
+  protected readonly parameterService = inject(ParameterService);
   private readonly registerService = inject(CommonRegisterService);
   private readonly customModalService = inject(CustomModalService);
   private readonly titleCase = inject(TitleCasePipe);
@@ -108,7 +93,7 @@ export class RegisterComponent implements OnInit {
         country: new FormControl('', [CUSTOM_REQUIRED]),
         nativeLanguage: new FormControl('', [CUSTOM_REQUIRED]),
         //TODO validate size image file
-        urlPhoto: new FormControl('', [CUSTOM_REQUIRED, CUSTOM_IMAGE_TYPE]),
+        urlPhoto: new FormControl('', [CUSTOM_REQUIRED]),
         email: new FormControl('', [CUSTOM_REQUIRED, CUSTOM_EMAIL_PATTERN]),
         password: new FormControl('', [CUSTOM_REQUIRED]),
         repeatPassword: new FormControl('', [CUSTOM_REQUIRED]),
@@ -224,7 +209,6 @@ export class RegisterComponent implements OnInit {
 
   createUser(urlPhoto: string): USER {
     let user: USER;
-    this.interestListRefactor();
     user = {
       nombreUsuario: this.titleCase.transform(
         this.registerForm.get('userName').value
@@ -249,28 +233,12 @@ export class RegisterComponent implements OnInit {
       nombreNivelIdiomaAprendiz: this.formService.removeSpaces(
         this.registerForm.get('languageLevel').value
       ),
-      nombreIntereses: this.interestListRefactor(),
+      nombreIntereses: this.parameterService.interestListRefactor(
+        this.registerForm,
+        'interest'
+      ),
     };
     return user;
-  }
-
-  interestListRefactor(): string[] {
-    const interestControl = this.registerForm.get('interest');
-    if (interestControl && Array.isArray(interestControl.value)) {
-      const interestArray: string[] = interestControl.value.map(
-        (item: { name: string }) => item.name
-      );
-      return interestArray;
-    }
-    return null;
-  }
-
-  openInterestModal(): void {
-    const modalRef = this.customModalService.open(
-      InterestModalComponent,
-      CUSTOM_MODAL_CONFIG
-    );
-    modalRef.componentInstance.control = this.registerForm.get('interest');
   }
 
   openLevelLanguageModal(): void {
@@ -278,13 +246,6 @@ export class RegisterComponent implements OnInit {
       LanguageLevelModalComponent,
       CUSTOM_MODAL_CONFIG
     );
-  }
-
-  deleteInterest(interestName: string): void {
-    const interestArray: INTEREST = this.registerForm
-      .get('interest')
-      .value.filter((value: INTEREST) => value.name !== interestName);
-    this.registerForm.get('interest').setValue(interestArray);
   }
 
   goBack(): void {

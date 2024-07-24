@@ -177,7 +177,7 @@
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
-          (click)="openInterestModal()"
+          (click)="parameterService.openInterestModal(registerForm, 'interest')"
         >
           {{ "common.register_page.register_interest_placeholder" | translate }}
         </button>

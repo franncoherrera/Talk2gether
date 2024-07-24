@@ -8,13 +8,9 @@
       <i class="{{ ICON_CLASS.rotate }}"></i>
     </div>
     @if(changeVersion){
-    <div class="fhv-preview-modal__card">
-      <fhv-classic-card [room]="roomUser"></fhv-classic-card>
-    </div>
+    <fhv-classic-card [room]="roomUser"></fhv-classic-card>
     }@else {
-    <div class="fhv-preview-modal__card">
-      <fhv-modern-card [room]="roomUser"></fhv-modern-card>
-    </div>
+    <fhv-modern-card [room]="roomUser"></fhv-modern-card>
     }
   </div>
 </fhv-bootstrap-modal>

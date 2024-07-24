@@ -23,7 +23,7 @@ export class SelectFormComponent implements OnInit {
   name = input.required<string>();
   label = input.required<string>();
   placeholder = input.required<string>();
-  options = input.required< Array<{}>>();
+  options = input.required<Array<{}>>();
   clearable = input<boolean>(false);
   searchable = input<boolean>(false);
   submitForm = input<boolean>(false);
@@ -32,13 +32,11 @@ export class SelectFormComponent implements OnInit {
   isSelected: boolean = false;
 
   ngOnInit(): void {
-    this.selectFormGroup = !!this.formGroup()
-      ? new FormGroup({
-          selectControlName: new FormControl(null),
-        })
-      : new FormGroup({
-          selectControlName: new FormControl(this.control),
-        });
+    if (!this.areAllControlsFilled()) {
+      this.selectFormGroup = new FormGroup({
+        selectControlName: new FormControl(null),
+      });
+    }
   }
 
   onSelectFocus(): void {
@@ -50,6 +48,18 @@ export class SelectFormComponent implements OnInit {
     } else {
       this.control().setValue(event);
     }
+  }
+
+  areAllControlsFilled(): boolean {
+    for (const controlName in this.formGroup().controls) {
+      if (this.formGroup().controls.hasOwnProperty(controlName)) {
+        const control = this.formGroup().controls[controlName];
+        if (!control.value) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   onSelectBlur(): void {

@@ -7,7 +7,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { catchError, Observable, of, switchMap } from 'rxjs';
+import { catchError, Observable, of, switchMap, tap } from 'rxjs';
 import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
 import { UserService } from '../../../../../shared/services/user.service';
 import {
@@ -34,6 +34,7 @@ export class PersonalConfigurationComponent implements OnInit {
   showPersonalData: WritableSignal<boolean> = signal(true);
   personalData$: Observable<CONFIG_USER>;
   configurationForm: FormGroup;
+  userId: number;
 
   private personalConfigurationService: PersonalConfigurationService = inject(
     PersonalConfigurationService
@@ -50,11 +51,12 @@ export class PersonalConfigurationComponent implements OnInit {
       .getIdUser()
       .pipe(
         takeUntilDestroyed(this.destroy),
+        tap((userId) => (this.userId = userId)),
         switchMap((userId) =>
           this.personalConfigurationService.getPersonalData(userId)
         ),
         catchError(() => {
-          this.spinnerGeneralService.hideSpinner()
+          this.spinnerGeneralService.hideSpinner();
           this.sweetAlertService.alertMessage(
             this.translateService.instant('common.error.general_error_title'),
             this.translateService.instant(
@@ -90,8 +92,7 @@ export class PersonalConfigurationComponent implements OnInit {
               ]),
               //TODO validate size image file
               urlPhoto: new FormControl(personalData.urlFoto, [
-                CUSTOM_REQUIRED,
-                CUSTOM_IMAGE_TYPE,
+                CUSTOM_REQUIRED
               ]),
               learnLanguage: new FormControl(
                 personalData.nombreIdiomaAprender,
@@ -115,7 +116,7 @@ export class PersonalConfigurationComponent implements OnInit {
               updateOn: 'change',
             }
           );
-          this.spinnerGeneralService.hideSpinner()
+          this.spinnerGeneralService.hideSpinner();
         },
       });
   }
