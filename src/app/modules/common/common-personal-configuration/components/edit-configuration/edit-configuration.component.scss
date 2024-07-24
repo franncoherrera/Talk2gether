@@ -1,0 +1,192 @@
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+
+fhv-edit-configuration {
+  .fhv-edit-configuration {
+    font-family: var(--font-family-light);
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    &__subtitle {
+      @include apply-responsive-font-size($font-size-subtitle);
+      margin-bottom: 1.5rem;
+    }
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      &__photo {
+        width: 27rem;
+        min-width: 27rem;
+        height: 30rem;
+        position: relative;
+        &__input {
+          display: flex;
+          width: 100%;
+          margin: 2rem auto auto;
+        }
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border: 0.625rem solid var(--color-fourth);
+          border-bottom: 3rem solid var(--color-fourth);
+        }
+        &__name {
+          @include apply-responsive-font-size($font-size-title);
+          font-family: var(--font-family-bold);
+          color: var(--color-primary);
+          width: 100%;
+          position: absolute;
+          text-align: center;
+          bottom: 0.5rem;
+          margin: 0;
+        }
+        &__button {
+          @include buttons-enabled;
+          margin-top: 1.5rem;
+        }
+      }
+      &__fields {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        padding-right: 10rem;
+        width: 100%;
+        h1 {
+          @extend %title-style;
+        }
+        &__button {
+          @include buttons-enabled;
+          margin-bottom: 1.5rem;
+        }
+        &__interest {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: row;
+          gap: 1rem;
+          height: auto;
+          &__label {
+            display: flex;
+            align-items: center;
+            color: var(--color-white);
+            font-family: var(--font-family);
+            padding-bottom: 0.125rem;
+            @include apply-responsive-font-size($font-size-text);
+          }
+          .fhv-interest-label {
+            color: var(--color-primary);
+            box-shadow: 0 0 0 0.15rem var(--color-fourth);
+            gap: 0.85rem;
+          }
+        }
+        .icon {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 1.25rem;
+          color: var(--color-white);
+          z-index: 2;
+          cursor: pointer;
+        }
+      }
+    }
+    &__description {
+      h1 {
+        @extend %title-style;
+        padding-top: 1.5rem;
+        text-align: justify;
+      }
+    }
+    &__buttons {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 2rem;
+      &__edit {
+        @include buttons-enabled;
+        width: 30%;
+      }
+      &__back {
+        @include buttons-back;
+        width: 30%;
+      }
+    }
+    @include media-breakpoint-down(xxl) {
+      &__container {
+        &__photo {
+          width: 20rem;
+          height: 23rem;
+          min-width: 20rem;
+        }
+      }
+    }
+    @include media-breakpoint-down(xl) {
+      &__container {
+        &__photo {
+          width: 17rem;
+          height: 20rem;
+          min-width: 17rem;
+        }
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10rem;
+        &__photo {
+          width: 100%;
+          img {
+            width: 17rem;
+            margin: 0 auto;
+            display: flex;
+          }
+          &__input {
+            width: auto;
+          }
+        }
+        &__fields {
+          padding-right: 0;
+        }
+      }
+      &__description {
+        h1 {
+          text-align: start;
+        }
+      }
+      &__buttons {
+        flex-wrap: wrap;
+        gap: 1rem;
+        &__edit {
+          width: 100%;
+        }
+        &__back {
+          width: 100%;
+        }
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      &__container {
+        &__photo {
+          height: 16rem;
+          min-width: 13rem;
+          img {
+            width: 13rem;
+          }
+          &__input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+%title-style {
+  @include apply-responsive-font-size($font-size-subtitle);
+  strong {
+    @include apply-responsive-font-size($font-size-title);
+    color: var(--color-fourth);
+  }
+}

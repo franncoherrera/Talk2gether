@@ -1,4 +1,4 @@
-import { Location, TitleCasePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Storage, ref, uploadBytesResumable } from '@angular/fire/storage';
@@ -9,28 +9,24 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, catchError, combineLatest, map, of, tap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import {
-  REGISTER_PARAMETERS
-} from '../../../../../shared/models/parameter.model';
+import { REGISTER_PARAMETERS } from '../../../../../shared/models/parameter.model';
 import { USER } from '../../../../../shared/models/user.model';
-import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { FormService } from '../../../../../shared/services/form.service';
+import { GeneralService } from '../../../../../shared/services/general.service';
 import { ParameterService } from '../../../../../shared/services/parameter.service';
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_FULL_AGE,
   CUSTOM_MAX_CHAR,
   CUSTOM_ONLY_LETTERS,
-  CUSTOM_REQUIRED
+  CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { CommonRegisterService } from '../../services/common-register.service';
-import { LanguageLevelModalComponent } from '../language-level-modal/language-level-modal.component';
 
 @Component({
   selector: 'fhv-register',
@@ -50,17 +46,23 @@ export class RegisterComponent implements OnInit {
   fileSelected: File;
   referralCode: string | null = null;
 
-  private readonly activatedRoute = inject(ActivatedRoute);
-  protected readonly formService = inject(FormService);
-  protected readonly parameterService = inject(ParameterService);
-  private readonly registerService = inject(CommonRegisterService);
-  private readonly customModalService = inject(CustomModalService);
-  private readonly titleCase = inject(TitleCasePipe);
-  private readonly location = inject(Location);
-  private readonly router = inject(Router);
-  private readonly spinnerGeneralService = inject(SpinnerGeneralService);
-  private readonly sweetAlertService = inject(SweetAlertService);
-  private readonly translateService = inject(TranslateService);
+  private readonly activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  protected readonly formService: FormService = inject(FormService);
+  protected readonly parameterService: ParameterService =
+    inject(ParameterService);
+  private readonly registerService: CommonRegisterService = inject(
+    CommonRegisterService
+  );
+  private readonly titleCase: TitleCasePipe = inject(TitleCasePipe);
+  private readonly router: Router = inject(Router);
+  private readonly spinnerGeneralService: SpinnerGeneralService = inject(
+    SpinnerGeneralService
+  );
+  private readonly sweetAlertService: SweetAlertService =
+    inject(SweetAlertService);
+  private readonly translateService: TranslateService =
+    inject(TranslateService);
+  protected readonly generalService: GeneralService = inject(GeneralService);
   private readonly destroy: DestroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
@@ -239,16 +241,5 @@ export class RegisterComponent implements OnInit {
       ),
     };
     return user;
-  }
-
-  openLevelLanguageModal(): void {
-    this.customModalService.open(
-      LanguageLevelModalComponent,
-      CUSTOM_MODAL_CONFIG
-    );
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 }

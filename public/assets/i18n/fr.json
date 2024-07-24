@@ -209,7 +209,9 @@
       "configuration_photo": "Photo de profil",
       "configuration_country": "Pays: ",
       "configuration_modal_title": "Aperçu de comment vous apparaîtrez sur la plateforme",
-      "configuration_modal_button": "Voir les cartes"
+      "configuration_modal_button": "Voir les cartes",
+      "configuration_save": "Enregistrer les modifications",
+      "configuration_back": "Retourner"
     }
   }
 }

@@ -209,7 +209,9 @@
       "configuration_photo": "Profile picture",
       "configuration_country": "Country: ",
       "configuration_modal_title": "Preview of how you will look on the platform",
-      "configuration_modal_button": "View cards"
+      "configuration_modal_button": "View cards",
+      "configuration_save": "Save changes",
+      "configuration_back": "Go back"
     }
   }
 }

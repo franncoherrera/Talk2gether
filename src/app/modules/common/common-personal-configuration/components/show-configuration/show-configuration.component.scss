@@ -103,7 +103,12 @@ fhv-show-configuration {
         flex-direction: column;
         row-gap: 6rem;
         &__photo {
-          margin: 0 auto;
+          width: 100%;
+          img {
+            width: 17rem;
+            display: flex;
+            margin: 0 auto;
+          }
         }
         &__fields {
           padding-right: 0;
@@ -123,9 +128,11 @@ fhv-show-configuration {
     @include media-breakpoint-down(sm) {
       &__container {
         &__photo {
-          width: 13rem;
           height: 16rem;
           min-width: 13rem;
+          img {
+            width: 13rem;
+          }
         }
       }
     }

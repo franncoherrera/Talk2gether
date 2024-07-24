@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { UrlBuilderService } from './url-builder.service';
-import { ENDPOINTS } from '../enpoints/enpoints';
-import { Observable } from 'rxjs';
-import { INTEREST } from '../models/parameter.model';
 import { FormGroup } from '@angular/forms';
-import { CustomModalService } from './custom-modal.service';
+import { Observable } from 'rxjs';
+import { LanguageLevelModalComponent } from '../../modules/common/common-register/components/language-level-modal/language-level-modal.component';
 import { InterestModalComponent } from '../../modules/shared/interest-modal/interest-modal.component';
 import { CUSTOM_MODAL_CONFIG } from '../constants/customModalRefConfig';
+import { ENDPOINTS } from '../enpoints/enpoints';
+import { INTEREST } from '../models/parameter.model';
+import { CustomModalService } from './custom-modal.service';
+import { UrlBuilderService } from './url-builder.service';
 
 @Injectable({
   providedIn: 'root',
@@ -56,5 +57,12 @@ export class ParameterService {
       CUSTOM_MODAL_CONFIG
     );
     modalRef.componentInstance.control = formGroup.get(controlName);
+  }
+
+  openLevelLanguageModal(): void {
+    this.customModalService.open(
+      LanguageLevelModalComponent,
+      CUSTOM_MODAL_CONFIG
+    );
   }
 }

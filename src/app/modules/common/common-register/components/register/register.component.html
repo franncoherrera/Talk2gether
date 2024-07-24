@@ -156,7 +156,7 @@
           [submitForm]="submitForm"
           [options]="parametersList.languageLevelList"
         />
-        <span (click)="openLevelLanguageModal()">
+        <span (click)="parameterService.openLevelLanguageModal()">
           <i
             class="fhv-register__container__level__icon fa-beat {{
               ICON_CLASS.info
@@ -224,7 +224,7 @@
       <button
         type="button"
         class="fhv-register__container__buttons-back"
-        (click)="goBack()"
+        (click)="generalService.goBack()"
       >
         {{ "common.register_page.register_button_back" | translate }}
       </button>
