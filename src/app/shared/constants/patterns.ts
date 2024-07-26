@@ -7,7 +7,7 @@ export const VALIDATOR_PATTERNS = {
 };
 
 export const VALIDATOR_SIZE = {
-  maxLenghtText: 200,
+  maxLenghtText: 600,
   imageWeight: 5242880 /* 5Mb */,
   minimunAge: 18,
 };

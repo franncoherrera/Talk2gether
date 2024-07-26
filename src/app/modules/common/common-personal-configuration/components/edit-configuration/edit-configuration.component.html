@@ -75,7 +75,7 @@
           'common.register_page.register_country_placeholder' | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.countryList"
+        [options]="parametersList.countryList['countries']"
         [clearable]="false"
       />
       <fhv-select-form
@@ -90,7 +90,7 @@
             | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.languageList"
+        [options]="parametersList.languageList['language']"
         [clearable]="false"
       />
       <fhv-select-form
@@ -102,7 +102,7 @@
           'common.register_page.register_learn_language_placeholder' | translate
         }}"
         [submitForm]="submitForm"
-        [options]="parametersList.languageList"
+        [options]="parametersList.languageList['language']"
         [clearable]="false"
       />
       <div class="position-relative">
@@ -121,7 +121,7 @@
               | translate
           }}"
           [submitForm]="submitForm"
-          [options]="parametersList.languageLevelList"
+          [options]="parametersList.languageLevelList['levelLanguage']"
           [clearable]="false"
         />
       </div>

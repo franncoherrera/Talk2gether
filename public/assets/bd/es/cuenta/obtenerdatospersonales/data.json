@@ -1,0 +1,45 @@
+{
+  "id": 1,
+  "apellidoUsuario": "Herrera",
+  "correo": "fhv@gmail.com",
+  "descripcion": "Apasionado de la programación y siempre en busca de nuevos desafíos tecnológicos, le encanta sumergirse en código y desarrollar soluciones innovadoras. Además, es un entusiasta del deporte, disfrutando tanto de practicarlo como de seguir competencias y eventos deportivos. En su tiempo libre, se relaja viendo películas de diversos géneros, desde clásicos hasta las últimas novedades, encontrando inspiración y entretenimiento en cada historia cinematográfica.",
+  "fechaNacimiento": "1996-05-14",
+  "listaIntereses": [
+    {
+      "id": 2,
+      "name": "Cine",
+      "icon": "fa-solid fa-film",
+      "seleccionado": false
+    },
+    {
+      "id": 3,
+      "name": "Viajes",
+      "icon": "fa-solid fa-plane",
+      "seleccionado": false
+    },
+    {
+      "id": 4,
+      "name": "Ciencias",
+      "icon": "fa-solid fa-flask",
+      "seleccionado": false
+    },
+    {
+      "id": 5,
+      "name": "Deporte",
+      "icon": "fa-solid fa-futbol",
+      "seleccionado": false
+    },
+    {
+      "id": 6,
+      "name": "Libros",
+      "icon": "fa-solid fa-book",
+      "seleccionado": false
+    }
+  ],
+  "nombreIdiomaAprender": "Inglés",
+  "nombreIdiomaNativo": "Español",
+  "nombreNivelIdioma": "Intermedio",
+  "nombrePais": "Argentina",
+  "nombreUsuario": "Franco",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fchico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpeg?alt=media&token=0f078409-cc16-4214-b45c-a587b14c4580"
+}

@@ -129,13 +129,14 @@ export class EditConfigurationComponent implements OnInit {
   editUser(): void {
     this.submitForm = true;
     if (this.formGroup().invalid) return;
-    if (!!this.fileSelected) {
-      this.uploadFile(this.fileSelected);
-    } else if (this.isFormModified()) {
-      this.sendEditUser();
-    } else {
-      this.backConfiguration();
-    }
+    this.backConfiguration();
+    // if (!!this.fileSelected) {
+    //   this.uploadFile(this.fileSelected);
+    // } else if (this.isFormModified()) {
+    //   this.sendEditUser();
+    // } else {
+    //   this.backConfiguration();
+    // }
   }
 
   sendEditUser(urlPhoto?: string): void {
