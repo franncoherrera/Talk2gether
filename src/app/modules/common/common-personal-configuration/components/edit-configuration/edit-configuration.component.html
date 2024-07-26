@@ -1,0 +1,175 @@
+@if(parametersList$ | async; as parametersList){
+<form
+  class="fhv-edit-configuration"
+  [formGroup]="formGroup()"
+  (ngSubmit)="editUser()"
+  (keydown.enter)="editUser()"
+>
+  <h1 class="fhv-edit-configuration__subtitle">
+    Modifica los datos que deseas, sino déjalos como estaban
+  </h1>
+  <div class="fhv-edit-configuration__container">
+    <div class="fhv-edit-configuration__container__photo">
+      <h1 class="fhv-edit-configuration__container__photo__name">
+        {{ "common.configuration_page.configuration_photo" | translate }}
+      </h1>
+      <img
+        class="fhv-edit-configuration__container__photo__img"
+        [src]="!!imageSrc ? imageSrc : prevImage"
+      />
+      <button
+        class="fhv-edit-configuration__container__photo__button"
+        type="button"
+        (click)="
+          personalConfigurationService.openPreviewCard(
+            formGroup(),
+            !!imageSrc ? imageSrc : prevImage
+          )
+        "
+      >
+        {{ "common.configuration_page.configuration_modal_button" | translate }}
+      </button>
+      <input
+        class="fhv-edit-configuration__container__photo__input"
+        [type]="INPUT_TYPE.FILE"
+        (change)="onFileSelected($event)"
+      />
+    </div>
+    <div class="fhv-edit-configuration__container__fields">
+      <fhv-input-form
+        [name]="'userName'"
+        label="{{ 'common.register_page.register_name' | translate }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'userName')"
+        placeholder="{{
+          'common.register_page.register_name_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      />
+      <fhv-input-form
+        [name]="'userSurname'"
+        label="{{ 'common.register_page.register_surname' | translate }}"
+        [type]="INPUT_TYPE.TEXT"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'userSurname')"
+        placeholder="{{
+          'common.register_page.register_surname_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      />
+      <fhv-input-form
+        [name]="'dateBorn'"
+        label="{{ 'common.register_page.register_dateBorn' | translate }}"
+        [type]="INPUT_TYPE.DATE"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'dateBorn')"
+        [submitForm]="submitForm"
+      />
+      <fhv-select-form
+        [name]="'country'"
+        label="{{ 'common.register_page.register_country' | translate }}"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'country')"
+        placeholder="{{
+          'common.register_page.register_country_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+        [options]="parametersList.countryList"
+        [clearable]="false"
+      />
+      <fhv-select-form
+        [name]="'nativeLanguage'"
+        label="{{
+          'common.register_page.register_native_language' | translate
+        }}"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'nativeLanguage')"
+        placeholder="{{
+          'common.register_page.register_native_language_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+        [options]="parametersList.languageList"
+        [clearable]="false"
+      />
+      <fhv-select-form
+        [name]="'learnLanguage'"
+        label="{{ 'common.register_page.register_learn_language' | translate }}"
+        [formGroup]="formGroup()"
+        [control]="formService.formControl(formGroup(), 'learnLanguage')"
+        placeholder="{{
+          'common.register_page.register_learn_language_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+        [options]="parametersList.languageList"
+        [clearable]="false"
+      />
+      <div class="position-relative">
+        <span (click)="parameterService.openLevelLanguageModal()">
+          <i class="icon fa-beat {{ ICON_CLASS.info }}"></i>
+        </span>
+        <fhv-select-form
+          [name]="'languageLevel'"
+          label="{{
+            'common.register_page.register_level_language' | translate
+          }}"
+          [formGroup]="formGroup()"
+          [control]="formService.formControl(formGroup(), 'languageLevel')"
+          placeholder="{{
+            'common.register_page.register_level_language_placeholder'
+              | translate
+          }}"
+          [submitForm]="submitForm"
+          [options]="parametersList.languageLevelList"
+          [clearable]="false"
+        />
+      </div>
+      <h1 class="fhv-edit-configuration__container__fields__interest">
+        <div class="fhv-edit-configuration__container__fields__interest__label">
+          {{ "common.configuration_page.configuration_interest" | translate }}
+        </div>
+        <fhv-interest-label
+          [control]="formService.formControl(formGroup(), 'interest')"
+          [activeDelete]="true"
+        ></fhv-interest-label>
+        <fhv-form-error
+          [showError]="submitForm"
+          [control]="formService.formControl(formGroup(), 'interest')"
+        />
+      </h1>
+      <button
+        class="fhv-edit-configuration__container__fields__button"
+        type="button"
+        (click)="parameterService.openInterestModal(formGroup(), 'interest')"
+      >
+        {{ "common.register_page.register_interest_placeholder" | translate }}
+      </button>
+    </div>
+  </div>
+  <fhv-text-area-form
+    [name]="'descriptionUser'"
+    label="{{ 'common.register_page.register_description' | translate }}"
+    [formGroup]="formGroup()"
+    [control]="formService.formControl(formGroup(), 'descriptionUser')"
+    placeholder="{{
+      'common.register_page.register_description_placeholder' | translate
+    }}"
+    [submitForm]="submitForm"
+  />
+  <div class="fhv-edit-configuration__buttons">
+    <button
+      type="button"
+      class="fhv-edit-configuration__buttons__back"
+      (click)="backConfiguration()"
+    >
+      {{ "common.configuration_page.configuration_back" | translate }}
+    </button>
+    <button class="fhv-edit-configuration__buttons__edit" type="submit">
+      {{ "common.configuration_page.configuration_save" | translate }}
+    </button>
+  </div>
+</form>
+} @else {
+<fhv-spinner-general [showSpinner]="true" />
+}

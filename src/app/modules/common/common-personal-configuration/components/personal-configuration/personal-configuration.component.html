@@ -1,0 +1,18 @@
+@if(configurationForm?.value){
+<div class="fhv-personal-configuration">
+  <div class="fhv-personal-configuration__container">
+    <h1>{{ "common.configuration_page.configuration_title" | translate }}</h1>
+    @if(showPersonalData()){
+    <fhv-show-configuration
+      [formGroup]="configurationForm"
+      (showPersonalData)="changePersonalData($event)"
+    />
+    } @else {
+    <fhv-edit-configuration
+      [formGroup]="configurationForm"
+      [userId]="userId"
+    />
+    }
+  </div>
+</div>
+}

@@ -1,0 +1,21 @@
+@import "media-queries";
+.fhv-preview-modal {
+  display: flex;
+  gap: 1.5rem;
+  background-color: var(--color-base);
+  padding: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--border-radius-containers);
+
+  &__change {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+  }
+  @include media-breakpoint-down(md) {
+    padding-top: 4rem;
+  }
+}

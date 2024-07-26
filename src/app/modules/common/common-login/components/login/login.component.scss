@@ -21,7 +21,7 @@
     @extend %flex-align-justify-center;
     min-height: var(--height-components);
     width: 50%;
-    padding: 8rem;
+    padding: 1rem 8rem;
     border-radius: var(--border-radius-containers);
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -71,7 +71,7 @@
 @include media-breakpoint-down(xl) {
   .fhv-login {
     &__container {
-      padding: 5rem;
+      padding: 1rem 5rem;
     }
   }
 }

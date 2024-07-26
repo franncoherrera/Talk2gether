@@ -30,6 +30,17 @@
       <a
         class="dropdown-item"
         aria-current="page"
+        routerLink="{{ ROUTES_PATH.CONFIG_PAGE }}"
+        (click)="closeNavbarChild()"
+      >
+        <i [class]="ICON_CLASS.config"></i>
+        {{ "common.navbar.config_button" | translate }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="dropdown-item"
+        aria-current="page"
         routerLink="{{ ROUTES_PATH.LOGIN_PATH }}"
         (click)="sesionService.clearLocalSession(); closeNavbarChild()"
       >

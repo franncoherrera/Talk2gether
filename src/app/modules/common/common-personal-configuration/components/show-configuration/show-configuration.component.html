@@ -1,0 +1,106 @@
+<div class="fhv-show-configuration">
+  <div class="fhv-show-configuration__container">
+    <div class="fhv-show-configuration__container__photo">
+      <h1 class="fhv-show-configuration__container__photo__name">
+        {{ "common.configuration_page.configuration_photo" | translate }}
+      </h1>
+      <img
+        class="fhv-show-configuration__container__photo__img"
+        [src]="formGroup().get('urlPhoto').value"
+      />
+      <button
+        class="fhv-show-configuration__container__photo__button"
+        (click)="
+          personalConfigurationService.openPreviewCard(
+            formGroup(),
+            formGroup().get('urlPhoto').value
+          )
+        "
+      >
+        {{ "common.configuration_page.configuration_modal_button" | translate }}
+      </button>
+    </div>
+    <div class="fhv-show-configuration__container__fields">
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_email" | translate }}
+        </strong>
+        {{ formGroup().get("email").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_name" | translate }}
+        </strong>
+        {{ formGroup().get("userName").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_surname" | translate }}
+        </strong>
+        {{ formGroup().get("userSurname").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_born" | translate }}
+        </strong>
+        {{ formGroup().get("dateBorn").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{ "common.configuration_page.configuration_country" | translate }}
+        </strong>
+        {{ formGroup().get("country").value }}
+      </h1>
+      <h1 class="fhv-show-configuration__container__fields__interest">
+        <strong>
+          {{ "common.configuration_page.configuration_interest" | translate }}
+        </strong>
+        <fhv-interest-label
+          [control]="formService.formControl(formGroup(), 'interest')"
+          [activeDelete]="false"
+        ></fhv-interest-label>
+      </h1>
+      <h1>
+        <strong>
+          {{
+            "common.configuration_page.configuration_native_language"
+              | translate
+          }}
+        </strong>
+        {{ formGroup().get("nativeLanguage").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{
+            "common.configuration_page.configuration_learn_language" | translate
+          }}
+        </strong>
+        {{ formGroup().get("learnLanguage").value }}
+      </h1>
+      <h1>
+        <strong>
+          {{
+            "common.configuration_page.configuration_level_language" | translate
+          }}
+        </strong>
+        {{ formGroup().get("languageLevel").value }}
+      </h1>
+    </div>
+  </div>
+  <div class="fhv-show-configuration__description">
+    <h1>
+      <strong>
+        {{ "common.configuration_page.configuration_description" | translate }}
+      </strong>
+      {{ formGroup().get("descriptionUser").value }}
+    </h1>
+  </div>
+  <div class="fhv-show-configuration__buttons">
+    <button
+      class="fhv-show-configuration__buttons__edit"
+      (click)="showPersonalData.emit(false)"
+    >
+      {{ "common.configuration_page.configuration_edit" | translate }}
+    </button>
+  </div>
+</div>

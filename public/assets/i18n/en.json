@@ -32,6 +32,7 @@
       "register_button": "Register",
       "log_out_button": "Log Out",
       "ranking_button": "Ranking",
+      "config_button": "Personal information",
       "language_button": {
         "language_title": "Language",
         "language_spanish": "Spanish",
@@ -197,6 +198,25 @@
       "title_modal": "Invite Your Friends",
       "subtitle_1_modal": "Tell your friends how fun Talk2gether is!",
       "subtitle_2_modal": "You'll earn achievements and get additional points for each friend you invite."
+    },
+    "configuration_page": {
+      "configuration_title": "Personal information.",
+      "configuration_edit": "Edit my data",
+      "configuration_email": "Email: ",
+      "configuration_name": "Name: ",
+      "configuration_surname": "Surname: ",
+      "configuration_born": "Date of birth: ",
+      "configuration_interest": "Interests: ",
+      "configuration_native_language": "Native language: ",
+      "configuration_learn_language": "Learning language: ",
+      "configuration_level_language": "Language level: ",
+      "configuration_description": "Description: ",
+      "configuration_photo": "Profile picture",
+      "configuration_country": "Country: ",
+      "configuration_modal_title": "Preview of how you will look on the platform",
+      "configuration_modal_button": "View cards",
+      "configuration_save": "Save changes",
+      "configuration_back": "Go back"
     }
   }
 }

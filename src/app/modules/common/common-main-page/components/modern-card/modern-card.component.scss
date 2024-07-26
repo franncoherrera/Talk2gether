@@ -5,7 +5,7 @@ fhv-modern-card{
   display: contents;
   .fhv-modern-card {
     &__container {
-      height: 29.25rem;
+      height: 30rem;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -149,7 +149,6 @@ fhv-modern-card{
     }
     @include media-breakpoint-down(xl) {
       &__container {
-        height: 22rem;
         &__card {
           &__overlay {
             &__header {

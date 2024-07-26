@@ -44,7 +44,6 @@ export class InputCheckboxComponent {
     } else {
       this.array.push(itemCheck);
     }
-    console.log(this.control())
     this.control().setValue(this.array);
   }
 

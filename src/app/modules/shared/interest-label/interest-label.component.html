@@ -1,0 +1,13 @@
+@for (interest of control().value; track interest.id) {
+<div class="fhv-interest-label">
+  <span
+    >{{ interest.name }}
+    <i class="{{ interest.icon }}"></i>
+  </span>
+  @if(activeDelete()) {
+  <span (click)="deleteInterest(interest.name)"
+    ><i class="{{ ICON_CLASS.x_close }}"></i
+  ></span>
+  }
+</div>
+}

@@ -20,4 +20,7 @@ export const ENDPOINTS = {
   LANGUAGE_LEARN: '/cuenta/obteneridiomaaprendiz/idioma.json',
   RANKING_USERS: '/gamificacion/tablaranking.json',
   REFERRAL_LINK: '/cuenta/referirusuario/link.json',
+  /* Personal configuration endpoint */
+  CONFIG_DATA: '/cuenta/obtenerdatospersonales/data.json',
+  EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
 };

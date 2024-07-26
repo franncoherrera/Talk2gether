@@ -64,20 +64,10 @@ export class MainPageComponent implements OnInit {
     this.userRoom$ = this.userService.getIdUser().pipe(
       filter(Boolean),
       switchMap<number, Observable<ROOM_USER[]>>((userId) => {
-        if (userId) {
           return this.mainPageService.searchRoom(userId);
-        } else {
-          return of([]);
-        }
       }),
       catchError(() => {
-        this.sweetAlertService.alertMessage(
-          this.translateService.instant('common.error.general_error_title'),
-          this.translateService.instant(
-            'common.error.general_error_description'
-          ),
-          SWEET_ALERT_ICON.ERROR
-        );
+      
         return of([]);
       })
     );
