@@ -19,6 +19,7 @@
       />
       <button
         class="fhv-edit-configuration__container__photo__button"
+        type="button"
         (click)="
           personalConfigurationService.openPreviewCard(
             formGroup(),
@@ -106,11 +107,7 @@
       />
       <div class="position-relative">
         <span (click)="parameterService.openLevelLanguageModal()">
-          <i
-            class="icon fa-beat {{
-              ICON_CLASS.info
-            }}"
-          ></i>
+          <i class="icon fa-beat {{ ICON_CLASS.info }}"></i>
         </span>
         <fhv-select-form
           [name]="'languageLevel'"
@@ -162,6 +159,7 @@
   />
   <div class="fhv-edit-configuration__buttons">
     <button
+      type="button"
       class="fhv-edit-configuration__buttons__back"
       (click)="backConfiguration()"
     >

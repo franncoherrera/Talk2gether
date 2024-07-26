@@ -8,13 +8,21 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import {
+  getDownloadURL,
+  ref,
+  Storage,
+  uploadBytesResumable,
+} from '@angular/fire/storage';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { combineLatest, finalize, map, Observable } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
 import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { REGISTER_PARAMETERS } from '../../../../../shared/models/parameter.model';
 import { FormService } from '../../../../../shared/services/form.service';
 import { ParameterService } from '../../../../../shared/services/parameter.service';
@@ -23,6 +31,7 @@ import { InputFormComponent } from '../../../../shared/input-form/input-form.com
 import { InterestLabelComponent } from '../../../../shared/interest-label/interest-label.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
 import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
+import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
@@ -53,15 +62,24 @@ export class EditConfigurationComponent implements OnInit {
   imageSrc: string | ArrayBuffer | null = null;
   prevImage: string;
   prevForm: FormGroup;
+  fileSelected: File;
   readonly INPUT_TYPE = INPUT_TYPE;
   readonly IMAGE_FORMAT = IMAGE_FORMAT;
   readonly ICON_CLASS = ICON_CLASS;
+  private firebaseStorage: Storage = inject(Storage);
   protected formService: FormService = inject(FormService);
   protected personalConfigurationService: PersonalConfigurationService = inject(
     PersonalConfigurationService
   );
   protected parameterService: ParameterService = inject(ParameterService);
   private readonly destroy: DestroyRef = inject(DestroyRef);
+  private readonly spinnerGeneralService: SpinnerGeneralService = inject(
+    SpinnerGeneralService
+  );
+  private readonly sweetAlertService: SweetAlertService =
+    inject(SweetAlertService);
+  private readonly translateService: TranslateService =
+    inject(TranslateService);
 
   ngOnInit() {
     this.initImage();
@@ -84,16 +102,16 @@ export class EditConfigurationComponent implements OnInit {
     this.prevImage = this.formGroup().get('urlPhoto').value;
   }
   initForm() {
-    this.prevForm = this.formGroup().getRawValue();
+    this.prevForm = JSON.parse(JSON.stringify(this.formGroup().getRawValue()));
   }
 
   onFileSelected(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files[0]) {
-      const file = fileInput.files[0];
+      this.fileSelected = fileInput.files[0];
       const reader = new FileReader();
       reader.onload = (e) => (this.imageSrc = reader.result);
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(this.fileSelected);
     }
   }
 
@@ -111,20 +129,31 @@ export class EditConfigurationComponent implements OnInit {
   editUser(): void {
     this.submitForm = true;
     if (this.formGroup().invalid) return;
-    if (this.isFormModified()) {
-      this.personalConfigurationService
-        .editUser(this.userId(), this.buildUser())
-        .pipe(
-          takeUntilDestroyed(this.destroy),
-          finalize(() => this.backConfiguration())
-        )
-        .subscribe();
+    if (!!this.fileSelected) {
+      this.uploadFile(this.fileSelected);
+    } else if (this.isFormModified()) {
+      this.sendEditUser();
     } else {
       this.backConfiguration();
     }
   }
 
-  buildUser() {
+  sendEditUser(urlPhoto?: string): void {
+    this.personalConfigurationService
+      .editUser(
+        this.userId(),
+        this.buildUser(!!urlPhoto ? urlPhoto : this.prevImage)
+      )
+      .pipe(
+        takeUntilDestroyed(this.destroy),
+        finalize(() => {
+          this.backConfiguration();
+        })
+      )
+      .subscribe();
+  }
+
+  buildUser(urPhoto: string) {
     return {
       nombreUsuario: this.formGroup().get('userName').value,
       apellidoUsuario: this.formGroup().get('userSurname').value,
@@ -135,7 +164,7 @@ export class EditConfigurationComponent implements OnInit {
       nombreIdiomaNativo: this.formService.removeSpaces(
         this.formGroup().get('nativeLanguage').value
       ),
-      urlFoto: this.prevImage,
+      urlFoto: !!urPhoto ? urPhoto : this.prevImage,
       descripcion: this.formGroup().get('descriptionUser').value,
       nombreIdiomaAprendiz: this.formService.removeSpaces(
         this.formGroup().get('learnLanguage').value
@@ -148,5 +177,36 @@ export class EditConfigurationComponent implements OnInit {
         'interest'
       ),
     };
+  }
+
+  async uploadFile(file: File) {
+    this.spinnerGeneralService.showSpinner();
+    const filePath = `images/${file.name}`;
+    const fileRef = ref(this.firebaseStorage, filePath);
+    const uploadFile = uploadBytesResumable(fileRef, file);
+    uploadFile.on(
+      'state_changed',
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
+      (error) => {
+        this.spinnerGeneralService.hideSpinner();
+        this.sweetAlertService.alertMessageConfirm(
+          this.translateService.instant('common.error.general_error_upload'),
+          SWEET_ALERT_ICON.ERROR
+        );
+      },
+      async () => {
+        const delay = (ms: number) =>
+          new Promise((resolve) => setTimeout(resolve, ms));
+        const delayedGetDownloadURL = async (fileRef: any) => {
+          await delay(4000);
+          return getDownloadURL(fileRef);
+        };
+        const url = await delayedGetDownloadURL(fileRef);
+        this.sendEditUser(url);
+      }
+    );
   }
 }
