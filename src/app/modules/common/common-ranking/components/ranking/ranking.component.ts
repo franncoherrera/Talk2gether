@@ -2,9 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { RANKING_USER } from '../../../../../shared/models/ranking.model';
+import { GeneralService } from '../../../../../shared/services/general.service';
 import { UserService } from '../../../../../shared/services/user.service';
 import { RankingService } from '../../services/ranking.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'fhv-ranking',
@@ -17,15 +17,11 @@ export class RankingComponent implements OnInit {
 
   private rankingService: RankingService = inject(RankingService);
   private userService: UserService = inject(UserService);
-  private location: Location = inject(Location);
+  protected generalService: GeneralService = inject(GeneralService);
 
   ngOnInit(): void {
     this.rankingUserList$ = this.userService
       .getIdUser()
       .pipe(switchMap((userId) => this.rankingService.getRanking(userId)));
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 }

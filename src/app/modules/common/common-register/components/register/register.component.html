@@ -156,7 +156,7 @@
           [submitForm]="submitForm"
           [options]="parametersList.languageLevelList"
         />
-        <span (click)="openLevelLanguageModal()">
+        <span (click)="parameterService.openLevelLanguageModal()">
           <i
             class="fhv-register__container__level__icon fa-beat {{
               ICON_CLASS.info
@@ -172,33 +172,27 @@
           class="fhv-register__container__form__modal"
           [ngClass]="{
             'button-error':
-              this.registerForm.get('interest').value.length === 0 && submitForm
+              registerForm.get('interest').value.length === 0 && submitForm
           }"
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#staticBackdrop"
-          (click)="openInterestModal()"
+          (click)="parameterService.openInterestModal(registerForm, 'interest')"
         >
           {{ "common.register_page.register_interest_placeholder" | translate }}
         </button>
         <div
           [ngClass]="{
             'fhv-register__container__form__interest':
-              this.registerForm.get('interest').value.length !== 0
+              registerForm.get('interest').value.length !== 0
           }"
         >
-          @if(!!this.registerForm.get('interest').value){ @for (interest of
-          this.registerForm.get('interest').value; track interest.id) {
-          <div class="fhv-register__container__form__interest--selected">
-            <span
-              >{{ interest.name }}
-              <i class="{{ interest.icon }}"></i>
-            </span>
-            <span (click)="deleteInterest(interest.name)"
-              ><i class="{{ ICON_CLASS.x_close }}"></i
-            ></span>
-          </div>
-          } }
+          @if(!!registerForm.get('interest').value){
+          <fhv-interest-label
+            [control]="formService.formControl(registerForm, 'interest')"
+            [activeDelete]="true"
+          ></fhv-interest-label>
+          }
         </div>
         <fhv-form-error
           [showError]="submitForm"
@@ -230,7 +224,7 @@
       <button
         type="button"
         class="fhv-register__container__buttons-back"
-        (click)="goBack()"
+        (click)="generalService.goBack()"
       >
         {{ "common.register_page.register_button_back" | translate }}
       </button>

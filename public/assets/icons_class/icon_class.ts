@@ -20,4 +20,6 @@ export const ICON_CLASS = {
   ranking: 'fa-solid fa-ranking-star',
   share: 'fa-solid fa-share-nodes',
   copy: 'fa-solid fa-copy',
+  config: 'fa-solid fa-gear',
+  rotate: 'fa-solid fa-rotate-right',
 };

@@ -27,6 +27,7 @@
       "register_button": "S'inscrire",
       "log_out_button": "Se Déconnecter",
       "ranking_button": "Classement",
+      "config_button": "Informations personnelles",
       "language_button": {
         "language_title": "Langue",
         "language_spanish": "Espagnol",
@@ -192,6 +193,25 @@
       "title_modal": "Invitez vos amis",
       "subtitle_1_modal": "Dites à vos amis combien Talk2gether est amusant!",
       "subtitle_2_modal": "Vous gagnerez des réalisations et obtiendrez des points supplémentaires pour chaque ami invité."
+    },
+    "configuration_page": {
+      "configuration_title": "Informations personnelles.",
+      "configuration_edit": "Modifier mes données",
+      "configuration_email": "Courriel: ",
+      "configuration_name": "Nom: ",
+      "configuration_surname": "Prénom: ",
+      "configuration_born": "Date de naissance: ",
+      "configuration_interest": "Intérêts: ",
+      "configuration_native_language": "Langue maternelle: ",
+      "configuration_learn_language": "Langue à apprendre: ",
+      "configuration_level_language": "Niveau de langue: ",
+      "configuration_description": "Description: ",
+      "configuration_photo": "Photo de profil",
+      "configuration_country": "Pays: ",
+      "configuration_modal_title": "Aperçu de comment vous apparaîtrez sur la plateforme",
+      "configuration_modal_button": "Voir les cartes",
+      "configuration_save": "Enregistrer les modifications",
+      "configuration_back": "Retourner"
     }
   }
 }

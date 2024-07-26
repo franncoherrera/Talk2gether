@@ -38,4 +38,11 @@ export const routes: Routes = [
         (rankingPage) => rankingPage.CommonRankingModule
       ),
   },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import(
+        './modules/common/common-personal-configuration/common-personal-configuration.module'
+      ).then((configPage) => configPage.CommonPersonalConfigurationModule),
+  },
 ];

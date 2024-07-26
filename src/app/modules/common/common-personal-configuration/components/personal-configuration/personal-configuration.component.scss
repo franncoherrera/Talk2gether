@@ -1,0 +1,27 @@
+@import "media-queries";
+@import "font-size";
+
+.fhv-personal-configuration {
+  background-color: var(--color-primary);
+  min-height: var(--height-components);
+  color: var(--color-white);
+  font-family: var(--font-family);
+  &__container {
+    padding: 4rem 12rem;
+  }
+  @include media-breakpoint-down(xl) {
+    &__container {
+      padding: 4rem 6rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__container {
+      padding: 3rem 3rem;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__container {
+      padding: 2rem 2rem;
+    }
+  }
+}
