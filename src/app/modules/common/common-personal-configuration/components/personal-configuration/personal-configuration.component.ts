@@ -6,24 +6,23 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 import { catchError, Observable, of, switchMap, tap } from 'rxjs';
+import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
 import { UserService } from '../../../../../shared/services/user.service';
 import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_FULL_AGE,
-  CUSTOM_IMAGE_TYPE,
   CUSTOM_MAX_CHAR,
   CUSTOM_ONLY_LETTERS,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { PersonalConfigurationService } from '../../services/personal-configuration.service';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
-import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
-import { TranslateService } from '@ngx-translate/core';
-import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
 @Component({
   selector: 'fhv-personal-configuration',
@@ -92,7 +91,7 @@ export class PersonalConfigurationComponent implements OnInit {
               ]),
               //TODO validate size image file
               urlPhoto: new FormControl(personalData.urlFoto, [
-                CUSTOM_REQUIRED
+                CUSTOM_REQUIRED,
               ]),
               learnLanguage: new FormControl(
                 personalData.nombreIdiomaAprender,
