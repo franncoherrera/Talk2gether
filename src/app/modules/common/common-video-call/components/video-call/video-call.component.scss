@@ -1,0 +1,14 @@
+.fhv-video-call {
+  background-color: var(--color-primary);
+  height: 100dvh;
+  flex-direction: column;
+  &__container {
+    height: 75%;
+    width: 70%;
+    border-radius: var(--border-radius-containers);
+    border: 0.125rem solid var(--color-white);
+  }
+  &__buttons {
+
+  }
+}
