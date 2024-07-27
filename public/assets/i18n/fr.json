@@ -217,7 +217,7 @@
     },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",
-      "video_call_modal_subtitle": "N'ayez pas peur, rejoignez simplement",
+      "video_call_modal_subtitle": "N'hésitez pas, rejoignez simplement",
       "video_call_modal_button_continue": "Continuer",
       "video_call_modal_button_back": "Retour"
     }

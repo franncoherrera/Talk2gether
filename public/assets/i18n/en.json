@@ -217,7 +217,7 @@
     },
     "video_call_page": {
       "video_call_modal_title": "Are you sure you want to join the video call?",
-      "video_call_modal_subtitle": "Don't be afraid, just join",
+      "video_call_modal_subtitle": "Don't hesitate, just join",
       "video_call_modal_button_continue": "Continue",
       "video_call_modal_button_back": "Back"
     }

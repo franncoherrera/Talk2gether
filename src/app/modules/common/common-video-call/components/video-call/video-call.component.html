@@ -1,5 +1,5 @@
 <div class="fhv-video-call d-flex align-items-center justify-content-center">
-  @if(room$ | async; as room){
+  @if(room){
   <div
     class="fhv-video-call__container d-flex align-items-center justify-content-center"
   >
@@ -53,5 +53,7 @@
       <i class="{{ ICON_CLASS.phone_slash }}"></i>
     </span>
   </div>
+  } @else {
+    <fhv-spinner-general [showSpinner]="true" />
   }
 </div>
