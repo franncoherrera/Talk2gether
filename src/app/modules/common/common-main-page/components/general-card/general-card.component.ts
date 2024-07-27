@@ -1,12 +1,12 @@
 import { Component, inject, input, ViewEncapsulation } from '@angular/core';
-import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
-import { PAGINATION } from '../../../../../shared/constants/paginationConstants';
-import { MainPageService } from '../../services/main-page.service';
 import { Router } from '@angular/router';
-import { ROUTES_PATH } from '../../../../../shared/constants/routes';
-import Swal from 'sweetalert2';
-import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { TranslateService } from '@ngx-translate/core';
+import Swal from 'sweetalert2';
+import { PAGINATION } from '../../../../../shared/constants/paginationConstants';
+import { ROUTES_PATH } from '../../../../../shared/constants/routes';
+import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
+import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
+import { MainPageService } from '../../services/main-page.service';
 
 @Component({
   selector: 'fhv-general-card',
