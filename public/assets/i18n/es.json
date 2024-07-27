@@ -214,6 +214,12 @@
       "configuration_modal_button": "Ver tarjetas",
       "configuration_save": "Guardar cambios",
       "configuration_back": "Volver"
+    },
+    "video_call_page": {
+      "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
+      "video_call_modal_subtitle": "No tengas miedo solo únete",
+      "video_call_modal_button_continue": "Continuar",
+      "video_call_modal_button_back": "Volver"
     }
   }
 }
