@@ -21,6 +21,7 @@ export class GeneralCardComponent {
   protected router: Router = inject(Router);
 
   protected goVideoCall(urlPhoto: string): void {
+    
     this.mainPageService.saveUrlPhoto(urlPhoto);
     this.router.navigate([ROUTES_PATH.VIDEO_CALL_PAGE]);
   }

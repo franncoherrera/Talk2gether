@@ -20,7 +20,8 @@
       "register_error": "L'inscription n'a pas été possible. Veuillez réessayer plus tard.",
       "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard.",
       "general_error_min_max_age": "L'âge minimum ne peut pas dépasser l'âge maximum",
-      "general_error_min_max_age_required": "Entrez l'âge minimum et maximum ou laissez le champ vide"
+      "general_error_min_max_age_required": "Entrez l'âge minimum et maximum ou laissez le champ vide",
+      "general_error_null_video_call": "La salle que vous essayez de rejoindre n'existe pas"
     },
     "navbar": {
       "login_button": "Connexion",
@@ -197,6 +198,7 @@
     "configuration_page": {
       "configuration_title": "Informations personnelles.",
       "configuration_edit": "Modifier mes données",
+      "configuration_edit_subtitle": "Modifiez les données que vous souhaitez, sinon laissez-les telles qu'elles étaient",
       "configuration_email": "Courriel: ",
       "configuration_name": "Nom: ",
       "configuration_surname": "Prénom: ",

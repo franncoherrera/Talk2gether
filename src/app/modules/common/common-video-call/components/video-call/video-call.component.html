@@ -1,8 +1,58 @@
 <div class="fhv-video-call d-flex align-items-center justify-content-center">
-    <div class="fhv-video-call__container">
+  @if(urlPhoto$ | async; as urlPhoto){
 
+  <div
+    class="fhv-video-call__container d-flex align-items-center justify-content-center"
+  >
+    <div class="fhv-video-call__container__logo">
+      <img
+        src="../../../../../assets/images/general/talk2gether_name_white.svg"
+        alt="logo"
+      />
     </div>
-    <div class="fhv-video-call__buttons">
-
+    <div class="fhv-video-call__container__photo">
+      <img [src]="urlPhoto" />
     </div>
+  </div>
+  <div
+    class="fhv-video-call__buttons d-flex align-items-center justify-content-center"
+  >
+    <a
+      class="fhv-video-call__buttons__bg d-flex align-items-center justify-content-center"
+      (click)="muteMicro()"
+    >
+      @if(isMuted){
+      <span><i class="{{ ICON_CLASS.microphone_lines }}"></i></span>
+      } @if(!isMuted){
+      <span><i class="{{ ICON_CLASS.microphone_lines_slash }}"></i></span>
+      }
+    </a>
+    <a
+      class="fhv-video-call__buttons__bg d-flex align-items-center justify-content-center"
+      (click)="shareVideo()"
+    >
+      @if(isSharedVideo){
+      <span><i class="{{ ICON_CLASS.video }}"></i></span>
+      } @if(!isSharedVideo){
+      <span><i class="{{ ICON_CLASS.video_slash }}"></i></span>
+      }
+    </a>
+    <span
+      class="fhv-video-call__buttons__bg d-flex align-items-center justify-content-center"
+    >
+      <i class="{{ ICON_CLASS.desktop }}"></i>
+    </span>
+    <span
+      class="fhv-video-call__buttons__bg d-flex align-items-center justify-content-center"
+    >
+      <i class="{{ ICON_CLASS.message }}"></i>
+    </span>
+    <span
+      class="fhv-video-call__buttons__bg d-flex align-items-center justify-content-center"
+      (click)="finishCall()"
+    >
+      <i class="{{ ICON_CLASS.phone_slash }}"></i>
+    </span>
+  </div>
+  }
 </div>

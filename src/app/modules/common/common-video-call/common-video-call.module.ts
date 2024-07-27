@@ -5,12 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { VideoCallComponent } from './components/video-call/video-call.component';
 import { loggedGuard } from '../../../shared/guards/logged.guard';
 import { ROUTES_PATH } from '../../../shared/constants/routes';
+import { emptyPhotoVideoCallGuard } from '../../../shared/guards/empty-photo-video-call.guard';
 
 export const VIDEO_ROUTES: Routes = [
   {
     path: ROUTES_PATH.VIDEO_CALL_PAGE,
     component: VideoCallComponent,
-    canActivate: [loggedGuard],
+    canActivate: [loggedGuard, emptyPhotoVideoCallGuard],
   },
 ];
 
