@@ -45,4 +45,11 @@ export const routes: Routes = [
         './modules/common/common-personal-configuration/common-personal-configuration.module'
       ).then((configPage) => configPage.CommonPersonalConfigurationModule),
   },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import(
+        './modules/common/common-video-call/common-video-call.module'
+      ).then((videoCallPage) => videoCallPage.CommonVideoCallModule),
+  },
 ];

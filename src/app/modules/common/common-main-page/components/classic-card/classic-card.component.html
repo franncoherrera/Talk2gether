@@ -27,7 +27,11 @@
     <div class="fhv-classic-card__box__buttons__icon" type="button">
       <i [class]="ICON_CLASS.message"></i>
     </div>
-    <div class="fhv-classic-card__box__buttons__icon" type="button">
+    <div
+      class="fhv-classic-card__box__buttons__icon"
+      type="button"
+      (click)="goVideoCall(room().urlFoto)"
+    >
       <i [class]="ICON_CLASS.video"></i>
     </div>
   </div>

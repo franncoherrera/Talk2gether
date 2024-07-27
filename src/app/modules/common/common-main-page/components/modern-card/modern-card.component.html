@@ -59,6 +59,7 @@
       [ngClass]="{
         mobile: (breakPointService.isMobile$ | async)
       }"
+      (click)="goVideoCall(room().urlFoto)"
     >
       <i [class]="ICON_CLASS.video"></i>
     </div>

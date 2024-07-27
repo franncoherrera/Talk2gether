@@ -20,7 +20,8 @@
       "register_error": "Registration was not possible. Please try again later.",
       "recover_password_error": "Unable to send recovery email. Please try again later.",
       "general_error_min_max_age": "Minimum age cannot exceed maximum age",
-      "general_error_min_max_age_required": "Enter minimum and maximum age or leave the field empty"
+      "general_error_min_max_age_required": "Enter minimum and maximum age or leave the field empty",
+      "general_error_null_video_call": "The room you are trying to join does not exist"
     },
     "navbar": {
       "login_button": "Login",
@@ -197,6 +198,7 @@
     "configuration_page": {
       "configuration_title": "Personal information.",
       "configuration_edit": "Edit my data",
+      "configuration_edit_subtitle": "Modify the data you want, otherwise leave it as it was",
       "configuration_email": "Email: ",
       "configuration_name": "Name: ",
       "configuration_surname": "Surname: ",
@@ -212,6 +214,12 @@
       "configuration_modal_button": "View cards",
       "configuration_save": "Save changes",
       "configuration_back": "Go back"
+    },
+    "video_call_page": {
+      "video_call_modal_title": "Are you sure you want to join the video call?",
+      "video_call_modal_subtitle": "Don't be afraid, just join",
+      "video_call_modal_button_continue": "Continue",
+      "video_call_modal_button_back": "Back"
     }
   }
 }
