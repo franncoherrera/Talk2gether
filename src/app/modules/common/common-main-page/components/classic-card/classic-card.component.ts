@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, input, ViewEncapsulation } from '@angular/core';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
+import { GeneralCardComponent } from '../general-card/general-card.component';
 
 @Component({
   selector: 'fhv-classic-card',
@@ -11,7 +12,7 @@ import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
   styleUrl: './classic-card.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class ClassicCardComponent {
+export class ClassicCardComponent extends GeneralCardComponent {
   readonly ICON_CLASS = ICON_CLASS;
   room = input.required<ROOM_USER>();
 }

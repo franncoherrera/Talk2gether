@@ -15,5 +15,7 @@ export const ROUTES_PATH = {
   /* Ranking */
   RANKING_PAGE: 'ranking',
   /* Personal configurations*/
-  CONFIG_PAGE: 'configuracion'
+  CONFIG_PAGE: 'configuracion',
+  /* Video call */
+  VIDEO_CALL_PAGE: 'reunion-virtual',
 };

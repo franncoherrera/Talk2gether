@@ -13,6 +13,7 @@ export const ICON_CLASS = {
   star: 'fa-solid fa-star',
   message: 'fa-solid fa-message',
   video: 'fa-solid fa-video',
+  video_slash: 'fa-solid fa-video-slash',
   search: 'fa-solid fa-search',
   filter: 'fa-solid fa-filter',
   plus: 'fa-solid fa-plus',
@@ -22,4 +23,8 @@ export const ICON_CLASS = {
   copy: 'fa-solid fa-copy',
   config: 'fa-solid fa-gear',
   rotate: 'fa-solid fa-rotate-right',
+  microphone_lines: 'fa-solid fa-microphone-lines',
+  microphone_lines_slash: 'fa-solid fa-microphone-lines-slash',
+  phone_slash: 'fa-solid fa-phone-slash',
+  desktop: 'fa-solid fa-desktop',
 };

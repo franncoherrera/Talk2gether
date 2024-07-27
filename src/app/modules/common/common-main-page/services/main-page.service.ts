@@ -9,6 +9,8 @@ import { ROOM_USER } from '../../../../shared/models/roomUser.model';
   providedIn: 'root',
 })
 export class MainPageService {
+  urlPhoto = new BehaviorSubject<string>(null);
+  urlPhoto$ = this.urlPhoto.asObservable();
 
   private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
   private httpClient: HttpClient = inject(HttpClient);
@@ -55,5 +57,12 @@ export class MainPageService {
       }
     );
     return this.httpClient.get<string>(url);
+  }
+
+  saveUrlPhoto(urlPhoto: string): void {
+    this.urlPhoto.next(urlPhoto);
+  }
+  getUrlPhoto(): Observable<string> {
+    return this.urlPhoto$;
   }
 }

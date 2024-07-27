@@ -25,7 +25,8 @@
       "register_error": "No fue posible registrarse. Intente nuevamente mas tarde.",
       "recover_password_error": "No fue posible enviar el email de recuperación. Intente nuevamente más tarde.",
       "general_error_min_max_age": "La edad mínima no puede superar a la edad máxima",
-      "general_error_min_max_age_required": "Ingrese edad mínima y máxima sino deje el campo vacío"
+      "general_error_min_max_age_required": "Ingrese edad mínima y máxima sino deje el campo vacío",
+      "general_error_null_video_call": "No existe la sala a la que intentas ingresar"
     },
     "navbar": {
       "login_button": "Iniciar Sesión",
@@ -202,6 +203,7 @@
     "configuration_page": {
       "configuration_title": "Datos personales.",
       "configuration_edit": "Editar mis datos",
+      "configuration_edit_subtitle": "Modifica los datos que deseas, sino déjalos como estaban",
       "configuration_email": "Correo: ",
       "configuration_name": "Nombre: ",
       "configuration_surname": "Apellido: ",
@@ -217,6 +219,12 @@
       "configuration_modal_button": "Ver tarjetas",
       "configuration_save": "Guardar cambios",
       "configuration_back": "Volver"
+    },
+    "video_call_page": {
+      "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
+      "video_call_modal_subtitle": "No tengas miedo solo únete",
+      "video_call_modal_button_continue": "Continuar",
+      "video_call_modal_button_back": "Volver"
     }
   }
 }
