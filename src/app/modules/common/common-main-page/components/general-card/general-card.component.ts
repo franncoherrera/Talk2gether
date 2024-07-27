@@ -7,6 +7,7 @@ import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
 import { MainPageService } from '../../services/main-page.service';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 
 @Component({
   selector: 'fhv-general-card',
@@ -16,6 +17,7 @@ import { MainPageService } from '../../services/main-page.service';
 })
 export class GeneralCardComponent {
   readonly PAGINATION = PAGINATION;
+  readonly ICON_CLASS = ICON_CLASS;
   page: number;
   userRoom = input<ROOM_USER[]>();
   isClassicVersion = input<boolean>();
@@ -24,7 +26,7 @@ export class GeneralCardComponent {
   protected router: Router = inject(Router);
   protected translateService: TranslateService = inject(TranslateService);
 
-  protected goVideoCall(urlPhoto: string): void {
+  protected goVideoCall(room: ROOM_USER): void {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success ms-5',
@@ -52,7 +54,7 @@ export class GeneralCardComponent {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          this.mainPageService.saveUrlPhoto(urlPhoto);
+          this.mainPageService.saveRoom(room);
           this.router.navigate([ROUTES_PATH.VIDEO_CALL_PAGE]);
         }
       });

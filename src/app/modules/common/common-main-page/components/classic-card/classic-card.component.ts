@@ -13,6 +13,5 @@ import { GeneralCardComponent } from '../general-card/general-card.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class ClassicCardComponent extends GeneralCardComponent {
-  readonly ICON_CLASS = ICON_CLASS;
   room = input.required<ROOM_USER>();
 }
