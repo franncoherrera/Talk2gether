@@ -30,14 +30,12 @@
     }
     label {
       color: var(--color-bg-back);
-      i {
-        font-size: 7rem;
-        @include media-breakpoint-down(lg) {
-          font-size: 5rem;
-        }
-        @include media-breakpoint-down(md) {
-          font-size: 3rem;
-        }
+      font-size: 7rem;
+      @include media-breakpoint-down(lg) {
+        font-size: 5rem;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: 3rem;
       }
     }
     label:hover,

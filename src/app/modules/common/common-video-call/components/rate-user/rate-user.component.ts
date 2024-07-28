@@ -91,7 +91,7 @@ export class RateUserComponent implements OnInit {
         next: () => {
           this.sweetAlertService.alertImpromptu({
             title: this.translateService.instant(
-              'common.error.rate_user_page_qualify_user'
+              'common.rate_user_page.rate_user_page_qualify_user'
             ),
             icon: SWEET_ALERT_ICON.SUCCESS,
           });
