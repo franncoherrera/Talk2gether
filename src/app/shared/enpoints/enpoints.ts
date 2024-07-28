@@ -22,5 +22,8 @@ export const ENDPOINTS = {
   REFERRAL_LINK: '/cuenta/referirusuario/?idCuenta=${id}',
   /* Personal configuration endpoint */
   CONFIG_DATA: '/cuenta/obtenerdatospersonales/?idCuenta=${id}',
-  EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}'
+  EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
+  /* Rate user */
+  GET_PARTICIPANT: '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',
+  RATE_USER: '/usuario/calificarusuario'
 };

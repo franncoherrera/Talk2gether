@@ -9,8 +9,8 @@ import { ROOM_USER } from '../../../../shared/models/roomUser.model';
   providedIn: 'root',
 })
 export class MainPageService {
-  urlPhoto = new BehaviorSubject<string>(null);
-  urlPhoto$ = this.urlPhoto.asObservable();
+  room = new BehaviorSubject<ROOM_USER>(null);
+  room$ = this.room.asObservable();
 
   private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
   private httpClient: HttpClient = inject(HttpClient);
@@ -61,10 +61,10 @@ export class MainPageService {
     return this.httpClient.get<string>(url);
   }
 
-  saveUrlPhoto(urlPhoto: string): void {
-    this.urlPhoto.next(urlPhoto);
+  saveRoom(room: ROOM_USER): void {
+    this.room.next(room);
   }
-  getUrlPhoto(): Observable<string> {
-    return this.urlPhoto$;
+  getRoom(): Observable<ROOM_USER> {
+    return this.room$;
   }
 }

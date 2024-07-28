@@ -14,7 +14,6 @@ import { GeneralCardComponent } from '../general-card/general-card.component';
   encapsulation: ViewEncapsulation.None,
 })
 export class ModernCardComponent extends GeneralCardComponent {
-  readonly ICON_CLASS = ICON_CLASS;
   room = input.required<ROOM_USER>();
 
   protected breakPointService: BreakPointService = inject(BreakPointService);

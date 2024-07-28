@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import Swal, { SweetAlertIcon, SweetAlertPosition } from 'sweetalert2';
-import {
-  SWEET_ALERT_POSITION
-} from '../shared/enums/sweeAlert.enum';
+import { SWEET_ALERT_POSITION } from '../shared/enums/sweeAlert.enum';
 import { AlertOptions } from './sweet-alert.interface';
 
 @Injectable({
@@ -63,7 +61,7 @@ export class SweetAlertService {
     timerProgressBar = true,
     title,
     icon,
-  }: AlertOptions) {
+  }: AlertOptions): void {
     const Toast = Swal.mixin({
       toast: toast,
       position: position,

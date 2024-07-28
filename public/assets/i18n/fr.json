@@ -21,7 +21,9 @@
       "recover_password_error": "Impossible d'envoyer l'e-mail de récupération. Veuillez réessayer plus tard.",
       "general_error_min_max_age": "L'âge minimum ne peut pas dépasser l'âge maximum",
       "general_error_min_max_age_required": "Entrez l'âge minimum et maximum ou laissez le champ vide",
-      "general_error_null_video_call": "La salle que vous essayez de rejoindre n'existe pas"
+      "general_error_null_video_call": "La salle que vous essayez de rejoindre n'existe pas",
+      "general_error_no_call": "Personne n'a rejoint la réunion ou la réunion n'a jamais été créée. Elle ne peut pas être notée.",
+      "general_error_user_not_qualify": "L'utilisateur n'a pas pu être noté."
     },
     "navbar": {
       "login_button": "Connexion",
@@ -217,9 +219,17 @@
     },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",
-      "video_call_modal_subtitle": "N'ayez pas peur, rejoignez simplement",
+      "video_call_modal_subtitle": "N'hésitez pas, rejoignez simplement",
       "video_call_modal_button_continue": "Continuer",
       "video_call_modal_button_back": "Retour"
+    },
+    "rate_user_page": {
+      "rate_user_page_title": "Évaluer l'apprenant",
+      "rate_user_page_subtitle": "Comment s'est passée votre expérience avec {{name}} {{surname}} ?",
+      "rate_user_page_text": "Si vous ne souhaitez pas évaluer, fermez simplement la fenêtre",
+      "rate_user_page_button_continue": "Évaluer",
+      "rate_user_page_button_back": "Retour",
+      "rate_user_page_qualify_user": "Utilisateur évalué."
     }
   }
 }

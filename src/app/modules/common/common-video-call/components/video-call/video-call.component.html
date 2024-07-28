@@ -1,6 +1,5 @@
 <div class="fhv-video-call d-flex align-items-center justify-content-center">
-  @if(urlPhoto$ | async; as urlPhoto){
-
+  @if(room){
   <div
     class="fhv-video-call__container d-flex align-items-center justify-content-center"
   >
@@ -11,7 +10,7 @@
       />
     </div>
     <div class="fhv-video-call__container__photo">
-      <img [src]="urlPhoto" />
+      <img [src]="room.urlFoto" />
     </div>
   </div>
   <div
@@ -54,5 +53,7 @@
       <i class="{{ ICON_CLASS.phone_slash }}"></i>
     </span>
   </div>
+  } @else {
+    <fhv-spinner-general [showSpinner]="true" />
   }
 </div>
