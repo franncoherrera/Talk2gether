@@ -6,7 +6,7 @@ import { INPUT_TYPE } from '../../../../../shared/enums/input-type.enum';
 import { ModalComponent } from '../../../../shared/bootstrap-modal/bootstrap-modal.component';
 import { VideoCallService } from '../../services/video-call.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { catchError, Observable, of, switchMap } from 'rxjs';
+import { catchError, EMPTY, Observable, of, switchMap } from 'rxjs';
 import { QUALIFY_USER } from '../../../../../shared/models/qualifyUser.model';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
@@ -14,11 +14,21 @@ import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { RateService } from '../../services/rate.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CUSTOM_REQUIRED } from '../../../../../shared/validators/formValidator';
+import { FormErrorComponent } from '../../../../shared/form-error/form-error.component';
+import { FormService } from '../../../../../shared/services/form.service';
 
 @Component({
   selector: 'fhv-rate-user',
   standalone: true,
-  imports: [CommonModule, ModalComponent, TranslateModule],
+  imports: [
+    CommonModule,
+    ModalComponent,
+    TranslateModule,
+    ReactiveFormsModule,
+    FormErrorComponent,
+  ],
   templateUrl: './rate-user.component.html',
   styleUrl: './rate-user.component.scss',
 })
@@ -28,6 +38,8 @@ export class RateUserComponent implements OnInit {
   readonly INPUT_TYPE = INPUT_TYPE;
   selectedRating: number = 0;
   qualifyUser$: Observable<QUALIFY_USER>;
+  submitForm: boolean = false;
+  rateForm: FormGroup;
   private readonly videoCallService: VideoCallService =
     inject(VideoCallService);
   private readonly userService: UserService = inject(UserService);
@@ -42,8 +54,17 @@ export class RateUserComponent implements OnInit {
   );
   private readonly rateService: RateService = inject(RateService);
   private readonly destroy: DestroyRef = inject(DestroyRef);
+  protected readonly formService: FormService = inject(FormService);
 
   ngOnInit() {
+    this.rateForm = new FormGroup(
+      {
+        star: new FormControl('', [CUSTOM_REQUIRED]),
+      },
+      {
+        updateOn: 'change',
+      }
+    );
     this.qualifyUser$ = this.userService.getIdUser().pipe(
       switchMap<number, Observable<QUALIFY_USER>>((userId) =>
         this.videoCallService.getParticipant(userId, this.idVideoCall)
@@ -56,17 +77,19 @@ export class RateUserComponent implements OnInit {
           ),
           icon: SWEET_ALERT_ICON.ERROR,
         });
-        return of(null);
+        return EMPTY;
       })
     );
   }
 
   onRatingSelected(value: number): void {
     this.selectedRating = value;
+    this.rateForm.get('star').setValue(value);
   }
 
   rateUser(qualifyUser: QUALIFY_USER): void {
-    this.spinnerGeneralService.showSpinner();
+    this.submitForm = true;
+    if (this.rateForm.invalid) return;
     this.rateService
       .rateUser(
         qualifyUser.idCalificador,
@@ -85,7 +108,7 @@ export class RateUserComponent implements OnInit {
             ),
             icon: SWEET_ALERT_ICON.ERROR,
           });
-          return of(null);
+          return EMPTY;
         })
       )
       .subscribe({

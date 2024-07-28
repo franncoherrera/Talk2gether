@@ -9,7 +9,7 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, Observable, of, switchMap, tap } from 'rxjs';
+import { catchError, EMPTY, Observable, of, switchMap, tap } from 'rxjs';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { CONFIG_USER } from '../../../../../shared/models/configUser.model';
@@ -63,7 +63,7 @@ export class PersonalConfigurationComponent implements OnInit {
             ),
             SWEET_ALERT_ICON.ERROR
           );
-          return of(null);
+          return EMPTY;
         })
       )
       .subscribe({

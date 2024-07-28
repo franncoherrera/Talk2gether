@@ -9,7 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, of, take } from 'rxjs';
+import { catchError, EMPTY, of, take } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
@@ -54,7 +54,7 @@ export class VideoCallComponent implements OnInit, OnDestroy {
             icon: SWEET_ALERT_ICON.WARNING,
           });
           this.router.navigate([ROUTES_PATH.MAIN_PAGE]);
-          return of(null);
+          return EMPTY;
         })
       )
       .subscribe({

@@ -67,7 +67,6 @@ export class MainPageComponent implements OnInit {
           return this.mainPageService.searchRoom(userId);
       }),
       catchError(() => {
-      
         return of([]);
       })
     );
