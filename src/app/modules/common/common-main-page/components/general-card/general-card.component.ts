@@ -27,6 +27,7 @@ export class GeneralCardComponent {
   protected translateService: TranslateService = inject(TranslateService);
 
   protected goVideoCall(room: ROOM_USER): void {
+    if (room.idReunionVirtual === null) return;
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success ms-5',
