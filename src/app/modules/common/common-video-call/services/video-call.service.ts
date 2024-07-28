@@ -16,8 +16,7 @@ export class VideoCallService {
     const url: string = this.urlBuilderService.buildUrl(
       ENDPOINTS.GET_PARTICIPANT,
       {
-        id: userId,
-        idMeeting: idMeeting,
+        id: idMeeting,
       }
     );
     return this.httpClient.get<QUALIFY_USER>(url);

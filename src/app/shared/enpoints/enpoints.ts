@@ -25,6 +25,6 @@ export const ENDPOINTS = {
   EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
   /* Rate user */
   GET_PARTICIPANT:
-    '/reunionvirtual/obtenerUsuarioACalificar/user${id}',
+    '/reunionvirtual/obtenerUsuarioACalificar/user${id}.json',
   RATE_USER: '/usuario/calificarusuario',
 };
