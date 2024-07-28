@@ -1,22 +1,19 @@
 import { CommonModule } from '@angular/common';
 import {
   Component,
-  EventEmitter,
   input,
-  Input,
   model,
   OnInit,
   output,
-  Output,
   signal,
-  WritableSignal,
+  WritableSignal
 } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class';
 import { INPUT_TYPE } from '../../../shared/enums/input-type.enum';
 import { EyeButtonComponent } from '../eye-button/eye-button.component';
 import { FormErrorComponent } from '../form-error/form-error.component';
-import { ICON_CLASS } from '../../../../../public/assets/icons_class/icon_class';
 
 @Component({
   selector: 'fhv-input-form',

@@ -16,8 +16,11 @@
     <h2 class="fhv-rate-user__subtitle">
       {{ "common.rate_user_page.rate_user_page_text" | translate }}
     </h2>
-    <div
+    <form
       class="fhv-rate-user__stars d-flex align-items-center justify-content-center"
+      [formGroup]="rateForm"
+      (ngSubmit)="rateUser(qualifyUser)"
+      (keydown.enter)="rateUser(qualifyUser)"
     >
       <div class="fhv-rate-user__stars__class clasificacion">
         <input
@@ -25,12 +28,14 @@
           type="{{ INPUT_TYPE.RADIO }}"
           value="5"
           name="star"
+          formControlName="star"
           (click)="onRatingSelected(5)"
         />
         <label for="radio1"> <i [class]="ICON_CLASS.star"></i></label>
         <input
           id="radio2"
           type="{{ INPUT_TYPE.RADIO }}"
+          control="formService.formControl(rateForm, 'star')"
           value="4"
           name="star"
           (click)="onRatingSelected(4)"
@@ -61,15 +66,23 @@
         />
         <label for="radio5"> <i [class]="ICON_CLASS.star"></i></label>
       </div>
-    </div>
+    </form>
+    <fhv-form-error
+      class="d-flex justify-content-center"
+      [showError]="submitForm"
+      [control]="formService.formControl(rateForm, 'star')"
+    />
+
     <div class="fhv-rate-user__buttons d-flex justify-content-between">
       <button
         class="fhv-rate-user__buttons__back"
+        type="button"
         (click)="customModalService.dismissActiveModal()"
       >
         {{ "common.rate_user_page.rate_user_page_button_back" | translate }}
       </button>
       <button
+        type="submit"
         class="fhv-rate-user__buttons__next"
         (click)="rateUser(qualifyUser)"
       >

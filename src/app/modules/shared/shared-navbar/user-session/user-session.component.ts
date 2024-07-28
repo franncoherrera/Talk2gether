@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, combineLatest, Observable, of, tap } from 'rxjs';
+import { catchError, combineLatest, EMPTY, Observable, of, tap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../helpers/sweet-alert.service';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
@@ -52,7 +52,7 @@ export class UserSessionComponent implements OnInit {
           );
           this.sesionService.clearLocalSession();
           this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
-          return of();
+          return EMPTY;
         })
       );
       this.combined$ = combineLatest({
