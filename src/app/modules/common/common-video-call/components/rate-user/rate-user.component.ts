@@ -90,38 +90,45 @@ export class RateUserComponent implements OnInit {
   rateUser(qualifyUser: QUALIFY_USER): void {
     this.submitForm = true;
     if (this.rateForm.invalid) return;
-    this.rateService
-      .rateUser(
-        qualifyUser.idCalificador,
-        qualifyUser.idCalificado,
-        qualifyUser.idReunionVirtual,
-        this.selectedRating
-      )
-      .pipe(
-        takeUntilDestroyed(this.destroy),
-        catchError(() => {
-          this.spinnerGeneralService.hideSpinner();
-          this.customModalService.dismissActiveModal();
-          this.sweetAlertService.alertImpromptu({
-            title: this.translateService.instant(
-              'common.error.general_error_user_not_qualify'
-            ),
-            icon: SWEET_ALERT_ICON.ERROR,
-          });
-          return EMPTY;
-        })
-      )
-      .subscribe({
-        next: () => {
-          this.spinnerGeneralService.hideSpinner();
-          this.customModalService.dismissActiveModal();
-          this.sweetAlertService.alertImpromptu({
-            title: this.translateService.instant(
-              'common.rate_user_page.rate_user_page_qualify_user'
-            ),
-            icon: SWEET_ALERT_ICON.SUCCESS,
-          });
-        },
-      });
+    this.customModalService.dismissActiveModal();
+    this.sweetAlertService.alertImpromptu({
+      title: this.translateService.instant(
+        'common.rate_user_page.rate_user_page_qualify_user'
+      ),
+      icon: SWEET_ALERT_ICON.SUCCESS,
+    });
+    // this.rateService
+    //   .rateUser(
+    //     qualifyUser.idCalificador,
+    //     qualifyUser.idCalificado,
+    //     qualifyUser.idReunionVirtual,
+    //     this.selectedRating
+    //   )
+    //   .pipe(
+    //     takeUntilDestroyed(this.destroy),
+    //     catchError(() => {
+    //       this.spinnerGeneralService.hideSpinner();
+    //       this.customModalService.dismissActiveModal();
+    //       this.sweetAlertService.alertImpromptu({
+    //         title: this.translateService.instant(
+    //           'common.error.general_error_user_not_qualify'
+    //         ),
+    //         icon: SWEET_ALERT_ICON.ERROR,
+    //       });
+    //       return EMPTY;
+    //     })
+    //   )
+    //   .subscribe({
+    //     next: () => {
+    //       this.spinnerGeneralService.hideSpinner();
+    //       this.customModalService.dismissActiveModal();
+    //       this.sweetAlertService.alertImpromptu({
+    //         title: this.translateService.instant(
+    //           'common.rate_user_page.rate_user_page_qualify_user'
+    //         ),
+    //         icon: SWEET_ALERT_ICON.SUCCESS,
+    //       });
+    //     },
+    //   });
   }
 }
