@@ -77,6 +77,7 @@ export class RateUserComponent implements OnInit {
       .pipe(
         takeUntilDestroyed(this.destroy),
         catchError(() => {
+          this.spinnerGeneralService.hideSpinner();
           this.customModalService.dismissActiveModal();
           this.sweetAlertService.alertImpromptu({
             title: this.translateService.instant(
@@ -89,13 +90,14 @@ export class RateUserComponent implements OnInit {
       )
       .subscribe({
         next: () => {
+          this.spinnerGeneralService.hideSpinner();
           this.sweetAlertService.alertImpromptu({
             title: this.translateService.instant(
               'common.rate_user_page.rate_user_page_qualify_user'
             ),
             icon: SWEET_ALERT_ICON.SUCCESS,
           });
-        }
+        },
       });
   }
 }
