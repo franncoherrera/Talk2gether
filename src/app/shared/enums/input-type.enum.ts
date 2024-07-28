@@ -7,4 +7,5 @@ export enum INPUT_TYPE {
   CHECKBOX = 'checkbox',
   SEARCH = 'search',
   NUMBER = 'number',
+  RADIO = 'radio',
 }

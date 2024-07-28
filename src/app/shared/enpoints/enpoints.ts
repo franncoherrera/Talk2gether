@@ -23,4 +23,8 @@ export const ENDPOINTS = {
   /* Personal configuration endpoint */
   CONFIG_DATA: '/cuenta/obtenerdatospersonales/data.json',
   EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
+  /* Rate user */
+  GET_PARTICIPANT:
+    '/reunionvirtual/obtenerUsuarioACalificar/user${id}',
+  RATE_USER: '/usuario/calificarusuario',
 };

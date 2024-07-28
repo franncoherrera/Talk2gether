@@ -1,0 +1,81 @@
+@if(qualifyUser$ | async; as qualifyUser){
+<fhv-bootstrap-modal
+  modalTitle="{{ 'common.rate_user_page.rate_user_page_title' | translate }}"
+>
+  <div class="fhv-rate-user">
+    <h1 class="fhv-rate-user__title">
+      {{
+        "common.rate_user_page.rate_user_page_subtitle"
+          | translate
+            : {
+                name: qualifyUser.nombreUsuarioCalificado,
+                surname: qualifyUser.apellidoUsuarioCalificado
+              }
+      }}
+    </h1>
+    <h2 class="fhv-rate-user__subtitle">
+      {{ "common.rate_user_page.rate_user_page_text" | translate }}
+    </h2>
+    <div
+      class="fhv-rate-user__stars d-flex align-items-center justify-content-center"
+    >
+      <div class="fhv-rate-user__stars__class clasificacion">
+        <input
+          id="radio1"
+          type="{{ INPUT_TYPE.RADIO }}"
+          value="5"
+          name="star"
+          (click)="onRatingSelected(5)"
+        />
+        <label for="radio1"> <i [class]="ICON_CLASS.star"></i></label>
+        <input
+          id="radio2"
+          type="{{ INPUT_TYPE.RADIO }}"
+          value="4"
+          name="star"
+          (click)="onRatingSelected(4)"
+        />
+        <label for="radio2"> <i [class]="ICON_CLASS.star"></i></label>
+        <input
+          id="radio3"
+          type="{{ INPUT_TYPE.RADIO }}"
+          value="3"
+          name="star"
+          (click)="onRatingSelected(3)"
+        />
+        <label for="radio3"> <i [class]="ICON_CLASS.star"></i></label>
+        <input
+          id="radio4"
+          type="{{ INPUT_TYPE.RADIO }}"
+          value="2"
+          name="star"
+          (click)="onRatingSelected(2)"
+        />
+        <label for="radio4"> <i [class]="ICON_CLASS.star"></i></label>
+        <input
+          id="radio5"
+          type="{{ INPUT_TYPE.RADIO }}"
+          value="1"
+          name="star"
+          (click)="onRatingSelected(1)"
+        />
+        <label for="radio5"> <i [class]="ICON_CLASS.star"></i></label>
+      </div>
+    </div>
+    <div class="fhv-rate-user__buttons d-flex justify-content-between">
+      <button
+        class="fhv-rate-user__buttons__back"
+        (click)="customModalService.getActiveModal()"
+      >
+        {{ "common.rate_user_page.rate_user_page_button_back" | translate }}
+      </button>
+      <button
+        class="fhv-rate-user__buttons__next"
+        (click)="rateUser(qualifyUser)"
+      >
+        {{ "common.rate_user_page.rate_user_page_button_continue" | translate }}
+      </button>
+    </div>
+  </div>
+</fhv-bootstrap-modal>
+}

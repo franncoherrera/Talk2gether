@@ -13,11 +13,11 @@ export const emptyPhotoVideoCallGuard: CanActivateFn = () => {
   const sweetAlertService: SweetAlertService = inject(SweetAlertService);
   const translateService = inject(TranslateService);
   mainPageService
-    .getUrlPhoto()
+    .getRoom()
     .pipe(take(1))
     .subscribe({
-      next: (urlPhoto) => {
-        if (urlPhoto === null) {
+      next: (room) => {
+        if (room === null) {
           sweetAlertService.alertImpromptu({
             title: translateService.instant(
               'common.error.general_error_null_video_call'

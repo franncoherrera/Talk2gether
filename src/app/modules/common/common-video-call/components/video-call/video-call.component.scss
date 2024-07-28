@@ -52,7 +52,8 @@
       background-color: var(--color-message-error);
     }
     @include media-breakpoint-down(lg) {
-      height: 10dvh;
+      height: auto;
+      padding-bottom: 1rem;
       gap: 0.5rem;
       &__bg {
         min-width: 3.625rem;
