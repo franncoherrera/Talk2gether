@@ -21,7 +21,9 @@
       "recover_password_error": "Unable to send recovery email. Please try again later.",
       "general_error_min_max_age": "Minimum age cannot exceed maximum age",
       "general_error_min_max_age_required": "Enter minimum and maximum age or leave the field empty",
-      "general_error_null_video_call": "The room you are trying to join does not exist"
+      "general_error_null_video_call": "The room you are trying to join does not exist",
+      "general_error_no_call": "No one joined the meeting or the meeting was never created. It cannot be rated.",
+      "general_error_user_not_qualify": "The user could not be rated."
     },
     "navbar": {
       "login_button": "Login",
@@ -220,6 +222,14 @@
       "video_call_modal_subtitle": "Don't hesitate, just join",
       "video_call_modal_button_continue": "Continue",
       "video_call_modal_button_back": "Back"
+    },
+    "rate_user_page": {
+      "rate_user_page_title": "Rate Learner",
+      "rate_user_page_subtitle": "How was your experience with {{name}} {{surname}}?",
+      "rate_user_page_text": "If you do not want to rate, just close the window",
+      "rate_user_page_button_continue": "Rate",
+      "rate_user_page_button_back": "Back",
+      "rate_user_page_qualify_user": "User rated."
     }
   }
 }

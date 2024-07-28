@@ -1,0 +1,64 @@
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+
+.fhv-rate-user {
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-containers);
+  color: var(--color-white);
+  &__title {
+    @include apply-responsive-font-size($font-size-title);
+    padding: 2rem 2rem 1rem 2rem;
+    margin: 0;
+  }
+  &__subtitle {
+    @include apply-responsive-font-size($font-size-subtitle);
+    padding: 0 2rem;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__stars {
+    input[type="radio"] {
+      display: none;
+    }
+    &__class {
+      direction: rtl;
+      unicode-bidi: bidi-override;
+      padding: 2.5rem 0;
+    }
+    label {
+      color: var(--color-bg-back);
+      i {
+        font-size: 7rem;
+        @include media-breakpoint-down(lg) {
+          font-size: 5rem;
+        }
+        @include media-breakpoint-down(md) {
+          font-size: 3rem;
+        }
+      }
+    }
+    label:hover,
+    label:hover ~ label {
+      color: var(--color-gold);
+    }
+
+    input[type="radio"]:checked ~ label {
+      color: var(--color-gold);
+    }
+  }
+  &__buttons {
+    padding: 2rem;
+    width: 100%;
+    &__next {
+      @include buttons-enabled;
+      width: 40%;
+    }
+    &__back {
+      @include buttons-back;
+      width: 40%;
+    }
+  }
+}

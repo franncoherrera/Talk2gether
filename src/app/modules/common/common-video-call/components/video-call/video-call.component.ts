@@ -27,7 +27,7 @@ import { RateUserComponent } from '../rate-user/rate-user.component';
 })
 export class VideoCallComponent implements OnInit, OnDestroy {
   room: ROOM_USER;
-  idVideoCall: number = null;
+  idVideoCall: string = null;
   readonly ICON_CLASS = ICON_CLASS;
   isMuted: boolean = false;
   isSharedVideo: boolean = false;
@@ -60,7 +60,7 @@ export class VideoCallComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (room) => {
           this.room = room;
-          this.idVideoCall = room.idReunionVirtual;
+          this.idVideoCall = room.linkReunionVirtual;
         },
       });
   }
