@@ -114,6 +114,7 @@ export class RateUserComponent implements OnInit {
       .subscribe({
         next: () => {
           this.spinnerGeneralService.hideSpinner();
+          this.customModalService.dismissActiveModal();
           this.sweetAlertService.alertImpromptu({
             title: this.translateService.instant(
               'common.rate_user_page.rate_user_page_qualify_user'
