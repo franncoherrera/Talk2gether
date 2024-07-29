@@ -230,6 +230,9 @@
       "rate_user_page_button_continue": "Calificar",
       "rate_user_page_button_back": "Volver",
       "rate_user_page_qualify_user": "Usuario calificado."
+    },
+    "tour":{
+      "tour_button": "Play tour"
     }
   }
 }
