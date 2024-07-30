@@ -27,7 +27,11 @@
           )
         "
       >
-        {{ "common.configuration_page.configuration_modal_button" | translate }}
+        <span id="configuration-card">
+          {{
+            "common.configuration_page.configuration_modal_button" | translate
+          }}
+        </span>
       </button>
       <input
         class="fhv-edit-configuration__container__photo__input"
@@ -35,7 +39,10 @@
         (change)="onFileSelected($event)"
       />
     </div>
-    <div class="fhv-edit-configuration__container__fields">
+    <div
+      class="fhv-edit-configuration__container__fields"
+      id="configuration-field"
+    >
       <fhv-input-form
         [name]="'userName'"
         label="{{ 'common.register_page.register_name' | translate }}"
