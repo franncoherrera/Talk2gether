@@ -276,6 +276,16 @@
         "title": "Search",
         "description": "You can search for learners by name, interests, or nationality."
       }
+    },
+    "configuration": {
+      "#configuration-field": {
+        "title": "Your personal data",
+        "description": "You will be able to view or edit personal data to change your tastes or preferences."
+      },
+      "#configuration-card": {
+        "title": "How do I look on the platform?",
+        "description": "You will be able to see how your created room will look on the platform. If you have just uploaded an image, you can preview it before saving."
+      }
     }
   }
 }

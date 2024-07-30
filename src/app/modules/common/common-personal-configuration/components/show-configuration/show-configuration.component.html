@@ -8,8 +8,10 @@
         class="fhv-show-configuration__container__photo__img"
         [src]="formGroup().get('urlPhoto').value"
       />
+
       <button
         class="fhv-show-configuration__container__photo__button"
+        type="button"
         (click)="
           personalConfigurationService.openPreviewCard(
             formGroup(),
@@ -17,10 +19,17 @@
           )
         "
       >
-        {{ "common.configuration_page.configuration_modal_button" | translate }}
+        <span id="configuration-card">
+          {{
+            "common.configuration_page.configuration_modal_button" | translate
+          }}</span
+        >
       </button>
     </div>
-    <div class="fhv-show-configuration__container__fields">
+    <div
+      class="fhv-show-configuration__container__fields"
+      id="configuration-field"
+    >
       <h1>
         <strong>
           {{ "common.configuration_page.configuration_email" | translate }}

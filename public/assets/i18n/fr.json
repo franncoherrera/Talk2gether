@@ -276,6 +276,16 @@
         "title": "Recherche",
         "description": "Vous pouvez rechercher des apprenants par nom, intérêts ou nationalité."
       }
+    },
+    "configuration": {
+      "#configuration-field": {
+        "title": "Vos données personnelles",
+        "description": "Vous pourrez voir ou modifier les données personnelles pour changer vos goûts ou préférences."
+      },
+      "#configuration-card": {
+        "title": "Comment je me présente sur la plateforme ?",
+        "description": "Vous pourrez voir à quoi ressemblera votre salle créée sur la plateforme. Si vous venez de télécharger une image, vous pouvez la visualiser avant de sauvegarder."
+      }
     }
   }
 }
