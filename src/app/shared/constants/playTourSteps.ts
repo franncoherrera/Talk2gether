@@ -73,8 +73,22 @@ export const PAGE_TOUR = {
       },
     },
   ],
+  [ROUTES_PATH.CONFIG_PAGE]: [
+    {
+      element: '#configuration-field',
+      popover: {
+        title: 'common.configuration.#configuration-field.title',
+        description: 'common.configuration.#configuration-field.description',
+      },
+    },
+    {
+      element: '#configuration-card',
+      popover: {
+        title: 'common.configuration.#configuration-card.title',
+        description: 'common.configuration.#configuration-card.description',
+      },
+    },
+  ],
 };
 
-export const ALLOW_PAGE = [ROUTES_PATH.MAIN_PAGE]
-
-
+export const ALLOW_PAGE = [ROUTES_PATH.MAIN_PAGE, ROUTES_PATH.CONFIG_PAGE];

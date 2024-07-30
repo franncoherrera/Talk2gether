@@ -262,12 +262,12 @@
         "description": "Te dirigiras al chat con esa persona para aprender cosas nuevas."
       },
       "#general-buttons": {
-        "title": "Principales botones de la pagina principal",
+        "title": "Principales botones de la página principal",
         "description": "Los veremos uno por uno, continua..."
       },
       "#general-buttons-filter": {
         "title": "Filtros",
-        "description": "Realiza una busqueda de salas personalizada dependiendo lo que tengas ganas."
+        "description": "Realiza una búsqueda de salas personalizada dependiendo lo que tengas ganas."
       },
       "#general-buttons-create": {
         "title": "Tu propia sala",
@@ -280,6 +280,16 @@
       "#general-buttons-search": {
         "title": "Buscador",
         "description": "Puedes buscar los aprendices por nombre, intereses o nacionalidad."
+      }
+    },
+    "configuration": {
+      "#configuration-field": {
+        "title": "Tus datos personales",
+        "description": "Podrás ver o editar los datos personales para cambiar tus gustos o preferencias."
+      },
+      "#configuration-card": {
+        "title": "¿Cómo me veo en la plataforma?",
+        "description": "Podrás ver como se verá tu sala creada en la plataforma. Si acabas de subir una imagen puedes visualizarla antes de guardar."
       }
     }
   }
