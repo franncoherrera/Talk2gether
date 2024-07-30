@@ -235,6 +235,52 @@
       "rate_user_page_button_continue": "Calificar",
       "rate_user_page_button_back": "Volver",
       "rate_user_page_qualify_user": "Usuario calificado."
+    },
+    "tour": {
+      "tour_button": "Play tour",
+      "tour_button_next": "Siguiente",
+      "tour_button_back": "Anterior",
+      "tour_button_done": "Hecho",
+      "#general-card-container": {
+        "title": "Estás son las tarjetas de la plataforma",
+        "description": "El aprendiz estará esperando para hablar en el idioma que seleccionaste para aprender."
+      },
+      "#general-card-star": {
+        "title": "Calificación",
+        "description": "Esta es el promedio de calificaciones que el aprendiz se ha ganado."
+      },
+      "#general-card-info": {
+        "title": "Datos del aprendiz",
+        "description": "Verás el nombre, la edad y de que nacionalidad es."
+      },
+      "#general-card-call": {
+        "title": "Unirse a videollamada",
+        "description": "Si presionas entrarás a una sala para practicar idioma y divertirte."
+      },
+      "#general-card-menssage": {
+        "title": "Chatear",
+        "description": "Te dirigiras al chat con esa persona para aprender cosas nuevas."
+      },
+      "#general-buttons": {
+        "title": "Principales botones de la pagina principal",
+        "description": "Los veremos uno por uno, continua..."
+      },
+      "#general-buttons-filter": {
+        "title": "Filtros",
+        "description": "Realiza una busqueda de salas personalizada dependiendo lo que tengas ganas."
+      },
+      "#general-buttons-create": {
+        "title": "Tu propia sala",
+        "description": "Prodrás crear tu sala para que otra persona se una y puedan hablar."
+      },
+      "#general-buttons-toggle": {
+        "title": "Diferentes estilos",
+        "description": "Puedes cambiar el estilo de como se verán tus tarjetas cuando ingreses a la plataforma."
+      },
+      "#general-buttons-search": {
+        "title": "Buscador",
+        "description": "Puedes buscar los aprendices por nombre, intereses o nacionalidad."
+      }
     }
   }
 }

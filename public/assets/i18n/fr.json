@@ -235,6 +235,52 @@
       "rate_user_page_button_continue": "Évaluer",
       "rate_user_page_button_back": "Retour",
       "rate_user_page_qualify_user": "Utilisateur évalué."
+    },
+    "tour": {
+      "tour_button": "Lancer la visite",
+      "tour_button_next": "Suivant",
+      "tour_button_back": "Précédent",
+      "tour_button_done": "Fait",
+      "#general-card-container": {
+        "title": "Voici les cartes de la plateforme",
+        "description": "L'apprenant attendra pour parler dans la langue que vous avez sélectionnée pour apprendre."
+      },
+      "#general-card-star": {
+        "title": "Évaluation",
+        "description": "C'est la note moyenne que l'apprenant a obtenue."
+      },
+      "#general-card-info": {
+        "title": "Données de l'apprenant",
+        "description": "Vous verrez le nom, l'âge et la nationalité."
+      },
+      "#general-card-call": {
+        "title": "Rejoindre l'appel vidéo",
+        "description": "Si vous appuyez, vous entrerez dans une salle pour pratiquer la langue et vous amuser."
+      },
+      "#general-card-message": {
+        "title": "Discuter",
+        "description": "Vous accéderez au chat avec cette personne pour apprendre de nouvelles choses."
+      },
+      "#general-buttons": {
+        "title": "Principaux boutons de la page d'accueil",
+        "description": "Nous les passerons en revue un par un, continuez..."
+      },
+      "#general-buttons-filter": {
+        "title": "Filtres",
+        "description": "Effectuez une recherche personnalisée des salles en fonction de vos envies."
+      },
+      "#general-buttons-create": {
+        "title": "Votre propre salle",
+        "description": "Vous pouvez créer votre salle pour qu'une autre personne puisse se joindre à vous et parler."
+      },
+      "#general-buttons-toggle": {
+        "title": "Différents styles",
+        "description": "Vous pouvez changer le style de l'apparence de vos cartes lorsque vous entrez sur la plateforme."
+      },
+      "#general-buttons-search": {
+        "title": "Recherche",
+        "description": "Vous pouvez rechercher des apprenants par nom, intérêts ou nationalité."
+      }
     }
   }
 }

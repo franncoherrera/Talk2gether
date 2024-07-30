@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { SharedNavbarModule } from './modules/shared/shared-navbar/shared-navbar/shared-navbar.module';
 import { SpinnerGeneralModule } from './modules/shared/spinner-general/spinner-general.module';
 import { CustomTranslateService } from './shared/services/custom-translate.service';
+import "driver.js/dist/driver.css";
 
 @Component({
   selector: 'fhv-root',

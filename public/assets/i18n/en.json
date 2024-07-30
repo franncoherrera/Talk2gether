@@ -235,6 +235,52 @@
       "rate_user_page_button_continue": "Rate",
       "rate_user_page_button_back": "Back",
       "rate_user_page_qualify_user": "User rated."
+    },
+    "tour": {
+      "tour_button": "Play tour",
+      "tour_button_next": "Next",
+      "tour_button_back": "Back",
+      "tour_button_done": "Done",
+      "#general-card-container": {
+        "title": "These are the platform cards",
+        "description": "The learner will be waiting to speak in the language you selected to learn."
+      },
+      "#general-card-star": {
+        "title": "Rating",
+        "description": "This is the average rating the learner has earned."
+      },
+      "#general-card-info": {
+        "title": "Learner's Data",
+        "description": "You will see the name, age, and nationality."
+      },
+      "#general-card-call": {
+        "title": "Join video call",
+        "description": "If you press, you will enter a room to practice the language and have fun."
+      },
+      "#general-card-message": {
+        "title": "Chat",
+        "description": "You will go to chat with that person to learn new things."
+      },
+      "#general-buttons": {
+        "title": "Main buttons on the homepage",
+        "description": "We will go through them one by one, continue..."
+      },
+      "#general-buttons-filter": {
+        "title": "Filters",
+        "description": "Perform a customized room search depending on what you feel like."
+      },
+      "#general-buttons-create": {
+        "title": "Your own room",
+        "description": "You can create your room for someone else to join and talk."
+      },
+      "#general-buttons-toggle": {
+        "title": "Different styles",
+        "description": "You can change the style of how your cards will look when you enter the platform."
+      },
+      "#general-buttons-search": {
+        "title": "Search",
+        "description": "You can search for learners by name, interests, or nationality."
+      }
     }
   }
 }

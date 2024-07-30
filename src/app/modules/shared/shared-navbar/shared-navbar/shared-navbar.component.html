@@ -43,7 +43,7 @@
       <ul class="navbar-nav">
         <fhv-language-dropdown (closeNavbar)="closeNavbar()" />
         <fhv-buttons-session (closeNavbar)="closeNavbar()" />
-        <fhv-common-buttons (closeNavbar)="closeNavbar()" />
+        <fhv-common-buttons (closeNavbar)="closeNavbar()" [currentUrl]="currentUrl"/>
         <fhv-user-session (closeNavbar)="closeNavbar()" />
       </ul>
     </div>

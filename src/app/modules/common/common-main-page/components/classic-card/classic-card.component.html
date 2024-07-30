@@ -1,11 +1,11 @@
-<div class="fhv-classic-card__box">
+<div class="fhv-classic-card__box" id="general-card-container">
   <div class="fhv-classic-card__box__top">
-    <div class="fhv-classic-card__box__top__star">
+    <div class="fhv-classic-card__box__top__star" id="general-card-star">
       {{ room().cantidadEstrellas }}
       <i [class]="ICON_CLASS.star"></i>
     </div>
     <img class="fhv-classic-card__box__top__image" [src]="room().urlFoto" />
-    <div class="fhv-classic-card__box__top__flex">
+    <div class="fhv-classic-card__box__top__flex" id="general-card-info">
       <h3 class="fhv-classic-card__box__top__flex-title">
         {{ room().nombreUsuario }} - {{ room().edad }}
       </h3>
@@ -24,11 +24,16 @@
     </div>
   </div>
   <div class="fhv-classic-card__box__buttons">
-    <div class="fhv-classic-card__box__buttons__icon" type="button">
+    <div
+      class="fhv-classic-card__box__buttons__icon"
+      type="button"
+      id="general-card-menssage"
+    >
       <i [class]="ICON_CLASS.message"></i>
     </div>
     <div
       class="fhv-classic-card__box__buttons__icon"
+      id="general-card-call"
       type="button"
       (click)="goVideoCall(room())"
     >
