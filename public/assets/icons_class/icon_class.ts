@@ -27,4 +27,5 @@ export const ICON_CLASS = {
   microphone_lines_slash: 'fa-solid fa-microphone-lines-slash',
   phone_slash: 'fa-solid fa-phone-slash',
   desktop: 'fa-solid fa-desktop',
+  play: 'fa-solid fa-circle-play',
 };

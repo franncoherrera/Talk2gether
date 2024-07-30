@@ -1,6 +1,6 @@
-<li class="fhv-modern-card__container">
+<li class="fhv-modern-card__container" id="general-card-container">
   <a class="fhv-modern-card__container__card">
-    <div class="fhv-modern-card__container__card__star">
+    <div class="fhv-modern-card__container__card__star" id="general-card-star">
       {{ room().cantidadEstrellas }}
       <i [class]="ICON_CLASS.star"></i>
     </div>
@@ -12,7 +12,7 @@
       class="fhv-modern-card__container__card__image"
     />
     <div class="fhv-modern-card__container__card__overlay">
-      <div class="fhv-modern-card__container__card__overlay__header">
+      <div class="fhv-modern-card__container__card__overlay__header" >
         <svg class="fhv-modern-card__container__card__overlay__header__arc">
           <path />
         </svg>
@@ -22,7 +22,7 @@
           }} fis"
         ></span>
         <div class="fhv-modern-card__container__card__overlay__header-icons">
-          <h3 class="fhv-modern-card__container__card__overlay__header__title">
+          <h3 class="fhv-modern-card__container__card__overlay__header__title"  id="general-card-info">
             {{ room().nombreUsuario }} - {{ room().edad }}
           </h3>
           @if(breakPointService.isMobile$ | async){
@@ -46,6 +46,7 @@
   <div class="d-flex">
     <div
       class="fhv-modern-card__container__card__msg"
+      id="general-card-menssage"
       [ngClass]="{
         mobile: (breakPointService.isMobile$ | async)
       }"
@@ -56,6 +57,7 @@
     <div
       class="fhv-modern-card__container__card__call"
       type="button"
+      id="general-card-call"
       [ngClass]="{
         mobile: (breakPointService.isMobile$ | async)
       }"

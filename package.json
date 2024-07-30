@@ -26,6 +26,7 @@
     "@ngx-translate/http-loader": "^8.0.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "driver.js": "^1.3.1",
     "flag-icons": "^7.2.3",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",

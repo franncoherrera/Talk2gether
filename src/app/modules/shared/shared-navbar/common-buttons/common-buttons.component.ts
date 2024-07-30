@@ -1,8 +1,9 @@
 import {
   Component,
   inject,
+  input,
   output,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
@@ -10,6 +11,8 @@ import { ROUTES_PATH } from '../../../../shared/constants/routes';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
 import { CommonReferralLinkComponent } from '../../../common/common-referral-link/common-referral-link.component';
+import { PlayTourService } from '../../../../shared/services/play-tour.service';
+import { ALLOW_PAGE } from '../../../../shared/constants/playTourSteps';
 
 @Component({
   selector: 'fhv-common-buttons',
@@ -21,10 +24,11 @@ export class CommonButtonsComponent {
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
   closeNavbar = output<void>();
+  currentUrl = input.required<string>();
 
   protected sesionService: SesionService = inject(SesionService);
   private customModalService: CustomModalService = inject(CustomModalService);
-  
+  protected playTourService: PlayTourService = inject(PlayTourService);
 
   closeNavbarChild(): void {
     this.closeNavbar.emit();
@@ -35,5 +39,9 @@ export class CommonButtonsComponent {
       CommonReferralLinkComponent,
       CUSTOM_MODAL_CONFIG
     );
+  }
+
+  getAllowUrl(): boolean {
+    return ALLOW_PAGE.includes(this.currentUrl());
   }
 }
