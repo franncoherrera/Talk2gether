@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ROUTES_PATH } from '../../../shared/constants/routes';
 import { PersonalConfigurationComponent } from './components/personal-configuration/personal-configuration.component';
 import { loggedGuard } from '../../../shared/guards/logged.guard';
+import { AccountEditConfigurationModule } from './components/account-edit-configuration/account-edit-configuration.module';
 
 export const CONFIG_PAGE_ROUTES: Routes = [
   {
@@ -19,6 +20,7 @@ export const CONFIG_PAGE_ROUTES: Routes = [
   imports: [
     CommonModule,
     PersonalConfigurationModule,
+    AccountEditConfigurationModule,
     RouterModule.forChild(CONFIG_PAGE_ROUTES),
   ],
 })
