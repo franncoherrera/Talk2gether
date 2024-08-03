@@ -224,6 +224,9 @@
       "configuration_account_subtitle_3": "Supprimer le compte.",
       "configuration_account_button_3": "Supprimer"
     },
+    "bloqued_user_modal": {
+      "bloqued_user_modal_title": "Utilisateurs bloqués"
+    },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",
       "video_call_modal_subtitle": "N'hésitez pas, rejoignez simplement",

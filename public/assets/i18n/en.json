@@ -224,6 +224,9 @@
       "configuration_account_subtitle_3": "Delete account.",
       "configuration_account_button_3": "Delete"
     },
+    "bloqued_user_modal": {
+      "bloqued_user_modal_title": "Blocked Users"
+    },
     "video_call_page": {
       "video_call_modal_title": "Are you sure you want to join the video call?",
       "video_call_modal_subtitle": "Don't hesitate, just join",

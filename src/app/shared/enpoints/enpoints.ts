@@ -23,7 +23,9 @@ export const ENDPOINTS = {
   /* Personal configuration endpoint */
   CONFIG_DATA: '/cuenta/obtenerdatospersonales/?idCuenta=${id}',
   EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
+  BLOQUED_USERS: '/cuenta/usuariosbloqueados?idCuenta=${id}',
   /* Rate user */
-  GET_PARTICIPANT: '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',
-  RATE_USER: '/usuario/calificarusuario'
+  GET_PARTICIPANT:
+    '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',
+  RATE_USER: '/usuario/calificarusuario',
 };

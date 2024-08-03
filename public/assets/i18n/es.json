@@ -224,6 +224,9 @@
       "configuration_account_subtitle_3": "Eliminar cuenta.",
       "configuration_account_button_3": "Eliminar"
     },
+    "bloqued_user_modal": {
+      "bloqued_user_modal_title": "Usuario bloqueados"
+    },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
       "video_call_modal_subtitle": "No lo dudes, solo únete",
