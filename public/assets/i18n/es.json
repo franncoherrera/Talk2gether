@@ -215,7 +215,14 @@
       "configuration_modal_title": "Previsualización de un ejemplo de como te verás en la plataforma",
       "configuration_modal_button": "Ver tarjetas",
       "configuration_save": "Guardar cambios",
-      "configuration_back": "Volver"
+      "configuration_back": "Volver",
+      "configuration_account_title": "Cuenta.",
+      "configuration_account_subtitle_1": "Ver usuario bloqueados.",
+      "configuration_account_button_1": "Usuario bloqueados",
+      "configuration_account_subtitle_2": "Contraseña.",
+      "configuration_account_button_2": "Cambiar contraseña",
+      "configuration_account_subtitle_3": "Eliminar cuenta.",
+      "configuration_account_button_3": "Eliminar"
     },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
@@ -252,7 +259,7 @@
         "title": "Unirse a videollamada",
         "description": "Si presionas entrarás a una sala para practicar idioma y divertirte."
       },
-      "#general-card-menssage": {
+      "#general-card-message": {
         "title": "Chatear",
         "description": "Te dirigiras al chat con esa persona para aprender cosas nuevas."
       },

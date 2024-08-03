@@ -215,7 +215,14 @@
       "configuration_modal_title": "Preview of how you will look on the platform",
       "configuration_modal_button": "View cards",
       "configuration_save": "Save changes",
-      "configuration_back": "Go back"
+      "configuration_back": "Go back",
+      "configuration_account_title": "Account.",
+      "configuration_account_subtitle_1": "View blocked users.",
+      "configuration_account_button_1": "Blocked users",
+      "configuration_account_subtitle_2": "Password.",
+      "configuration_account_button_2": "Change password",
+      "configuration_account_subtitle_3": "Delete account.",
+      "configuration_account_button_3": "Delete"
     },
     "video_call_page": {
       "video_call_modal_title": "Are you sure you want to join the video call?",

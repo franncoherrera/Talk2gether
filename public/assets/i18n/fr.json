@@ -215,7 +215,14 @@
       "configuration_modal_title": "Aperçu de comment vous apparaîtrez sur la plateforme",
       "configuration_modal_button": "Voir les cartes",
       "configuration_save": "Enregistrer les modifications",
-      "configuration_back": "Retourner"
+      "configuration_back": "Retourner",
+      "configuration_account_title": "Compte.",
+      "configuration_account_subtitle_1": "Voir les utilisateurs bloqués.",
+      "configuration_account_button_1": "Utilisateurs bloqués",
+      "configuration_account_subtitle_2": "Mot de passe.",
+      "configuration_account_button_2": "Changer le mot de passe",
+      "configuration_account_subtitle_3": "Supprimer le compte.",
+      "configuration_account_button_3": "Supprimer"
     },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",

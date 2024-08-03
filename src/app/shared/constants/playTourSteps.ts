@@ -59,10 +59,10 @@ export const PAGE_TOUR = {
       },
     },
     {
-      element: '#general-card-menssage',
+      element: '#general-card-message',
       popover: {
-        title: 'common.tour.#general-card-menssage.title',
-        description: 'common.tour.#general-card-menssage.description',
+        title: 'common.tour.#general-card-message.title',
+        description: 'common.tour.#general-card-message.description',
       },
     },
     {
