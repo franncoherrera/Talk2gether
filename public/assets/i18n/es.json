@@ -23,7 +23,9 @@
       "general_error_min_max_age_required": "Ingrese edad mínima y máxima sino deje el campo vacío",
       "general_error_null_video_call": "No existe la sala a la que intentas ingresar",
       "general_error_no_call": "Nadie se unio a la reunión o nunca se creo esta reunión. No se puede calificar.",
-      "general_error_user_not_qualify": "No se pudo calificar al usuario."
+      "general_error_user_not_qualify": "No se pudo calificar al usuario.",
+      "general_error_not_valid_pass": "La contraseña tiene que tener como mínimo 9 caracteres, un número, una minúscula y una mayúscula",
+      "general_error_dual_pass_equal": "Las contraseñas deben ser iguales"
     },
     "navbar": {
       "login_button": "Iniciar Sesión",
@@ -218,7 +220,7 @@
       "configuration_back": "Volver",
       "configuration_account_title": "Cuenta.",
       "configuration_account_subtitle_1": "Ver usuario bloqueados.",
-      "configuration_account_button_1": "Usuario bloqueados",
+      "configuration_account_button_1": "Usuarios bloqueados",
       "configuration_account_subtitle_2": "Contraseña.",
       "configuration_account_button_2": "Cambiar contraseña",
       "configuration_account_subtitle_3": "Eliminar cuenta.",
@@ -226,6 +228,17 @@
     },
     "bloqued_user_modal": {
       "bloqued_user_modal_title": "Usuario bloqueados"
+    },
+    "change_pass_modal": {
+      "change_pass_modal_title": "Cambiar contraseña",
+      "change_pass_label": "Contraseña actual",
+      "change_pass_placeholder": "Ingresá tu contraseña actual",
+      "change_new_pass_label": "Contraseña nueva",
+      "change_new_pass_placeholder": "Ingresá tu contraseña nueva",
+      "change_repeat_new_pass_label": "Repetí contraseña nueva",
+      "change_repeat_new_pass_placeholder": "Repetí la contraseña nueva",
+      "change_pass_modal_button": "Cambiar contraseña",
+      "change_pass_modal_message_ok": "Contraseña modificada correctamente"
     },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",

@@ -1,0 +1,16 @@
+@import "font-size";
+@import "_buttons.scss";
+
+.fhv-change-pass-modal {
+  font-family: var(--font-family);
+  border-radius: var(--border-radius-containers);
+  &__container {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-input);
+  }
+  &__button {
+    @include buttons-enabled;
+  }
+}

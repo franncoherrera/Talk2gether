@@ -1,13 +1,14 @@
-import { inject, Injectable } from '@angular/core';
-import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { HttpClient } from '@angular/common/http';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
-import { Observable } from 'rxjs';
-import { CONFIG_USER } from '../../../../shared/models/configUser.model';
+import { inject, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
-import { PreviewModalComponent } from '../../../shared/preview-modal/preview-modal.component';
+import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { CHANGE_PASS } from '../../../../shared/models/changePassWord.model';
+import { CONFIG_USER } from '../../../../shared/models/configUser.model';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
+import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
+import { PreviewModalComponent } from '../../../shared/preview-modal/preview-modal.component';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,11 @@ export class PersonalConfigurationService {
       id: idUser,
     });
     return this.httpClient.put(url, user, { responseType: 'text' });
+  }
+
+  changePassword(body: CHANGE_PASS): Observable<Object> {
+    const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.CHANGE_PASS);
+    return this.httpClient.put(url, body);
   }
 
   openPreviewCard(formControl: FormGroup, image: string | ArrayBuffer): void {

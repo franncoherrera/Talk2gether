@@ -23,7 +23,9 @@
       "general_error_min_max_age_required": "Entrez l'âge minimum et maximum ou laissez le champ vide",
       "general_error_null_video_call": "La salle que vous essayez de rejoindre n'existe pas",
       "general_error_no_call": "Personne n'a rejoint la réunion ou la réunion n'a jamais été créée. Elle ne peut pas être notée.",
-      "general_error_user_not_qualify": "L'utilisateur n'a pas pu être noté."
+      "general_error_user_not_qualify": "L'utilisateur n'a pas pu être noté.",
+      "general_error_not_valid_pass": "Le mot de passe doit comporter au moins 9 caractères, un chiffre, une lettre minuscule et une lettre majuscule",
+      "general_error_dual_pass_equal": "Les mots de passe doivent être identiques"
     },
     "navbar": {
       "login_button": "Connexion",
@@ -226,6 +228,17 @@
     },
     "bloqued_user_modal": {
       "bloqued_user_modal_title": "Utilisateurs bloqués"
+    },
+    "change_pass_modal": {
+      "change_pass_modal_title": "Changer le mot de passe",
+      "change_pass_label": "Mot de passe actuel",
+      "change_pass_placeholder": "Entrez votre mot de passe actuel",
+      "change_new_pass_label": "Nouveau mot de passe",
+      "change_new_pass_placeholder": "Entrez votre nouveau mot de passe",
+      "change_repeat_new_pass_label": "Répétez le nouveau mot de passe",
+      "change_repeat_new_pass_placeholder": "Répétez votre nouveau mot de passe",
+      "change_pass_modal_button": "Changer le mot de passe",
+      "change_pass_modal_message_ok": "Mot de passe modifié avec succès"
     },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",

@@ -20,9 +20,11 @@ import { GeneralService } from '../../../../../shared/services/general.service';
 import { ParameterService } from '../../../../../shared/services/parameter.service';
 import {
   CUSTOM_EMAIL_PATTERN,
+  CUSTOM_EQUAL_PASS,
   CUSTOM_FULL_AGE,
   CUSTOM_MAX_CHAR,
   CUSTOM_ONLY_LETTERS,
+  CUSTOM_PASS_VALIDATOR,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
@@ -97,7 +99,7 @@ export class RegisterComponent implements OnInit {
         //TODO validate size image file
         urlPhoto: new FormControl('', [CUSTOM_REQUIRED]),
         email: new FormControl('', [CUSTOM_REQUIRED, CUSTOM_EMAIL_PATTERN]),
-        password: new FormControl('', [CUSTOM_REQUIRED]),
+        password: new FormControl('', [CUSTOM_REQUIRED, CUSTOM_PASS_VALIDATOR]),
         repeatPassword: new FormControl('', [CUSTOM_REQUIRED]),
         learnLanguage: new FormControl('', [CUSTOM_REQUIRED]),
         languageLevel: new FormControl('', [CUSTOM_REQUIRED]),
@@ -111,6 +113,7 @@ export class RegisterComponent implements OnInit {
       },
       {
         updateOn: 'change',
+        validators: [CUSTOM_EQUAL_PASS]
       }
     );
   }
