@@ -240,6 +240,9 @@
       "change_pass_modal_button": "Cambiar contraseña",
       "change_pass_modal_message_ok": "Contraseña modificada correctamente"
     },
+    "delete_personal_account_modal": {
+      "delete_personal_account_modal_title": "Eliminar cuenta"
+    },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
       "video_call_modal_subtitle": "No lo dudes, solo únete",
