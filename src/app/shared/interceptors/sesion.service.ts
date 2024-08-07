@@ -24,10 +24,12 @@ export class SesionService {
    * Clear all the session data stored in the browser and notifies session listening components.
    */
   clearLocalSession(): void {
+    const prevLanguage = localStorage.getItem('selectedLang');
     localStorage.clear();
     sessionStorage.clear();
     localStorage.setItem('isLoggedIn', 'false');
     this.setLoggedIn(false);
+    localStorage.setItem('selectedLang', prevLanguage);
     this.customTranslateService.setLanguage();
   }
 

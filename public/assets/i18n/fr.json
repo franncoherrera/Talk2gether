@@ -240,6 +240,18 @@
       "change_pass_modal_button": "Changer le mot de passe",
       "change_pass_modal_message_ok": "Mot de passe modifié avec succès"
     },
+    "delete_personal_account_modal": {
+      "delete_personal_account_modal_title": "Supprimer le compte",
+      "delete_personal_account_title": "Êtes-vous sûr de vouloir supprimer votre compte ?",
+      "delete_personal_account_subtitle": "Sélectionnez les raisons pour lesquelles vous supprimez votre compte.",
+      "delete_personal_account_button": "Supprimer le compte",
+      "delete_personal_account_text_area_label": "Raisons",
+      "delete_personal_account_text_area_placeholder": "Écrivez les raisons que vous voulez...",
+      "delete_personal_account_pass": "Mot de passe",
+      "delete_personal_account_pass_placeholder": "Entrez votre mot de passe",
+      "delete_personal_account_other_motive": "Autre raison (appuyez pour écrire dans la zone de texte)",
+      "delete_personal_account_succes_message": "Votre compte a été supprimé avec succès"
+    },
     "video_call_page": {
       "video_call_modal_title": "Êtes-vous sûr de vouloir rejoindre l'appel vidéo ?",
       "video_call_modal_subtitle": "N'hésitez pas, rejoignez simplement",

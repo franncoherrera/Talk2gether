@@ -25,6 +25,8 @@ export const ENDPOINTS = {
   EDIT_DATA: '/usuario/modificarUsuario?idCuenta=${id}',
   BLOQUED_USERS: '/cuenta/usuariosbloqueados?idCuenta=${id}',
   CHANGE_PASS: '/usuario/cambiarcontrasenia',
+  LIST_MOTIVES_USER: '/motivos/listarmotivosactivos?nombreTipoMotivo=usuario',
+  DELETE_USER_ACCOUNT: '/usuario/eliminarcuenta',
   /* Rate user */
   GET_PARTICIPANT:
     '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',

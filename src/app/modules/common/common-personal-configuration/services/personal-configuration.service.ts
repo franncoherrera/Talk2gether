@@ -9,6 +9,7 @@ import { CONFIG_USER } from '../../../../shared/models/configUser.model';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { PreviewModalComponent } from '../../../shared/preview-modal/preview-modal.component';
+import { DELETE_ACOUNT_USER } from '../../../../shared/models/deleteAccountUser.model';
 
 @Injectable({
   providedIn: 'root',
@@ -60,5 +61,19 @@ export class PersonalConfigurationService {
       urlBandera: 'xk',
       urlFoto: image,
     };
+  }
+
+  getDeleteAccountMotives(): Observable<string[]> {
+    const url: string = this.urlBuilderService.buildUrl(
+      ENDPOINTS.LIST_MOTIVES_USER
+    );
+    return this.httpClient.get<string[]>(url);
+  }
+
+  deleteUserAccount(body: DELETE_ACOUNT_USER): Observable<string> {
+    const url: string = this.urlBuilderService.buildUrl(
+      ENDPOINTS.DELETE_USER_ACCOUNT
+    );
+    return this.httpClient.put(url, body, { responseType: 'text' });
   }
 }

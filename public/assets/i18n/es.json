@@ -241,7 +241,16 @@
       "change_pass_modal_message_ok": "Contraseña modificada correctamente"
     },
     "delete_personal_account_modal": {
-      "delete_personal_account_modal_title": "Eliminar cuenta"
+      "delete_personal_account_modal_title": "Eliminar cuenta",
+      "delete_personal_account_title": "¿Seguro deseas eliminar tu cuenta?",
+      "delete_personal_account_subtitle": "Seleccione los motivos por los que elimina su cuenta.",
+      "delete_personal_account_button": "Eliminar cuenta",
+      "delete_personal_account_text_area_label": "Motivos",
+      "delete_personal_account_text_area_placeholder": "Escriba los motivos que desea...",
+      "delete_personal_account_pass": "Contraseña",
+      "delete_personal_account_pass_placeholder": "Escriba su contraseña",
+      "delete_personal_account_other_motive": "Otro motivo (presione para poder escribir en el cuadro de texto)",
+      "delete_personal_account_succes_message": "Su cuenta fue eliminada correctamente"
     },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",

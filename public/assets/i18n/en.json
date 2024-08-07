@@ -240,6 +240,18 @@
       "change_pass_modal_button": "Change Password",
       "change_pass_modal_message_ok": "Password successfully changed"
     },
+    "delete_personal_account_modal": {
+      "delete_personal_account_modal_title": "Delete Account",
+      "delete_personal_account_title": "Are you sure you want to delete your account?",
+      "delete_personal_account_subtitle": "Select the reasons for deleting your account.",
+      "delete_personal_account_button": "Delete Account",
+      "delete_personal_account_text_area_label": "Reasons",
+      "delete_personal_account_text_area_placeholder": "Write the reasons you want...",
+      "delete_personal_account_pass": "Password",
+      "delete_personal_account_pass_placeholder": "Enter your password",
+      "delete_personal_account_other_motive": "Other reason (press to write in the text box)",
+      "delete_personal_account_succes_message": "Your account was successfully deleted"
+    },
     "video_call_page": {
       "video_call_modal_title": "Are you sure you want to join the video call?",
       "video_call_modal_subtitle": "Don't hesitate, just join",

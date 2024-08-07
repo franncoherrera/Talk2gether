@@ -1,6 +1,78 @@
 <fhv-bootstrap-modal
   modalTitle="{{
-    'common.delete_personal_account_modal.delete_personal_account_modal_title' | translate
+    'common.delete_personal_account_modal.delete_personal_account_modal_title'
+      | translate
   }}"
 >
+  <form
+    [formGroup]="accountMotivesForm"
+    class="fhv-delete-personal-account"
+    (ngSubmit)="deleteAccount()"
+    (keydown.enter)="deleteAccount()"
+  >
+    <div class="fhv-delete-personal-account__container p-4">
+      <h1 class="fhv-delete-personal-account__container__title">
+        {{
+          "common.delete_personal_account_modal.delete_personal_account_title"
+            | translate
+        }}
+      </h1>
+      <h2 class="fhv-delete-personal-account__container__subtitle pt-2">
+        {{
+          "common.delete_personal_account_modal.delete_personal_account_subtitle"
+            | translate
+        }}
+      </h2>
+      @if (accountMotives$ | async; as accountMotives) {
+      <section class="fhv-delete-personal-account__container__check pb-3">
+        <fhv-input-checkbox
+          [name]="'motives'"
+          [label]="getCompleteMotives(accountMotives)"
+          [submitForm]="submitForm"
+          [formGroup]="accountMotivesForm"
+          [control]="formService.formControl(accountMotivesForm, 'motives')"
+        ></fhv-input-checkbox>
+      </section>
+      } @if(checkboxSelected()) {
+      <fhv-text-area-form
+        [name]="'userMotive'"
+        label="{{
+          'common.delete_personal_account_modal.delete_personal_account_text_area_label'
+            | translate
+        }}"
+        [formGroup]="accountMotivesForm"
+        [control]="formService.formControl(accountMotivesForm, 'userMotive')"
+        placeholder="{{
+          'common.delete_personal_account_modal.delete_personal_account_text_area_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+      ></fhv-text-area-form>
+      }
+      <fhv-input-form
+        [name]="'password'"
+        label="{{
+          'common.delete_personal_account_modal.delete_personal_account_pass'
+            | translate
+        }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="accountMotivesForm"
+        [control]="formService.formControl(accountMotivesForm, 'password')"
+        placeholder="{{
+          'common.delete_personal_account_modal.delete_personal_account_pass_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+      ></fhv-input-form>
+      <button
+        type="submit"
+        class="fhv-delete-personal-account__container__button mt-4"
+      >
+        {{
+          "common.delete_personal_account_modal.delete_personal_account_button"
+            | translate
+        }}
+      </button>
+    </div>
+  </form>
 </fhv-bootstrap-modal>
