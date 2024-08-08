@@ -36,6 +36,7 @@
       <input
         class="fhv-edit-configuration__container__photo__input"
         [type]="INPUT_TYPE.FILE"
+        [accept]="IMAGE_FORMAT.imagePermittedFormat"
         (change)="onFileSelected($event)"
       />
     </div>
@@ -172,7 +173,8 @@
     >
       {{ "common.configuration_page.configuration_back" | translate }}
     </button>
-    <button class="fhv-edit-configuration__buttons__edit" type="submit">
+    <button class="fhv-edit-configuration__buttons__edit" type="submit"
+            id="configuration-edit-save">
       {{ "common.configuration_page.configuration_save" | translate }}
     </button>
   </div>

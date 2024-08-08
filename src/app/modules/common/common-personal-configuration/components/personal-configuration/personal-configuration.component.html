@@ -8,11 +8,10 @@
       (showPersonalData)="changePersonalData($event)"
     />
     } @else {
-    <fhv-edit-configuration
-      [formGroup]="configurationForm"
-      [userId]="userId"
-    />
+    <fhv-edit-configuration [formGroup]="configurationForm" [userId]="userId" />
     }
   </div>
 </div>
-}
+@if(showPersonalData()){
+<fhv-account-edit-configuration></fhv-account-edit-configuration>
+}}

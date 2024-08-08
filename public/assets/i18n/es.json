@@ -23,7 +23,9 @@
       "general_error_min_max_age_required": "Ingrese edad mínima y máxima sino deje el campo vacío",
       "general_error_null_video_call": "No existe la sala a la que intentas ingresar",
       "general_error_no_call": "Nadie se unio a la reunión o nunca se creo esta reunión. No se puede calificar.",
-      "general_error_user_not_qualify": "No se pudo calificar al usuario."
+      "general_error_user_not_qualify": "No se pudo calificar al usuario.",
+      "general_error_not_valid_pass": "La contraseña tiene que tener como mínimo 9 caracteres, un número, una minúscula y una mayúscula",
+      "general_error_dual_pass_equal": "Las contraseñas deben ser iguales"
     },
     "navbar": {
       "login_button": "Iniciar Sesión",
@@ -215,7 +217,41 @@
       "configuration_modal_title": "Previsualización de un ejemplo de como te verás en la plataforma",
       "configuration_modal_button": "Ver tarjetas",
       "configuration_save": "Guardar cambios",
-      "configuration_back": "Volver"
+      "configuration_back": "Volver",
+      "configuration_account_title": "Cuenta.",
+      "configuration_account_subtitle_1": "Ver usuario bloqueados.",
+      "configuration_account_button_1": "Usuarios bloqueados",
+      "configuration_account_subtitle_2": "Contraseña.",
+      "configuration_account_button_2": "Cambiar contraseña",
+      "configuration_account_subtitle_3": "Eliminar cuenta.",
+      "configuration_account_button_3": "Eliminar",
+      "configuration_message": "Luego de eliminar su cuenta no podrá ser restaurada."
+    },
+    "bloqued_user_modal": {
+      "bloqued_user_modal_title": "Usuario bloqueados"
+    },
+    "change_pass_modal": {
+      "change_pass_modal_title": "Cambiar contraseña",
+      "change_pass_label": "Contraseña actual",
+      "change_pass_placeholder": "Ingresá tu contraseña actual",
+      "change_new_pass_label": "Contraseña nueva",
+      "change_new_pass_placeholder": "Ingresá tu contraseña nueva",
+      "change_repeat_new_pass_label": "Repetí contraseña nueva",
+      "change_repeat_new_pass_placeholder": "Repetí la contraseña nueva",
+      "change_pass_modal_button": "Cambiar contraseña",
+      "change_pass_modal_message_ok": "Contraseña modificada correctamente"
+    },
+    "delete_personal_account_modal": {
+      "delete_personal_account_modal_title": "Eliminar cuenta",
+      "delete_personal_account_title": "¿Seguro deseas eliminar tu cuenta?",
+      "delete_personal_account_subtitle": "Seleccione los motivos por los que elimina su cuenta.",
+      "delete_personal_account_button": "Eliminar cuenta",
+      "delete_personal_account_text_area_label": "Motivos",
+      "delete_personal_account_text_area_placeholder": "Escriba los motivos que desea...",
+      "delete_personal_account_pass": "Contraseña",
+      "delete_personal_account_pass_placeholder": "Escriba su contraseña",
+      "delete_personal_account_other_motive": "Otro motivo (presione para poder escribir en el cuadro de texto)",
+      "delete_personal_account_succes_message": "Su cuenta fue eliminada correctamente"
     },
     "video_call_page": {
       "video_call_modal_title": "¿Estas seguro que deseas ingresar a la videollamada?",
@@ -252,7 +288,7 @@
         "title": "Unirse a videollamada",
         "description": "Si presionas entrarás a una sala para practicar idioma y divertirte."
       },
-      "#general-card-menssage": {
+      "#general-card-message": {
         "title": "Chatear",
         "description": "Te dirigiras al chat con esa persona para aprender cosas nuevas."
       },
@@ -285,6 +321,22 @@
       "#configuration-card": {
         "title": "¿Cómo me veo en la plataforma?",
         "description": "Podrás ver como se verá tu sala creada en la plataforma. Si acabas de subir una imagen puedes visualizarla antes de guardar."
+      },
+      "#configuration-edit-save": {
+        "title": "Editar/Guardar",
+        "description": "Si presionas en 'Editar' podrás cambiar tus datos para luego presionar en el mismo lugar en el botón 'Guardar' asi modificarás tus datos personales."
+      },
+      "#configuration-bloqued-user": {
+        "title": "Usuarios bloqueados",
+        "description": "Podrás ver la lista de todos los usuarios que bloqueaste de la plataforma."
+      },
+      "#configuration-button-pass": {
+        "title": "Cambiar contraseña",
+        "description": "Si deseas cambiar tu constraseña aquí es el lugar indicado."
+      },
+      "#configuration-button-delete": {
+        "title": "Eliminar cuenta",
+        "description": "Si algo no te gusto de la plataforma puedes eliminar tu cuenta. Siempre estaremos esperandote para que te vuelvas a sumar."
       }
     }
   }

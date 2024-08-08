@@ -26,13 +26,13 @@
       [name]="name()"
       [id]="name()"
       [formControlName]="name()"
-      (change)="onCheckboxChangeArray(l[modelName()])"
+      (change)="onCheckboxChangeArray(!!modelName() ? l[modelName()] : l)"
     />
     <label
       (click)="redirectLabel()"
       class="fhv-input-checkbox__label"
       [ngClass]="{ 'fhv-input-checkbox__label-route': !!labelRoute() }"
-      >{{ l[modelName()] }}</label
+      >{{ !!modelName() ? l[modelName()] : l }}</label
     >
   </div>
   }

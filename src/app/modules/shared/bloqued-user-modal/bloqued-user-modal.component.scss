@@ -1,0 +1,32 @@
+@import "media-queries";
+@import "font-size";
+
+.fhv-bloqued-user-modal {
+  font-family: var(--font-family);
+  color: var(--color-primary);
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-containers);
+  max-height: 80vh;
+  @include media-breakpoint-down(lg) {
+    max-height: 100%;
+  }
+  &__container {
+    background-color: var(--color-base);
+    border-radius: var(--border-radius-input);
+    &__image {
+      width: 4rem;
+      height: 4rem;
+      img {
+        border-radius: 100%;
+        object-fit: cover;
+      }
+      @include media-breakpoint-down(lg) {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+    &__name {
+      @include apply-responsive-font-size($font-size-title);
+    }
+  }
+}

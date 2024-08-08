@@ -1,0 +1,55 @@
+<div class="fhv-account-edit-configuration">
+  <div class="fhv-account-edit-configuration__container">
+    <h1 class="fhv-account-edit-configuration__container__title">
+      {{ "common.configuration_page.configuration_account_title" | translate }}
+    </h1>
+    <h2 class="fhv-account-edit-configuration__container__subtitle">
+      {{
+        "common.configuration_page.configuration_account_subtitle_1" | translate
+      }}
+    </h2>
+    <button
+      type="button"
+      class="fhv-account-edit-configuration__container__button"
+      (click)="getBloquedUserModal()"
+    >
+      <span id="configuration-bloqued-user">
+        {{
+          "common.configuration_page.configuration_account_button_1" | translate
+        }}
+      </span>
+    </button>
+    <h2 class="fhv-account-edit-configuration__container__subtitle">
+      {{
+        "common.configuration_page.configuration_account_subtitle_2" | translate
+      }}
+    </h2>
+    <button
+      type="button"
+      class="fhv-account-edit-configuration__container__button"
+      (click)="getChangePasswordModal()"
+    >
+      <span id="configuration-button-pass">
+        {{
+          "common.configuration_page.configuration_account_button_2" | translate
+        }}</span
+      >
+    </button>
+    <h2 class="fhv-account-edit-configuration__container__subtitle">
+      {{
+        "common.configuration_page.configuration_account_subtitle_3" | translate
+      }}
+    </h2>
+    <button
+      type="button"
+      class="fhv-account-edit-configuration__container__button danger"
+      (click)="getDeleteAccountModal()"
+    >
+      <span id="configuration-button-delete">
+        {{
+          "common.configuration_page.configuration_account_button_3" | translate
+        }}</span
+      >
+    </button>
+  </div>
+</div>
