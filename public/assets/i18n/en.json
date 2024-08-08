@@ -224,7 +224,8 @@
       "configuration_account_subtitle_2": "Password.",
       "configuration_account_button_2": "Change password",
       "configuration_account_subtitle_3": "Delete account.",
-      "configuration_account_button_3": "Delete"
+      "configuration_account_button_3": "Delete",
+      "configuration_message": "After deleting your account, it cannot be restored."
     },
     "bloqued_user_modal": {
       "bloqued_user_modal_title": "Blocked Users"
@@ -320,6 +321,22 @@
       "#configuration-card": {
         "title": "How do I look on the platform?",
         "description": "You will be able to see how your created room will look on the platform. If you have just uploaded an image, you can preview it before saving."
+      },
+      "#configuration-edit-save": {
+        "title": "Edit/Save",
+        "description": "If you press 'Edit' you can change your data and then press 'Save' in the same place to modify your personal data."
+      },
+      "#configuration-bloqued-user": {
+        "title": "Blocked Users",
+        "description": "You can see the list of all users you have blocked from the platform."
+      },
+      "#configuration-button-pass": {
+        "title": "Change Password",
+        "description": "If you want to change your password, this is the right place."
+      },
+      "#configuration-button-delete": {
+        "title": "Delete Account",
+        "description": "If something on the platform did not please you, you can delete your account. We will always be waiting for you to join us again."
       }
     }
   }

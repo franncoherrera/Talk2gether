@@ -224,7 +224,8 @@
       "configuration_account_subtitle_2": "Mot de passe.",
       "configuration_account_button_2": "Changer le mot de passe",
       "configuration_account_subtitle_3": "Supprimer le compte.",
-      "configuration_account_button_3": "Supprimer"
+      "configuration_account_button_3": "Supprimer",
+      "configuration_message": "Après la suppression de votre compte, il ne pourra pas être restauré."
     },
     "bloqued_user_modal": {
       "bloqued_user_modal_title": "Utilisateurs bloqués"
@@ -320,6 +321,22 @@
       "#configuration-card": {
         "title": "Comment je me présente sur la plateforme ?",
         "description": "Vous pourrez voir à quoi ressemblera votre salle créée sur la plateforme. Si vous venez de télécharger une image, vous pouvez la visualiser avant de sauvegarder."
+      },
+      "#configuration-edit-save": {
+        "title": "Modifier/Enregistrer",
+        "description": "Si vous appuyez sur 'Modifier', vous pouvez changer vos données, puis appuyer sur 'Enregistrer' au même endroit pour modifier vos données personnelles."
+      },
+      "#configuration-bloqued-user": {
+        "title": "Utilisateurs bloqués",
+        "description": "Vous pouvez voir la liste de tous les utilisateurs que vous avez bloqués sur la plateforme."
+      },
+      "#configuration-button-pass": {
+        "title": "Changer le mot de passe",
+        "description": "Si vous souhaitez changer votre mot de passe, c'est l'endroit indiqué."
+      },
+      "#configuration-button-delete": {
+        "title": "Supprimer le compte",
+        "description": "Si quelque chose ne vous a pas plu sur la plateforme, vous pouvez supprimer votre compte. Nous serons toujours là pour vous accueillir à nouveau."
       }
     }
   }

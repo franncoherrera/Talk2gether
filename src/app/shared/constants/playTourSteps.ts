@@ -88,6 +88,38 @@ export const PAGE_TOUR = {
         description: 'common.configuration.#configuration-card.description',
       },
     },
+    {
+      element: '#configuration-edit-save',
+      popover: {
+        title: 'common.configuration.#configuration-edit-save.title',
+        description:
+          'common.configuration.#configuration-edit-save.description',
+      },
+    },
+    {
+      element: '#configuration-bloqued-user',
+      popover: {
+        title: 'common.configuration.#configuration-bloqued-user.title',
+        description:
+          'common.configuration.#configuration-bloqued-user.description',
+      },
+    },
+    {
+      element: '#configuration-button-pass',
+      popover: {
+        title: 'common.configuration.#configuration-button-pass.title',
+        description:
+          'common.configuration.#configuration-button-pass.description',
+      },
+    },
+    {
+      element: '#configuration-button-delete',
+      popover: {
+        title: 'common.configuration.#configuration-button-delete.title',
+        description:
+          'common.configuration.#configuration-button-delete.description',
+      },
+    },
   ],
 };
 

@@ -224,7 +224,8 @@
       "configuration_account_subtitle_2": "Contraseña.",
       "configuration_account_button_2": "Cambiar contraseña",
       "configuration_account_subtitle_3": "Eliminar cuenta.",
-      "configuration_account_button_3": "Eliminar"
+      "configuration_account_button_3": "Eliminar",
+      "configuration_message": "Luego de eliminar su cuenta no podrá ser restaurada."
     },
     "bloqued_user_modal": {
       "bloqued_user_modal_title": "Usuario bloqueados"
@@ -320,6 +321,22 @@
       "#configuration-card": {
         "title": "¿Cómo me veo en la plataforma?",
         "description": "Podrás ver como se verá tu sala creada en la plataforma. Si acabas de subir una imagen puedes visualizarla antes de guardar."
+      },
+      "#configuration-edit-save": {
+        "title": "Editar/Guardar",
+        "description": "Si presionas en 'Editar' podrás cambiar tus datos para luego presionar en el mismo lugar en el botón 'Guardar' asi modificarás tus datos personales."
+      },
+      "#configuration-bloqued-user": {
+        "title": "Usuarios bloqueados",
+        "description": "Podrás ver la lista de todos los usuarios que bloqueaste de la plataforma."
+      },
+      "#configuration-button-pass": {
+        "title": "Cambiar contraseña",
+        "description": "Si deseas cambiar tu constraseña aquí es el lugar indicado."
+      },
+      "#configuration-button-delete": {
+        "title": "Eliminar cuenta",
+        "description": "Si algo no te gusto de la plataforma puedes eliminar tu cuenta. Siempre estaremos esperandote para que te vuelvas a sumar."
       }
     }
   }
