@@ -36,6 +36,7 @@
       <input
         class="fhv-edit-configuration__container__photo__input"
         [type]="INPUT_TYPE.FILE"
+        [accept]="IMAGE_FORMAT.imagePermittedFormat"
         (change)="onFileSelected($event)"
       />
     </div>
