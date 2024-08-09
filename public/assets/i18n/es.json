@@ -228,7 +228,7 @@
       "configuration_message": "Luego de eliminar su cuenta no podrá ser restaurada."
     },
     "bloqued_user_modal": {
-      "bloqued_user_modal_title": "Usuario bloqueados"
+      "bloqued_user_modal_title": "Usuarios bloqueados"
     },
     "change_pass_modal": {
       "change_pass_modal_title": "Cambiar contraseña",
