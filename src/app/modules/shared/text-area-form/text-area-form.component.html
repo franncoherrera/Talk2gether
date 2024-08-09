@@ -4,8 +4,8 @@
   }}</label>
   <textarea
     class="form-control fhv-text-area-form__input"
-    id="descriptionUser"
-    formControlName="descriptionUser"
+    [id]="name()"
+    [formControlName]="name()"
     [placeholder]="placeholder()"
     [ngClass]="
       submitForm() && !!control()?.errors

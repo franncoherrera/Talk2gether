@@ -1,6 +1,7 @@
 import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 import {
   IMAGE_FORMAT,
+  VALIDATOR_LENGTH_PASS,
   VALIDATOR_PATTERNS,
   VALIDATOR_SIZE,
 } from '../constants/patterns';
@@ -80,6 +81,23 @@ export function CUSTOM_FULL_AGE(
   return null;
 }
 
+export function CUSTOM_PASS_VALIDATOR(
+  control: FormControl
+): ValidationErrors | undefined {
+  const value = control.value;
+  if (!value) {
+    return null;
+  }
+  const hasUpperCase = VALIDATOR_PATTERNS.hasUpperCase.test(value);
+  const hasLowerCase = VALIDATOR_PATTERNS.hasLowerCase.test(value);
+  const hasNumber = VALIDATOR_PATTERNS.hasNumber.test(value);
+  const minLength = value.length >= VALIDATOR_LENGTH_PASS.minLength;
+  const passwordValid = hasUpperCase && hasLowerCase && hasNumber && minLength;
+  return !passwordValid
+    ? { errorMessage: 'common.error.general_error_not_valid_pass' }
+    : null;
+}
+
 export function CUSTOM_MAX_CHAR(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -129,5 +147,27 @@ export function CUSTOM_AGE_RANGE(
   ) {
     return { errorMessage: 'common.error.general_error_min_max_age_required' };
   }
+  return null;
+}
+
+export function CUSTOM_EQUAL_PASS(
+  formGroup: FormGroup
+): ValidationErrors | null {
+  if (
+    !formGroup.get('password')?.value ||
+    !formGroup.get('repeatPassword')?.value ||
+    !!formGroup.get('repeatPassword').errors
+  ) {
+    return null;
+  }
+  const password = formGroup.get('password')?.value;
+  const repeatPassword = formGroup.get('repeatPassword')?.value;
+  formGroup.get('password').setErrors(null);
+  if (password !== repeatPassword) {
+    formGroup.get('password').setErrors({
+      errorMessage: 'common.error.general_error_dual_pass_equal',
+    });
+  }
+
   return null;
 }

@@ -59,10 +59,10 @@ export const PAGE_TOUR = {
       },
     },
     {
-      element: '#general-card-menssage',
+      element: '#general-card-message',
       popover: {
-        title: 'common.tour.#general-card-menssage.title',
-        description: 'common.tour.#general-card-menssage.description',
+        title: 'common.tour.#general-card-message.title',
+        description: 'common.tour.#general-card-message.description',
       },
     },
     {
@@ -86,6 +86,38 @@ export const PAGE_TOUR = {
       popover: {
         title: 'common.configuration.#configuration-card.title',
         description: 'common.configuration.#configuration-card.description',
+      },
+    },
+    {
+      element: '#configuration-edit-save',
+      popover: {
+        title: 'common.configuration.#configuration-edit-save.title',
+        description:
+          'common.configuration.#configuration-edit-save.description',
+      },
+    },
+    {
+      element: '#configuration-bloqued-user',
+      popover: {
+        title: 'common.configuration.#configuration-bloqued-user.title',
+        description:
+          'common.configuration.#configuration-bloqued-user.description',
+      },
+    },
+    {
+      element: '#configuration-button-pass',
+      popover: {
+        title: 'common.configuration.#configuration-button-pass.title',
+        description:
+          'common.configuration.#configuration-button-pass.description',
+      },
+    },
+    {
+      element: '#configuration-button-delete',
+      popover: {
+        title: 'common.configuration.#configuration-button-delete.title',
+        description:
+          'common.configuration.#configuration-button-delete.description',
       },
     },
   ],

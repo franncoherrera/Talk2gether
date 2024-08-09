@@ -1,0 +1,24 @@
+<fhv-bootstrap-modal
+  modalTitle="{{
+    'common.bloqued_user_modal.bloqued_user_modal_title' | translate
+  }}"
+>
+  @if(bloquedUserArray$ | async; as bloquedUserArray){
+  <div
+    class="fhv-bloqued-user-modal d-flex align-items-start flex-column gap-3 overflow-auto custom-scrollbar p-3 h-auto"
+  >
+    @for (bloquedUser of bloquedUserArray; track bloquedUser.idCuenta){
+    <div
+      class="fhv-bloqued-user-modal__container d-flex align-items-center p-1 w-100"
+    >
+      <div class="fhv-bloqued-user-modal__container__image">
+        <img class="w-100 h-100" src="{{ bloquedUser.urlFoto }}" />
+      </div>
+      <h1 class="fhv-bloqued-user-modal__container__name ps-2 m-0">
+        {{ bloquedUser.nombre }} {{ bloquedUser.apellido }}
+      </h1>
+    </div>
+    }
+  </div>
+  }
+</fhv-bootstrap-modal>

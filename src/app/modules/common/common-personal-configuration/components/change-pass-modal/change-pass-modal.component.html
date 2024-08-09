@@ -1,0 +1,56 @@
+<fhv-bootstrap-modal
+  modalTitle="{{
+    'common.change_pass_modal.change_pass_modal_title' | translate
+  }}"
+>
+  <div class="fhv-change-pass-modal">
+    <form
+      class="fhv-change-pass-modal__container"
+      [formGroup]="changePassWordForm"
+      (ngSubmit)="changePassword()"
+      (keydown.enter)="changePassword()"
+    >
+      <fhv-input-form
+        [name]="'actualPass'"
+        label="{{ 'common.change_pass_modal.change_pass_label' | translate }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="changePassWordForm"
+        [control]="formService.formControl(changePassWordForm, 'actualPass')"
+        placeholder="{{
+          'common.change_pass_modal.change_pass_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      />
+      <fhv-input-form
+        [name]="'password'"
+        label="{{
+          'common.change_pass_modal.change_new_pass_label' | translate
+        }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="changePassWordForm"
+        [control]="formService.formControl(changePassWordForm, 'password')"
+        placeholder="{{
+          'common.change_pass_modal.change_new_pass_placeholder' | translate
+        }}"
+        [submitForm]="submitForm"
+      />
+      <fhv-input-form
+        [name]="'repeatPassword'"
+        label="{{
+          'common.change_pass_modal.change_repeat_new_pass_label' | translate
+        }}"
+        [type]="INPUT_TYPE.PASSWORD"
+        [formGroup]="changePassWordForm"
+        [control]="formService.formControl(changePassWordForm, 'repeatPassword')"
+        placeholder="{{
+          'common.change_pass_modal.change_repeat_new_pass_placeholder'
+            | translate
+        }}"
+        [submitForm]="submitForm"
+      />
+      <button class="fhv-change-pass-modal__button" type="submit">
+        {{ "common.change_pass_modal.change_pass_modal_button" | translate }}
+      </button>
+    </form>
+  </div>
+</fhv-bootstrap-modal>

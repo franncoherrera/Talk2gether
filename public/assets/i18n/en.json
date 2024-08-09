@@ -28,7 +28,9 @@
       "general_error_min_max_age_required": "Enter minimum and maximum age or leave the field empty",
       "general_error_null_video_call": "The room you are trying to join does not exist",
       "general_error_no_call": "No one joined the meeting or the meeting was never created. It cannot be rated.",
-      "general_error_user_not_qualify": "The user could not be rated."
+      "general_error_user_not_qualify": "The user could not be rated.",
+      "general_error_not_valid_pass": "The password must be at least 9 characters long, contain a number, a lowercase letter, and an uppercase letter",
+      "general_error_dual_pass_equal": "Passwords must match"
     },
     "navbar": {
       "login_button": "Login",
@@ -220,7 +222,41 @@
       "configuration_modal_title": "Preview of how you will look on the platform",
       "configuration_modal_button": "View cards",
       "configuration_save": "Save changes",
-      "configuration_back": "Go back"
+      "configuration_back": "Go back",
+      "configuration_account_title": "Account.",
+      "configuration_account_subtitle_1": "View blocked users.",
+      "configuration_account_button_1": "Blocked users",
+      "configuration_account_subtitle_2": "Password.",
+      "configuration_account_button_2": "Change password",
+      "configuration_account_subtitle_3": "Delete account.",
+      "configuration_account_button_3": "Delete",
+      "configuration_message": "After deleting your account, it cannot be restored."
+    },
+    "bloqued_user_modal": {
+      "bloqued_user_modal_title": "Blocked Users"
+    },
+    "change_pass_modal": {
+      "change_pass_modal_title": "Change Password",
+      "change_pass_label": "Current Password",
+      "change_pass_placeholder": "Enter your current password",
+      "change_new_pass_label": "New Password",
+      "change_new_pass_placeholder": "Enter your new password",
+      "change_repeat_new_pass_label": "Repeat New Password",
+      "change_repeat_new_pass_placeholder": "Repeat your new password",
+      "change_pass_modal_button": "Change Password",
+      "change_pass_modal_message_ok": "Password successfully changed"
+    },
+    "delete_personal_account_modal": {
+      "delete_personal_account_modal_title": "Delete Account",
+      "delete_personal_account_title": "Are you sure you want to delete your account?",
+      "delete_personal_account_subtitle": "Select the reasons for deleting your account.",
+      "delete_personal_account_button": "Delete Account",
+      "delete_personal_account_text_area_label": "Reasons",
+      "delete_personal_account_text_area_placeholder": "Write the reasons you want...",
+      "delete_personal_account_pass": "Password",
+      "delete_personal_account_pass_placeholder": "Enter your password",
+      "delete_personal_account_other_motive": "Other reason (press to write in the text box)",
+      "delete_personal_account_succes_message": "Your account was successfully deleted"
     },
     "video_call_page": {
       "video_call_modal_title": "Are you sure you want to join the video call?",
@@ -290,6 +326,22 @@
       "#configuration-card": {
         "title": "How do I look on the platform?",
         "description": "You will be able to see how your created room will look on the platform. If you have just uploaded an image, you can preview it before saving."
+      },
+      "#configuration-edit-save": {
+        "title": "Edit/Save",
+        "description": "If you press 'Edit' you can change your data and then press 'Save' in the same place to modify your personal data."
+      },
+      "#configuration-bloqued-user": {
+        "title": "Blocked Users",
+        "description": "You can see the list of all users you have blocked from the platform."
+      },
+      "#configuration-button-pass": {
+        "title": "Change Password",
+        "description": "If you want to change your password, this is the right place."
+      },
+      "#configuration-button-delete": {
+        "title": "Delete Account",
+        "description": "If something on the platform did not please you, you can delete your account. We will always be waiting for you to join us again."
       }
     }
   }

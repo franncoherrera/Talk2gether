@@ -1,0 +1,45 @@
+@import "media-queries";
+@import "font-size";
+@import "_buttons.scss";
+
+.fhv-account-edit-configuration {
+  background-color: var(--color-base);
+  &__container {
+    padding: 4rem 12rem;
+    &__button {
+      @include buttons-enabled;
+      width: 50%;
+      margin: 1.5rem 0;
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+      &.danger {
+        background-color: var(--color-message-error);
+        border: var(--color-message-error);
+      }
+    }
+    &__title {
+      color: var(--color-primary);
+      @include apply-responsive-font-size($font-size-title);
+    }
+    &__subtitle {
+      color: var(--color-primary);
+      @include apply-responsive-font-size($font-size-subtitle);
+    }
+  }
+  @include media-breakpoint-down(xl) {
+    &__container {
+      padding: 4rem 6rem;
+    }
+  }
+  @include media-breakpoint-down(md) {
+    &__container {
+      padding: 3rem 3rem;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    &__container {
+      padding: 2rem 2rem;
+    }
+  }
+}

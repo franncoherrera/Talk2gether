@@ -1,27 +1,43 @@
 # Talk2gether
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+![talk2gether_name](https://github.com/user-attachments/assets/a6917fba-92a9-48ff-886e-7dcb4f5736c9)
 
-## Development server
+# Proyecto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+La plataforma se lleva a cabo con el propósito de promover el aprendizaje lingüístico colaborativo, a través de la práctica entre hablantes nativos y estudiantes. Esta solución aborda la necesidad de aprender idiomas extranjeros de manera práctica, brindando espacios de comunicación directa entre las personas y creando un ambiente de diálogo real. El propósito del sistema es crear un entorno inmersivo y romper con las estructuras tradicionales de aprendizaje de idiomas.
 
-## Code scaffolding
+# Demo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+La demo se ha construído con el propósito de mostrar la plataforma y solo está levantada con el código de este repositorio en Angular. Actualmente Talk2gether cuenta con un backend, por lo que en la página demo no se puede realizar modificaciones de los datos ya que no esta levantado el backend y tampoco la base de datos.
 
-## Build
+### Demo link: https://talk2gether-web.firebaseapp.com/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Aprendiz 1:
+- Usuario: fhv@gmail.com
+- Contraseña: 12345678Aa
 
-## Running unit tests
+Aprendiz 2: 
+- Usuario: fhv_bloqued@gmail.com
+- Contraseña: 12345678Aa
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## **Módulos principales.**
 
-## Running end-to-end tests
+- Módulo de usuario (terminado)
+- Módulo de traducciones (terminado)
+- Módulo de seguridad (terminado)
+- Módulo de calificación (terminado)
+- Módulo de reuniones virtuales (en proceso)
+- Módulo de mensajería
+- Módulo de seguimiento
+- Módulo de parámetros
+- Módulo de gamificación
+- Módulo de reportes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> [!TIP]
+> Tecnologías.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular CLI 18.0.0
+- Node 20.14.0
+- TypeScript
+- HTML/SCSS
+- Bootstrap 5
