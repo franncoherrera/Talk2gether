@@ -79,7 +79,18 @@ export class ChangePassModalComponent implements OnInit {
     this.submitForm = true;
     if (this.changePassWordForm.invalid) return;
     this.spinnerGeneralService.showSpinner();
-    this.handleChangePassword();
+    this.sweetAlertService.alertImpromptu({
+      title: this.translateService.instant(
+        'common.change_pass_modal.change_pass_modal_message_ok'
+      ),
+      icon: SWEET_ALERT_ICON.SUCCESS,
+    });
+    this.spinnerGeneralService.hideSpinner();
+    this.customModalService.dismissActiveModal();
+    this.sesionService.clearLocalSession();
+    this.router.navigate([ROUTES_PATH.LOGIN_PATH]);
+
+    // this.handleChangePassword();
   }
 
   handleChangePassword(): void {
