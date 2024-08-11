@@ -26,12 +26,21 @@ export class UserCometChatService {
     return CometChatUIKit.login({ uid: userId.toString() });
   }
 
-  updateUserCometChat(): Promise<Object | undefined> {
-    let userCometChat = new CometChat.User();
-    userCometChat.setName('aaa');
-    userCometChat.setAvatar('aaa');
-    // PASAR A OBS
-    return CometChatUIKit.updateUser(userCometChat);
+  updateUserCometChat(
+    userId: string,
+    nameUserCometchat: string,
+    urlPhotoAvatarCometChat: string
+  ): Promise<Object | undefined> {
+    return CometChat.getUser(userId)
+    .then((user) => {
+      let userCometChat = user;
+      userCometChat.setName(nameUserCometchat);
+      userCometChat.setAvatar(urlPhotoAvatarCometChat);
+      return CometChatUIKit.updateUser(userCometChat);
+    })
+    .catch(() => {
+      return EMPTY; 
+    });
   }
 
   createUserCometChat(): Promise<Object | undefined> {
