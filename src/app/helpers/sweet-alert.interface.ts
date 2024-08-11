@@ -1,6 +1,6 @@
 import { SWEET_ALERT_ICON, SWEET_ALERT_POSITION } from "../shared/enums/sweeAlert.enum";
 
-export interface AlertOptions {
+export interface ALERT_OPTIONS {
   toast?: boolean;
   position?: SWEET_ALERT_POSITION;
   showConfirmButton?: boolean;

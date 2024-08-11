@@ -2,12 +2,12 @@ import { Component, inject, input, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
+import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { PAGINATION } from '../../../../../shared/constants/paginationConstants';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
 import { MainPageService } from '../../services/main-page.service';
-import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 
 @Component({
   selector: 'fhv-general-card',
@@ -22,9 +22,9 @@ export class GeneralCardComponent {
   userRoom = input<ROOM_USER[]>();
   isClassicVersion = input<boolean>();
 
-  protected mainPageService: MainPageService = inject(MainPageService);
-  protected router: Router = inject(Router);
-  protected translateService: TranslateService = inject(TranslateService);
+  protected readonly mainPageService: MainPageService = inject(MainPageService);
+  protected readonly router: Router = inject(Router);
+  protected readonly translateService: TranslateService = inject(TranslateService);
 
   protected goVideoCall(room: ROOM_USER): void {
     if (room.idReunionVirtual === null) return;
@@ -59,5 +59,9 @@ export class GeneralCardComponent {
           this.router.navigate([ROUTES_PATH.VIDEO_CALL_PAGE]);
         }
       });
+  }
+  chatUserSelected(idUserChatSelected: number): void {
+    this.mainPageService.saveUserIdChat(idUserChatSelected.toString());
+    this.router.navigate([ROUTES_PATH.CHAT_MESSAGES]);
   }
 }

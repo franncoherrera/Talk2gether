@@ -13,9 +13,9 @@ import { SweetAlertService } from '../../../../helpers/sweet-alert.service';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../shared/enums/sweeAlert.enum';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
-import { CurrentUser } from '../../../../shared/models/currentUser.model';
 import { BreakPointService } from '../../../../shared/services/break-point.service';
 import { UserService } from '../../../../shared/services/user.service';
+import { CURRENT_USER } from '../../../../shared/models/currentUser.model';
 
 @Component({
   selector: 'fhv-user-session',
@@ -24,9 +24,9 @@ import { UserService } from '../../../../shared/services/user.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class UserSessionComponent implements OnInit {
-  currentUser$: Observable<CurrentUser>;
+  currentUser$: Observable<CURRENT_USER>;
   isLogedIn$: Observable<boolean>;
-  combined$: Observable<{ user: CurrentUser; isLoggedIn: boolean }>;
+  combined$: Observable<{ user: CURRENT_USER; isLoggedIn: boolean }>;
   closeNavbar = output<void>();
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
@@ -43,7 +43,10 @@ export class UserSessionComponent implements OnInit {
       this.isLogedIn$ = this.sesionService.getLoggedIn();
       // TODO translataion doesn't work here
       this.currentUser$ = this.userService.getCurrentUser().pipe(
-        tap((currentUser) => this.userService.saveId(currentUser.id)),
+        tap((currentUser) => {
+          this.userService.logInCometchat(currentUser.id);
+          return this.userService.saveId(currentUser.id);
+        }),
         catchError(() => {
           this.sweetAlertService.alertMessage(
             this.translateService.instant('Session Error'),

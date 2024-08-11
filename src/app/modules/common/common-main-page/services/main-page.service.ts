@@ -12,6 +12,9 @@ export class MainPageService {
   room = new BehaviorSubject<ROOM_USER>(null);
   room$ = this.room.asObservable();
 
+  userIdChat = new BehaviorSubject<string>(null);
+  userIdChat$ = this.userIdChat.asObservable();
+
   private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
   private httpClient: HttpClient = inject(HttpClient);
 
@@ -66,5 +69,12 @@ export class MainPageService {
   }
   getRoom(): Observable<ROOM_USER> {
     return this.room$;
+  }
+
+  saveUserIdChat(userIdChat: string): void {
+    this.userIdChat.next(userIdChat);
+  }
+  getUserIdChat(): Observable<string> {
+    return this.userIdChat$;
   }
 }

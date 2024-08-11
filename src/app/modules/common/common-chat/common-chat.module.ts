@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CometChatConversationsWithMessages } from '@cometchat/chat-uikit-angular';
 import { ROUTES_PATH } from '../../../shared/constants/routes';
 import { loggedGuard } from '../../../shared/guards/logged.guard';
 import { CustomCometChatConversationsWithMessagesComponent } from './components/custom-comet-chat-conversations-with-messages/custom-comet-chat-conversations-with-messages.component';
+import { CustomCometChatConversationsWithMessagesModule } from './components/custom-comet-chat-conversations-with-messages/custom-comet-chat-conversations-with-messages.module';
 
 export const CHAT_ROUTES: Routes = [
   {
@@ -15,11 +15,11 @@ export const CHAT_ROUTES: Routes = [
 ];
 
 @NgModule({
-  declarations: [CustomCometChatConversationsWithMessagesComponent],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule.forChild(CHAT_ROUTES),
-    CometChatConversationsWithMessages,
+    CustomCometChatConversationsWithMessagesModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

@@ -5,12 +5,25 @@ cometchat-conversations-with-messages {
   display: block;
   height: var(--height-components);
   min-height: var(--height-components);
-  cometchat-message-header {
-    cometchat-button {
-      display: none;
+  .cc-with-messages__wrapper {
+    border: none !important;
+    .cc-messages__headermenu {
+      display: none !important;
     }
   }
+  .mobile {
+    height: var(--height-components) !important;
+    min-height: var(--height-components) !important;
+    border-right: none;
+    border: none;
+  }
   cometchat-conversations {
+    display: block;
+    height: var(--height-components) !important;
+    max-height: var(--height-components) !important;
+    .cc-conversations {
+      margin-bottom: 0 !important;
+    }
     cometchat-list {
       .list {
         &__header {
