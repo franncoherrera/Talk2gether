@@ -28,6 +28,7 @@ import { MainPageService } from '../../../common-main-page/services/main-page.se
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { TranslateService } from '@ngx-translate/core';
+import { UserCometChatService } from '../../../../../shared/services/user-comet-chat.service';
 
 @Component({
   selector: 'fhv-custom-comet-chat-conversations-with-messages',
@@ -44,6 +45,7 @@ export class CustomCometChatConversationsWithMessagesComponent
   protected readonly breakPointService: BreakPointService =
     inject(BreakPointService);
   private readonly userService: UserService = inject(UserService);
+  private readonly userCometChatService: UserCometChatService = inject(UserCometChatService)
   private readonly destroy: DestroyRef = inject(DestroyRef);
   private readonly mainPageService: MainPageService = inject(MainPageService);
   private readonly spinnerGeneralService: SpinnerGeneralService = inject(
@@ -66,7 +68,7 @@ export class CustomCometChatConversationsWithMessagesComponent
         CometChatUIKit.getLoggedinUser()
           .then((user: CometChat.User) => {
             if (!user) {
-              this.userService.logInCometchat(currentUser);
+              this.userCometChatService.logInCometchat(currentUser);
             }
           })
           .catch(() => this.showModalErrorUnavailableChatSession());

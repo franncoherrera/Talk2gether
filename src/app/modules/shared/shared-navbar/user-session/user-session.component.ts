@@ -16,6 +16,7 @@ import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { BreakPointService } from '../../../../shared/services/break-point.service';
 import { UserService } from '../../../../shared/services/user.service';
 import { CURRENT_USER } from '../../../../shared/models/currentUser.model';
+import { UserCometChatService } from '../../../../shared/services/user-comet-chat.service';
 
 @Component({
   selector: 'fhv-user-session',
@@ -31,12 +32,17 @@ export class UserSessionComponent implements OnInit {
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
 
-  protected sesionService: SesionService = inject(SesionService);
-  private userService: UserService = inject(UserService);
-  protected breakPointService: BreakPointService = inject(BreakPointService);
-  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
-  private translateService: TranslateService = inject(TranslateService);
-  private router: Router = inject(Router);
+  protected readonly sesionService: SesionService = inject(SesionService);
+  private readonly userService: UserService = inject(UserService);
+  private readonly userCometChatService: UserCometChatService =
+    inject(UserCometChatService);
+  protected readonly breakPointService: BreakPointService =
+    inject(BreakPointService);
+  private readonly sweetAlertService: SweetAlertService =
+    inject(SweetAlertService);
+  private readonly translateService: TranslateService =
+    inject(TranslateService);
+  private readonly router: Router = inject(Router);
 
   ngOnInit(): void {
     if (this.sesionService.isLoggedIn()) {
@@ -44,7 +50,7 @@ export class UserSessionComponent implements OnInit {
       // TODO translataion doesn't work here
       this.currentUser$ = this.userService.getCurrentUser().pipe(
         tap((currentUser) => {
-          this.userService.logInCometchat(currentUser.id);
+          this.userCometChatService.logInCometchat(currentUser.id);
           return this.userService.saveId(currentUser.id);
         }),
         catchError(() => {

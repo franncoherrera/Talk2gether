@@ -22,6 +22,7 @@ import { UserService } from '../../../../../shared/services/user.service';
 import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
 import { MainPageService } from '../../services/main-page.service';
 import { FiltersComponent } from '../filters/filters.component';
+import { UserCometChatService } from '../../../../../shared/services/user-comet-chat.service';
 
 @Component({
   selector: 'fhv-main-page',
@@ -37,15 +38,16 @@ export class MainPageComponent implements OnInit {
   searchForm: FormGroup;
 
   private readonly destroy: DestroyRef = inject(DestroyRef);
-  protected mainPageService: MainPageService = inject(MainPageService);
-  private userService: UserService = inject(UserService);
-  protected formService: FormService = inject(FormService);
-  private spinnerGeneralService: SpinnerGeneralService = inject(
+  protected readonly mainPageService: MainPageService = inject(MainPageService);
+  private readonly userService: UserService = inject(UserService);
+  private readonly userCometChatService: UserCometChatService = inject(UserCometChatService)
+  protected readonly formService: FormService = inject(FormService);
+  private readonly spinnerGeneralService: SpinnerGeneralService = inject(
     SpinnerGeneralService
   );
-  private sweetAlertService: SweetAlertService = inject(SweetAlertService);
-  private translateService: TranslateService = inject(TranslateService);
-  private customModalService: CustomModalService = inject(CustomModalService);
+  private readonly sweetAlertService: SweetAlertService = inject(SweetAlertService);
+  private readonly translateService: TranslateService = inject(TranslateService);
+  private readonly customModalService: CustomModalService = inject(CustomModalService);
 
   ngOnInit() {
     this.setCardVersion();
@@ -64,7 +66,7 @@ export class MainPageComponent implements OnInit {
     this.userRoom$ = this.userService.getIdUser().pipe(
       filter(Boolean),
       switchMap<number, Observable<ROOM_USER[]>>((userId) => {
-        this.userService.logInCometchat(userId);
+        this.userCometChatService.logInCometchat(userId);
         return this.mainPageService.searchRoom(userId);
       }),
       catchError(() => {

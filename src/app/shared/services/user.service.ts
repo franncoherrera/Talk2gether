@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../enpoints/enpoints';
 import { CURRENT_USER } from '../models/currentUser.model';
 import { UrlBuilderService } from './url-builder.service';
-import { CometChatUIKit } from '@cometchat/chat-uikit-angular';
 
 @Injectable({
   providedIn: 'root',
@@ -37,15 +36,5 @@ export class UserService {
 
   getIdUser(): Observable<number> {
     return this.idUser$;
-  }
-
-  logInCometchat(userId: number): void {
-    CometChatUIKit.getLoggedinUser().then((user: CometChat.User) => {
-      if (!user) {
-        CometChatUIKit.login({ uid: userId.toString() })
-          .then()
-          .catch(location.reload);
-      }
-    });
   }
 }
