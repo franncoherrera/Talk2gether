@@ -20,16 +20,26 @@
     {{ "common.referal_link.title_button" | translate }}</a
   >
 </li>
+<li class="nav-item button_slide slide_left order-lg-2 order-2">
+  <a
+    class="nav-link active"
+    aria-current="page"
+    (click)="closeNavbarChild()"
+    routerLink="{{ ROUTES_PATH.CHAT_MESSAGES }}"
+  >
+    <i [class]="ICON_CLASS.message"></i>
+    Chat</a
+  >
+</li>
 @if(getAllowUrl()){
-  <li class="nav-item button_slide slide_left order-lg-2 order-2">
-    <a
-      class="nav-link active"
-      aria-current="page"
-      (click)="closeNavbarChild(); playTourService.startTour(currentUrl())"
-    >
-      <i [class]="ICON_CLASS.play"></i>
-      {{ "common.tour.tour_button" | translate }}</a
-    >
-  </li>
-}
-}
+<li class="nav-item button_slide slide_left order-lg-2 order-2">
+  <a
+    class="nav-link active"
+    aria-current="page"
+    (click)="closeNavbarChild(); playTourService.startTour(currentUrl())"
+  >
+    <i [class]="ICON_CLASS.play"></i>
+    {{ "common.tour.tour_button" | translate }}</a
+  >
+</li>
+} }

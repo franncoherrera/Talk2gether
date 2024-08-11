@@ -1,0 +1,25 @@
+cometchat-conversations-with-messages {
+  * {
+    font-family: var(--font-family-light) !important;
+  }
+  display: block;
+  height: var(--height-components);
+  min-height: var(--height-components);
+  cometchat-message-header {
+    cometchat-button {
+      display: none;
+    }
+  }
+  cometchat-conversations {
+    cometchat-list {
+      .list {
+        &__header {
+          background-color: var(--color-primary);
+        }
+        &__title {
+          color: var(--color-white) !important;
+        }
+      }
+    }
+  }
+}

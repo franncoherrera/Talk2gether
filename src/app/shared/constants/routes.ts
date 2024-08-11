@@ -18,4 +18,6 @@ export const ROUTES_PATH = {
   CONFIG_PAGE: 'configuracion',
   /* Video call */
   VIDEO_CALL_PAGE: 'reunion-virtual',
+  /* Chat */
+  CHAT_MESSAGES: 'chat',
 };
