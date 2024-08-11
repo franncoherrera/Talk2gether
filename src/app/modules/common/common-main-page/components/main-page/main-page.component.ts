@@ -66,7 +66,6 @@ export class MainPageComponent implements OnInit {
     this.userRoom$ = this.userService.getIdUser().pipe(
       filter(Boolean),
       switchMap<number, Observable<ROOM_USER[]>>((userId) => {
-        this.userCometChatService.logInCometchat(userId);
         return this.mainPageService.searchRoom(userId);
       }),
       catchError(() => {
