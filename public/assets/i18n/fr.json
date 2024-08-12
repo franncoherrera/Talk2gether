@@ -34,6 +34,7 @@
       "log_out_button": "Se Déconnecter",
       "ranking_button": "Classement",
       "config_button": "Informations personnelles",
+      "chat_button":"Discussions",
       "language_button": {
         "language_title": "Langue",
         "language_spanish": "Espagnol",

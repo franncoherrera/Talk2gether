@@ -8,7 +8,7 @@ import { InputCheckboxComponent } from '../../../../shared/input-checkbox/input-
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { InterestModalComponent } from '../../../../shared/interest-modal/interest-modal.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
-import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
+import { SpinnerGeneralModule } from '../../../../shared/spinner/componentes/spinner-general/spinner-general.module';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { RegisterComponent } from './register.component';
 import { InterestLabelComponent } from '../../../../shared/interest-label/interest-label.component';

@@ -19,7 +19,7 @@ import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { FormService } from '../../../../../shared/services/form.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { MainPageService } from '../../services/main-page.service';
 import { FiltersComponent } from '../filters/filters.component';
 import { UserCometChatService } from '../../../../../shared/services/user-comet-chat.service';

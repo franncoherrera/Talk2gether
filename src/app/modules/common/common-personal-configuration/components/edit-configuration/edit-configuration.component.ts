@@ -38,8 +38,8 @@ import { FormErrorComponent } from '../../../../shared/form-error/form-error.com
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { InterestLabelComponent } from '../../../../shared/interest-label/interest-label.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
-import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralModule } from '../../../../shared/spinner/componentes/spinner-general/spinner-general.module';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
@@ -142,6 +142,7 @@ export class EditConfigurationComponent implements OnInit {
     if (!!this.fileSelected) {
       this.uploadFile(this.fileSelected);
     } else if (this.isFormModified()) {
+      this.spinnerGeneralService.showSpinner();
       this.sendEditUser();
     } else {
       this.backConfiguration();
@@ -170,6 +171,7 @@ export class EditConfigurationComponent implements OnInit {
           return EMPTY;
         }),
         finalize(() => {
+          this.spinnerGeneralService.hideSpinner();
           this.backConfiguration();
         })
       )

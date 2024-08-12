@@ -1,6 +1,6 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SpinnerGeneralService } from './spinner-general.service';
+import { SpinnerGeneralService } from '../../services/spinner-general.service';
 
 @Component({
   selector: 'fhv-spinner-general',

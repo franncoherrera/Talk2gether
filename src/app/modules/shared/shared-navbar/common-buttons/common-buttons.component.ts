@@ -2,17 +2,20 @@ import {
   Component,
   inject,
   input,
+  OnInit,
   output,
   ViewEncapsulation,
 } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../public/assets/icons_class/icon_class';
 import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
+import { ALLOW_PAGE } from '../../../../shared/constants/playTourSteps';
 import { ROUTES_PATH } from '../../../../shared/constants/routes';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
-import { CommonReferralLinkComponent } from '../../../common/common-referral-link/common-referral-link.component';
 import { PlayTourService } from '../../../../shared/services/play-tour.service';
-import { ALLOW_PAGE } from '../../../../shared/constants/playTourSteps';
+import { UserService } from '../../../../shared/services/user.service';
+import { CommonReferralLinkComponent } from '../../../common/common-referral-link/common-referral-link.component';
 
 @Component({
   selector: 'fhv-common-buttons',
@@ -20,16 +23,22 @@ import { ALLOW_PAGE } from '../../../../shared/constants/playTourSteps';
   styleUrl: './common-buttons.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class CommonButtonsComponent {
+export class CommonButtonsComponent implements OnInit {
   readonly ICON_CLASS = ICON_CLASS;
   readonly ROUTES_PATH = ROUTES_PATH;
+  userId$: Observable<number>;
   closeNavbar = output<void>();
   currentUrl = input.required<string>();
 
-  protected sesionService: SesionService = inject(SesionService);
-  private customModalService: CustomModalService = inject(CustomModalService);
-  protected playTourService: PlayTourService = inject(PlayTourService);
+  protected readonly sesionService: SesionService = inject(SesionService);
+  private readonly customModalService: CustomModalService =
+    inject(CustomModalService);
+  protected readonly playTourService: PlayTourService = inject(PlayTourService);
+  private readonly userService: UserService = inject(UserService);
 
+  ngOnInit(): void {
+    this.userId$ = this.userService.getIdUser();
+  }
   closeNavbarChild(): void {
     this.closeNavbar.emit();
   }

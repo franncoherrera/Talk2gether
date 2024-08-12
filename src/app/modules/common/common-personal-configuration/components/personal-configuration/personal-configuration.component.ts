@@ -21,7 +21,7 @@ import {
   CUSTOM_ONLY_LETTERS,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
 @Component({

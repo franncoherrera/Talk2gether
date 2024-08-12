@@ -21,7 +21,7 @@ import {
 import { BreakPointService } from '../../../../../shared/services/break-point.service';
 import { UserCometChatService } from '../../../../../shared/services/user-comet-chat.service';
 import { UserService } from '../../../../../shared/services/user.service';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { MainPageService } from '../../../common-main-page/services/main-page.service';
 
 @Component({
