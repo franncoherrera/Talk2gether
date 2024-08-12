@@ -205,18 +205,5 @@
     "nombreUsuario": "Samantha Clark",
     "urlBandera": "de",
     "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2F2012-10-26_-1351285195.jpg?alt=media&token=5f558aa3-fcd4-413c-acb4-e55fedc408d8"
-  },
-  {
-    "cantidadEstrellas": 4,
-    "edad": 30,
-    "idCuenta": 21,
-    "idReunionVirtual": 105,
-    "intereses": ["Música", "Tecnología", "Ciencias", "Libros", "Deporte"],
-    "linkReunionVirtual": "21",
-    "nombreNivelIdioma": "Ingles",
-    "nombrePais": "Francia",
-    "nombreUsuario": "Daddy Yanke",
-    "urlBandera": "fr",
-    "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2F436638-whatsapp-20image-202022-03-30-20at-2011-11-19-20am.jpeg?alt=media&token=25a4cd95-ec86-42ac-8670-f5ff38a6a7b4"
   }
 ]
