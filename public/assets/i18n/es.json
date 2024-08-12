@@ -25,7 +25,8 @@
       "general_error_no_call": "Nadie se unio a la reunión o nunca se creo esta reunión. No se puede calificar.",
       "general_error_user_not_qualify": "No se pudo calificar al usuario.",
       "general_error_not_valid_pass": "La contraseña tiene que tener como mínimo 9 caracteres, un número, una minúscula y una mayúscula",
-      "general_error_dual_pass_equal": "Las contraseñas deben ser iguales"
+      "general_error_dual_pass_equal": "Las contraseñas deben ser iguales",
+      "general_error_chat_not_available": "Se ha producido un error en el chat, intente nuevamente."
     },
     "navbar": {
       "login_button": "Iniciar Sesión",
@@ -33,6 +34,7 @@
       "log_out_button": "Cerrar Sesión",
       "ranking_button": "Ranking",
       "config_button": "Datos personales",
+      "chat_button":"Chat",
       "language_button": {
         "language_title": "Idioma",
         "language_spanish": "Español",

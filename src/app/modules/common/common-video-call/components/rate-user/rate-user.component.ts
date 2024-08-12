@@ -11,7 +11,7 @@ import { QUALIFY_USER } from '../../../../../shared/models/qualifyUser.model';
 import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { RateService } from '../../services/rate.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';

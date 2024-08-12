@@ -1,0 +1,11 @@
+<span
+  class="nav-item-number"
+  [ngClass]="{ 'bg-info': unreadQuantityMessage > 0 }"
+>
+  @if(unreadQuantityMessage){
+
+  {{ unreadQuantityMessage }}
+  }@else {
+    <fhv-spinner-particular></fhv-spinner-particular>
+  }
+</span>

@@ -17,7 +17,7 @@ import {
   CUSTOM_EMAIL_PATTERN,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { CommonLoginService } from '../../services/common-login.service';
 
 @Component({

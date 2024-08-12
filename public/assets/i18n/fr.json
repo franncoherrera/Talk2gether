@@ -25,7 +25,8 @@
       "general_error_no_call": "Personne n'a rejoint la réunion ou la réunion n'a jamais été créée. Elle ne peut pas être notée.",
       "general_error_user_not_qualify": "L'utilisateur n'a pas pu être noté.",
       "general_error_not_valid_pass": "Le mot de passe doit comporter au moins 9 caractères, un chiffre, une lettre minuscule et une lettre majuscule",
-      "general_error_dual_pass_equal": "Les mots de passe doivent être identiques"
+      "general_error_dual_pass_equal": "Les mots de passe doivent être identiques",
+      "general_error_chat_not_available": "Une erreur est survenue dans le chat, veuillez réessayer."
     },
     "navbar": {
       "login_button": "Connexion",
@@ -33,6 +34,7 @@
       "log_out_button": "Se Déconnecter",
       "ranking_button": "Classement",
       "config_button": "Informations personnelles",
+      "chat_button":"Discussions",
       "language_button": {
         "language_title": "Langue",
         "language_spanish": "Espagnol",
