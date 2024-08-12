@@ -5,7 +5,7 @@
   @if(unreadQuantityMessage){
 
   {{ unreadQuantityMessage }}
-  }@else {
-    <fhv-spinner-particular></fhv-spinner-particular>
+  }@else if(unreadQuantityMessage!== 0) {
+  <fhv-spinner-particular></fhv-spinner-particular>
   }
 </span>
