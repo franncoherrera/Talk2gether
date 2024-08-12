@@ -27,7 +27,7 @@ import {
   CUSTOM_PASS_VALIDATOR,
   CUSTOM_REQUIRED,
 } from '../../../../../shared/validators/formValidator';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { CommonRegisterService } from '../../services/common-register.service';
 
 @Component({

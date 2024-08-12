@@ -30,7 +30,8 @@
       "general_error_no_call": "No one joined the meeting or the meeting was never created. It cannot be rated.",
       "general_error_user_not_qualify": "The user could not be rated.",
       "general_error_not_valid_pass": "The password must be at least 9 characters long, contain a number, a lowercase letter, and an uppercase letter",
-      "general_error_dual_pass_equal": "Passwords must match"
+      "general_error_dual_pass_equal": "Passwords must match",
+      "general_error_chat_not_available": "An error occurred in the chat, please try again."
     },
     "navbar": {
       "login_button": "Login",
@@ -38,6 +39,7 @@
       "log_out_button": "Log Out",
       "ranking_button": "Ranking",
       "config_button": "Personal information",
+      "chat_button":"Chat",
       "language_button": {
         "language_title": "Language",
         "language_spanish": "Spanish",

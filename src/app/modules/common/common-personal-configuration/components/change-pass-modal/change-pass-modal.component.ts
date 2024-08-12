@@ -21,7 +21,7 @@ import {
 } from '../../../../../shared/validators/formValidator';
 import { ModalComponent } from '../../../../shared/bootstrap-modal/bootstrap-modal.component';
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
 @Component({

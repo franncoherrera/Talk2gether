@@ -12,7 +12,7 @@
       class="fhv-modern-card__container__card__image"
     />
     <div class="fhv-modern-card__container__card__overlay">
-      <div class="fhv-modern-card__container__card__overlay__header" >
+      <div class="fhv-modern-card__container__card__overlay__header">
         <svg class="fhv-modern-card__container__card__overlay__header__arc">
           <path />
         </svg>
@@ -22,7 +22,10 @@
           }} fis"
         ></span>
         <div class="fhv-modern-card__container__card__overlay__header-icons">
-          <h3 class="fhv-modern-card__container__card__overlay__header__title"  id="general-card-info">
+          <h3
+            class="fhv-modern-card__container__card__overlay__header__title"
+            id="general-card-info"
+          >
             {{ room().nombreUsuario }} - {{ room().edad }}
           </h3>
           @if(breakPointService.isMobile$ | async){
@@ -51,6 +54,7 @@
         mobile: (breakPointService.isMobile$ | async)
       }"
       type="button"
+      (click)="chatUserSelected(room().idCuenta)"
     >
       <i [class]="ICON_CLASS.message"></i>
     </div>

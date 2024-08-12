@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { ENDPOINTS } from '../enpoints/enpoints';
-import { CurrentUser } from '../models/currentUser.model';
+import { CURRENT_USER } from '../models/currentUser.model';
 import { UrlBuilderService } from './url-builder.service';
 
 @Injectable({
@@ -18,9 +18,9 @@ export class UserService {
   private httpClient: HttpClient = inject(HttpClient);
   
 
-  getCurrentUser(): Observable<CurrentUser> {
+  getCurrentUser(): Observable<CURRENT_USER> {
     const url = this.urlBuilderService.buildUrl(ENDPOINTS.USER_ACTIVE);
-    return this.httpClient.get<CurrentUser>(url);
+    return this.httpClient.get<CURRENT_USER>(url);
   }
 
   saveRole(role: string): void {

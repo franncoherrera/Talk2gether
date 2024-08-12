@@ -52,4 +52,11 @@ export const routes: Routes = [
         './modules/common/common-video-call/common-video-call.module'
       ).then((videoCallPage) => videoCallPage.CommonVideoCallModule),
   },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import(
+        './modules/common/common-chat/common-chat.module'
+      ).then((chatModule) => chatModule.CommonChatModule),
+  },
 ];

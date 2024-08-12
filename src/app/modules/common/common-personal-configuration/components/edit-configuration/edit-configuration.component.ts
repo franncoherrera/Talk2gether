@@ -17,7 +17,14 @@ import {
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { combineLatest, finalize, map, Observable } from 'rxjs';
+import {
+  catchError,
+  combineLatest,
+  EMPTY,
+  finalize,
+  map,
+  Observable,
+} from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
 import { SweetAlertService } from '../../../../../helpers/sweet-alert.service';
 import { IMAGE_FORMAT } from '../../../../../shared/constants/patterns';
@@ -26,12 +33,13 @@ import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { REGISTER_PARAMETERS } from '../../../../../shared/models/parameter.model';
 import { FormService } from '../../../../../shared/services/form.service';
 import { ParameterService } from '../../../../../shared/services/parameter.service';
+import { UserCometChatService } from '../../../../../shared/services/user-comet-chat.service';
 import { FormErrorComponent } from '../../../../shared/form-error/form-error.component';
 import { InputFormComponent } from '../../../../shared/input-form/input-form.component';
 import { InterestLabelComponent } from '../../../../shared/interest-label/interest-label.component';
 import { SelectFormComponent } from '../../../../shared/select-form/select-form.component';
-import { SpinnerGeneralModule } from '../../../../shared/spinner-general/spinner-general.module';
-import { SpinnerGeneralService } from '../../../../shared/spinner-general/spinner-general.service';
+import { SpinnerGeneralModule } from '../../../../shared/spinner/componentes/spinner-general/spinner-general.module';
+import { SpinnerGeneralService } from '../../../../shared/spinner/services/spinner-general.service';
 import { TextAreaFormComponent } from '../../../../shared/text-area-form/text-area-form.component';
 import { PersonalConfigurationService } from '../../services/personal-configuration.service';
 
@@ -80,6 +88,8 @@ export class EditConfigurationComponent implements OnInit {
     inject(SweetAlertService);
   private readonly translateService: TranslateService =
     inject(TranslateService);
+  private readonly userCometChatService: UserCometChatService =
+    inject(UserCometChatService);
 
   ngOnInit() {
     this.initImage();
@@ -140,18 +150,40 @@ export class EditConfigurationComponent implements OnInit {
   }
 
   sendEditUser(urlPhoto?: string): void {
-    this.personalConfigurationService
-      .editUser(
+    combineLatest([
+      this.personalConfigurationService.editUser(
         this.userId(),
         this.buildUser(!!urlPhoto ? urlPhoto : this.prevImage)
-      )
+      ),
+      this.userCometChatService.updateUserCometChat(
+        this.userId().toString(),
+        this.buildNameCometChat(),
+        !!urlPhoto ? urlPhoto : this.prevImage
+      ),
+    ])
       .pipe(
         takeUntilDestroyed(this.destroy),
+        catchError(() => {
+          this.sweetAlertService.alertImpromptu({
+            title: "'El usuario fue asd'",
+            icon: SWEET_ALERT_ICON.ERROR,
+          });
+          return EMPTY;
+        }),
         finalize(() => {
+          this.spinnerGeneralService.hideSpinner();
           this.backConfiguration();
         })
       )
       .subscribe();
+  }
+
+  buildNameCometChat(): string {
+    return (
+      this.formGroup().get('userName').value +
+      ' ' +
+      this.formGroup().get('userSurname').value
+    );
   }
 
   buildUser(urPhoto: string) {

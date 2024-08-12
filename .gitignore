@@ -43,3 +43,7 @@ testem.log
 Thumbs.db
 
 .firebase/
+#API KEY FIREBASE AND COMETCHAT
+
+src/app/shared/constants/firebaseConstants.ts
+src/app/shared/constants/cometchatConstants.ts

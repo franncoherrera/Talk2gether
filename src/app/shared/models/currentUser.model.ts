@@ -1,32 +1,32 @@
-export interface Authority {
+export interface AUTHORITY {
   authority: string;
 }
 
-export interface Follower {
+export interface FOLLOWER {
   id: number;
   fechaHoraAltaSeguidor: string;
   fechaHoraFinVigenciaSeguidor: string | null;
   idCuenta: number;
 }
 
-export interface Following {
+export interface FOLLOWING {
   id: number;
   fechaHoraAltaSeguido: string;
   fechaHoraFinVigenciaSeguido: string | null;
   idCuenta: number;
 }
 
-export interface Role {
+export interface ROLE {
   fechaHoraAltaRol: string;
   fechaHoraFinVigenciaRol: string | null;
   id: number;
   nombreRol: string;
 }
 
-export interface CurrentUser {
+export interface CURRENT_USER {
   accountNonExpired: boolean;
   accountNonLocked: boolean;
-  authorities: Authority[];
+  authorities: AUTHORITY[];
   cantidadReferidos: number;
   contrasenia: string;
   correo: string;
@@ -36,10 +36,10 @@ export interface CurrentUser {
   cuentaVerificada: string;
   enabled: boolean;
   id: number;
-  listaSeguidores: Follower[];
-  listaSeguidos: Following[];
+  listaSeguidores: FOLLOWER[];
+  listaSeguidos: FOLLOWING[];
   password: string;
-  rol: Role;
+  rol: ROLE;
   ultimaConexion: string;
   urlFoto: string;
   username: string;

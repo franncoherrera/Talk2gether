@@ -7,19 +7,23 @@ import { LANGUAGE } from '../enums/languages.enum';
 })
 export class CustomTranslateService {
   private translateService: TranslateService = inject(TranslateService);
-
+  private browserLang: string;
+  private savedLang: string;
   setLanguage(): void {
     this.translateService.setDefaultLang(LANGUAGE.SPANISH);
-    const browserLang: string =
+    this.browserLang =
       this.translateService.getBrowserLang() || LANGUAGE.SPANISH;
-    const savedLang: string =
-      localStorage.getItem('selectedLang') || browserLang;
+    this.savedLang = localStorage.getItem('selectedLang') || this.browserLang;
     localStorage.setItem(
       'selectedLang',
-      localStorage.getItem('selectedLang') || browserLang
+      localStorage.getItem('selectedLang') || this.browserLang
     );
-    this.translateService.use(
-      Object.values(LANGUAGE).includes(savedLang as LANGUAGE) ? savedLang : 'es'
-    );
+    this.translateService.use(this.getMatchLanguage());
+  }
+
+  getMatchLanguage(): string {
+    return Object.values(LANGUAGE).includes(this.savedLang as LANGUAGE)
+      ? this.savedLang
+      : LANGUAGE.SPANISH;
   }
 }
