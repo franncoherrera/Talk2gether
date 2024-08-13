@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup(
       {
         email: new FormControl('', [CUSTOM_EMAIL_PATTERN, CUSTOM_REQUIRED]),
-        password: new FormControl('', [CUSTOM_REQUIRED]),
+        currentpassword: new FormControl('', [CUSTOM_REQUIRED]),
       },
       {
         updateOn: 'change',
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     this.commonLoginService
       .login(
         this.loginForm.get('email').value,
-        this.loginForm.get('password').value
+        this.loginForm.get('currentpassword').value
       )
       .pipe(
         takeUntilDestroyed(this.destroy),

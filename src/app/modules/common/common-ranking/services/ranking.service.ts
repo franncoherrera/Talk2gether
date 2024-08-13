@@ -12,6 +12,13 @@ export class RankingService {
   private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
   private httpClient: HttpClient = inject(HttpClient);
 
+  /**
+   * Retrieves the ranking information for a specific user based on their ID.
+   *
+   * @param userId - The ID of the user whose ranking information is being retrieved.
+   *
+   * @returns An observable emitting an array of `RANKING_USER` objects representing the user's ranking details.
+   */
   getRanking(userId: number): Observable<RANKING_USER[]> {
     const url: string = this.urlBuilderService.buildUrl(
       ENDPOINTS.RANKING_USERS,

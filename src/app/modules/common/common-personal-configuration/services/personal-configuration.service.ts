@@ -19,6 +19,13 @@ export class PersonalConfigurationService {
   private httpClient: HttpClient = inject(HttpClient);
   private customModalService: CustomModalService = inject(CustomModalService);
 
+  /**
+   * Retrieves the personal data for a specific user based on their ID.
+   *
+   * @param idUser - The ID of the user whose personal data is being retrieved.
+   *
+   * @returns An observable emitting a `CONFIG_USER` object containing the user's personal data.
+   */
   getPersonalData(idUser: number): Observable<CONFIG_USER> {
     const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.CONFIG_DATA, {
       id: idUser,
@@ -26,6 +33,14 @@ export class PersonalConfigurationService {
     return this.httpClient.get<CONFIG_USER>(url);
   }
 
+  /**
+   * Edits the user data for a specific user based on their ID.
+   *
+   * @param idUser - The ID of the user whose data is being edited.
+   * @param user - An object containing the new user data to be updated.
+   *
+   * @returns An observable emitting a string response from the server indicating the result of the operation.
+   */
   editUser(idUser: number, user: any): Observable<string> {
     const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.EDIT_DATA, {
       id: idUser,
@@ -33,18 +48,29 @@ export class PersonalConfigurationService {
     return this.httpClient.put(url, user, { responseType: 'text' });
   }
 
-  changePassword(body: CHANGE_PASS): Observable<Object> {
+  /**
+   * Changes the password for the user based on the provided details.
+   *
+   * @param changePasswordbody - An object containing the current and new password details.
+   *
+   * @returns An observable emitting an object with the result of the password change operation.
+   */
+  changePassword(changePasswordbody: CHANGE_PASS): Observable<Object> {
     const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.CHANGE_PASS);
-    return this.httpClient.put(url, body);
+    return this.httpClient.put(url, changePasswordbody);
   }
 
+  /**
+   * Opens a preview modal to display user information.
+   *
+   * @param formControl - The form group containing user data.
+   * @param image - The image URL or data to be displayed in the modal.
+   */
   openPreviewCard(formControl: FormGroup, image: string | ArrayBuffer): void {
-    /** TODO View flags */
     const modalRef = this.customModalService.open(
       PreviewModalComponent,
       CUSTOM_MODAL_CONFIG
     );
-    /* This is an example that is shown to the user without importing hardcoded data */
     modalRef.componentInstance.roomUser = {
       cantidadEstrellas: 5,
       edad: 18,
@@ -63,6 +89,11 @@ export class PersonalConfigurationService {
     };
   }
 
+  /**
+   * Retrieves a list of motives for deleting an account.
+   *
+   * @returns An observable emitting an array of strings representing the available motives for account deletion.
+   */
   getDeleteAccountMotives(): Observable<string[]> {
     const url: string = this.urlBuilderService.buildUrl(
       ENDPOINTS.LIST_MOTIVES_USER
@@ -70,6 +101,13 @@ export class PersonalConfigurationService {
     return this.httpClient.get<string[]>(url);
   }
 
+  /**
+   * Deletes a user account based on the provided details.
+   *
+   * @param body - An object containing the details required to delete the user account.
+   *
+   * @returns An observable emitting a string response from the server indicating the result of the account deletion.
+   */
   deleteUserAccount(body: DELETE_ACOUNT_USER): Observable<string> {
     const url: string = this.urlBuilderService.buildUrl(
       ENDPOINTS.DELETE_USER_ACCOUNT

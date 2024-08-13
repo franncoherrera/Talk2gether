@@ -3,6 +3,19 @@ import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
 import { SesionService } from './sesion.service';
 
+/**
+ * HTTP Interceptor for adding an authorization token to outgoing requests.
+ * 
+ * This interceptor retrieves the current authentication token from `SesionService` and 
+ * adds it to the `Authorization` header of the outgoing HTTP request. It handles errors by 
+ * logging them and can be extended to manage specific cases, such as unauthorized access.
+ * 
+ * @function
+ * @param req - The HTTP request object to be intercepted.
+ * @param next - The `HttpHandler` to pass the modified request to the next handler in the chain.
+ * @returns {Observable<HttpEvent<any>>} - An observable of the HTTP event with the updated request.
+ * 
+ */
 export const TokenInterceptor: HttpInterceptorFn = (req, next) => {
   const sesionService = inject(SesionService);
   let authToken: string = sesionService.getCurrentSesion();
