@@ -6,6 +6,12 @@ import {
   VALIDATOR_SIZE,
 } from '../constants/patterns';
 
+/**
+ * Validates that the value of the control is not empty.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the value is empty, or `undefined` if it is valid.
+ */
 export function CUSTOM_REQUIRED(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -16,6 +22,12 @@ export function CUSTOM_REQUIRED(
   }
 }
 
+/**
+ * Validates that the value of the control has a valid email format.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the email format is invalid, or `undefined` if it is valid.
+ */
 export function CUSTOM_EMAIL_PATTERN(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -28,6 +40,13 @@ export function CUSTOM_EMAIL_PATTERN(
     return undefined;
   }
 }
+
+/**
+ * Validates that the value of the control contains only numbers.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the value contains non-numeric characters, or `undefined` if it is valid.
+ */
 export function CUSTOM_ONLY_NUMBER(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -41,6 +60,12 @@ export function CUSTOM_ONLY_NUMBER(
   }
 }
 
+/**
+ * Validates that the value of the control contains only letters.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the value contains non-alphabetic characters, or `undefined` if it is valid.
+ */
 export function CUSTOM_ONLY_LETTERS(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -54,9 +79,13 @@ export function CUSTOM_ONLY_LETTERS(
   }
 }
 
-export function CUSTOM_FULL_AGE(
-  control: FormControl
-): ValidationErrors | undefined {
+/**
+ * Validates that the provided birthdate indicates a minimum age.
+ *
+ * @param control - The form control with the birthdate in 'YYYY-MM-DD' format.
+ * @returns An error object with a message if the age is less than the required minimum, or `null` if it is valid.
+ */
+export function CUSTOM_FULL_AGE(control: FormControl): ValidationErrors | null {
   if (!control.value) {
     return null;
   }
@@ -81,6 +110,13 @@ export function CUSTOM_FULL_AGE(
   return null;
 }
 
+/**
+ * Validates that the value of the control meets password criteria.
+ * The password must contain at least one uppercase letter, one lowercase letter, one number, and meet the minimum length requirement.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the password does not meet the criteria, or `null` if it is valid.
+ */
 export function CUSTOM_PASS_VALIDATOR(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -98,6 +134,12 @@ export function CUSTOM_PASS_VALIDATOR(
     : null;
 }
 
+/**
+ * Validates that the value of the control does not exceed the maximum allowed length.
+ *
+ * @param control - The form control to validate.
+ * @returns An error object with a message if the value exceeds the maximum length, or `null` if it is valid.
+ */
 export function CUSTOM_MAX_CHAR(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -110,6 +152,12 @@ export function CUSTOM_MAX_CHAR(
   return null;
 }
 
+/**
+ * Validates that the file type of the image is permitted.
+ *
+ * @param control - The form control with the file name or path.
+ * @returns An error object with a message if the file type is not permitted, or `null` if it is valid.
+ */
 export function CUSTOM_IMAGE_TYPE(
   control: FormControl
 ): ValidationErrors | undefined {
@@ -127,6 +175,12 @@ export function CUSTOM_IMAGE_TYPE(
   return null;
 }
 
+/**
+ * Validates that the minimum age is less than the maximum age in a form group.
+ *
+ * @param formGroup - The form group containing the 'minAge' and 'maxAge' controls.
+ * @returns An error object with a message if the minimum age is not less than the maximum age, or if either age is missing, or `null` if valid.
+ */
 export function CUSTOM_AGE_RANGE(
   formGroup: FormGroup
 ): ValidationErrors | undefined {
@@ -150,6 +204,12 @@ export function CUSTOM_AGE_RANGE(
   return null;
 }
 
+/**
+ * Validates that the 'password' and 'repeatPassword' controls in a form group match.
+ *
+ * @param formGroup - The form group containing 'password' and 'repeatPassword' controls.
+ * @returns An error object with a message if the passwords do not match, or `null` if they are equal.
+ */
 export function CUSTOM_EQUAL_PASS(
   formGroup: FormGroup
 ): ValidationErrors | null {

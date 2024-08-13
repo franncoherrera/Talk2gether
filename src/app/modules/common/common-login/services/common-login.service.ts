@@ -14,8 +14,9 @@ export class CommonLoginService {
   reasonReport = new BehaviorSubject<string[]>(null);
   reasonReport$ = this.reasonReport.asObservable();
 
-  private httpClient: HttpClient = inject(HttpClient);
-  private urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
+  private readonly sesionService: SesionService = inject(SesionService)
+  private readonly httpClient: HttpClient = inject(HttpClient);
+  private readonly urlBuilderService: UrlBuilderService = inject(UrlBuilderService);
 
   /**
    * Logs in a user with the provided email and password.
@@ -28,9 +29,19 @@ export class CommonLoginService {
    * @remarks
    * This method sends a GET request to the login endpoint to authenticate the user.
    */
-  login(email: string, password: string): Observable<TOKEN_SESSION> {
-    const url = this.urlBuilderService.buildUrl(ENDPOINTS.LOGIN_SESSION);
-    return this.httpClient.get<TOKEN_SESSION>(url);
+  login(email: string, password: string): Observable<Object> {
+    const bodySession: USER_SESSION = {
+      correo: email,
+      contrasenia: password,
+    };
+    const urlEndpoint = this.urlBuilderService.buildUrl(
+      ENDPOINTS.LOGIN_SESSION
+    );
+    return this.httpClient.post(urlEndpoint, bodySession).pipe(
+      tap((tokenSession) => {
+        this.sesionService.startLocalSession(tokenSession as TOKEN_SESSION);
+      })
+    );
   }
 
   /**

@@ -1,5 +1,21 @@
 import { ROUTES_PATH } from './routes';
 
+/**
+ * Configuration for page tour steps.
+ *
+ * This object defines the elements and associated popovers for the page tour on different routes.
+ *
+ * @constant
+ * @type {{ [key: string]: { element: string, popover: { title: string, description: string } }[] }}
+ *
+ * @property {string} [ROUTES_PATH.MAIN_PAGE] - Array of tour steps for the main page, each containing:
+ * @property {string} [ROUTES_PATH.CONFIG_PAGE] - Array of tour steps for the configuration page, each containing:
+ *   - `element`: The CSS selector for the element to highlight.
+ *   - `popover`: The popover configuration, including:
+ *   - `title`: The title of the popover,  that means the translation.
+ *   - `description`: The description of the popover,  that means the translation.
+ *    
+ */
 export const PAGE_TOUR = {
   [ROUTES_PATH.MAIN_PAGE]: [
     {
@@ -123,4 +139,12 @@ export const PAGE_TOUR = {
   ],
 };
 
+/**
+ * Array of allowed pages for the tour.
+ *
+ * This array lists the routes for which the page tour is enabled.
+ *
+ * @constant
+ * @type {string[]}
+ */
 export const ALLOW_PAGE = [ROUTES_PATH.MAIN_PAGE, ROUTES_PATH.CONFIG_PAGE];

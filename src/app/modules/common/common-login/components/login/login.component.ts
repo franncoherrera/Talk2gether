@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     this.commonLoginService
       .login(
         this.loginForm.get('email').value,
-        this.loginForm.get('password').value
+        this.loginForm.get('currentpassword').value
       )
       .pipe(
         takeUntilDestroyed(this.destroy),
