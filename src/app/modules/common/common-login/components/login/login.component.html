@@ -22,11 +22,11 @@
         [submitForm]="submitForm"
       />
       <fhv-input-form
-        [name]="'password'"
+        [name]="'currentpassword'"
         label="{{ 'common.login_page.login_password' | translate }}"
         [type]="INPUT_TYPE.PASSWORD"
         [formGroup]="loginForm"
-        [control]="formService.formControl(loginForm, 'password')"
+        [control]="formService.formControl(loginForm, 'currentpassword')"
         placeholder="{{
           'common.login_page.login_pass_placeholder' | translate
         }}"
