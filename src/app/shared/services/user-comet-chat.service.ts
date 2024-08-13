@@ -22,10 +22,30 @@ export class UserCometChatService {
     SpinnerGeneralService
   );
 
+  /**
+   * Logs in a user to CometChat.
+   *
+   * This method logs in a user to CometChat using the provided user ID. The user ID is converted to a string
+   * and used for the login process.
+   *
+   * @param userId - The ID of the user to log in. This will be converted to a string.
+   * @returns A promise that resolves with the result of the login operation or `undefined` if an error occurs.
+   */
   logInCometchat(userId: number): Promise<Object> | undefined {
     return CometChatUIKit.login({ uid: userId.toString() });
   }
 
+  /**
+   * Updates the details of an existing CometChat user.
+   *
+   * This method retrieves an existing user by their ID, updates their name and avatar, and then applies the updates
+   * using the CometChatUIKit.
+   *
+   * @param userId - The ID of the user to update.
+   * @param nameUserCometchat - The new name for the CometChat user.
+   * @param urlPhotoAvatarCometChat - The new avatar URL for the CometChat user.
+   * @returns A promise that resolves with the result of the update operation, or `undefined` if an error occurs.
+   */
   updateUserCometChat(
     userId: string,
     nameUserCometchat: string,
@@ -43,14 +63,28 @@ export class UserCometChatService {
       });
   }
 
+  /**
+   * Creates a new CometChat user with default values.
+   *
+   * This method creates a new user with predefined UID, name, and avatar values. The user is then updated using
+   * the CometChatUIKit.
+   *
+   * @returns A promise that resolves with the result of the user creation operation or `undefined` if an error occurs.
+   */
   createUserCometChat(): Promise<Object | undefined> {
+    //TODO
     let userCometChat = new CometChat.User();
-    userCometChat.setUid('a');
-    userCometChat.setName('aaa');
-    userCometChat.setAvatar('aaa');
     return CometChatUIKit.updateUser(userCometChat);
   }
 
+  /**
+   * Shows an error modal when the chat session is unavailable.
+   *
+   * This method hides the spinner, displays an error alert indicating that the chat is not available, and redirects
+   * the user to the main page.
+   *
+   * @returns An observable of `EMPTY`, which can be used for chaining or further processing.
+   */
   showModalErrorUnavailableChatSession(): typeof EMPTY {
     this.spinnerGeneralService.hideSpinner();
     this.sweetAlertService.alertImpromptu({
@@ -63,6 +97,14 @@ export class UserCometChatService {
     return EMPTY;
   }
 
+  /**
+   * Builds the total unread message count.
+   *
+   * This method retrieves the unread message count for users from CometChat, calculates the total number of unread
+   * messages, and returns it as an observable.
+   *
+   * @returns An observable that emits the total number of unread messages.
+   */
   buildUnreadQuantityMessage(): Observable<number> {
     return from(CometChat.getUnreadMessageCount()).pipe(
       switchMap((unreadMessageCount) => {
@@ -86,6 +128,13 @@ export class UserCometChatService {
     );
   }
 
+  /**
+   * Periodically retrieves the total unread message count.
+   *
+   * This method creates an observable that emits the total number of unread messages at regular intervals (every 5 seconds).
+   *
+   * @returns An observable that emits the total number of unread messages every 5 seconds.
+   */
   getUnreadQuantityMessage(): Observable<number> {
     return interval(5000).pipe(
       switchMap(() => this.buildUnreadQuantityMessage())

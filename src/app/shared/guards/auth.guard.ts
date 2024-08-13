@@ -6,6 +6,19 @@ import { TranslateService } from '@ngx-translate/core';
 import { SWEET_ALERT_ICON } from '../enums/sweeAlert.enum';
 import { GENERAL_PATH } from '../constants/routes';
 
+/**
+ * AuthGuard function to protect routes based on user session status.
+ *
+ * This function is used to guard routes and redirect users based on their session status.
+ *  If a user is already logged in (i.e., the session is not null),
+ * they are shown an error message and redirected to the main path. If no session is present,
+ * the user is allowed to proceed to the requested route.
+ *
+ * @function
+ * @returns {boolean} - Returns `false` and redirects to the main path if a session
+ * is present, otherwise returns `true` to allow access to the route.
+ *
+ */
 export const authGuard: CanActivateFn = () => {
   const sesionService = inject(SesionService);
   const router = inject(Router);

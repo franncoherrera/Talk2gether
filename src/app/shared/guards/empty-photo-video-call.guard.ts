@@ -7,6 +7,18 @@ import { ROUTES_PATH } from '../constants/routes';
 import { SWEET_ALERT_ICON } from '../enums/sweeAlert.enum';
 import { TranslateService } from '@ngx-translate/core';
 
+/**
+ * Guard function to ensure that the room data is available before allowing access to the route.
+ *
+ * This function checks if room data is available using `MainPageService`. 
+ * If no room data is found (i.e., the room is null), it displays a warning message using `SweetAlertService` 
+ * and redirects the user to the main page. 
+ * If room data is available, the guard allows access to the route.
+ *
+ * @function
+ * @returns {boolean} - Always returns `true` to allow access to the route. The redirection and alert display occur if room data is null.
+ *
+ */
 export const emptyPhotoVideoCallGuard: CanActivateFn = () => {
   const mainPageService: MainPageService = inject(MainPageService);
   const router: Router = inject(Router);

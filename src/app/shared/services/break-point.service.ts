@@ -38,14 +38,17 @@ export class BreakPointService {
     this.listenToResize();
   }
 
+  /**
+   * Retrieves the current breakpoint name based on the active screen size.
+   *
+   * @returns The name of the current breakpoint, or 'unknown' if none match.
+   */
   private getCurrentBreakpoint(): string {
     if (this.breakpoints.extra_small.matches)
       return BREAKPOINTS.EXTRA_SMALL.NAME_SIZE;
     if (this.breakpoints.small.matches) return BREAKPOINTS.SMALL.NAME_SIZE;
-    if (this.breakpoints.large.matches) return BREAKPOINTS.MEDIUM.NAME_SIZE;
-    if (this.breakpoints.medium.matches) return BREAKPOINTS.LARGE.NAME_SIZE;
-    if (this.breakpoints.large.matches)
-      return BREAKPOINTS.EXTRA_LARGE.NAME_SIZE;
+    if (this.breakpoints.medium.matches) return BREAKPOINTS.MEDIUM.NAME_SIZE;
+    if (this.breakpoints.large.matches) return BREAKPOINTS.LARGE.NAME_SIZE;
     if (this.breakpoints.extra_large.matches)
       return BREAKPOINTS.EXTRA_LARGE.NAME_SIZE;
     if (this.breakpoints.extra_extra_large.matches)
@@ -53,6 +56,12 @@ export class BreakPointService {
     return 'unknown';
   }
 
+  /**
+   * Sets up a listener for window resize events to update the current breakpoint.
+   *
+   * This method adds an event listener to the window's resize event and updates
+   * the current breakpoint observable if the breakpoint changes.
+   */
   private listenToResize(): void {
     const handleResize = () => {
       const newBreakpoint = this.getCurrentBreakpoint();
@@ -67,10 +76,21 @@ export class BreakPointService {
     handleResize();
   }
 
+  /**
+   * Provides an observable that emits the current breakpoint whenever it changes.
+   *
+   * @returns An observable that emits the current breakpoint as a string.
+   */
   private onBreakpointChange(): Observable<string> {
     return this.currentBreakpointSubject.asObservable();
   }
 
+  /**
+   * Checks if the current screen width is considered mobile (less than 992px).
+   *
+   * @returns An observable that emits `true` if the screen width is less than 992px,
+   *          or `false` otherwise.
+   */
   private isMobile(): Observable<boolean> {
     const checkScreenSize = () => window.innerWidth < 992;
     const resize$ = fromEvent(window, 'resize').pipe(map(checkScreenSize));
