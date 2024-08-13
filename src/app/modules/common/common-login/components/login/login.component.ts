@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     this.spinnerGeneralService.showSpinner();
     if (
       this.loginForm.get('email').value === 'fhv@gmail.com' &&
-      this.loginForm.get('password').value === '12345678Aa'
+      this.loginForm.get('currentpassword').value === '12345678Aa'
     ) {
       this.commonLoginService
         .login(
@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
         });
     } else if (
       this.loginForm.get('email').value === 'fhv_bloqued@gmail.com' &&
-      this.loginForm.get('password').value === '12345678Aa'
+      this.loginForm.get('currentvalue').value === '12345678Aa'
     ) {
       this.commonLoginService.saveReason([
         this.translateService.instant('common.report.motive1'),

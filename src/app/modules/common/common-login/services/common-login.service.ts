@@ -29,19 +29,10 @@ export class CommonLoginService {
    * @remarks
    * This method sends a GET request to the login endpoint to authenticate the user.
    */
-  login(email: string, password: string): Observable<Object> {
-    const bodySession: USER_SESSION = {
-      correo: email,
-      contrasenia: password,
-    };
-    const urlEndpoint = this.urlBuilderService.buildUrl(
-      ENDPOINTS.LOGIN_SESSION
-    );
-    return this.httpClient.post(urlEndpoint, bodySession).pipe(
-      tap((tokenSession) => {
-        this.sesionService.startLocalSession(tokenSession as TOKEN_SESSION);
-      })
-    );
+   /* Backend endpoints */
+   login(email: string, password: string): Observable<TOKEN_SESSION> {
+    const url = this.urlBuilderService.buildUrl(ENDPOINTS.LOGIN_SESSION);
+    return this.httpClient.get<TOKEN_SESSION>(url);
   }
 
   /**
