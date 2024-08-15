@@ -24,7 +24,8 @@ export class GeneralCardComponent {
 
   protected readonly mainPageService: MainPageService = inject(MainPageService);
   protected readonly router: Router = inject(Router);
-  protected readonly translateService: TranslateService = inject(TranslateService);
+  protected readonly translateService: TranslateService =
+    inject(TranslateService);
 
   protected goVideoCall(room: ROOM_USER): void {
     if (room.idReunionVirtual === null) return;
@@ -61,6 +62,7 @@ export class GeneralCardComponent {
       });
   }
   chatUserSelected(idUserChatSelected: number): void {
+    if (idUserChatSelected === null) return;
     this.mainPageService.saveUserIdChat(idUserChatSelected.toString());
     this.router.navigate([ROUTES_PATH.CHAT_MESSAGES]);
   }
