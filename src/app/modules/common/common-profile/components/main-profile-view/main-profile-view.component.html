@@ -1,0 +1,23 @@
+@if (userProfileData$ | async; as userProfileData) {
+<div class="fhv-main-profile-view">
+  <section
+    class="fhv-main-profile-view__top d-flex align-items-center justify-content-start"
+  >
+    <div
+      class="fi fi-{{
+        userProfileData.urlBandera
+      }}  fhv-main-profile-view__top__flag"
+    ></div>
+  </section>
+  <section class="d-flex align-items-center justify-content-center w-100 position-relative">
+    <div class="fhv-main-profile-view__photo position-absolute">
+      <img
+        class="w-100 h-100 object-fit-cover"
+        [src]="userProfileData.urlFoto"
+        alt="profile_photo"
+      />
+    </div>
+  </section>
+  <p>main-profile-view works!</p>
+</div>
+}

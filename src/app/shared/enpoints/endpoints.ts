@@ -55,4 +55,5 @@ export const ENDPOINTS = {
   GET_PARTICIPANT:
     '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',
   RATE_USER: '/usuario/calificarusuario',
+  PROFILE_DATA: '/usuario/visualizarotroperfil?idCuenta=${id}'
 };
