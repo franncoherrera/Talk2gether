@@ -1,4 +1,4 @@
-@if (userProfileData$ | async; as userProfileData) {
+@if (userProfileData) {
 <div class="fhv-main-profile-view pb-4">
   <section
     class="fhv-main-profile-view__top d-flex align-items-center justify-content-between"
@@ -8,6 +8,7 @@
         userProfileData.urlBandera
       }}  fhv-main-profile-view__top__flag"
     ></div>
+    @if(!isShownMyProfile){
     <div class="pe-3 d-flex gap-1 flex-column">
       <fhv-bubble-button
         [iconClass]="ICON_CLASS.user_report"
@@ -20,6 +21,7 @@
       >
       </fhv-bubble-button>
     </div>
+    }
   </section>
   <section
     class="d-flex align-items-center justify-content-center w-100 position-relative"
@@ -31,12 +33,14 @@
         alt="profile_photo"
       />
     </div>
+    @if(!isShownMyProfile){
     <div class="fhv-main-profile-view__follow position-absolute">
       <fhv-bubble-button
-      [iconClass]="ICON_CLASS.user"
-      [labelButton]="'SIGUIENDO'"
-    />
+        [iconClass]="ICON_CLASS.user"
+        [labelButton]="'SIGUIENDO'"
+      ></fhv-bubble-button>
     </div>
+    }
   </section>
   <section class="fhv-main-profile-view__description">
     <h1
@@ -74,13 +78,16 @@
         >
         </fhv-bubble-button>
       </span>
+      @if(!isShownMyProfile){
       <span class="fhv-main-profile-view__actions__text__label">
         <fhv-bubble-button
+          (click)="goChatMessages()"
           [iconClass]="ICON_CLASS.message"
           [labelButton]="'MENSAJES'"
         >
         </fhv-bubble-button>
       </span>
+      }
     </h1>
   </section>
   <section
