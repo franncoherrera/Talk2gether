@@ -4,12 +4,14 @@ import {
   ElementRef,
   inject,
   input,
-  
   QueryList,
   Renderer2,
   ViewChildren,
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { RANKING_USER } from '../../../../../shared/models/ranking.model';
+import { ProfileService } from '../../../common-profile/services/profile.service';
 
 @Component({
   selector: 'fhv-progress-bar',
@@ -20,9 +22,14 @@ export class ProgressBarComponent implements AfterViewInit {
   @ViewChildren('progressBar') progressBars!: QueryList<ElementRef>;
   rankingList = input.required<RANKING_USER[]>();
 
-
   private renderer: Renderer2 = inject(Renderer2);
+  protected readonly router: Router = inject(Router);
+  private readonly profileService: ProfileService = inject(ProfileService);
 
+  goProfileView(idUserProfile: number): void {
+    this.profileService.saveIdUserProfile(idUserProfile);
+    this.router.navigate([ROUTES_PATH.PROFILE_VIEW]);
+  }
 
   ngAfterViewInit(): void {
     const maxNumber: number = this.rankingList().reduce(

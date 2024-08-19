@@ -91,8 +91,7 @@ fhv-classic-card {
         }
         width: 100%;
         display: flex;
-        justify-content: center;
-        gap: 5rem;
+        justify-content: space-evenly;
         position: relative;
         &__icon {
           @include apply-responsive-font-size($font-size-title);

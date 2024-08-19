@@ -30,6 +30,19 @@
       <a
         class="dropdown-item"
         aria-current="page"
+        routerLink="{{ ROUTES_PATH.PROFILE_VIEW }}"
+        (click)="
+          closeNavbarChild(); profileService.saveIdUserProfile(data.user.id)
+        "
+      >
+        <i [class]="ICON_CLASS.user"></i>
+        {{ "common.navbar.profile_button" | translate }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="dropdown-item"
+        aria-current="page"
         routerLink="{{ ROUTES_PATH.CONFIG_PAGE }}"
         (click)="closeNavbarChild()"
       >

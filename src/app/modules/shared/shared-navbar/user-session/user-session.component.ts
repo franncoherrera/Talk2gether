@@ -17,6 +17,7 @@ import { CURRENT_USER } from '../../../../shared/models/currentUser.model';
 import { BreakPointService } from '../../../../shared/services/break-point.service';
 import { UserCometChatService } from '../../../../shared/services/user-comet-chat.service';
 import { UserService } from '../../../../shared/services/user.service';
+import { ProfileService } from '../../../common/common-profile/services/profile.service';
 
 
 @Component({
@@ -44,6 +45,7 @@ export class UserSessionComponent implements OnInit {
   private readonly translateService: TranslateService =
     inject(TranslateService);
   private readonly router: Router = inject(Router);
+  protected readonly profileService: ProfileService = inject(ProfileService)
 
   ngOnInit(): void {
     if (this.sesionService.isLoggedIn()) {

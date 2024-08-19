@@ -46,7 +46,7 @@
   </a>
 </li>
 <ng-template #icons>
-  <div class="d-flex">
+  <div class="d-flex flex-wrap gap-2">
     <div
       class="fhv-modern-card__container__card__msg"
       id="general-card-message"
@@ -68,6 +68,17 @@
       (click)="goVideoCall(room())"
     >
       <i [class]="ICON_CLASS.video"></i>
+    </div>
+    <div
+      class="fhv-modern-card__container__card__call"
+      type="button"
+      id="general-card-profile"
+      [ngClass]="{
+        mobile: (breakPointService.isMobile$ | async)
+      }"
+      (click)="goProfile(room().idCuenta)"
+    >
+      <i [class]="ICON_CLASS.user"></i>
     </div>
   </div>
 </ng-template>

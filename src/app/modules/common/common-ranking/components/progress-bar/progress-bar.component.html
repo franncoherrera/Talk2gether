@@ -5,7 +5,10 @@
       <h1 class="fhv-progress-bar__container__flex__position">
         {{ rankingItem.posicion }}
       </h1>
-      <div class="fhv-progress-bar__container__flex__image">
+      <div
+        class="fhv-progress-bar__container__flex__image"
+        (click)="goProfileView(rankingItem.id)"
+      >
         <img [src]="rankingItem.urlFoto" alt="profile_photo" />
       </div>
       <div class="fhv-progress-bar__container__flex__progress">
@@ -28,7 +31,7 @@
           <h1>
             {{
               "common.ranking.points"
-                | translate : { points: rankingItem.puntosTotales }
+                | translate: { points: rankingItem.puntosTotales }
             }}
           </h1>
         </div>
