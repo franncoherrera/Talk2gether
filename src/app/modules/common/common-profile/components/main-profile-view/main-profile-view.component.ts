@@ -95,7 +95,7 @@ export class MainProfileViewComponent implements OnInit {
     );
   }
 
-  goChatMessages() {
+  goChatMessages(): void {
     this.mainPageService.saveUserIdChat(this.idUserProfile.toString());
     this.router.navigate([ROUTES_PATH.CHAT_MESSAGES]);
   }
