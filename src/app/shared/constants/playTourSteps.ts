@@ -88,6 +88,13 @@ export const PAGE_TOUR = {
         description: 'common.tour.#general-card-call.description',
       },
     },
+    {
+      element: '#general-card-profile',
+      popover: {
+        title: 'common.tour.#general-card-profile.title',
+        description: 'common.tour.#general-card-profile.description',
+      },
+    },
   ],
   [ROUTES_PATH.CONFIG_PAGE]: [
     {

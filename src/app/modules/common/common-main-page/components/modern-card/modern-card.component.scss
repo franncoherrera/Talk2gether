@@ -23,7 +23,8 @@ fhv-modern-card{
         font-family: var(--font-family-bold);
         &__star,
         &__msg,
-        &__call {
+        &__call,
+        &__profile {
           @include apply-responsive-font-size($font-size-text);
           position: absolute;
           background-color: var(--color-primary);
@@ -54,7 +55,15 @@ fhv-modern-card{
           &.mobile {
             position: static;
             max-width: 3.5rem;
-            margin-left: 0.5rem;
+          }
+        }
+        &__profile {
+          right: 1.5rem;
+          top: 10rem;
+          z-index: 10;
+          &.mobile {
+            position: static;
+            max-width: 3.5rem;
           }
         }
   

@@ -55,8 +55,15 @@ export const routes: Routes = [
   {
     path: GENERAL_PATH.MAIN_PATH,
     loadChildren: () =>
-      import(
-        './modules/common/common-chat/common-chat.module'
-      ).then((chatModule) => chatModule.CommonChatModule),
+      import('./modules/common/common-chat/common-chat.module').then(
+        (chatModule) => chatModule.CommonChatModule
+      ),
+  },
+  {
+    path: GENERAL_PATH.MAIN_PATH,
+    loadChildren: () =>
+      import('./modules/common/common-profile/common-profile.module').then(
+        (profileModule) => profileModule.CommonProfileModule
+      ),
   },
 ];

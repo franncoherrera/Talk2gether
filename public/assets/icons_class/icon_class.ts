@@ -28,4 +28,9 @@ export const ICON_CLASS = {
   phone_slash: 'fa-solid fa-phone-slash',
   desktop: 'fa-solid fa-desktop',
   play: 'fa-solid fa-circle-play',
+  chart: 'fa-solid fa-chart-line',
+  people: 'fa-solid fa-people-group',
+  award: 'fa-solid fa-award',
+  block_user: 'fa-solid fa-user-lock',
+  user_report: 'fa-solid fa-user-ninja',
 };

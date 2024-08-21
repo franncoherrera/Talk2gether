@@ -34,7 +34,8 @@
       "log_out_button": "Cerrar Sesión",
       "ranking_button": "Ranking",
       "config_button": "Datos personales",
-      "chat_button":"Chat",
+      "profile_button": "Perfil",
+      "chat_button": "Chat",
       "language_button": {
         "language_title": "Idioma",
         "language_spanish": "Español",
@@ -269,6 +270,26 @@
       "rate_user_page_button_back": "Volver",
       "rate_user_page_qualify_user": "Usuario calificado."
     },
+    "profile_user_page": {
+      "profile_user_report_button": "Reportar",
+      "profile_user_block_button": "Bloquear",
+      "profile_user_follow_button": "Siguiendo",
+      "profile_user_award_button": "Logros",
+      "profile_user_chart_button": "Estadísticas",
+      "profile_user_followers_button": "Seguidores",
+      "profile_user_messages_button": "Mensajes",
+      "profile_user_hello": "Hola, mi nombre es {{name}} {{surname}}",
+      "profile_user_data_title": "Datos:",
+      "profile_user_native_language": "Lengua materna:",
+      "profile_user_learn_language": "Idioma a aprender:",
+      "profile_user_level_language": "Nivel de idioma:",
+      "profile_user_points_title": "Puntuación:",
+      "profile_user_position": "Posición:",
+      "profile_user_ranking": "#{{position}}",
+      "profile_user_quantity_points": "Cantidad de puntos:",
+      "profile_user_interests": "Intereses:",
+      "profile_user_stars": "Cantidad de estrellas:"
+    },
     "tour": {
       "tour_button": "Play tour",
       "tour_button_next": "Siguiente",
@@ -289,6 +310,10 @@
       "#general-card-call": {
         "title": "Unirse a videollamada",
         "description": "Si presionas entrarás a una sala para practicar idioma y divertirte."
+      },
+      "#general-card-profile": {
+        "title": "Visitar perfil",
+        "description": "Si presionas entrarás a el perfil de esa persona para conocerla mejor."
       },
       "#general-card-message": {
         "title": "Chatear",

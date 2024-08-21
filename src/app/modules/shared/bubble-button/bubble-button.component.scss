@@ -1,0 +1,60 @@
+@import "font-size";
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    --c: var(--color-gold);
+    color: var(--c);
+    @include apply-responsive-font-size($font-size-text);
+    cursor: pointer;
+    border: 0.1em solid var(--c);
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: var(--c);
+      transform: translateY(150%);
+      border-radius: 50%;
+      left: calc((var(--n) - 1) * 25%);
+      transition: 0.5s;
+      transition-delay: calc((var(--n) - 1) * 0.1s);
+      z-index: -1;
+      &:nth-child(1) {
+        --n: 1;
+      }
+      &:nth-child(2) {
+        --n: 2;
+      }
+
+      &:nth-child(3) {
+        --n: 3;
+      }
+
+      &:nth-child(4) {
+        --n: 1;
+      }
+    }
+    &:hover {
+      color: var(--color-black);
+    }
+    &:hover {
+      span {
+        transform: translateY(0) scale(2);
+      }
+    }
+  }
+}

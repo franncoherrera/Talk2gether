@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { LanguageLevelModalComponent } from '../../modules/common/common-register/components/language-level-modal/language-level-modal.component';
 import { InterestModalComponent } from '../../modules/shared/interest-modal/interest-modal.component';
 import { CUSTOM_MODAL_CONFIG } from '../constants/customModalRefConfig';
-import { ENDPOINTS } from '../enpoints/enpoints';
+import { ENDPOINTS } from '../enpoints/endpoints';
 import { INTEREST } from '../models/parameter.model';
 import { CustomModalService } from './custom-modal.service';
 import { UrlBuilderService } from './url-builder.service';

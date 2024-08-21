@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { Observable } from 'rxjs';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { BLOQUED_USER } from '../../../../shared/models/bloquedUser.model';
 
 @Injectable({

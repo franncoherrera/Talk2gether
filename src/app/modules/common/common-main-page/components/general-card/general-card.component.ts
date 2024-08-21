@@ -7,6 +7,7 @@ import { PAGINATION } from '../../../../../shared/constants/paginationConstants'
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { SWEET_ALERT_ICON } from '../../../../../shared/enums/sweeAlert.enum';
 import { ROOM_USER } from '../../../../../shared/models/roomUser.model';
+import { ProfileService } from '../../../common-profile/services/profile.service';
 import { MainPageService } from '../../services/main-page.service';
 
 @Component({
@@ -24,7 +25,9 @@ export class GeneralCardComponent {
 
   protected readonly mainPageService: MainPageService = inject(MainPageService);
   protected readonly router: Router = inject(Router);
-  protected readonly translateService: TranslateService = inject(TranslateService);
+  protected readonly translateService: TranslateService =
+    inject(TranslateService);
+  private readonly profileService: ProfileService = inject(ProfileService);
 
   protected goVideoCall(room: ROOM_USER): void {
     if (room.idReunionVirtual === null) return;
@@ -61,7 +64,13 @@ export class GeneralCardComponent {
       });
   }
   chatUserSelected(idUserChatSelected: number): void {
+    if (idUserChatSelected === null) return;
     this.mainPageService.saveUserIdChat(idUserChatSelected.toString());
     this.router.navigate([ROUTES_PATH.CHAT_MESSAGES]);
+  }
+
+  goProfile(idUser: number): void {
+    this.profileService.saveIdUserProfile(idUser);
+    this.router.navigate([ROUTES_PATH.PROFILE_VIEW]);
   }
 }
