@@ -21,6 +21,16 @@
         width: 10.5rem;
       }
     }
+    &__image {
+      @include media-breakpoint-down(lg) {
+        img {
+          border-radius: 100%;
+        }
+        width: 8rem;
+        height: 8rem;
+        margin-right: 0.85rem;
+      }
+    }
     fhv-bubble-button {
       ul {
         li {

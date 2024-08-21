@@ -12,21 +12,39 @@
     <div class="pe-3 d-flex gap-1 flex-column">
       <fhv-bubble-button
         [iconClass]="ICON_CLASS.user_report"
-        [labelButton]="'Reportar'"
+        [labelButton]="
+          'common.profile_user_page.profile_user_report_button' | translate
+        "
       >
       </fhv-bubble-button>
       <fhv-bubble-button
         [iconClass]="ICON_CLASS.block_user"
-        [labelButton]="'Bloquear'"
+        [labelButton]="
+          'common.profile_user_page.profile_user_block_button' | translate
+        "
       >
       </fhv-bubble-button>
+    </div>
+    } @else {
+    <div
+      class="fhv-main-profile-view__top__image"
+      [ngClass]="{ 'd-block d-lg-none': isShownMyProfile }"
+    >
+      <img
+        class="w-100 h-100 object-fit-cover"
+        [src]="userProfileData.urlFoto"
+        alt="profile_photo"
+      />
     </div>
     }
   </section>
   <section
     class="d-flex align-items-center justify-content-center w-100 position-relative"
   >
-    <div class="fhv-main-profile-view__photo position-absolute">
+    <div
+      class="fhv-main-profile-view__photo position-absolute"
+      [ngClass]="{ 'd-none d-lg-block': isShownMyProfile }"
+    >
       <img
         class="w-100 h-100 object-fit-cover"
         [src]="userProfileData.urlFoto"
@@ -35,10 +53,13 @@
     </div>
     @if(!isShownMyProfile){
     <div class="fhv-main-profile-view__follow position-absolute">
-      <fhv-bubble-button
+      <!-- TODO -->
+      <!-- <fhv-bubble-button
         [iconClass]="ICON_CLASS.user"
-        [labelButton]="'SIGUIENDO'"
-      ></fhv-bubble-button>
+        [labelButton]="
+          'common.profile_user_page.profile_user_follow_button' | translate
+        "
+      ></fhv-bubble-button> -->
     </div>
     }
   </section>
@@ -46,10 +67,16 @@
     <h1
       class="fhv-main-profile-view__description__text m-0 d-flex justify-content-between"
     >
-      <span class="pb-4"
-        >Hola mi nombre es {{ userProfileData.nombreUsuario }}
-        {{ userProfileData.apellidoUsuario }}</span
-      >
+      <span class="pb-4">
+        {{
+          "common.profile_user_page.profile_user_hello"
+            | translate
+              : {
+                  name: userProfileData.nombreUsuario,
+                  surname: userProfileData.apellidoUsuario
+                }
+        }}
+      </span>
       <span>{{ userProfileData.descripcionUsuario }}</span>
     </h1>
   </section>
@@ -60,21 +87,27 @@
       <span class="fhv-main-profile-view__actions__text__label">
         <fhv-bubble-button
           [iconClass]="ICON_CLASS.award"
-          [labelButton]="'LOGROS'"
+          [labelButton]="
+            'common.profile_user_page.profile_user_award_button' | translate
+          "
         >
         </fhv-bubble-button>
       </span>
       <span class="fhv-main-profile-view__actions__text__label">
         <fhv-bubble-button
           [iconClass]="ICON_CLASS.chart"
-          [labelButton]="'ESTADÍSTICAS'"
+          [labelButton]="
+            'common.profile_user_page.profile_user_chart_button' | translate
+          "
         >
         </fhv-bubble-button>
       </span>
       <span class="fhv-main-profile-view__actions__text__label">
         <fhv-bubble-button
           [iconClass]="ICON_CLASS.people"
-          [labelButton]="'SEGUIDORES'"
+          [labelButton]="
+            'common.profile_user_page.profile_user_followers_button' | translate
+          "
         >
         </fhv-bubble-button>
       </span>
@@ -83,7 +116,9 @@
         <fhv-bubble-button
           (click)="goChatMessages()"
           [iconClass]="ICON_CLASS.message"
-          [labelButton]="'MENSAJES'"
+          [labelButton]="
+            'common.profile_user_page.profile_user_messages_button' | translate
+          "
         >
         </fhv-bubble-button>
       </span>
@@ -94,34 +129,51 @@
     class="fhv-main-profile-view__container d-flex justify-content-between flex-wrap"
   >
     <div class="fhv-main-profile-view__container__info mb-4 mb-lg-0">
-      <h1 class="fhv-main-profile-view__container__info__title">Datos:</h1>
+      <h1 class="fhv-main-profile-view__container__info__title">
+        {{ "common.profile_user_page.profile_user_data_title" | translate }}
+      </h1>
       <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Lengua materna:
+        {{
+          "common.profile_user_page.profile_user_native_language" | translate
+        }}
         <strong>{{ userProfileData.nombreIdiomaNativo }}</strong>
       </h1>
       <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Idioma a aprender:
+        {{ "common.profile_user_page.profile_user_learn_language" | translate }}
         <strong>{{ userProfileData.nombreIdiomaAprendiz }}</strong>
       </h1>
       <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Nivel de idioma:
+        {{ "common.profile_user_page.profile_user_level_language" | translate }}
         <strong>{{ userProfileData.nombreNivelIdiomaAprendiz }}</strong>
       </h1>
     </div>
     <div class="fhv-main-profile-view__container__info">
-      <h1 class="fhv-main-profile-view__container__info__title">Puntuación:</h1>
-      <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Posición:
-        <strong>#{{ userProfileData.rankingPosicion }}</strong>
+      <h1 class="fhv-main-profile-view__container__info__title">
+        {{ "common.profile_user_page.profile_user_points_title" | translate }}
       </h1>
       <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Cantidad de puntos:
+        {{ "common.profile_user_page.profile_user_position" | translate }}
+        <strong>
+          {{
+            "common.profile_user_page.profile_user_ranking"
+              | translate
+                : {
+                    position: userProfileData.rankingPosicion
+                  }
+          }}
+        </strong>
+      </h1>
+      <h1 class="fhv-main-profile-view__container__info__subtitle">
+        {{
+          "common.profile_user_page.profile_user_quantity_points" | translate
+        }}
         <strong>{{ userProfileData.puntosTotales }}</strong>
       </h1>
       <h1
         class="fhv-main-profile-view__container__info__subtitle d-flex flex-wrap gap-2 align-items-center"
       >
-        Intereses: @for(interest of userProfileData.intereses; track interest){
+        {{ "common.profile_user_page.profile_user_interests" | translate }}
+        @for(interest of userProfileData.intereses; track interest){
         <span
           class="fhv-main-profile-view__container__info__subtitle__border p-2"
           >{{ interest }}</span
@@ -129,7 +181,7 @@
         }
       </h1>
       <h1 class="fhv-main-profile-view__container__info__subtitle">
-        Cantidad de estrellas:
+        {{ "common.profile_user_page.profile_user_stars" | translate }}
         <strong
           >{{ userProfileData.cantidadEstrellas
           }}<i class="star" [class]="ICON_CLASS.star"></i
