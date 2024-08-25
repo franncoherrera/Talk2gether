@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Laura",
+  "apellidoUsuario": "Martinez",
+  "edadUsuario": 50,
+  "descripcionUsuario": "Estoy fascinada por la música, la programación y la tecnología. También me encanta el arte y los autos, y siempre busco maneras de integrar estos intereses en mi vida diaria.",
+  "nombreIdiomaAprendiz": "Inglés",
+  "nombreNivelIdiomaAprendiz": "Avanzado",
+  "nombreIdiomaNativo": "Indio",
+  "rankingPosicion": "9",
+  "puntosTotales": "1600",
+  "intereses": ["Música", "Programación", "Tecnología", "Arte", "Autos"],
+  "cantidadEstrellas": 5,
+  "urlBandera": "in",
+  "nombrePais": "India",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fsmile-2072907_640%20(1).jpg?alt=media&token=0b92dac2-29cc-45df-a267-fd240a4a31ff"
+}

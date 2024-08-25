@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Emily",
+  "apellidoUsuario": "Anderson",
+  "edadUsuario": 45,
+  "descripcionUsuario": "Estoy inmersa en el mundo de la programación y la tecnología, y disfruto mucho del deporte, los libros y las ciencias. Siempre busco nuevas formas de expandir mis conocimientos.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Intermédiaire",
+  "nombreIdiomaNativo": "Anglais",
+  "intereses": ["Programmation", "Technologie", "Sport", "Livres", "Sciences"],
+  "rankingPosicion": "13",
+  "puntosTotales": "1510",
+  "cantidadEstrellas": 3,
+  "urlBandera": "ca",
+  "nombrePais": "Canadá",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fsad-2042536_640.jpg?alt=media&token=10ab93f9-7932-468d-8c23-047aad94300e"
+}

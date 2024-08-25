@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Andrea",
+  "apellidoUsuario": "Meida",
+  "edadUsuario": 60,
+  "descripcionUsuario": "Tengo una profunda pasión por las ciencias, el arte y los libros. La programación y la tecnología son áreas que me fascinan y en las que disfruto profundizando constantemente.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Beginner",
+  "nombreIdiomaNativo": "Italian",
+  "intereses": ["Science", "Art", "Books", "Programming", "Technology"],
+  "rankingPosicion": "12",
+  "puntosTotales": "1523",
+  "cantidadEstrellas": 5,
+  "urlBandera": "it",
+  "nombrePais": "Italia",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fandea.jpg?alt=media&token=f0504f9f-98c9-48f0-ad59-e51c2ccc0fb1"
+}

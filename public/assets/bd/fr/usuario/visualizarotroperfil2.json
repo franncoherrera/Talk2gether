@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Natalia",
+  "apellidoUsuario": "Cortez",
+  "edadUsuario": 25,
+  "descripcionUsuario": "Natalia Cortez es una apasionada de la tecnología y la ciencia. Con un amor por la programación y la música, busca siempre aprender más. Su curiosidad y dedicación la impulsan a explorar nuevos horizontes.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Avancé",
+  "nombreIdiomaNativo": "Anglais",
+  "rankingPosicion": 5,
+  "puntosTotales": 1763,
+  "intereses": ["Sciences", "Technologie", "Livres", "Programmation", "Musique"],
+  "cantidadEstrellas": 5,
+  "urlBandera": "us",
+  "nombrePais": "États-Unis",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fretrato-hermoso-mujer-joven-posicion-pared-gris_231208-10760.webp?alt=media&token=4b985f00-4439-4a26-abe8-05e41875ba27"
+}

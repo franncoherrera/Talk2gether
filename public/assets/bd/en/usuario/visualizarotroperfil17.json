@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Olivia",
+  "apellidoUsuario": "Smith",
+  "edadUsuario": 44,
+  "descripcionUsuario": "Me apasionan las ciencias, la tecnología, y la programación. También disfruto mucho de los libros y el deporte. Siempre estoy buscando nuevas formas de aprender y mejorar.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Intermediate",
+  "nombreIdiomaNativo": "English",
+  "intereses": ["Science", "Technology", "Books", "Programming", "Sports"],
+  "rankingPosicion": 8952,
+  "puntosTotales": "10",
+  "cantidadEstrellas": 4,
+  "urlBandera": "au",
+  "nombrePais": "Australia",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2F108494_0_0-Olivia%20Smith.jpg?alt=media&token=8cf5642e-04da-4354-bc8a-f6e2635466a0"
+}

@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Ricardo",
+  "apellidoUsuario": "Pena",
+  "edadUsuario": 33,
+  "descripcionUsuario": "Me apasionan el cine, la música y la programación. La tecnología y los libros son una parte fundamental de mi vida, y siempre busco formas de integrar estos intereses.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Advanced",
+  "nombreIdiomaNativo": "French",
+  "intereses": ["Movies", "Music", "Books", "Programming", "Technology"],
+  "rankingPosicion": "6",
+  "puntosTotales": "1723",
+  "cantidadEstrellas": 5,
+  "urlBandera": "fr",
+  "nombrePais": "Francia",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fman-597178_640.jpg?alt=media&token=26c05d1d-5df9-47c5-b7a3-ea1e1d647aea"
+}

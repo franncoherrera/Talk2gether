@@ -1,0 +1,17 @@
+
+{
+  "nombreUsuario": "Joao",
+  "apellidoUsuario": "Silva",
+  "edadUsuario": 28,
+  "descripcionUsuario": "Soy un joven apasionado por el cine, el deporte y los libros. Me encanta la música y la tecnología, y siempre estoy en busca de nuevas experiencias y aprendizajes.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Avancé",
+  "nombreIdiomaNativo": "Portugais",
+  "intereses": ["Cinéma", "Sport", "Livres", "Musique", "Technologie"],
+  "rankingPosicion": "1050",
+  "puntosTotales": "200",
+  "cantidadEstrellas": 3,
+  "urlBandera": "br",
+  "nombrePais": "Brasil",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fportrait-2194457_640.jpg?alt=media&token=3dab7ab4-ede0-4907-9b55-fc28f91c9a84"
+}

@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Luis Rodriguez",
+  "apellidoUsuario": "Rodriguez",
+  "edadUsuario": "39",
+  "descripcionUsuario": "Luis Rodriguez es un amante de los libros, el deporte, el cine y la música. Mi pasión por la programación y la tecnología lo impulsa a explorar nuevas fronteras.",
+  "nombreIdiomaAprendiz": "Inglés",
+  "nombreNivelIdiomaAprendiz": "Intermedio",
+  "nombreIdiomaNativo": "Inglés",
+  "rankingPosicion": "11",
+  "puntosTotales": "1553",
+  "intereses": ["Libros", "Deporte", "Cine", "Música", "Programación"],
+  "cantidadEstrellas": "5",
+  "urlBandera": "es",
+  "nombrePais": "España",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fluis.jpg?alt=media&token=002fe1c7-142b-46c6-a762-9c86cf233bcf"
+}

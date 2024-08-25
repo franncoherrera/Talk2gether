@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Paula",
+  "apellidoUsuario": "Mendoza",
+  "edadUsuario": 40,
+  "descripcionUsuario": "Me encanta viajar, ver cine y aprender sobre ciencias. La tecnología y los libros son también una parte importante de mi vida, y disfruto combinando estos intereses.",
+  "nombreIdiomaAprendiz": "Inglés",
+  "nombreNivelIdiomaAprendiz": "Intermedio",
+  "nombreIdiomaNativo": "Inglés",
+  "rankingPosicion": "1000",
+  "puntosTotales": "150",
+  "intereses": ["Viajes", "Cine", "Ciencias", "Tecnología", "Libros"],
+  "cantidadEstrellas": 4,
+  "urlBandera": "au",
+  "nombrePais": "Australia",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fmodel-2387582_640.jpg?alt=media&token=ae2bbb48-4402-4d85-9835-ca5f0fc70ac4"
+}

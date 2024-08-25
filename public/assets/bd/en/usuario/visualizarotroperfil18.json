@@ -1,0 +1,17 @@
+
+{
+  "nombreUsuario": "Lisa",
+  "apellidoUsuario": "Wilson",
+  "edadUsuario": 40,
+  "descripcionUsuario": "Me encantan las ciencias, los viajes y el arte. También me apasionan la tecnología y los libros. Disfruto explorar diferentes áreas de conocimiento y enriquecerme con nuevas experiencias.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Intermediate",
+  "nombreIdiomaNativo": "English",
+  "intereses": ["Science", "Travel", "Art", "Technology", "Books"],
+  "rankingPosicion": "14",
+  "puntosTotales": "1490",
+  "cantidadEstrellas": 4,
+  "urlBandera": "gb-eng",
+  "nombrePais": "Reino Unido",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Flisa.jpg?alt=media&token=5186d5d2-4673-44bb-b060-f57ab89cb761"
+}

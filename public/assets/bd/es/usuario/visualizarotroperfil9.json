@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Maria",
+  "apellidoUsuario": "Gomez",
+  "edadUsuario": 45,
+  "descripcionUsuario": "Disfruto mucho del cine, los viajes y las ciencias. También me apasiona el deporte y los libros. Mi objetivo es seguir aprendiendo y explorando nuevos horizontes.",
+  "nombreIdiomaAprendiz": "Inglés",
+  "nombreNivelIdiomaAprendiz": "Avanzado",
+  "nombreIdiomaNativo": "Inglés",
+  "rankingPosicion": "125",
+  "puntosTotales": "542",
+  "intereses": ["Cine", "Viajes", "Ciencias", "Deporte", "Libros"],
+  "cantidadEstrellas": 4,
+  "urlBandera": "ca",
+  "nombrePais": "Canadá",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fwoman-1853939_640.jpg?alt=media&token=d656fb94-7282-4a1b-86fb-4cedba3b795d"
+}

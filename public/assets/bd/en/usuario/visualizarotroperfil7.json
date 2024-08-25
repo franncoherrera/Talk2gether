@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Jonh",
+  "apellidoUsuario": "Doe",
+  "edadUsuario": "30",
+  "descripcionUsuario": "Jonh Doe es un entusiasta de las ciencias y la tecnología. Le apasiona la programación, la música, y siempre busca aprender más. Su curiosidad lo lleva a explorar y descubrir nuevas ideas.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Intermediate",
+  "nombreIdiomaNativo": "English",
+  "intereses": ["Science", "Technology", "Books", "Programming", "Music"],
+  "rankingPosicion": "15",
+  "puntosTotales": "1450",
+  "cantidadEstrellas": "2",
+  "urlBandera": "us",
+  "nombrePais": "Estados Unidos",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fjoven-confiado_1098-20868.jpeg?alt=media&token=13f2e71a-ab90-489f-8486-d9e9e28a962e"
+}

@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Valentina",
+  "apellidoUsuario": "Ríos",
+  "edadUsuario": 40,
+  "descripcionUsuario": "Me apasionan las ciencias, los viajes y el cine. Los libros y la programación también forman parte importante de mi vida, y siempre estoy buscando maneras de seguir aprendiendo y creciendo.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Avancé",
+  "nombreIdiomaNativo": "Espagnol",
+  "intereses": ["Sciences", "Voyages", "Cinéma", "Livres", "Programmation"],
+  "rankingPosicion": "7",
+  "puntosTotales": "1721",
+  "cantidadEstrellas": 5,
+  "urlBandera": "mx",
+  "nombrePais": "México",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fmujer18.jpg?alt=media&token=d3917742-e81a-4a74-a378-c59ff477b961"
+}

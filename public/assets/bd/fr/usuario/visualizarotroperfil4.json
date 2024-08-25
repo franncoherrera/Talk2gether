@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Franco",
+  "apellidoUsuario": "Herrera",
+  "edadUsuario": 28,
+  "descripcionUsuario": "Apasionado de la programación y siempre en busca de nuevos desafíos tecnológicos, le encanta sumergirse en código y desarrollar soluciones innovadoras. Además, es un entusiasta del deporte, disfrutando tanto de practicarlo como de seguir competencias y eventos deportivos. En su tiempo libre, se relaja viendo películas de diversos géneros, desde clásicos hasta las últimas novedades, encontrando inspiración y entretenimiento en cada historia cinematográfica.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Intermédiaire",
+  "nombreIdiomaNativo": "Espagnol",
+  "intereses": ["Cinéma", "Voyages", "Sciences", "Sport", "Livres"],
+  "rankingPosicion": 1,
+  "puntosTotales": 1982,
+  "cantidadEstrellas": 5,
+  "urlBandera": "ar",
+  "nombrePais": "Argentina",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fmark.jpeg?alt=media&token=7a5d757b-cedb-44a8-bb6e-f3f4bfa78ac6"
+}

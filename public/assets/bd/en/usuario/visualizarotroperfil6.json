@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Juan",
+  "apellidoUsuario": "Lopez",
+  "edadUsuario": 30,
+  "descripcionUsuario": "Juan Lopez es un apasionado de la tecnología y la ciencia. Le encanta explorar nuevos lugares, disfrutar de una buena película, y siempre tiene un libro en la mano para acompañarlo en sus aventuras.",
+  "nombreIdiomaAprendiz": "English",
+  "nombreNivelIdiomaAprendiz": "Beginner",
+  "nombreIdiomaNativo": "Spanish",
+  "intereses": ["Travel", "Movies", "Science", "Technology", "Books"],
+  "rankingPosicion": 10,
+  "puntosTotales": 1590,
+  "cantidadEstrellas": 4,
+  "urlBandera": "ar",
+  "nombrePais": "Argentina",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2Fchico-guapo-seguro-posando-contra-pared-blanca_176420-32936.jpeg?alt=media&token=0f078409-cc16-4214-b45c-a587b14c4580"
+}

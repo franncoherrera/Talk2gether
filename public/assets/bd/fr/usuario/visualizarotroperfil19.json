@@ -1,0 +1,16 @@
+{
+  "nombreUsuario": "Samantha",
+  "apellidoUsuario": "Clark",
+  "edadUsuario": 50,
+  "descripcionUsuario": "Estoy profundamente interesada en la tecnología, los libros, y la programación. También me fascinan el cine y las ciencias. Me encanta combinar mis pasiones y aprender continuamente.",
+  "nombreIdiomaAprendiz": "Anglais",
+  "nombreNivelIdiomaAprendiz": "Avancé",
+  "nombreIdiomaNativo": "Allemand",
+  "intereses": ["Technologie", "Livres", "Cinéma", "Sciences", "Programmation"],
+  "rankingPosicion": "8",
+  "puntosTotales": "1659",
+  "cantidadEstrellas": 5,
+  "urlBandera": "de",
+  "nombrePais": "Alemania",
+  "urlFoto": "https://firebasestorage.googleapis.com/v0/b/talk2gether-a8b61.appspot.com/o/images%2F2012-10-26_-1351285195.jpg?alt=media&token=5f558aa3-fcd4-413c-acb4-e55fedc408d8"
+}
