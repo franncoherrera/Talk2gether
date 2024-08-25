@@ -23,15 +23,17 @@ Aprendiz 2:
 ## **Módulos principales.**
 
 - Módulo de usuario (terminado)
+- Módulo de autenticación (terminado)
 - Módulo de traducciones (terminado)
-- Módulo de seguridad (terminado)
 - Módulo de calificación (terminado)
-- Módulo de reuniones virtuales (en proceso)
-- Módulo de mensajería
+- Módulo de reuniones virtuales (terminado)
+- Módulo de mensajería (terminado)
+- Módulo de gamificación (terminado)
+- Módulo de seguridad
 - Módulo de seguimiento
-- Módulo de parámetros
-- Módulo de gamificación
 - Módulo de reportes
+- Módulo de administrador
+- Módulo de parámetros
 
 > [!TIP]
 > Tecnologías.

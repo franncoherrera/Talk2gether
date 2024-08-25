@@ -39,7 +39,8 @@
       "log_out_button": "Log Out",
       "ranking_button": "Ranking",
       "config_button": "Personal information",
-      "chat_button":"Chat",
+      "chat_button": "Chat",
+      "profile_button": "Profile",
       "language_button": {
         "language_title": "Language",
         "language_spanish": "Spanish",
@@ -274,6 +275,26 @@
       "rate_user_page_button_back": "Back",
       "rate_user_page_qualify_user": "User rated."
     },
+    "profile_user_page": {
+      "profile_user_report_button": "Report",
+      "profile_user_block_button": "Block",
+      "profile_user_follow_button": "Following",
+      "profile_user_award_button": "Achievements",
+      "profile_user_chart_button": "Statistics",
+      "profile_user_followers_button": "Followers",
+      "profile_user_messages_button": "Messages",
+      "profile_user_hello": "Hello, my name is {{name}} {{surname}}",
+      "profile_user_data_title": "Data:",
+      "profile_user_native_language": "Native language:",
+      "profile_user_learn_language": "Language to learn:",
+      "profile_user_level_language": "Language level:",
+      "profile_user_points_title": "Score:",
+      "profile_user_position": "Position:",
+      "profile_user_ranking": "#{{position}}",
+      "profile_user_quantity_points": "Number of points:",
+      "profile_user_interests": "Interests:",
+      "profile_user_stars": "Number of stars:"
+    },
     "tour": {
       "tour_button": "Play tour",
       "tour_button_next": "Next",
@@ -314,6 +335,10 @@
       "#general-buttons-toggle": {
         "title": "Different styles",
         "description": "You can change the style of how your cards will look when you enter the platform."
+      },
+      "#general-card-profile": {
+        "title": "Visit Profile",
+        "description": "If you press this, you will enter the profile of that person to get to know them better."
       },
       "#general-buttons-search": {
         "title": "Search",

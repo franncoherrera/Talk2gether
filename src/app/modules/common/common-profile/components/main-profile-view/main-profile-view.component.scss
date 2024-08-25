@@ -1,0 +1,154 @@
+@import "font-size";
+@import "media-queries";
+
+.fhv-main-profile-view {
+  height: auto;
+  min-height: var(--height-components);
+  background-color: var(--color-base);
+  &__top {
+    height: 19vh;
+    background-color: var(--color-primary);
+    width: 100%;
+    margin-bottom: 7rem;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 4rem;
+    }
+    &__flag {
+      height: 20vh;
+      width: 15rem;
+      @include media-breakpoint-down(md) {
+        height: 20vh;
+        width: 10.5rem;
+      }
+    }
+    &__image {
+      @include media-breakpoint-down(lg) {
+        img {
+          border-radius: 100%;
+        }
+        width: 8rem;
+        height: 8rem;
+        margin-right: 0.85rem;
+      }
+    }
+    fhv-bubble-button {
+      ul {
+        li {
+          --c: var(--color-error) !important;
+          border: none !important;
+          width: 9em !important;
+          font-family: var(--font-family);
+        }
+      }
+    }
+  }
+  &__photo {
+    width: 14rem;
+    height: 14rem;
+    top: -14rem;
+    img {
+      border-radius: 100%;
+    }
+    @include media-breakpoint-down(md) {
+      width: 8rem;
+      height: 8rem;
+      top: -8rem;
+      left: 1rem;
+    }
+  }
+  &__follow {
+    top: -6rem;
+    right: 1rem;
+    @include media-breakpoint-down(md) {
+      top: -3.5rem;
+    }
+    //TODO
+    ul {
+      li {
+        --c: var(--color-primary) !important;
+        width: 9em !important;
+        font-family: var(--font-family);
+        color: var(--color-primary) !important;
+        border: 0.125rem solid var(--color-primary);
+        background-color: var(--color-gold);
+      }
+    }
+  }
+  .unfollow {
+    color: var(--color-primary);
+    border: 0.125rem solid var(--color-primary);
+    background-color: transparent;
+  }
+  &__actions,
+  &__container,
+  &__description {
+    &__info,
+    &__options,
+    &__text {
+      font-family: var(--font-family);
+      background-color: var(--color-primary);
+      @include apply-responsive-font-size($font-size-text);
+      padding: 2rem;
+      color: var(--color-white);
+      border-radius: var(--border-radius-containers);
+      &__label {
+        min-width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  &__actions {
+    padding: 0 7rem 2rem 7rem;
+    @include media-breakpoint-down(xl) {
+      padding: 0 5rem 2rem 5rem;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: 0 1rem 2rem 1rem;
+    }
+  }
+  &__description {
+    padding: 2rem 7rem;
+    @include media-breakpoint-down(xl) {
+      padding: 2rem 5rem;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: 2rem 1rem;
+    }
+    &__text {
+      flex-direction: column;
+    }
+  }
+  &__container {
+    padding: 0 7rem;
+    @include media-breakpoint-down(xl) {
+      padding: 0 5rem;
+    }
+    @include media-breakpoint-down(lg) {
+      padding: 0 1rem;
+    }
+    &__info,
+    &__options {
+      width: 48%;
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+      &__title {
+        @include apply-responsive-font-size($font-size-subtitle);
+        margin: 0;
+      }
+      &__subtitle {
+        @include apply-responsive-font-size($font-size-text);
+        margin: 0;
+        padding-top: 1.5rem;
+        &__border {
+          border: 0.125rem solid var(--color-gold);
+        }
+        .star {
+          color: var(--color-gold);
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ENDPOINTS } from '../enpoints/enpoints';
+import { ENDPOINTS } from '../enpoints/endpoints';
 import { CURRENT_USER } from '../models/currentUser.model';
 import { UrlBuilderService } from './url-builder.service';
 

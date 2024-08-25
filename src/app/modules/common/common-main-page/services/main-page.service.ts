@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { HttpClient } from '@angular/common/http';
 import { ROOM_USER } from '../../../../shared/models/roomUser.model';
 

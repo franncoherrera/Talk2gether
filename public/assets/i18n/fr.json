@@ -39,7 +39,8 @@
       "log_out_button": "Se Déconnecter",
       "ranking_button": "Classement",
       "config_button": "Informations personnelles",
-      "chat_button":"Discussions",
+      "chat_button": "Discussions",
+      "profile_button": "Profil",
       "language_button": {
         "language_title": "Langue",
         "language_spanish": "Espagnol",
@@ -274,6 +275,26 @@
       "rate_user_page_button_back": "Retour",
       "rate_user_page_qualify_user": "Utilisateur évalué."
     },
+    "profile_user_page": {
+      "profile_user_report_button": "Signaler",
+      "profile_user_block_button": "Bloquer",
+      "profile_user_follow_button": "Abonné",
+      "profile_user_award_button": "Réalisations",
+      "profile_user_chart_button": "Statistiques",
+      "profile_user_followers_button": "Abonnés",
+      "profile_user_messages_button": "Discussions",
+      "profile_user_hello": "Bonjour, je m'appelle {{name}} {{surname}}",
+      "profile_user_data_title": "Données :",
+      "profile_user_native_language": "Langue maternelle :",
+      "profile_user_learn_language": "Langue à apprendre :",
+      "profile_user_level_language": "Niveau de langue :",
+      "profile_user_points_title": "Score :",
+      "profile_user_position": "Position :",
+      "profile_user_ranking": "#{{position}}",
+      "profile_user_quantity_points": "Nombre de points :",
+      "profile_user_interests": "Intérêts :",
+      "profile_user_stars": "Nombre d'étoiles :"
+    },
     "tour": {
       "tour_button": "Lancer la visite",
       "tour_button_next": "Suivant",
@@ -314,6 +335,10 @@
       "#general-buttons-toggle": {
         "title": "Différents styles",
         "description": "Vous pouvez changer le style de l'apparence de vos cartes lorsque vous entrez sur la plateforme."
+      },
+      "#general-card-profile": {
+        "title": "Visiter le profil",
+        "description": "Si vous appuyez sur cela, vous accéderez au profil de cette personne pour mieux la connaître."
       },
       "#general-buttons-search": {
         "title": "Recherche",

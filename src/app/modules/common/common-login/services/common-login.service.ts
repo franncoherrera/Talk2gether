@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { TOKEN_SESSION } from '../../../../shared/models/tokenSession.model';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { SesionService } from '../../../../shared/interceptors/sesion.service';

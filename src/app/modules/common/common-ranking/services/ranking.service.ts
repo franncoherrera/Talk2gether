@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 import { HttpClient } from '@angular/common/http';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { RANKING_USER } from '../../../../shared/models/ranking.model';
 import { Observable } from 'rxjs';
 

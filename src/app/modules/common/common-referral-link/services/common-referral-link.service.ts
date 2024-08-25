@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
 
 @Injectable({

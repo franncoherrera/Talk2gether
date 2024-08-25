@@ -61,4 +61,6 @@ export const ENDPOINTS = {
   /* Rate user */
   GET_PARTICIPANT: '/reunionvirtual/obtenerUsuarioACalificar/user${id}.json',
   RATE_USER: '/usuario/calificarusuario',
+  PROFILE_DATA: '/usuario/visualizarotroperfil?idCuenta=${id}',
+  BLOCK_VERIFICATION: '/cuenta/verificarbloqueo'
 };

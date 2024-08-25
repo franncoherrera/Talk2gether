@@ -3,7 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CUSTOM_MODAL_CONFIG } from '../../../../shared/constants/customModalRefConfig';
-import { ENDPOINTS } from '../../../../shared/enpoints/enpoints';
+import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { CHANGE_PASS } from '../../../../shared/models/changePassWord.model';
 import { CONFIG_USER } from '../../../../shared/models/configUser.model';
 import { CustomModalService } from '../../../../shared/services/custom-modal.service';
