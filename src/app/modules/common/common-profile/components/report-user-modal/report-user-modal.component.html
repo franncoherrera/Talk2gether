@@ -1,0 +1,48 @@
+<fhv-bootstrap-modal
+  modalTitle="{{
+    'common.profile_user_page.report_user_modal.report_user_modal_title'
+      | translate
+  }}"
+>
+  <form
+    class="fhv-report-user-modal d-flex flex-column gap-3 p-3"
+    [formGroup]="reportUserForm"
+    (ngSubmit)="reportUser()"
+    (keydown.enter)="reportUser()"
+  >
+    <h1 class="fhv-report-user-modal__motives m-0">
+      {{
+        "common.profile_user_page.report_user_modal.report_user_motives_title"
+          | translate
+      }}
+    </h1>
+    <fhv-input-checkbox
+      [name]="'motives'"
+      [label]="userReportMotivesList"
+      [submitForm]="submitForm"
+      [formGroup]="reportUserForm"
+      [control]="formService.formControl(reportUserForm, 'motives')"
+    ></fhv-input-checkbox>
+    <fhv-text-area-form
+      [name]="'descriptionReport'"
+      label="{{
+        'common.profile_user_page.report_user_modal.report_user_description_title'
+          | translate
+      }}"
+      [formGroup]="reportUserForm"
+      [control]="formService.formControl(reportUserForm, 'descriptionReport')"
+      placeholder="{{
+        'common.profile_user_page.report_user_modal.report_user_placeholder'
+          | translate
+      }}"
+      [submitForm]="submitForm"
+    ></fhv-text-area-form>
+
+    <button class="fhv-report-user-modal__button" type="submit">
+      {{
+        "common.profile_user_page.report_user_modal.report_user_button"
+          | translate
+      }}
+    </button>
+  </form>
+</fhv-bootstrap-modal>

@@ -11,6 +11,7 @@
     @if(!isShownMyProfile){
     <div class="pe-3 d-flex gap-1 flex-column">
       <fhv-bubble-button
+        (click)="openReportModal()"
         [iconClass]="ICON_CLASS.user_report"
         [labelButton]="
           'common.profile_user_page.profile_user_report_button' | translate
