@@ -9,12 +9,15 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { combineLatest, map, Observable, of, switchMap } from 'rxjs';
 import { ICON_CLASS } from '../../../../../../../public/assets/icons_class/icon_class';
+import { CUSTOM_MODAL_CONFIG } from '../../../../../shared/constants/customModalRefConfig';
 import { ROUTES_PATH } from '../../../../../shared/constants/routes';
 import { PROFILE_USER } from '../../../../../shared/models/profileUser.model';
+import { CustomModalService } from '../../../../../shared/services/custom-modal.service';
 import { FormService } from '../../../../../shared/services/form.service';
 import { UserService } from '../../../../../shared/services/user.service';
 import { MainPageService } from '../../../common-main-page/services/main-page.service';
 import { ProfileService } from '../../services/profile.service';
+import { ReportUserModalComponent } from '../report-user-modal/report-user-modal.component';
 
 @Component({
   selector: 'fhv-main-profile-view',
@@ -34,6 +37,8 @@ export class MainProfileViewComponent implements OnInit {
   private readonly destroy: DestroyRef = inject(DestroyRef);
   private readonly router: Router = inject(Router);
   protected readonly mainPageService: MainPageService = inject(MainPageService);
+  private readonly customModalService: CustomModalService =
+    inject(CustomModalService);
 
   ngOnInit(): void {
     combineLatest([
@@ -98,5 +103,9 @@ export class MainProfileViewComponent implements OnInit {
   goChatMessages(): void {
     this.mainPageService.saveUserIdChat(this.idUserProfile.toString());
     this.router.navigate([ROUTES_PATH.CHAT_MESSAGES]);
+  }
+
+  openReportModal(): void {
+    this.customModalService.open(ReportUserModalComponent, CUSTOM_MODAL_CONFIG);
   }
 }

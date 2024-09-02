@@ -39,6 +39,8 @@ export const ENDPOINTS = {
   LANGUAGE_ACTIVE: '/idiomas/listaridiomasactivos',
   LANGUAGE_LEVEL_ACTIVE: '/nivelesidioma/listarnivelesidiomaactivos',
   INTERESTS_ACTIVE: '/intereses/listarinteresesactivos',
+  MOTIVES_PLATFORM_ACTIVE:
+    '/motivos/listarmotivosactivos?nombreTipoMotivo=plataforma',
   SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/?idCuenta=${id}',
   SEARCH_FILTER_ROOM:
     '/reunionvirtual/listarsalasactivasfiltradas/?idCuenta=${id}&edadMinima=${minAge}&edadMaxima=${maxAge}&intereses=${interest}&nombrePais=${country}&nombreNivelIdioma=${levelLanguage}',
@@ -56,5 +58,6 @@ export const ENDPOINTS = {
     '/reunionvirtual/obtenerUsuarioACalificar?idCuenta=${id}&url=${idMeeting}',
   RATE_USER: '/usuario/calificarusuario',
   PROFILE_DATA: '/usuario/visualizarotroperfil?idCuenta=${id}',
-  BLOCK_VERIFICATION: '/cuenta/verificarbloqueo'
+  BLOCK_VERIFICATION: '/cuenta/verificarbloqueo',
+  REPORT_USER: '/cuenta/reportarusuario',
 };

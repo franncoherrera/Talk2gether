@@ -1,0 +1,20 @@
+@import "font-size";
+@import "_buttons.scss";
+
+.fhv-report-user-modal {
+  font-family: var(--font-family);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius-containers);
+  fhv-input-checkbox {
+    .fhv-input-checkbox__item {
+      flex-basis: 100%;
+    }
+  }
+  &__motives {
+    @include apply-responsive-font-size($font-size-subtitle);
+  }
+  &__button {
+    @include buttons-enabled;
+  }
+}
