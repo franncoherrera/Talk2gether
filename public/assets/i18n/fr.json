@@ -295,7 +295,7 @@
         "report_user_placeholder": "Décrivez le signalement en détail...",
         "report_user_motives_title": "Sélectionnez une ou plusieurs raisons",
         "report_user_button": "Signaler",
-        "report_user_success": "Utilisateur signalé avec succès",
+        "report_user_sussess": "Utilisateur signalé avec succès",
         "report_user_error": "Impossible de signaler l'utilisateur, veuillez réessayer plus tard"
       }
     },
