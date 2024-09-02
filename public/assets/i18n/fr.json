@@ -288,7 +288,16 @@
       "profile_user_ranking": "#{{position}}",
       "profile_user_quantity_points": "Nombre de points :",
       "profile_user_interests": "Intérêts :",
-      "profile_user_stars": "Nombre d'étoiles :"
+      "profile_user_stars": "Nombre d'étoiles :",
+      "report_user_modal": {
+        "report_user_modal_title": "Signaler un utilisateur",
+        "report_user_description_title": "Description",
+        "report_user_placeholder": "Décrivez le signalement en détail...",
+        "report_user_motives_title": "Sélectionnez une ou plusieurs raisons",
+        "report_user_button": "Signaler",
+        "report_user_success": "Utilisateur signalé avec succès",
+        "report_user_error": "Impossible de signaler l'utilisateur, veuillez réessayer plus tard"
+      }
     },
     "tour": {
       "tour_button": "Lancer la visite",
