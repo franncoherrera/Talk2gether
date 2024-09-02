@@ -45,6 +45,7 @@ export const ENDPOINTS = {
   INTERESTS_ACTIVE: '/intereses/listarinteresesactivos.json',
   /* Main page endpoint */
   SEARCH_ROOM: '/reunionvirtual/listarsalasactivas/salas.json',
+  MOTIVES_PLATFORM_ACTIVE: '/motivos/listarmotivosactivosPlat.json',
   SEARCH_FILTER_ROOM:
     '/reunionvirtual/listarsalasactivasfiltradas/?idCuenta=${id}&edadMinima=${minAge}&edadMaxima=${maxAge}&intereses=${interest}&nombrePais=${country}&nombreNivelIdioma=${levelLanguage}',
   SEARCH_USER: '/usuario/buscarUsuario?parametroDeBusqueda=${search}',
@@ -62,5 +63,6 @@ export const ENDPOINTS = {
   GET_PARTICIPANT: '/reunionvirtual/obtenerUsuarioACalificar/user${id}.json',
   RATE_USER: '/usuario/calificarusuario',
   PROFILE_DATA: '/usuario/visualizarotroperfil${id}.json',
-  BLOCK_VERIFICATION: '/cuenta/verificarbloqueo.json'
+  BLOCK_VERIFICATION: '/cuenta/verificarbloqueo.json',
+  REPORT_USER: '/cuenta/reportarusuario',
 };

@@ -19,17 +19,19 @@ export class FormService {
   }
 
   /**
-   * Removes all whitespace characters from a given string.
+   * Removes whitespace characters from the beginning and end of a given string.
    *
-   * This method removes all spaces, tabs, and other whitespace characters from the provided string.
+   * This method trims spaces, tabs, and other whitespace characters from the start and end
+   * of the provided string, but it does not affect the whitespace within the string.
    * If the input is an empty or null value, it returns `null`.
-   * @param word - The string from which to remove whitespace characters.
-   * @returns The string without any whitespace characters, or `null` if the input is empty or null.
+   *
+   * @param word - The string from which to remove leading and trailing whitespace characters.
+   * @returns The trimmed string, or `null` if the input is empty or null.
    */
   removeSpaces(word: string): string {
     if (!word) {
       return null;
     }
-    return word.replace(/\s+/g, '');
+    return word.trim();
   }
 }

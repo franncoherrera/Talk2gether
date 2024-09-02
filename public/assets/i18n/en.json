@@ -293,7 +293,16 @@
       "profile_user_ranking": "#{{position}}",
       "profile_user_quantity_points": "Number of points:",
       "profile_user_interests": "Interests:",
-      "profile_user_stars": "Number of stars:"
+      "profile_user_stars": "Number of stars:",
+      "report_user_modal": {
+        "report_user_modal_title": "Report User",
+        "report_user_description_title": "Description",
+        "report_user_placeholder": "Describe the report in detail...",
+        "report_user_motives_title": "Select one or more reasons",
+        "report_user_button": "Report",
+        "report_user_success": "User reported successfully",
+        "report_user_error": "Could not report the user, please try again later"
+      }
     },
     "tour": {
       "tour_button": "Play tour",

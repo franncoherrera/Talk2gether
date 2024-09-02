@@ -5,6 +5,7 @@ import { ENDPOINTS } from '../../../../shared/enpoints/endpoints';
 import { PROFILE_USER } from '../../../../shared/models/profileUser.model';
 import { PROFILE_BLOQUED_USER } from '../../../../shared/models/responseHttp.model';
 import { UrlBuilderService } from '../../../../shared/services/url-builder.service';
+import { REPORT_USER } from '../../../../shared/models/reportUser.model';
 
 @Injectable({
   providedIn: 'root',
@@ -55,6 +56,37 @@ export class ProfileService {
       idUsuarioBloqueado: idBlockedUser,
     };
     return this.httpClient.post<PROFILE_BLOQUED_USER>(url, body);
+  }
+
+  /**
+   * Retrieves a list of active report motives for the user.
+   *
+   * This method sends an HTTP GET request to the specified endpoint to fetch an array
+   * of strings representing the active report motives available on the platform.
+   * The URL for the request is constructed using the `urlBuilderService`.
+   *
+   * @returns An `Observable<string[]>` that emits an array of active report motives.
+   */
+  getReportMotivesUser(): Observable<string[]> {
+    const url: string = this.urlBuilderService.buildUrl(
+      ENDPOINTS.MOTIVES_PLATFORM_ACTIVE
+    );
+    return this.httpClient.get<string[]>(url);
+  }
+
+  /**
+ * Submits a user report to the server.
+ *
+ * This method sends an HTTP POST request to report a user based on the provided 
+ * motives. The report data is encapsulated in the `motivesReport` object, which 
+ * is sent to the server using the constructed URL from `urlBuilderService`.
+ *
+ * @param motivesReport - An object of type `REPORT_USER` containing the report details.
+ * @returns An `Observable<Object>` that emits the server's response to the report submission.
+ */
+  reportUser(motivesReport: REPORT_USER): Observable<Object> {
+    const url: string = this.urlBuilderService.buildUrl(ENDPOINTS.REPORT_USER);
+    return this.httpClient.post(url, motivesReport);
   }
 
   /**
